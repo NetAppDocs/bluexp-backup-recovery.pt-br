@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: concept-protect-app-data-to-cloud.html 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, backup and recovery 
+summary: Integre o backup e a recuperação do BlueXP  para aplicações com o BlueXP  e o SnapCenter no local para fazer backup dos snapshots consistentes da aplicação, da ONTAP no local para a nuvem. 
+---
+= Proteja os dados das aplicações no local
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O backup e a recuperação do BlueXP  para aplicações fornecem recursos de proteção de dados para snapshots consistentes com aplicações, desde ONTAP primário no local até fornecedor de nuvem.
+
+Você pode fazer backup dos dados de aplicações Oracle, Microsoft SQL, SAP HANA, MongoDB, MySQL e PostgreSQL de sistemas ONTAP locais para Amazon Web Services, Microsoft Azure, Google Cloud Platform e StorageGRID.
+
+Para obter mais informações sobre backup e recuperação do BlueXP  para aplicativos, consulte:
+
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["Backup com reconhecimento de aplicativos com backup e recuperação BlueXP  e SnapCenter"^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["Backup e recuperação do BlueXP  para podcast de aplicativos"^]
+
+
+
+
+== Requisitos
+
+Leia os requisitos a seguir para garantir que você tenha uma configuração compatível antes de iniciar o backup dos dados do aplicativo para o provedor de nuvem.
+
+* ONTAP 9 .8 ou posterior
+* BlueXP
+* Servidor SnapCenter 4,6 ou posterior
++
+** Você deve usar o servidor SnapCenter 4,7 ou posterior se quiser usar os seguintes recursos:
++
+*** Proteger backups de storage secundário no local
+*** Proteger aplicações SAP HANA
+*** Proteja as aplicações Oracle e SQL que estão no ambiente VMware
+*** Exportação de armazenamento de um backup
+*** Desativar cópias de segurança
+*** Anular o registo do servidor SnapCenter
+
+
+** Você deve usar o servidor SnapCenter 4,9 ou posterior se quiser usar os seguintes recursos:
++
+*** Monte backups de bancos de dados Oracle
+*** Restaure o armazenamento alternativo
+
+
+** Você deve usar o servidor SnapCenter 4.9P1 se quiser proteger os aplicativos MongoDB, MySQL e PostgreSQL
+
+
+* Pelo menos um backup por aplicativo deve estar disponível no servidor SnapCenter
+* Pelo menos uma política diária, semanal ou mensal no SnapCenter sem rótulo ou mesmo rótulo que a da política no BlueXP 
+
+
+A imagem a seguir mostra cada componente ao fazer backup na nuvem e as conexões que você precisa preparar entre eles:
+
+image:diagram_cloud_backup_app.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam com os aplicativos locais e o armazenamento de destino onde os arquivos de backup estão localizados."]

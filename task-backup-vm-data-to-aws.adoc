@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: task-backup-vm-data-to-aws.html 
+keywords: back up, backup, backup datastore, aws, Amazon Web Services, backup datastores 
+summary: Faça backup dos armazenamentos de dados do ONTAP no local para a AWS. 
+---
+= Faça backup de armazenamentos de dados no Amazon Web Services
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode fazer backup e arquivar um ou mais datastores no Amazon Web Services para melhorar a eficiência de storage e a transição para a nuvem.
+
+Se o datastore estiver associado a uma política de arquivamento, você terá a opção de selecionar o nível de arquivamento. Os níveis de arquivamento compatíveis são Glacier e Glacier Deep.
+
+.Antes de começar
+Certifique-se de que você atendeu a todos os link:concept-protect-vm-data.html["requisitos"]antes de fazer backup de armazenamentos de dados na nuvem.
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *máquinas virtuais*.
+. Clique image:icon-action.png["ação"] em correspondente ao datastore que você deseja fazer backup e clique em *Ativar Backup*.
+. Na página atribuir política, selecione a política e clique em *seguinte*.
+. Adicione o ambiente de trabalho.
++
+Configure o LIF de gerenciamento de cluster que você deseja que o BlueXP  descubra. Depois de adicionar o ambiente de trabalho para um dos datastores, ele pode ser reutilizado para todos os outros datastores que residem no mesmo cluster do ONTAP.
+
++
+.. Clique em *Adicionar ambiente de trabalho* correspondente ao SVM.
+.. No assistente Adicionar ambiente de trabalho:
++
+... Especifique o endereço IP do LIF de gerenciamento de cluster.
+... Especifique as credenciais do usuário do cluster do ONTAP.
+
+
+.. Clique em *Adicionar ambiente de trabalho*.
+
+
+. Selecione *Amazon Web Services* para configurá-lo como o provedor de nuvem.
++
+.. Especifique a conta da AWS.
+.. No campo chave de acesso da AWS, especifique a chave para criptografia de dados.
+.. No campo chave secreta da AWS, especifique a senha para criptografia de dados.
+.. Selecione a região onde deseja criar os backups.
+.. Especifique os endereços IP do LIF de gerenciamento de cluster que foram adicionados como os ambientes de trabalho.
+.. Selecione o nível de arquivamento.
++
+Recomenda-se definir o nível de arquivo porque esta é uma atividade única e não é possível configurá-lo mais tarde.
+
+
+
+. Revise os detalhes e clique em *Ativar Backup*.
+

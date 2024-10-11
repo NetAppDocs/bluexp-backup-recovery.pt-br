@@ -1,0 +1,504 @@
+---
+sidebar: sidebar 
+permalink: task-manage-backups-ontap.html 
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp 
+summary: Você pode gerenciar backups para seus sistemas Cloud Volumes ONTAP e ONTAP locais alterando o cronograma de backup, criando novas políticas de backup, habilitando/desabilitando backups de volume, pausar backups, excluir backups e muito mais. Isso inclui todos os tipos de backups, incluindo cópias Snapshot, volumes replicados e arquivos de backup no storage de objetos. 
+---
+= Gerenciar backups para seus sistemas ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode gerenciar backups para seus sistemas Cloud Volumes ONTAP e ONTAP locais alterando o agendamento de backup, habilitando/desabilitando backups de volume, pausar backups, excluir backups e muito mais. Isso inclui todos os tipos de backups, incluindo cópias Snapshot, volumes replicados e arquivos de backup no storage de objetos.
+
+
+CAUTION: Não gerencie nem altere arquivos de backup diretamente nos sistemas de storage ou no ambiente do fornecedor de nuvem. Isso pode corromper os arquivos e resultará em uma configuração não suportada.
+
+
+
+== Exibir o status de backup dos volumes em seus ambientes de trabalho
+
+Você pode exibir uma lista de todos os volumes que estão sendo copiados no Painel de backup do volumes. Isso inclui todos os tipos de backups, incluindo cópias Snapshot, volumes replicados e arquivos de backup no storage de objetos. Você também pode exibir os volumes nos ambientes de trabalho que não estão sendo feitos backup no momento.
+
+.Passos
+. No menu BlueXP , selecione *proteção > Backup e recuperação*.
+. Clique na guia *volumes* para exibir a lista de volumes de backup para seus sistemas Cloud Volumes ONTAP e ONTAP locais.
++
+image:screenshot_backup_volumes_dashboard.png["Uma captura de tela mostrando todos os ambientes de trabalho e volumes que têm arquivos de backup."]
+
+. Se você estiver procurando volumes específicos em determinados ambientes de trabalho, você pode refinar a lista por ambiente de trabalho e volume. Você também pode usar o filtro de pesquisa ou classificar as colunas com base no estilo de volume (FlexVol ou FlexGroup), no tipo de volume e muito mais.
++
+Para mostrar colunas adicionais (agregados, estilo de segurança (Windows ou UNIX), política de instantâneos, política de replicação e política de backup), selecione image:button_plus_sign_round.png["o botão de sinal de adição"].
+
+. Revise o status das opções de proteção na coluna "proteção existente". Os ícones 3 representam "cópias Snapshot locais", "volumes replicados" e "backups no storage de objetos".
++
+image:screenshot_backup_protection_status.png["Uma captura de tela mostrando o status dos três tipos de proteção: Snapshots, replicações e backups."]
+
++
+Cada ícone fica azul quando esse tipo de backup é ativado e fica cinza quando o tipo de backup está inativo. Você pode passar o cursor sobre cada ícone para ver a política de backup que está sendo usada e outras informações pertinentes para cada tipo de backup.
+
+
+
+
+
+== Ative o backup em volumes adicionais em um ambiente de trabalho
+
+Se você ativou o backup somente em alguns volumes em um ambiente de trabalho quando ativou o backup e a recuperação do BlueXP  pela primeira vez, poderá ativar backups em volumes adicionais posteriormente.
+
+.Passos
+. Na guia *volumes*, identifique o volume no qual você deseja ativar os backups, selecione o menu ações image:icon-action.png["Ícone ações"]no final da linha e selecione *Ativar backup*.
++
+image:screenshot_backup_additional_volume.png["Uma captura de tela mostrando como ativar o backup em volumes adicionais em um ambiente de trabalho."]
+
+. Na página _Definir estratégia de backup_, selecione a arquitetura de backup e defina as políticas e outros detalhes para cópias Snapshot locais, volumes replicados e arquivos de backup. Consulte os detalhes das opções de backup dos volumes iniciais ativados neste ambiente de trabalho. Em seguida, clique em *seguinte*.
+. Reveja as definições de cópia de segurança deste volume e, em seguida, clique em *Ativar cópia de segurança*.
+
+
+Se pretender ativar a cópia de segurança em vários volumes ao mesmo tempo com definições de cópia de segurança idênticas, consulte <<Editar as definições de cópia de segurança em vários volumes,Editar as definições de cópia de segurança em vários volumes>> para obter detalhes.
+
+
+
+== Altere as definições de cópia de segurança atribuídas aos volumes existentes
+
+Você pode alterar as políticas de backup atribuídas aos volumes existentes que tenham atribuído políticas. É possível alterar as políticas para cópias Snapshot locais, volumes replicados e arquivos de backup. Qualquer nova política de Snapshot, replicação ou backup que você queira aplicar aos volumes já deve existir.
+
+
+
+=== Editar as definições de cópia de segurança num único volume
+
+.Passos
+. Na guia *volumes*, identifique o volume que você deseja fazer alterações de política, selecione o menu ações image:icon-action.png["Ícone ações"]no final da linha e selecione *Editar estratégia de backup*.
++
+image:screenshot_edit_backup_strategy.png["Uma captura de tela que mostra o botão Editar estratégia de backup que está disponível depois de selecionar um volume."]
+
+. Na página _Editar estratégia de backup_, faça alterações nas políticas de backup existentes para cópias Snapshot locais, volumes replicados e arquivos de backup e clique em *Avançar*.
++
+Se você ativou o _DataLock e a proteção contra ransomware_ para backups na nuvem na política de backup inicial ao ativar o backup e a recuperação do BlueXP  para esse cluster, você verá apenas outras políticas que foram configuradas com o DataLock. E se você não ativou o _DataLock e a proteção contra ransomware_ ao ativar o backup e a recuperação do BlueXP , verá apenas outras políticas de backup na nuvem que não tenham o DataLock configurado.
+
+. Reveja as definições de cópia de segurança deste volume e, em seguida, clique em *Ativar cópia de segurança*.
+
+
+
+
+=== Editar as definições de cópia de segurança em vários volumes
+
+Se pretender utilizar as mesmas definições de cópia de segurança em vários volumes, pode ativar ou editar as definições de cópia de segurança em vários volumes ao mesmo tempo. Você pode selecionar volumes que não têm configurações de backup, apenas configurações de Snapshot, apenas backup em configurações de nuvem etc., e fazer alterações em massa em todos esses volumes com diversas configurações de backup.
+
+Ao trabalhar com vários volumes, todos os volumes devem ter estas caraterísticas comuns:
+
+* mesmo ambiente de trabalho
+* Mesmo estilo (volume FlexVol ou FlexGroup)
+* Mesmo tipo (volume de leitura/gravação ou proteção de dados)
+
+
+.Passos
+. Na guia *volumes*, filtre pelo ambiente de trabalho no qual os volumes residem.
+. Selecione todos os volumes nos quais deseja gerenciar as configurações de backup.
+. Dependendo do tipo de ação de backup que você deseja configurar, clique no botão no menu ações em massa:
++
+image:screenshot_manage_backup_settings.png["Uma captura de tela que mostra os botões de estratégia de gerenciamento de backup que estão disponíveis depois de selecionar vários volumes."]
+
++
+[cols="50,30"]
+|===
+| Ação de cópia de segurança... | Clique neste botão... 
+
+
+| Gerir as definições de cópia de segurança Snapshot | *Gerenciar snapshots locais* 
+
+
+| Gerenciar configurações de backup de replicação | *Gerenciar replicação* 
+
+
+| Gerenciar configurações de backup em nuvem | *Gerenciar Backup* 
+
+
+| Gerencie vários tipos de configurações de backup. Essa opção permite que você altere a arquitetura de backup também. | *Gerenciar backup e recuperação* 
+|===
+. Na página de backup exibida, faça alterações nas políticas de backup existentes para cópias Snapshot locais, volumes replicados ou arquivos de backup e clique em *Salvar*.
++
+Se você ativou o _DataLock e a proteção contra ransomware_ para backups na nuvem na política de backup inicial ao ativar o backup e a recuperação do BlueXP  para esse cluster, você verá apenas outras políticas que foram configuradas com o DataLock. E se você não ativou o _DataLock e a proteção contra ransomware_ ao ativar o backup e a recuperação do BlueXP , verá apenas outras políticas de backup na nuvem que não tenham o DataLock configurado.
+
+
+
+
+
+== Crie um backup manual de volume a qualquer momento
+
+Você pode criar um backup sob demanda a qualquer momento para capturar o estado atual do volume. Isso pode ser útil se alterações muito importantes tiverem sido feitas em um volume e você não quiser esperar pelo próximo backup programado para proteger esses dados. Você também pode usar essa funcionalidade para criar um backup para um volume que não está sendo feito o backup no momento e deseja capturar seu estado atual.
+
+Você pode criar uma cópia Snapshot ad-hoc ou um backup para objeto de um volume. Não é possível criar um volume replicado ad hoc.
+
+O nome do backup inclui o carimbo de data/hora para que você possa identificar seu backup sob demanda de outros backups programados.
+
+Se você ativou _DataLock e proteção contra ransomware_ ao ativar o backup e a recuperação do BlueXP  para este cluster, o backup sob demanda também será configurado com DataLock, e o período de retenção será de 30 dias. Varreduras de ransomware não são compatíveis com backups ad-hoc. link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["Saiba mais sobre a proteção DataLock e ransomware"^].
+
+Observe que ao criar um backup ad-hoc, um instantâneo é criado no volume de origem. Como esse instantâneo não faz parte de um agendamento de instantâneo normal, ele não será desligado. Você pode querer excluir manualmente esse instantâneo do volume de origem assim que o backup for concluído. Isso permitirá que os blocos relacionados a essa captura Instantânea sejam liberados. O nome do instantâneo começará com `cbs-snapshot-adhoc-`. https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["Veja como excluir um instantâneo usando a CLI do ONTAP"^].
+
+
+NOTE: O backup de volume sob demanda não é compatível com volumes de proteção de dados.
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume e selecione *Backup* > *criar Backup ad hoc*.
++
+image:screenshot_backup_now_button.png["Uma captura de tela que mostra o botão fazer backup agora, que está disponível depois de selecionar um volume."]
+
+
+
+A coluna Estado da cópia de segurança para esse volume apresenta "em curso" até que a cópia de segurança seja criada.
+
+
+
+== Veja a lista de backups para cada volume
+
+Pode ver a lista de todos os ficheiros de cópia de segurança existentes para cada volume. Esta página exibe detalhes sobre o volume de origem, o local de destino e os detalhes do backup, como o último backup realizado, a política de backup atual, o tamanho do arquivo de backup e muito mais.
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume de origem e selecione *Exibir detalhes do volume*.
++
+image:screenshot_backup_view_backups_button.png["Uma captura de tela que mostra o botão Exibir detalhes do volume, que está disponível para um único volume."]
+
++
+Os detalhes do volume e da lista de cópias Snapshot são exibidos por padrão.
+
++
+image:screenshot_backup_snapshot_list.png["Uma captura de tela que mostra a lista de todos os arquivos de backup para um único volume."]
+
+. Selecione *Snapshot*, *replicação* ou *Backup* para ver a lista de todos os arquivos de backup para cada tipo de backup.
++
+image:screenshot_backup_select_backups_type.png["Uma captura de tela que mostra a lista de todos os arquivos de backup para um único volume: Cópias Snapshot, volumes replicados ou backups no storage de objetos."]
+
+
+
+
+
+== Executar uma verificação de ransomware em um backup de volume no storage de objetos
+
+O software de proteção contra ransomware do NetApp verifica seus arquivos de backup para procurar evidências de um ataque de ransomware quando um backup para arquivo de objeto é criado e quando os dados de um arquivo de backup estão sendo restaurados. Você também pode executar uma verificação de proteção contra ransomware sob demanda a qualquer momento para verificar a usabilidade de um arquivo de backup específico no storage de objetos. Isso pode ser útil se você tiver um problema de ransomware em um determinado volume e quiser verificar se os backups desse volume não são afetados.
+
+Esse recurso estará disponível somente se o backup de volume tiver sido criado a partir de um sistema com ONTAP 9.11,1 ou superior e se você tiver ativado _DataLock e ransomware Protection_ na política de backup para objeto.
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume de origem e selecione *Exibir detalhes do volume*.
++
+image:screenshot_backup_view_backups_button.png["Uma captura de tela que mostra o botão Exibir detalhes do volume, que está disponível para um único volume."]
+
++
+São apresentados os detalhes do volume.
+
++
+image:screenshot_backup_snapshot_list.png["Uma captura de tela que mostra a lista de todos os arquivos de backup para um único volume."]
+
+. Selecione *Backup* para ver a lista de arquivos de backup no armazenamento de objetos.
++
+image:screenshot_backup_select_object_backups.png["Uma captura de tela que mostra a lista de todos os arquivos de backup no armazenamento de objetos para um único volume."]
+
+. Clique image:screenshot_horizontal_more_button.gif["Ícone mais"] no arquivo de backup de volume que você deseja verificar para ransomware e clique em *Scan for ransomware*.
++
+image:screenshot_scan_one_backup.png["Uma captura de tela mostrando como executar uma verificação de ransomware em um único arquivo de backup."]
+
++
+A coluna proteção contra ransomware mostrará que a verificação está em andamento.
+
+
+
+
+
+== Gerenciar a relação de replicação com o volume de origem
+
+Depois de configurar a replicação de dados entre dois sistemas, você pode gerenciar a relação de replicação de dados.
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume de origem e selecione a opção *replicação*. Você pode ver todas as opções disponíveis.
+. Selecione a ação de replicação que deseja executar.
++
+image:screenshot_replication_managing.png["Uma captura de tela mostrando a lista de ações disponíveis no menu de ação replicação."]
+
++
+A tabela a seguir descreve as ações disponíveis:
+
++
+[cols="15,85"]
+|===
+| Ação | Descrição 
+
+
+| Ver replicação | Mostra detalhes sobre a relação de volume: Informações de transferência, informações sobre a última transferência, detalhes sobre o volume e informações sobre a política de proteção atribuída à relação. 
+
+
+| Atualizar replicação | Inicia uma transferência incremental para atualizar o volume de destino a ser sincronizado com o volume de origem. 
+
+
+| Pausar replicação | Pausar a transferência incremental de cópias Snapshot para atualizar o volume de destino. Você pode continuar mais tarde se quiser reiniciar as atualizações incrementais. 
+
+
+| Quebrar replicação | Quebra a relação entre os volumes de origem e destino e ativa o volume de destino para acesso aos dados - faz com que ele leia-escreva. Essa opção é normalmente usada quando o volume de origem não pode servir dados devido a eventos como corrupção de dados, exclusão acidental ou um estado off-line. https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["Saiba como configurar um volume de destino para acesso a dados e reativar um volume de origem na documentação do ONTAP"^] 
+
+
+| Abortar replicação | Desativa backups deste volume para o sistema de destino e também desativa a capacidade de restaurar um volume. Quaisquer backups existentes não serão excluídos. Isso não exclui a relação de proteção de dados entre os volumes de origem e destino. 
+
+
+| Ressincronização reversa | Inverte as funções dos volumes de origem e destino. O conteúdo do volume de origem original é substituído pelo conteúdo do volume de destino. Isso é útil quando você deseja reativar um volume de origem que ficou offline. Quaisquer dados gravados no volume de origem original entre a última replicação de dados e a hora em que o volume de origem foi desativado não são preservados. 
+
+
+| Eliminar relação | Exclui a relação de proteção de dados entre os volumes de origem e destino, o que significa que a replicação de dados não ocorre mais entre os volumes. Esta ação não ativa o volume de destino para acesso aos dados, o que significa que não faz leitura-gravação. Essa ação também excluirá o relacionamento entre pares de cluster e o relacionamento entre pares de VM de storage (SVM), se não houver outros relacionamentos de proteção de dados entre os sistemas. 
+|===
+
+
+.Resultado
+Depois de selecionar uma ação, o BlueXP  atualiza a relação.
+
+
+
+== Editar uma política de backup para nuvem existente
+
+Você pode alterar os atributos de uma política de backup aplicada atualmente a volumes em um ambiente de trabalho. A alteração da política de backup afeta todos os volumes existentes que estão usando a diretiva.
+
+[NOTE]
+====
+* Se você ativou o _DataLock e a proteção contra ransomware_ na política inicial ao ativar o backup e a recuperação do BlueXP  para esse cluster, todas as políticas editadas devem ser configuradas com a mesma configuração do DataLock (Governança ou conformidade). E se você não ativou o _DataLock e a proteção contra ransomware_ ao ativar o backup e a recuperação do BlueXP , você não poderá ativar o DataLock agora.
+* Ao criar backups na AWS, se você escolher _S3 Glacier_ ou _S3 Glacier Deep Archive_ na sua primeira política de backup ao ativar o backup e a recuperação do BlueXP , esse nível será o único nível de arquivamento disponível ao editar políticas de backup. E se você não selecionou nenhum nível de arquivamento em sua primeira política de backup, _S3 Glacier_ será sua única opção de arquivamento ao editar uma política.
+
+
+====
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Configurações de backup na guia volumes."]
+
+. Na página _Configurações de backup_, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o ambiente de trabalho onde você deseja alterar as configurações de política e selecione *Gerenciar políticas*.
++
+image:screenshot_backup_modify_policy.png["Uma captura de tela que mostra a opção Gerenciar políticas na página Configurações de backup."]
+
+. Na página _Gerenciar políticas_, clique em *Editar* para a política de backup que você deseja alterar nesse ambiente de trabalho.
++
+image:screenshot_backup_manage_policy_page_edit.png["Uma captura de tela que mostra o botão Editar política na página Gerenciar políticas."]
+
+. Na página _Editar política_, clique image:button_down_caret.png["botão de seta para baixo"] para expandir a seção _rótulos e retenção_ para alterar a retenção de agendamento e/ou backup e clique em *Salvar*.
++
+image:screenshot_backup_edit_policy.png["Uma captura de tela que mostra as configurações de política de backup, onde você pode modificar a programação de backup e a configuração de retenção de backup."]
+
++
+Se o cluster estiver executando o ONTAP 9.10,1 ou superior, você também terá a opção de ativar ou desativar a disposição em camadas de backups em armazenamento de arquivamento após um determinado número de dias.
+
++
+ifdef::aws[]
+
+
+
+link:reference-aws-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivamento da AWS"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivamento do Azure"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:reference-google-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivos do Google"]. (Requer ONTAP 9.12,1.)
+
+endif::gcp[]
+
+E image:screenshot_backup_modify_policy_page2.png["Uma captura de tela que mostra as configurações de disposição em camadas para armazenamento de arquivamento para backup e recuperação do BlueXP ."]
+
+Observe que todos os arquivos de backup que foram dispostos em camadas para armazenamento de arquivamento são deixados nesse nível se você parar de separar os backups para arquivamento - eles não serão movidos automaticamente de volta para o nível padrão. Somente novos backups de volume residirão na camada padrão.
+
+
+
+== Adicione uma nova política de backup na nuvem
+
+Quando você ativa o backup e a recuperação do BlueXP  em um ambiente de trabalho, todos os volumes selecionados inicialmente são copiados usando a política de backup padrão definida por você. Se você quiser atribuir políticas de backup diferentes a determinados volumes que tenham objetivos de ponto de restauração (RPO) diferentes, poderá criar políticas adicionais para esse cluster e atribuir essas políticas a outros volumes.
+
+Se você quiser aplicar uma nova política de backup a determinados volumes em um ambiente de trabalho, primeiro é necessário adicionar a política de backup ao ambiente de trabalho. Então você pode <<Altere as definições de cópia de segurança atribuídas aos volumes existentes,aplicar a política a volumes nesse ambiente de trabalho>>.
+
+[NOTE]
+====
+* Se você ativou o _DataLock e a proteção contra ransomware_ na política inicial ao ativar o backup e a recuperação do BlueXP  para esse cluster, quaisquer políticas adicionais criadas devem ser configuradas com a mesma configuração do DataLock (Governança ou conformidade). E se você não ativou o _DataLock e a proteção contra ransomware_ ao ativar o backup e a recuperação do BlueXP , não será possível criar novas políticas que usem o DataLock.
+* Ao criar backups na AWS, se você escolher _S3 Glacier_ ou _S3 Glacier Deep Archive_ na sua primeira política de backup ao ativar o backup e a recuperação do BlueXP , esse nível será o único nível de arquivamento disponível para futuras políticas de backup desse cluster. E se você não selecionou nenhum nível de arquivamento em sua primeira política de backup, o _S3 Glacier_ será sua única opção de arquivamento para políticas futuras.
+
+
+====
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Configurações de backup na guia volumes."]
+
+. Na página _Configurações de backup_, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o ambiente de trabalho onde você deseja adicionar a nova política e selecione *Gerenciar políticas*.
++
+image:screenshot_backup_modify_policy.png["Uma captura de tela que mostra a opção Gerenciar políticas na página Configurações de backup."]
+
+. Na página _Gerenciar políticas_, clique em *Adicionar nova política*.
++
+image:screenshot_backup_manage_policy_page_add.png["Uma captura de tela que mostra o botão Adicionar nova política na página Gerenciar políticas."]
+
+. Na página _Adicionar nova política_, clique image:button_down_caret.png["botão de seta para baixo"] para expandir a seção _rótulos e retenção_ para definir a retenção de agendamento e backup e clique em *Salvar*.
++
+image:screenshot_backup_add_new_policy.png["Uma captura de tela que mostra as configurações de política de backup, onde você pode adicionar o agendamento de backup e a configuração de retenção de backup."]
+
++
+Se o cluster estiver executando o ONTAP 9.10,1 ou superior, você também terá a opção de ativar ou desativar a disposição em camadas de backups em armazenamento de arquivamento após um determinado número de dias.
+
++
+ifdef::aws[]
+
+
+
+link:reference-aws-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivamento da AWS"].
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivamento do Azure"].
+
+endif::azure[]
+
+ifdef::gcp[]
+
+link:reference-google-backup-tiers.html["Saiba mais sobre como usar o armazenamento de arquivos do Google"]. (Requer ONTAP 9.12,1.)
+
+endif::gcp[]
+
+E image:screenshot_backup_modify_policy_page2.png["Uma captura de tela que mostra as configurações de disposição em camadas para armazenamento de arquivamento para backup e recuperação do BlueXP ."]
+
+
+
+== Eliminar cópias de segurança
+
+O backup e a recuperação do BlueXP  permitem excluir um único arquivo de backup, excluir todos os backups de um volume ou excluir todos os backups de todos os volumes em um ambiente de trabalho. Talvez você queira excluir todos os backups se não precisar mais dos backups ou se você excluiu o volume de origem e deseja remover todos os backups.
+
+Observe que você não pode excluir arquivos de backup bloqueados usando a proteção DataLock e ransomware. A opção "Delete" (Eliminar) não estará disponível na IU se tiver selecionado um ou mais ficheiros de cópia de segurança bloqueados.
+
+
+CAUTION: Se você pretende excluir um ambiente de trabalho ou cluster que tenha backups, exclua os backups *antes* de excluir o sistema. O backup e a recuperação do BlueXP  não excluem automaticamente os backups quando você exclui um sistema, e não há suporte atual na IU para excluir os backups depois que o sistema for excluído. Você continuará sendo cobrado pelos custos de storage de objetos para quaisquer backups restantes.
+
+
+
+=== Exclua todos os arquivos de backup de um ambiente de trabalho
+
+A exclusão de todos os backups no armazenamento de objetos para um ambiente de trabalho não desativa backups futuros de volumes neste ambiente de trabalho. Se você quiser parar de criar backups de todos os volumes em um ambiente de trabalho, desative backups <<Desative o backup e a recuperação do BlueXP  para um ambiente de trabalho,como descrito aqui>>.
+
+Observe que essa ação não afeta cópias Snapshot ou volumes replicados - esses tipos de arquivos de backup não são excluídos.
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Backup Settings (Configurações de backup) que está disponível depois de selecionar um ambiente de trabalho."]
+
+. Clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o ambiente de trabalho onde deseja excluir todos os backups e selecione *Excluir todos os backups*.
++
+image:screenshot_delete_all_backups.png["Uma captura de tela da seleção do botão Excluir todos os backups para excluir todos os backups de um ambiente de trabalho."]
+
+. Na caixa de diálogo de confirmação, digite o nome do ambiente de trabalho e clique em *Excluir*.
+
+
+
+
+=== Exclua um único arquivo de backup para um volume
+
+Você pode excluir um único arquivo de backup se não precisar mais dele. Isso inclui a exclusão de um único backup de uma cópia Snapshot de volume ou de um backup no storage de objetos.
+
+Não é possível excluir volumes replicados (volumes de proteção de dados).
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume de origem e selecione *Exibir detalhes do volume*.
++
+image:screenshot_backup_view_backups_button.png["Uma captura de tela que mostra o botão Exibir detalhes do volume, que está disponível para um único volume."]
+
++
+Os detalhes do volume são exibidos e você pode selecionar *Snapshot*, *Replication* ou *Backup* para ver a lista de todos os arquivos de backup do volume. Por padrão, as cópias Snapshot disponíveis são exibidas.
+
++
+image:screenshot_backup_snapshot_list.png["Uma captura de tela que mostra a lista de todos os arquivos de backup para um único volume."]
+
+. Selecione *Snapshot* ou *Backup* para ver o tipo de arquivos de backup que você deseja excluir.
++
+image:screenshot_backup_select_object_backups.png["Uma captura de tela que mostra a lista de todos os arquivos de backup para um único volume: Cópias Snapshot, volumes replicados ou backups no storage de objetos."]
+
+. Clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o arquivo de backup de volume que você deseja excluir e clique em *Excluir*. A captura de tela abaixo é de um arquivo de backup no armazenamento de objetos.
++
+image:screenshot_delete_one_backup.png["Uma captura de tela mostrando como excluir um único arquivo de backup."]
+
+. Na caixa de diálogo de confirmação, clique em *Excluir*.
+
+
+
+
+== Eliminar relações de cópia de segurança de volume
+
+A exclusão do relacionamento de backup de um volume fornece um mecanismo de arquivamento se você quiser interromper a criação de novos arquivos de backup e excluir o volume de origem, mas manter todos os arquivos de backup existentes. Isso permite que você restaure o volume do arquivo de backup no futuro, se necessário, enquanto limpa espaço do sistema de armazenamento de origem.
+
+Você não precisa necessariamente excluir o volume de origem. Pode eliminar a relação de cópia de segurança de um volume e manter o volume de origem. Neste caso, você pode "ativar" o backup no volume posteriormente. A cópia de backup da linha de base original continua a ser usada neste caso - uma nova cópia de backup da linha de base não é criada e exportada para a nuvem. Observe que se você reativar um relacionamento de backup, o volume receberá a política de backup padrão.
+
+Esta funcionalidade só está disponível se o sistema estiver a executar o ONTAP 9.12,1 ou superior.
+
+Não é possível excluir o volume de origem da interface do usuário de backup e recuperação do BlueXP . No entanto, você pode abrir a página Detalhes do volume na tela https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["elimine o volume a partir daí"] e .
+
+
+NOTE: Não é possível excluir arquivos individuais de backup de volume uma vez que o relacionamento tenha sido excluído. No entanto, você pode excluir todos os backups do volume.
+
+.Passos
+. Na guia *volumes*, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] para obter o volume de origem e selecione *Backup* > *Excluir relacionamento*.
++
+image:screenshot_delete_relationship_single.png["Uma captura de tela mostrando como excluir o relacionamento de backup de um único volume."]
+
+
+
+
+
+== Desative o backup e a recuperação do BlueXP  para um ambiente de trabalho
+
+A desativação do backup e recuperação do BlueXP  para um ambiente de trabalho desativa backups de cada volume no sistema e também desativa a capacidade de restaurar um volume. Quaisquer backups existentes não serão excluídos. Isso não desRegistra o serviço de backup deste ambiente de trabalho - basicamente permite que você pause todas as atividades de backup e restauração por um período de tempo.
+
+Observe que você continuará sendo cobrado pelo seu provedor de nuvem pelos custos de storage de objetos pela capacidade usada pelos backups, a menos que você <<Eliminar cópias de segurança,exclua os backups>>.
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Backup Settings (Configurações de backup) que está disponível depois de selecionar um ambiente de trabalho."]
+
+. Na página _Backup Settings_, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o ambiente de trabalho onde você deseja desativar os backups e selecione *Deactivate Backup*.
++
+image:screenshot_disable_backups.png["Uma captura de tela do botão Desativar backup para um ambiente de trabalho."]
+
+. Na caixa de diálogo de confirmação, clique em *Desativar*.
+
+
+
+NOTE: Um botão *Ativar Backup* é exibido para esse ambiente de trabalho enquanto o backup está desativado. Pode clicar neste botão quando pretender reativar a funcionalidade de cópia de segurança para esse ambiente de trabalho.
+
+
+
+== Anular o registo do backup e recuperação do BlueXP  para um ambiente de trabalho
+
+Você pode cancelar o Registro do backup e da recuperação do BlueXP  em um ambiente de trabalho se não quiser mais usar a funcionalidade de backup e desejar parar de ser cobrado por backups nesse ambiente de trabalho. Normalmente, esse recurso é usado quando você está planejando excluir um ambiente de trabalho e deseja cancelar o serviço de backup.
+
+Você também pode usar esse recurso se quiser alterar o armazenamento de objetos de destino onde os backups do cluster estão sendo armazenados. Depois de cancelar o Registro do backup e da recuperação do BlueXP  para o ambiente de trabalho, você poderá habilitar o backup e a recuperação do BlueXP  para esse cluster usando as novas informações do provedor de nuvem.
+
+Antes de anular o registo da cópia de segurança e recuperação do BlueXP , tem de executar as seguintes etapas, nesta ordem:
+
+* Desative o backup e a recuperação do BlueXP  para o ambiente de trabalho
+* Exclua todos os backups desse ambiente de trabalho
+
+
+A opção Unregister (Desregistar) não está disponível até que estas duas ações estejam concluídas.
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Backup Settings (Configurações de backup) que está disponível depois de selecionar um ambiente de trabalho."]
+
+. Na página _Configurações de backup_, clique image:screenshot_horizontal_more_button.gif["Ícone mais"] em para o ambiente de trabalho onde você deseja cancelar o Registro do serviço de backup e selecione *Cancelar Registro*.
++
+image:screenshot_backup_unregister.png["Uma captura de tela do botão DesRegistrar backup para um ambiente de trabalho."]
+
+. Na caixa de diálogo de confirmação, clique em *Unregister*.
+

@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: task-backup-vm-data-to-gcp.html 
+keywords: back up, backup, backup datastore, gcp, google cloud platform, backup datastores 
+summary: Faça backup dos armazenamentos de dados do ONTAP no local para o Google Cloud Platform. 
+---
+= Faça backup de armazenamentos de dados no Google Cloud Platform
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode fazer backup de um ou mais datastores no Google Cloud Platform integrando o plug-in do SnapCenter para host VMware vSphere ao BlueXP . Isso ajudará os administradores de VMs a fazer backup e arquivamento de dados com facilidade e rapidez para eficiência de storage e acelerar a transição para a nuvem.
+
+.Antes de começar
+Certifique-se de que você atendeu a todos os link:concept-protect-vm-data.html["requisitos"]antes de fazer backup de armazenamentos de dados na nuvem.
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *máquinas virtuais*.
+. Clique image:icon-action.png["ação"] em correspondente ao datastore que você deseja fazer backup e clique em *Ativar Backup*.
+. Na página atribuir política, selecione a política e clique em *seguinte*.
+. Adicione o ambiente de trabalho.
++
+Configure o LIF de gerenciamento de cluster que você deseja que o BlueXP  descubra. Depois de adicionar o ambiente de trabalho para um dos datastores, ele pode ser reutilizado para todos os outros datastores que residem no mesmo cluster do ONTAP.
+
++
+.. Clique em *Adicionar ambiente de trabalho* correspondente ao SVM.
+.. No assistente Adicionar ambiente de trabalho:
++
+... Especifique o endereço IP do LIF de gerenciamento de cluster.
+... Especifique as credenciais do usuário do cluster do ONTAP.
+
+
+.. Clique em *Adicionar ambiente de trabalho*.
+
+
+. Selecione *Google Cloud Platform* para configurá-lo como o provedor de nuvem.
++
+.. Selecione o projeto do Google Cloud onde você deseja que o bucket do Google Cloud Storage seja criado para backups.
+.. No campo chave de acesso do Google Cloud, especifique a chave.
+.. No campo chave secreta do Google Cloud, especifique a senha.
+.. Selecione a região onde deseja criar os backups.
+.. Especifique o espaço IP.
+
+
+. Revise os detalhes e clique em *Ativar Backup*.
+

@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, backup, restore, backup and recovery 
+summary: As limitações conhecidas identificam funções que não são suportadas por esta versão do produto ou que não interoperam corretamente com ele. Revise essas limitações com cuidado. 
+---
+= Limitações conhecidas
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+As limitações conhecidas identificam funções que não são suportadas por esta versão do produto ou que não interoperam corretamente com ele. Revise essas limitações com cuidado.
+
+
+
+== Limitações de backup e restauração para volumes ONTAP
+
+
+
+=== Limitações de replicação
+
+* Você pode selecionar apenas um volume FlexGroup de cada vez para replicação. Você precisará ativar os backups separadamente para cada volume do FlexGroup.
++
+Não há limitação para o FlexVol volumes - você pode selecionar todos os volumes do FlexVol em seu ambiente de trabalho e atribuir as mesmas políticas de backup.
+
+* A funcionalidade a seguir é suportada no https://docs.netapp.com/us-en/bluexp-replication/index.html["Serviço de replicação BlueXP "], mas não ao usar o recurso de replicação do backup e recuperação do BlueXP :
++
+** Não há suporte para uma configuração em cascata em que a replicação ocorra do volume A para o volume B e do volume B para o volume C. o suporte inclui replicação do volume A para o volume B.
+** Não há suporte para replicar dados de e para os sistemas FSX for ONTAP.
+** Não há suporte para criar uma replicação única de um volume.
+
+
+* Ao criar replicações a partir de sistemas ONTAP locais, se a versão ONTAP no sistema Cloud Volumes ONTAP de destino for 9,8, 9,9 ou 9,11, somente políticas de espelhamento-cofre serão permitidas.
+
+
+
+
+=== Limitações de backup para objeto
+
+* Quando você cria ou edita uma política de backup quando nenhum volume é atribuído à política, o número de backups retidos pode ser no máximo 1018. Depois de atribuir volumes à política, você pode editar a política para criar até 4000 backups.
+* Ao fazer backup de volumes de proteção de dados (DP):
++
+** Relacionamentos com os rótulos do SnapMirror `app_consistent` e `all_source_snapshot` não serão feitos backup na nuvem.
+** Se você criar cópias locais de snapshots no volume de destino do SnapMirror (independentemente dos rótulos do SnapMirror usados), esses snapshots não serão movidos para a nuvem como backups. Neste momento, você precisará criar uma política de snapshot com os rótulos desejados para o volume DP de origem para que o backup e a recuperação do BlueXP  os façam.
+
+
+* Os backups de volume do FlexGroup não podem ser movidos para armazenamento de arquivamento.
+* Os backups de volume do FlexGroup podem usar a proteção DataLock e ransomware se o cluster estiver executando o ONTAP 9.13,1 ou superior.
+* O backup em volume SVM-DR é compatível com as seguintes restrições:
++
+** Os backups são suportados apenas a partir do secundário do ONTAP.
+** A política Snapshot aplicada ao volume deve ser uma das políticas reconhecidas pelo backup e recuperação do BlueXP , incluindo diária, semanal, mensal, etc. a política padrão "SM_created" (usada para *espelhar todos os snapshots*) não é reconhecida e o volume DP não será exibido na lista de volumes que podem ser copiados.
+
+
+
+
+* Suporte ao MetroCluster:
++
+** Quando utiliza o ONTAP 9.12,1 GA ou superior, é suportada a cópia de segurança quando está ligado ao sistema principal. Toda a configuração de backup é transferida para o sistema secundário para que os backups para a nuvem continuem automaticamente após o switchover. Você não precisa configurar o backup no sistema secundário (na verdade, você está impedido de fazê-lo).
+** Quando você usa o ONTAP 9.12,0 e versões anteriores, o backup é suportado apenas pelo sistema secundário do ONTAP.
+** No momento, não há suporte para backups de volumes FlexGroup.
+
+
+* Backup de volume ad hoc usando o botão *Backup Now* não é suportado em volumes de proteção de dados.
+* Configurações SM-BC não são suportadas.
+* O ONTAP não suporta fan-out de relacionamentos SnapMirror de um único volume para vários armazenamentos de objetos; portanto, essa configuração não é suportada pelo backup e recuperação do BlueXP .
+* O modo WORM/conformidade em um armazenamento de objetos é suportado no Amazon S3, Azure e StorageGRID no momento. Isso é conhecido como o recurso DataLock e deve ser gerenciado usando configurações de backup e recuperação do BlueXP , não usando a interface do provedor de nuvem.
+
+
+
+
+=== Limitações de restauração
+
+Estas limitações aplicam-se tanto aos métodos de Pesquisa e Restauro como Procurar e Restaurar para restaurar ficheiros e pastas; a menos que seja especificamente chamado.
+
+* O recurso Procurar e Restaurar pode restaurar até 100 arquivos individuais de cada vez.
+* A Pesquisa e Restauração pode restaurar o arquivo 1 de cada vez.
+* Ao utilizar o ONTAP 9.13,0 ou superior, Procurar e Restaurar e pesquisar e Restaurar pode restaurar uma pasta juntamente com todos os ficheiros e subpastas dentro da mesma.
++
+Ao utilizar uma versão do ONTAP superior a 9.11.1 mas antes de 9.13.0, a operação de restauro pode restaurar apenas a pasta selecionada e os ficheiros nessa pasta - não são restauradas subpastas ou ficheiros em subpastas.
+
++
+Ao usar uma versão do ONTAP antes de 9.11.1, a restauração de pastas não é suportada.
+
+* A restauração de diretório/pasta é suportada para dados que residem no armazenamento de arquivamento somente quando o cluster está executando o ONTAP 9.13,1 e superior.
+* A restauração de diretório/pasta é suportada para dados protegidos usando o DataLock somente quando o cluster estiver executando o ONTAP 9.13,1 e superior.
+* Atualmente, a restauração de diretório/pasta não é suportada nos backups de volume do FlexGroup.
+* Atualmente, a restauração de diretório/pasta não é suportada a partir de replicações e/ou instantâneos locais.
+* A restauração do FlexGroup volumes para o FlexVol volumes ou do FlexVol volumes para o FlexGroup volumes não é compatível.
+* O arquivo que está sendo restaurado deve estar usando o mesmo idioma que o idioma no volume de destino. Você receberá uma mensagem de erro se os idiomas não forem os mesmos.
+* A prioridade de restauração _alta_ não é suportada ao restaurar dados do armazenamento de arquivamento do Azure para sistemas StorageGRID.
+* Se você fizer o backup de um volume DP e decidir quebrar a relação do SnapMirror para esse volume, não será possível restaurar arquivos para esse volume, a menos que você também exclua a relação do SnapMirror ou inverta a direção do SnapMirror.
+* Limitações de restauração rápida:
++
+** A localização de destino tem de ser um sistema Cloud Volumes ONTAP que utilize o ONTAP 9.13,0 ou superior.
+** Ele não é compatível com backups localizados em armazenamento arquivado.
+** Os volumes do FlexGroup são suportados apenas se o sistema de origem a partir do qual o backup na nuvem foi criado estiver executando o ONTAP 9.12,1 ou superior.
+** Os volumes do SnapLock são suportados apenas se o sistema de origem a partir do qual o backup na nuvem foi criado estiver executando o ONTAP 9.11,0 ou superior.
+
+
+
+
+
+
+=== Limitações ao usar RHEL 8 com Podman
+
+
+
+==== Suporte para restauração de arquivo único
+
+
+IMPORTANT: A partir da versão de 30 de setembro de 2024, essa limitação foi removida.
+
+A funcionalidade Procurar e Restaurar para restauração de um único arquivo e restauração de diretório não é suportada ao usar conetores BlueXP  em execução no Podman (conetores BlueXP  criados manualmente quando executados no RHEL 8 ou 9). Todos os outros tipos de operações de restauração são suportados ao usar o Podman, para que você possa restaurar seus dados usando esses outros métodos até que esse problema seja resolvido:
+
+* Restaure os arquivos ou pastas de um volume replicado, se existir um volume replicado.
+* Restaure os arquivos ou pastas de um backup na nuvem usando o recurso pesquisar e restaurar.
+* Restaure o volume a partir de uma cópia de segurança na nuvem utilizando Procurar e Restaurar e aceda aos ficheiros ou pastas de que necessita.
+
+
+
+
+==== A verificação de ransomware dos seus backups na nuvem não é compatível
+
+A verificação de backups na nuvem para ransomware não é suportada ao usar o mecanismo Podman. Se você estiver usando o recurso DataLock & ransomware para seus backups na nuvem, será necessário desativar as varreduras de ransomware. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans["Veja como desativar a verificação de ransomware"].

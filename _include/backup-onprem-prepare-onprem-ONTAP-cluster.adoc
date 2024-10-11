@@ -1,0 +1,42 @@
+= Descubra os seus sistemas ONTAP no BlueXP 
+:allow-uri-read: 
+
+
+Você precisará preparar seu sistema ONTAP de origem no local e qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local.
+
+Preparar os clusters do ONTAP envolve as etapas a seguir:
+
+* Descubra os seus sistemas ONTAP no BlueXP 
+* Verifique os requisitos do sistema ONTAP
+* Verifique os requisitos de rede do ONTAP para fazer backup de dados para armazenamento de objetos
+* Verificar os requisitos de rede do ONTAP para replicação de volumes
+
+
+
+
+=== Descubra os seus sistemas ONTAP no BlueXP 
+
+Tanto o sistema ONTAP de origem no local quanto qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local devem estar disponíveis no BlueXP  Canvas.
+
+Você precisará saber o endereço IP de gerenciamento de cluster e a senha da conta de usuário admin para adicionar o cluster. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Saiba como descobrir um cluster"^].
+
+
+
+=== Verifique os requisitos do sistema ONTAP
+
+Certifique-se de que os seguintes requisitos do ONTAP são atendidos:
+
+* É recomendado um mínimo de ONTAP 9.8; ONTAP 9.8P13 e posterior.
+* Uma licença SnapMirror (incluída como parte do pacote Premium ou do pacote de proteção de dados).
++
+*Observação:* o "pacote de nuvem híbrida" não é necessário ao usar o backup e a recuperação do BlueXP .
+
++
+Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["gerencie suas licenças de cluster"^].
+
+* A hora e o fuso horário estão definidos corretamente. Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["configure a hora do cluster"^].
+* Se você quiser replicar dados, verifique se os sistemas de origem e destino estão executando versões compatíveis do ONTAP antes de replicar dados.
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Veja versões compatíveis do ONTAP para relacionamentos do SnapMirror"^].
+
+

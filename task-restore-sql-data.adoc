@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: task-restore-sql-data.html 
+keywords: restore, Azure, Amazon Web services, Microsoft SQL Server database 
+summary: Você pode restaurar o banco de dados SQL Server da nuvem para o servidor SnapCenter local. 
+---
+= Restaure o banco de dados do SQL Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode restaurar o banco de dados do SQL Server para o local original ou para o local alternativo.
+
+
+NOTE: Restauração de arquivo único (SFR), recuperação de backups de log e repleed de grupos de disponibilidade não são suportados.
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. No campo *Filtrar por*, selecione o filtro *tipo* e, na lista suspensa, selecione *SQL*.
+. Clique em *Exibir detalhes* para exibir todos os backups disponíveis.
+. Selecione o backup e clique em *Restore*.
+. Na página Restaurar opções, especifique o local onde deseja restaurar os arquivos do banco de dados.
++
+|===
+| Se você... | Faça isso... 
+
+
+ a| 
+Deseja restaurar o local original
+ a| 
+.. Selecione *Restaurar para a localização original*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Clique em *seguinte*.
+
+
+
+
+ a| 
+Deseja restaurar temporariamente para outro armazenamento e, em seguida, copiar os arquivos restaurados para o local original
+ a| 
+.. Selecione *Restaurar para a localização original*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Selecione *alterar localização de armazenamento*.
++
+Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao volume de destino. Se você não selecionou a caixa de seleção, por padrão *_Restore* é anexado ao volume de destino.
+
+.. Clique em *seguinte*.
+.. Na página de mapeamento de armazenamento, especifique os detalhes do local de armazenamento alternativo onde os dados restaurados do armazenamento de objetos serão armazenados temporariamente.
+.. Clique em *seguinte*.
+
+
+
+
+ a| 
+Deseja restaurar para um local alternativo
+ a| 
+.. Selecione *Restaurar para local alternativo*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Clique em *seguinte*.
+.. Na página host de destino, selecione um nome de host, forneça um nome de banco de dados (opcional), selecione uma instância e especifique os caminhos de restauração.
++
+
+NOTE: A extensão de arquivo fornecida no caminho alternativo deve ser igual à extensão de arquivo do arquivo de banco de dados original.
+
+.. Clique em *seguinte*.
+
+
+
+
+ a| 
+Deseja restaurar temporariamente para outro armazenamento e, em seguida, copiar os arquivos restaurados para o local alternativo
+ a| 
+.. Selecione *Restaurar para local alternativo*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Selecione *alterar localização de armazenamento*.
++
+Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao volume de destino. Se você não selecionou a caixa de seleção, por padrão *_Restore* é anexado ao volume de destino.
+
+.. Clique em *seguinte*.
+.. Na página de mapeamento de armazenamento, especifique os detalhes do local de armazenamento alternativo onde os dados restaurados do armazenamento de objetos serão armazenados temporariamente.
+.. Clique em *seguinte*.
+.. Na página host de destino, selecione um nome de host, forneça um nome de banco de dados (opcional), selecione uma instância e especifique os caminhos de restauração.
++
+
+NOTE: A extensão de arquivo fornecida no caminho alternativo deve ser igual à extensão de arquivo do arquivo de banco de dados original.
+
+.. Clique em *seguinte*.
+
+
+|===
+. Na opção *Pre-operations* (Pré-operações), selecione uma das seguintes opções:
++
+** Selecione *Substituir o banco de dados com o mesmo nome durante a restauração* para restaurar o banco de dados com o mesmo nome.
+** Selecione *reter configurações de replicação do banco de dados SQL* para restaurar o banco de dados e manter as configurações de replicação existentes.
+
+
+. Na seção *Pós-operações*, para especificar o estado do banco de dados para restaurar logs transacionais adicionais, selecione uma das seguintes opções:
++
+** Selecione *operacional, mas indisponível* se você estiver restaurando todos os backups necessários agora.
++
+Esse é o comportamento padrão, que deixa o banco de dados pronto para uso, revertendo as transações não confirmadas. Não é possível restaurar registos de transações adicionais até criar uma cópia de segurança.
+
+** Selecione *não operacional, mas disponível* para deixar o banco de dados não operacional sem reverter as transações não confirmadas.
++
+Logs de transação adicionais podem ser restaurados. Você não pode usar o banco de dados até que ele seja recuperado.
+
+** Selecione *modo somente leitura e disponível* para deixar o banco de dados no modo somente leitura.
++
+Essa opção desfaz transações não confirmadas, mas salva as ações desfeitas em um arquivo de espera para que os efeitos de recuperação possam ser revertidos.
+
++
+Se a opção Desfazer diretório estiver ativada, mais logs de transações serão restaurados. Se a operação de restauração do log de transações não for bem-sucedida, as alterações podem ser revertidas. A documentação do SQL Server contém mais informações.
+
+
+
+. Clique em *seguinte*.
+. Revise os detalhes e clique em *Restaurar*.
+

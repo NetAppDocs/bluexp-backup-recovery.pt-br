@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference-restart-backup.html 
+keywords: backup restart, restart backup 
+summary: Pode haver situações em que você precisará reiniciar o serviço de backup e recuperação do BlueXP . 
+---
+= Reinicie o serviço de backup e recuperação do BlueXP 
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pode haver situações em que você precisará reiniciar o serviço de backup e recuperação do BlueXP .
+
+A funcionalidade de backup e recuperação do BlueXP  está integrada ao BlueXP  Connector. Você precisará seguir diferentes etapas iniciais para reiniciar o serviço, dependendo se você implantou o conetor na nuvem ou se instalou o conetor manualmente em um sistema Linux.
+
+.Passos
+. Conete-se ao sistema Linux no qual o conetor está sendo executado.
++
+[cols="25,50"]
+|===
+| Localização do conetor | Procedimento 
+
+
+| Implantação de nuvem | Siga as instruções para https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["Conexão à máquina virtual Connector Linux"^] dependendo do provedor de nuvem que você está usando. 
+
+
+| Instalação manual | Faça login no sistema Linux. 
+|===
+. Digite o comando para reiniciar o serviço.
++
+[cols="40,30,30"]
+|===
+| Localização do conetor | Comando Docker | Podman comando 
+
+
+| Implantação de nuvem | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs`` 
+
+
+| Instalação manual com acesso à Internet | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs`` 
+
+
+| Instalação manual sem acesso à Internet | `docker restart ds_cloudmanager_cbs_1` | `podman restart ds_cloudmanager_cbs_1`` 
+|===
+

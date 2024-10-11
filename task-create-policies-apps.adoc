@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: task-create-policies-apps.html 
+keywords: policy, create, pre-canned polices, custom policies, protection policies 
+summary: Crie suas próprias políticas para proteger o aplicativo. 
+---
+= Crie uma política para fazer backup de aplicativos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você deve criar uma política para fazer backup dos dados do aplicativo na nuvem.
+
+.Antes de começar
+* Se você quiser mover backups do armazenamento de objetos para o armazenamento de arquivamento, verifique se está usando a versão ONTAP necessária.
++
+** Se você estiver usando o Amazon Web Services, você deve usar o ONTAP 9.10,1 ou posterior
+** Se estiver a utilizar o Microsoft Azure, deverá utilizar o ONTAP 9.10,1 ou posterior
+** Se você estiver usando o Google Cloud, você deve usar o ONTAP 9.12,1 ou posterior
+** Se estiver a utilizar o StorageGRID, deverá utilizar o ONTAP 9.12,1 ou posterior
+
+
+* Você deve configurar o nível de acesso de arquivamento para cada provedor de nuvem.
+
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. Na lista suspensa Configurações, clique em *políticas* > *criar política*.
+. Na seção Detalhes da política, especifique o nome da política.
+. Na seção retenção, selecione um dos tipos de retenção e especifique o número de backups a serem mantidos.
+. Selecione primário ou secundário como origem de armazenamento de backup.
+. (Opcional) se você quiser mover backups do armazenamento de objetos para o armazenamento de arquivos após um determinado número de dias para otimização de custos, marque a caixa de seleção *backups de nível para arquivamento*.
+. Clique em *criar*.
++
+
+NOTE: Você não pode editar ou excluir uma política, que está associada a um aplicativo.
+
+

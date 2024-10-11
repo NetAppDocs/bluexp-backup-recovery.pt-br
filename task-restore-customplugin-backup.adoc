@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-restore-customplugin-backup.html 
+keywords: restore, mount application backups, MongoDB, MySQL, PostgreSQL 
+summary: É possível restaurar o banco de dados SAP HANA da nuvem para o servidor SnapCenter no local. 
+---
+= Restaure bancos de dados MongoDB, MySQL e PostgreSQL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode restaurar bancos de dados MongoDB, MySQL e PostgreSQL para qualquer host.
+
+*Passos*
+
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. No campo *Filtrar por*, selecione o filtro *tipo* e, na lista suspensa, selecione *MongoDB*, *MySQL* ou *PostgreSQL*.
+. Clique em *Exibir detalhes* correspondente ao banco de dados que você deseja restaurar e clique em *Restaurar*.
+. Na página Restaurar opções, especifique uma das seguintes opções:
++
+.. No ambiente nas, especifique o FQDN ou o endereço IP do host para o qual os volumes restaurados do armazenamento de objetos devem ser exportados.
+.. No ambiente SAN, especifique os iniciadores do host para os quais LUNs dos volumes restaurados do armazenamento de objetos devem ser mapeados.
+
+
+. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+. Se não houver espaço suficiente no armazenamento de origem ou se o armazenamento de origem estiver inativo, selecione *alterar local de armazenamento*.
++
+Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao volume de destino. Se você não selecionou a caixa de seleção, por padrão *_Restore* é anexado ao volume de destino.
+
+. Clique em *seguinte*.
+. Na página de mapeamento de armazenamento, especifique os detalhes do local de armazenamento alternativo onde os dados restaurados do armazenamento de objetos serão armazenados.
+. Clique em *seguinte*.
+. Revise os detalhes e clique em *Restaurar*.
+
+
+Esta operação faz apenas a exportação de armazenamento do backup selecionado no host fornecido. Você deve montar manualmente o sistema de arquivos e abrir o banco de dados. Depois de utilizar o volume, o administrador de armazenamento pode eliminar o volume do cluster ONTAP.

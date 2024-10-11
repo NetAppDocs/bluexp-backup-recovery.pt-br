@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: task-backup-app-data-to-aws.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Execute algumas etapas para fazer backup dos dados de aplicativos do ONTAP para a AWS. 
+---
+= Faça backup dos dados de aplicativos locais para o Amazon Web Services
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Execute algumas etapas para fazer backup dos dados de aplicativos do ONTAP para o Amazon Web Services.
+
+O BlueXP  é compatível com bloqueio de dados e proteção contra ransomware. Se o cluster do ONTAP estiver em execução no ONTAP 9.11,1 ou posterior e não tiver configurado o storage de arquivamento, os backups podem ser protegidos contra a substituição, a exclusão e as ameaças de ransomware.
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao aplicativo e clique em *Ativar Backup*.
+. Na página atribuir política, selecione a política e clique em *seguinte*.
+. Adicione o ambiente de trabalho.
++
+Configure o LIF de gerenciamento de cluster que você deseja que o BlueXP  descubra. Depois de adicionar o ambiente de trabalho para um dos aplicativos, ele pode ser reutilizado para todos os outros aplicativos que residem no mesmo cluster do ONTAP.
+
++
+.. Selecione o SVM e clique em *Adicionar ambiente de trabalho*.
+.. No assistente Adicionar ambiente de trabalho:
++
+... Especifique o endereço IP do LIF de gerenciamento de cluster.
+... Especifique as credenciais do usuário do cluster do ONTAP.
++
+O backup e a recuperação do BlueXP  para aplicações são compatíveis apenas com o administrador do cluster.
+
+
+
+.. Clique em *Adicionar ambiente de trabalho*.
+
+
+. Selecione *Amazon Web Services* como provedor de nuvem.
++
+.. Especifique a conta da AWS.
+.. No campo chave de acesso da AWS, especifique a chave.
+.. No campo chave secreta da AWS, especifique a senha.
+.. Selecione a região onde deseja criar os backups.
+.. Especifique o espaço IP.
+.. Selecione o nível de arquivamento se tiver configurado o armazenamento de arquivamento na política.
++
+Recomenda-se definir o nível de arquivo porque esta é uma atividade única e você não poderá configurá-lo mais tarde.
+
+
+
+. Configurar o bloqueio de dados e a proteção contra ransomware.
+. Revise os detalhes e clique em *Ativar Backup*.
+

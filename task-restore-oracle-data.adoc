@@ -1,0 +1,149 @@
+---
+sidebar: sidebar 
+permalink: task-restore-oracle-data.html 
+keywords: restore, Azure, Amazon Web services, Oracle database 
+summary: Você pode restaurar o banco de dados Oracle da nuvem para o servidor SnapCenter local. 
+---
+= Restaure o banco de dados Oracle
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode restaurar o banco de dados Oracle para o local original ou para o local alternativo. Para um banco de dados RAC, os dados são restaurados para o nó local onde o backup foi criado.
+
+Apenas é suportado um banco de dados completo com restauração de arquivos de controle. Se os registos de arquivo não estiverem presentes no AFS, deve especificar a localização que contém os registos de arquivo necessários para a recuperação.
+
+
+IMPORTANT: A Restauração de Arquivo único (SFR) não é suportada.
+
+*Passos*
+
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. No campo *Filtrar por*, selecione o filtro *tipo* e, na lista suspensa, selecione *Oracle*.
+. Clique em *Exibir detalhes* correspondente ao banco de dados que você deseja restaurar e clique em *Restaurar*.
+. Na página Restaurar opções, especifique o local onde deseja restaurar os arquivos do banco de dados.
++
+|===
+| Se você... | Faça isso... 
+
+
+ a| 
+Deseja restaurar o local original
+ a| 
+.. Selecione *Restaurar para a localização original*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Clique em *seguinte*.
+.. Selecione *Estado da base de dados* se pretender alterar o estado da base de dados para o estado necessário para executar operações de restauro e recuperação.
++
+Os vários estados de um banco de dados de cima para baixo são abertos, montados, iniciados e desligados.
+
++
+*** Se o banco de dados estiver em um estado superior, mas o estado tiver de ser alterado para um estado inferior para executar uma operação de restauração, você deve selecionar esta caixa de seleção.
+*** Se o banco de dados estiver em um estado inferior, mas o estado tiver de ser alterado para um estado superior para executar a operação de restauração, o estado do banco de dados será alterado automaticamente, mesmo que você não marque a caixa de seleção.
+*** Se um banco de dados estiver no estado aberto e, para restaurar, o banco de dados precisar estar no estado montado, o estado do banco de dados será alterado somente se você selecionar essa caixa de seleção.
+
+
+.. Especifique o escopo de recuperação.
++
+*** Selecione *todos os Logs* se quiser recuperar para a última transação.
+*** Selecione *Until SCN (System Change Number)* se quiser recuperar para um SCN específico.
+*** Selecione *Data e hora* se quiser recuperar dados e hora específicos.
++
+Você deve especificar a data e a hora do fuso horário do host do banco de dados.
+
+*** Selecione *sem recuperação* se não quiser recuperar.
+
+
+.. Se os registos de arquivo não estiverem presentes no sistema de ficheiros ativo, deve especificar a localização que contém os registos de arquivo necessários para a recuperação.
+.. Marque a caixa de seleção se desejar abrir o banco de dados após a recuperação.
++
+Em uma configuração RAC, somente a instância RAC usada para recuperação é aberta após a recuperação.
+
+
+
+
+
+ a| 
+Deseja restaurar temporariamente para outro armazenamento e, em seguida, copiar os arquivos restaurados para o local original
+ a| 
+.. Selecione *Restaurar para a localização original*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Selecione *alterar localização de armazenamento*.
++
+Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao volume de destino. Se você não selecionou a caixa de seleção, por padrão *_Restore* é anexado ao volume de destino.
+
+.. Clique em *seguinte*.
+.. Na página de mapeamento de armazenamento, especifique os detalhes do local de armazenamento alternativo onde os dados restaurados do armazenamento de objetos serão armazenados temporariamente.
++
+Se você selecionar um sistema ONTAP local e não tiver configurado a conexão do cluster com o armazenamento de objetos, será solicitado que você forneça informações adicionais sobre o armazenamento de objetos.
+
+.. Clique em *seguinte*.
+.. Selecione *Estado da base de dados* se pretender alterar o estado da base de dados para o estado necessário para executar operações de restauro e recuperação.
++
+Os vários estados de um banco de dados de cima para baixo são abertos, montados, iniciados e desligados.
+
++
+*** Se o banco de dados estiver em um estado superior, mas o estado tiver de ser alterado para um estado inferior para executar uma operação de restauração, você deve selecionar esta caixa de seleção.
+*** Se o banco de dados estiver em um estado inferior, mas o estado tiver de ser alterado para um estado superior para executar a operação de restauração, o estado do banco de dados será alterado automaticamente, mesmo que você não marque a caixa de seleção.
+*** Se um banco de dados estiver no estado aberto e, para restaurar, o banco de dados precisar estar no estado montado, o estado do banco de dados será alterado somente se você selecionar essa caixa de seleção.
+
+
+.. Especifique o escopo de recuperação.
++
+*** Selecione *todos os Logs* se quiser recuperar para a última transação.
+*** Selecione *Until SCN (System Change Number)* se quiser recuperar para um SCN específico.
+*** Selecione *Data e hora* se quiser recuperar dados e hora específicos.
++
+Você deve especificar a data e a hora do fuso horário do host do banco de dados.
+
+*** Selecione *sem recuperação* se não quiser recuperar.
+
+
+.. Se os registos de arquivo não estiverem presentes no sistema de ficheiros ativo, deve especificar a localização que contém os registos de arquivo necessários para a recuperação.
+.. Marque a caixa de seleção se desejar abrir o banco de dados após a recuperação.
++
+Em uma configuração RAC, somente a instância RAC usada para recuperação é aberta após a recuperação.
+
+
+
+
+
+ a| 
+Deseja restaurar para um local alternativo
+ a| 
+.. Selecione *Restaurar para local alternativo*.
+.. Se o instantâneo estiver em armazenamento de arquivo, selecione a prioridade para restaurar os dados do armazenamento de arquivamento.
+.. Se você quiser restaurar o armazenamento alternativo, execute o seguinte procedimento:
++
+... Selecione *alterar localização de armazenamento*.
++
+Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao volume de destino. Se você não selecionou a caixa de seleção, por padrão *_Restore* é anexado ao volume de destino.
+
+... Clique em *seguinte*.
+... Na página de mapeamento de armazenamento, especifique os detalhes do local de armazenamento alternativo em que os dados do armazenamento de objetos precisam ser restaurados.
+
+
+.. Clique em *seguinte*.
+.. Na página Destination host (anfitrião de destino), selecione o anfitrião no qual a base de dados será montada.
++
+... (Opcional) para o ambiente nas, especifique o FQDN ou o endereço IP do host para o qual os volumes restaurados do armazenamento de objetos devem ser exportados.
+... (Opcional) para o ambiente SAN, especifique os iniciadores do host para os quais LUNs dos volumes restaurados do armazenamento de objetos devem ser mapeados.
+
+
+.. Clique em *seguinte*.
+
+
+|===
+. Revise os detalhes e clique em *Restaurar*.
+
+
+A opção *Restore to alternate location* (Restaurar para local alternativo) monta o backup selecionado no host fornecido. Você deve abrir manualmente o banco de dados.
+
+Depois de montar o backup, você não pode montá-lo novamente até que ele seja desmontado. Você pode usar a opção *Desmontar* da IU para desmontar o backup.
+
+Para obter informações sobre como abrir o banco de dados Oracle, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["artigo da base de conhecimento"] .

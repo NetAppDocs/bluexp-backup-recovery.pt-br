@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: task-register-snapcenter-server.html 
+keywords: SnapCenter Server, register 
+summary: Conclua algumas etapas para Registrar o servidor SnapCenter. 
+---
+= Registre o servidor SnapCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Somente um usuário com a função SnapCenterAdmin pode Registrar o host no qual o servidor SnapCenter 4,6 ou posterior está sendo executado. Você pode Registrar vários hosts do servidor SnapCenter no BlueXP .
+
+.Passos
+. Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.
+. Na lista suspensa *Configurações*, clique em *servidores SnapCenter*.
+. Clique em *Register SnapCenter Server*.
+. Especifique os seguintes detalhes:
++
+.. No campo servidor SnapCenter , especifique o FQDN ou o endereço IP do host do servidor SnapCenter.
+.. No campo porta , especifique o número da porta na qual o host do servidor SnapCenter está sendo executado.
++
+Você deve garantir que a porta esteja aberta para que a comunicação aconteça entre o servidor SnapCenter e o BlueXP .
+
+.. No campo Tags , especifique um nome de site, nome de cidade ou qualquer nome personalizado com o qual você deseja marcar o servidor SnapCenter.
++
+As tags são separadas por vírgulas.
+
+.. No campo Nome de usuário e Senha, especifique as credenciais do usuário com a função SnapCenterAdmin.
+
+
+. Selecione o conetor na lista suspensa *Connector*.
+. Clique em *Register*.
+
+
+.Depois de terminar
+Clique em *Backup & Restore* > *Applications* (cópia de segurança e restauro) para visualizar todas as aplicações protegidas utilizando o anfitrião do servidor SnapCenter registado. Por padrão, os aplicativos são automaticamente descobertos todos os dias da meia-noite.
+
+Os aplicativos suportados e suas configurações são:
+
+* Banco de dados Oracle:
++
+** Backups completos (dados e log) criados com pelo menos uma programação diária, semanal ou mensal
+** SAN, NFS, VMDK-SAN, VMDK-NFS E RDM
+
+
+* Base de dados Microsoft SQL Server:
++
+** Instâncias autônomas de cluster de failover e grupos de disponibilidade
+** Backups completos criados com pelo menos uma programação diária, semanal ou mensal
+** SAN, VMDK-SAN, VMDK-NFS E RDM
+
+
+* Banco de dados SAP HANA:
++
+** Recipiente único 1.x
+** Contentor de banco de dados múltiplo 2.x
+** Replicação do sistema HANA (HSR)
++
+Você deve ter pelo menos um backup em locais primários e secundários. Você pode decidir fazer uma falha pró-ativa ou um failover diferido para o secundário.
+
+** Recursos de volumes que não são de dados (NDV), como binários HANA, volume de log de arquivamento HANA, volume compartilhado HANA, etc.
+
+
+* MongoDB
+* MySQL
+* PostgreSQL
+
+
+As seguintes bases de dados não são apresentadas:
+
+* Bancos de dados que não têm backups
+* Bancos de dados que têm apenas políticas sob demanda ou por hora
+* Bancos de dados Oracle residentes no NVMe
+

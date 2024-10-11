@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: reference-azure-backup-tiers.html 
+keywords: microsoft azure, azure, cool, access tier, archive 
+summary: Backup e recuperação do BlueXP  são compatíveis com uma camada de acesso de arquivamento do Azure e a maioria das regiões. 
+---
+= Camadas de arquivamento do Azure e tempos de recuperação de restauração
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Backup e recuperação do BlueXP  são compatíveis com uma camada de acesso de arquivamento do Azure e a maioria das regiões.
+
+
+
+== Categorias de acesso de Blob do Azure compatíveis para backup e recuperação do BlueXP 
+
+Quando os arquivos de backup são criados inicialmente, eles são armazenados no nível de acesso _Cool_. Esse nível é otimizado para armazenar dados que não são acessados com frequência; mas, quando necessário, pode ser acessado imediatamente.
+
+Se seus clusters de origem estiverem executando o ONTAP 9.10,1 ou superior, você poderá optar por categorizar backups do armazenamento _Cool_ para o armazenamento _Azure Archive_ após um determinado número de dias (normalmente mais de 30 dias) para otimização de custos adicional. Os dados neste nível não podem ser acessados imediatamente quando necessário e exigirão um custo de recuperação mais alto, portanto, você precisa considerar com que frequência você pode precisar restaurar dados desses arquivos de backup arquivados. Consulte a seção nesta página sobre como restaurar dados do armazenamento de arquivos.
+
+Observe que ao configurar o backup e a recuperação do BlueXP  com esse tipo de regra de ciclo de vida, você não deve configurar nenhuma regra de ciclo de vida ao configurar o contentor na sua conta do Azure.
+
+https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["Saiba mais sobre os níveis de acesso ao Blob do Azure"^].
+
+
+
+== Restaurar dados do armazenamento de arquivamento
+
+Embora armazenar arquivos de backup mais antigos no armazenamento de arquivamento seja muito mais barato do que o armazenamento Cool, acessar dados de um arquivo de backup no Azure Archive para operações de restauração levará um tempo maior e custará mais dinheiro.
+
+Quanto custa restaurar dados do Azure Archive?:: Há duas prioridades de restauração que você pode escolher ao recuperar dados do Azure Archive:
++
+--
+* *High*: Recuperação mais rápida, custo mais alto
+* *Standard*: Recuperação mais lenta, menor custo
+
+
+Cada método tem uma taxa de recuperação por GB diferente e taxa por solicitação. Para obter preços detalhados do Azure Archive pela região do Azure, visite o https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Página de preços do Azure"^].
+
+--
+
+
+
+NOTE: A alta prioridade não é suportada ao restaurar dados do Azure para sistemas StorageGRID.
+
+Quanto tempo levará para restaurar meus dados arquivados no Azure Archive?:: Existem 2 partes que compõem o tempo de restauração:
++
+--
+* *Retrieval Time*: A hora de recuperar o arquivo de backup arquivado do Azure Archive e colocá-lo em armazenamento Cool. Isso às vezes é chamado de tempo de "reidratação". O tempo de recuperação é diferente dependendo da prioridade de restauração que você escolher:
++
+** *Alta*: Menos de 1 hora
+** *Standard*: Menos de 15 horas
+
+
+* *Tempo de restauração*: O tempo para restaurar os dados do arquivo de backup no armazenamento Cool. Esse tempo não é diferente da operação de restauração típica diretamente do armazenamento Cool - quando não está usando um nível de arquivamento.
+
+
+Para obter mais informações sobre as opções de recuperação do Azure Archive, https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["Este FAQ do Azure"^] consulte .
+
+--
+

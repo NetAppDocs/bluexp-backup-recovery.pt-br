@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: task-create-policies-vms.html 
+keywords: create policy, protection policies, predefined policies, custom policies 
+summary: Crie uma política para fazer backup de armazenamentos de dados 
+---
+= Crie uma política para fazer backup de armazenamentos de dados
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode criar uma política ou usar uma das seguintes políticas predefinidas que estão disponíveis no BlueXP .
+
+.Antes de começar
+* Você deve criar políticas se não quiser editar as políticas predefinidas.
+* Para mover backups do armazenamento de objetos para o armazenamento de arquivamento, você deve executar o ONTAP 9.10,1 ou posterior e o Amazon Web Services ou o Microsoft Azure deve ser o provedor de nuvem.
+* Você deve configurar o nível de acesso de arquivamento para cada provedor de nuvem.
+
+
+.Sobre esta tarefa
+As seguintes políticas predefinidas estão disponíveis no BlueXP :
+
+|===
+| Nome da política | Etiqueta | Valor de retenção 
+
+
+ a| 
+LTR diário de 1 anos (retenção de longo prazo)
+ a| 
+Diariamente
+ a| 
+366
+
+
+
+ a| 
+5 anos diários LTR
+ a| 
+Diariamente
+ a| 
+1830
+
+
+
+ a| 
+LTR semanal de 7 anos
+ a| 
+Semanalmente
+ a| 
+370
+
+
+
+ a| 
+LTR mensal de 10 anos
+ a| 
+Mensalmente
+ a| 
+120
+
+|===
+.Passos
+. Na página máquinas virtuais, na lista suspensa Configurações, selecione *políticas*.
+. Clique em *criar política*.
+. Na seção Detalhes da política, especifique o nome da política.
+. Na seção retenção, selecione um dos tipos de retenção e especifique o número de backups a serem mantidos.
+. Selecione primário ou secundário como origem de armazenamento de backup.
+. (Opcional) se você quiser mover backups do armazenamento de objetos para o armazenamento de arquivos após um determinado número de dias para otimização de custos, marque a caixa de seleção *Tier backups to Archival* e insira o número de dias após os quais o backup deve ser arquivado.
+. Clique em *criar*.
++
+
+NOTE: Você não pode editar ou excluir uma política, que está associada a um datastore.
+
+

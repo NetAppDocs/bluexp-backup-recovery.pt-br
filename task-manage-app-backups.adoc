@@ -1,0 +1,222 @@
+---
+sidebar: sidebar 
+permalink: task-manage-app-backups.html 
+keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs, SAP HANA database 
+summary: Você pode visualizar as políticas e backups. Dependendo da alteração no banco de dados, políticas ou grupos de recursos, é possível atualizar as atualizações a partir da IU do BlueXP . 
+---
+= Gerenciar a proteção de aplicativos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode gerenciar a proteção de aplicativos exibindo políticas, exibindo backups, exibindo as alterações no layout do banco de dados, políticas e grupo de recursos, além de monitorar todas as operações a partir da IU do BlueXP .
+
+
+
+== Ver políticas
+
+Você pode visualizar todas as políticas. Para cada uma dessas políticas, quando você exibe os detalhes, todos os aplicativos associados são listados.
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Na lista suspensa *Configurações*, clique em *políticas*.
+. Clique em *Ver detalhes* correspondente à política cujos detalhes você deseja visualizar.
++
+Os aplicativos associados são listados.
+
++
+
+NOTE: Você não pode editar ou excluir uma política, que está associada a um aplicativo.
+
+
+
+Você também pode exibir políticas SnapCenter estendidas na nuvem executando `Get-SmResources` o cmdlet no SnapCenter. As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando o nome do comando Get-Help.
+
+
+
+== Ver backups na nuvem
+
+Você pode visualizar os backups na nuvem na IU do BlueXP .
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao aplicativo e clique em *Exibir detalhes*.
+
+
+
+IMPORTANT: O tempo necessário para que os backups sejam listados depende da programação de replicação padrão do ONTAP.
+
+* Para bancos de dados Oracle, tanto os backups de dados quanto os de log, o número de mudança do sistema (SCN) para cada backup, a data final para cada backup são listados. Você pode selecionar apenas o backup de dados e restaurar o banco de dados para o local original. Você pode montar o backup de dados e o backup de log para um local alternativo.
+* Para bancos de dados do Microsoft SQL Server, apenas os backups completos e a data final de cada backup são listados. Você pode selecionar o backup e restaurar o banco de dados para o local original ou alternativo.
+* Para instância do Microsoft SQL Server, os backups dos bancos de dados sob essa instância são listados.
+* Para bancos de dados SAP HANA, somente os backups de dados e a data de término de cada backup são listados. Você pode selecionar o backup e executar a exportação de armazenamento em um determinado host.
+* Para MongoDB, MySQL e PostgreSQL, apenas os backups de dados e a data final de cada backup são listados. Você pode selecionar o backup e executar a exportação de armazenamento em um determinado host.
+
+
+
+NOTE: Os backups criados antes de ativar a proteção na nuvem não estão listados para restauração.
+
+Você também pode exibir esses backups executando `Get-SmBackup` o cmdlet no SnapCenter. As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando o nome do comando Get-Help.
+
+
+
+== Desativar a cópia de segurança
+
+Você pode excluir todos os backups movidos para o armazenamento de objetos do SnapCenter e do armazenamento de objetos.
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente à aplicação e clique em Desativar cópia de segurança.
++
+Por padrão, a caixa de seleção está selecionada e exclui todos os backups movidos para o armazenamento de objetos do SnapCenter e do armazenamento de objetos.
+
++
+Se você desmarcar a caixa de seleção, os backups serão retidos somente no armazenamento de objetos, mas esses backups não poderão ser usados para restauração no nível do aplicativo. Mais tarde, quando você ativa o backup para este aplicativo, os backups retidos no armazenamento de objetos não são listados para restauração.
+
+. Clique em *Desativar Backup*.
+
+
+
+
+== Alteração do layout do banco de dados
+
+Quando os volumes são adicionados ao banco de dados, o servidor SnapCenter rotula os snapshots nos novos volumes automaticamente de acordo com a política e a programação. Esses novos volumes não terão o ponto final do armazenamento de objetos e você deve atualizar os volumes executando as seguintes etapas:
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Na lista suspensa *Configurações*, clique em *servidores SnapCenter*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao servidor SnapCenter que hospeda o aplicativo e clique em *Atualizar*.
++
+Os novos volumes são descobertos.
+
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao aplicativo e clique em *Refresh Protection* para ativar a proteção na nuvem para o novo volume.
++
+** Se um volume de armazenamento for adicionado ao aplicativo após a configuração do provedor de nuvem, o servidor SnapCenter rotula os snapshots para novos backups nos quais o aplicativo está residindo.
+** Você deve excluir manualmente a relação de armazenamento de objetos se o volume removido não for usado por outros aplicativos.
+** Se você atualizar o inventário do aplicativo, ele conterá o layout de armazenamento atual do aplicativo.
+
+
+
+
+
+
+== Mudança de política ou grupo de recursos
+
+Se houver uma alteração na política ou no grupo de recursos do SnapCenter, atualize a relação de proteção.
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao aplicativo e clique em *Refresh Protection*.
+
+
+
+
+== Anular o registo do servidor SnapCenter
+
+.Passos
+. Clique em *Backup e recuperação* > *aplicativos*.
+. Na lista suspensa *Configurações*, clique em *servidores SnapCenter*.
+. Clique image:icon-action.png["ícone para selecionar a ação"] em correspondente ao servidor SnapCenter e clique em *Anular Registro*.
++
+Por padrão, a caixa de seleção está selecionada e exclui todos os backups movidos para o armazenamento de objetos do SnapCenter e do armazenamento de objetos.
+
++
+Se você desmarcar a caixa de seleção, os backups serão retidos somente no armazenamento de objetos, mas esses backups não poderão ser usados para restauração no nível do aplicativo. Mais tarde, quando você ativa o backup para este aplicativo, os backups retidos no armazenamento de objetos não são listados para restauração.
+
+
+
+
+
+== Monitorizar trabalhos
+
+As tarefas são criadas para todas as operações do Cloud Backup. Pode monitorizar todos os trabalhos e todas as subtarefas que são executadas como parte de cada tarefa.
+
+.Passos
+. Clique em *Backup e recuperação* > *Monitoramento de tarefas*.
++
+Quando inicia uma operação, é apresentada uma janela a indicar que o trabalho foi iniciado. Pode clicar na ligação para monitorizar o trabalho.
+
+. Clique na tarefa principal para visualizar as subtarefas e o estado de cada uma destas subtarefas.
+
+
+
+
+== Configurar certificados de CA
+
+Você pode configurar o certificado assinado pela CA se quiser incluir segurança adicional ao seu ambiente.
+
+
+
+=== Configure o certificado assinado CA do SnapCenter no conetor BlueXP 
+
+Você deve configurar o certificado assinado pela CA do SnapCenter no conetor BlueXP  para que o conetor possa verificar o certificado do SnapCenter.
+
+.Antes de começar
+Você deve executar o seguinte comando no conetor BlueXP  para obter o _<base_mount_path>_:
+`sudo docker volume ls | grep snapcenter_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
+.Passos
+. Inicie sessão no conetor.
+`cd <base_mount_path> mkdir -p server/certificate`
+. Copie os arquivos CA raiz e CA intermediária para o diretório _<base_mount_path>/Server/certificate_.
++
+Os arquivos da CA devem estar no formato .pem.
+
+. Se você tiver arquivos CRL, execute as seguintes etapas:
++
+.. `cd <base_mount_path> mkdir -p server/crl`
+.. Copie os arquivos CRL para o diretório _<base_mount_path>/Server/crl_.
+
+
+. Conete-se ao cloudmanager_SnapCenter e modifique o enableCACert em config.yml para true.
+`sudo docker exec -t cloudmanager_snapcenter sed -i 's/enableCACert: false/enableCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
+. Reinicie o container cloudmanager_SnapCenter.
+`sudo docker restart cloudmanager_snapcenter`
+
+
+
+
+=== Configure o certificado assinado CA para o conetor BlueXP 
+
+Se o SSL 2way estiver habilitado no SnapCenter, execute as seguintes etapas no conetor para usar o certificado CA como o certificado de cliente quando o conetor estiver se conetando ao SnapCenter.
+
+.Antes de começar
+Você deve executar o seguinte comando para obter o _<base_mount_path>_:
+`sudo docker volume ls | grep snapcenter_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint`
+
+.Passos
+. Inicie sessão no conetor.
+`cd <base_mount_path> mkdir -p client/certificate`
+. Copie o certificado assinado pela CA e o arquivo de chave para o _<base_mount_path>/cliente/certificado_ no conetor.
++
+O nome do arquivo deve ser certificate.pem e key.pem. O certificado.pem deve ter toda a cadeia de certificados como CA intermediária e CA raiz.
+
+. Crie o formato PKCS12 do certificado com o nome certificate.p12 e mantenha em _<base_mount_path>/client/certificate_.
++
+Exemplo: openssl PKCS12 -inkey key.pem -in certificate.pem -export -out certificate.p12
+
+. Conete-se ao cloudmanager_SnapCenter e modifique o sendCACert em config.yml para true.
+`sudo docker exec -t cloudmanager_snapcenter sed -i 's/sendCACert: false/sendCACert: true/g' /opt/netapp/cloudmanager-snapcenter/config/config.yml`
+. Reinicie o container cloudmanager_SnapCenter.
+`sudo docker restart cloudmanager_snapcenter`
+. Execute as seguintes etapas no SnapCenter para validar o certificado enviado pelo conetor.
++
+.. Faça login no host do SnapCenter Sever.
+.. Clique em *Iniciar* > *Iniciar Pesquisa*.
+.. Digite mmc e pressione *Enter*.
+.. Clique em *Sim*.
+.. No menu Arquivo, clique em *Adicionar/Remover Snap-in*.
+.. Clique em *certificados* > *Adicionar* > *conta de computador* > *seguinte*.
+.. Clique em *local Computer* > *Finish*.
+.. Se você não tiver mais snap-ins para adicionar ao console, clique em *OK*.
+.. Na árvore de console, clique duas vezes em *certificados*.
+.. Clique com o botão direito do rato no *Trusted Root Certification Authorities store*.
+.. Clique em *Importar* para importar os certificados e siga as etapas no *Assistente de importação de certificados*.
+
+
+
