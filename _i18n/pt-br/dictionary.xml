@@ -667,9 +667,6 @@
   <block id="26170b18548ee3b6f0b39b9db8ffed13" category="inline-link-macro">Fazer backup do ONTAP no local para o ONTAP S3</block>
   <block id="2a6174ce3d27995b8923b0872f99c9dd" category="list-text"><block ref="2a6174ce3d27995b8923b0872f99c9dd" category="inline-link-macro-rx"></block></block>
   <block id="2714d7e7e24c727c2c54bb6ba96c4617" category="section-title">Suporte para sites com conetividade limitada à Internet</block>
-  <block id="cd7822bfaba52280932b79873329daf7" category="paragraph">O backup e a recuperação do BlueXP  podem ser usados em um site com conetividade limitada à Internet (também conhecido como _modo restrito_) para fazer backup dos dados de volume. Nesse caso, você precisará implantar o BlueXP  Connector na região restrita.</block>
-  <block id="1b2ae8fd4fbb8aea97c2363d0b2cc03f" category="list-text">Você pode fazer backup de dados de sistemas Cloud Volumes ONTAP instalados nas regiões comerciais da AWS para o Amazon S3. <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>.</block>
-  <block id="5ffa64fdc5f25941da3f4d7d719fc76d" category="list-text">Você pode fazer backup dos dados de sistemas Cloud Volumes ONTAP instalados nas regiões comerciais do Azure para o Azure Blob. <block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>.</block>
   <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">Suporte para sites sem conetividade com a Internet</block>
   <block id="a93164b5de348a4fb06ecfebdb6861a8" category="paragraph">Backup e recuperação do BlueXP  podem ser usados em um site sem conetividade à Internet (também conhecido como sites _private mode_ ou _dark_) para fazer backup de dados de volume. Nesse caso, você precisará implantar o BlueXP  Connector em um host Linux no mesmo site.</block>
   <block id="2a7f31b421ebd440283eff6d94322a3b" category="list-text">É possível fazer backup dos dados de sistemas ONTAP locais no local para sistemas NetApp StorageGRID locais. <block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block>.</block>
@@ -964,11 +961,9 @@
   <block id="74fcd9275dc8f4544c3f2e6da14c3a0f" category="cell">Comando Docker</block>
   <block id="9865e302853628bbfe9f8357d9e7514f" category="cell">Podman comando</block>
   <block id="ab3d1c1d882b63580956b08c5abf67e1" category="cell"><block ref="d95061e3de0e54619667fc995280e47d" prefix="" category="inline-code"></block></block>
-  <block id="62fbf3095f1e89aabae3804682809c2b" category="cell"><block ref="3d14b961bb7289e76bff64ac921cba5d" prefix="" category="inline-code"></block></block>
   <block id="2016425a575301c45d7e5cdf171ae115" category="cell">Instalação manual com acesso à Internet</block>
   <block id="f8d2cf753b5dfff0bf9e240741162b9c" category="cell">Instalação manual sem acesso à Internet</block>
   <block id="7bbc18e8c81866c16ae2fa4ae7b4faa7" category="cell"><block ref="04dcde0112f87c65139657970e95733e" prefix="" category="inline-code"></block></block>
-  <block id="bf7ecaf7643e3be49e45cd82469534f1" category="cell"><block ref="55285eccf27fa61af2e97ac2832bdc01" prefix="" category="inline-code"></block></block>
   <block id="23959c4b9349bcd5e832610f8a4c21b5" category="summary">Execute algumas etapas para fazer backup dos dados de aplicativos do ONTAP para a AWS.</block>
   <block id="a398d70f425729872aae3dc2d3e8feb1" category="doc">Faça backup dos dados de aplicativos locais para o Amazon Web Services</block>
   <block id="301968c8dabe6b72a7e8efa9bd0258d1" category="paragraph">Execute algumas etapas para fazer backup dos dados de aplicativos do ONTAP para o Amazon Web Services.</block>
@@ -3660,4 +3655,10 @@
   <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
   <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
+  <block id="3a66ab30f960deed7e2d6dbe5675eebc" category="paragraph">O backup e a recuperação do BlueXP  podem ser usados em um site com conetividade limitada à Internet (também conhecido como _modo restrito_) para fazer backup dos dados de volume. Nesse caso, você precisará implantar o BlueXP  Connector na região da nuvem de destino.</block>
+  <block id="c042a7ac26c00953bd87e1129908e5c7" category="list-text">É possível fazer backup dos dados de sistemas ONTAP locais ou de sistemas Cloud Volumes ONTAP instalados em regiões comerciais da AWS para o Amazon S3. <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>.</block>
+  <block id="eb908336fca360ed35207a1e198562b2" category="list-text">É possível fazer backup de dados de sistemas ONTAP locais ou sistemas Cloud Volumes ONTAP instalados em regiões comerciais do Azure para o Azure Blob. <block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>.</block>
+  <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
+  <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
+  <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Quando mais de cinco volumes estão ativados para backup, o backup e a recuperação do BlueXP  inicializam apenas cinco volumes de cada vez. Quando eles estiverem concluídos, ele cria o próximo lote de cinco subtrabalhos para iniciar o próximo conjunto e continua até que todos os volumes sejam inicializados.</block>
 </blocks>

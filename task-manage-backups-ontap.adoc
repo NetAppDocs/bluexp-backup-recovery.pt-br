@@ -96,6 +96,8 @@ Ao trabalhar com vários volumes, todos os volumes devem ter estas caraterístic
 * Mesmo tipo (volume de leitura/gravação ou proteção de dados)
 
 
+Quando mais de cinco volumes estão ativados para backup, o backup e a recuperação do BlueXP  inicializam apenas cinco volumes de cada vez. Quando eles estiverem concluídos, ele cria o próximo lote de cinco subtrabalhos para iniciar o próximo conjunto e continua até que todos os volumes sejam inicializados.
+
 .Passos
 . Na guia *volumes*, filtre pelo ambiente de trabalho no qual os volumes residem.
 . Selecione todos os volumes nos quais deseja gerenciar as configurações de backup.
