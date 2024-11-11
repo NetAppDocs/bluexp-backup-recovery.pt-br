@@ -3661,4 +3661,16 @@
   <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Quando mais de cinco volumes estão ativados para backup, o backup e a recuperação do BlueXP  inicializam apenas cinco volumes de cada vez. Quando eles estiverem concluídos, ele cria o próximo lote de cinco subtrabalhos para iniciar o próximo conjunto e continua até que todos os volumes sejam inicializados.</block>
+  <block id="46206fcd0fa4af78eefe04f1bd8d42c6" category="list-text">SnapLock Compliance para volumes no local (requer ONTAP 9.14 ou posterior)</block>
+  <block id="07c8845dbdef949b860ebfc99bd558ac" category="section-title">6 de novembro de 2024</block>
+  <block id="a5fd9c132798873e9eb6aafb58e50034" category="section-title">Modos de proteção SnapLock Compliance e SnapLock Enterprise</block>
+  <block id="139da935670a9f985194d3241917c359" category="paragraph">Agora, o backup e a recuperação do BlueXP  podem fazer backup de volumes no local do FlexVol e do FlexGroup configurados com os modos de proteção SnapLock Compliance ou SnapLock Enterprise. Os clusters precisam estar executando o ONTAP 9.14 ou superior para esse suporte. O backup de volumes do FlexVol usando o modo SnapLock Enterprise tem sido suportado desde a versão 9.11.1 do ONTAP. As versões anteriores do ONTAP não oferecem suporte para fazer backup de volumes de proteção SnapLock.</block>
+  <block id="9ddb3e6714694f5c7f619d474fec8169" category="paragraph">Consulte a lista completa de volumes suportados no<block ref="9e68a582cc487ad29425f5a4796c9e45" category="inline-link-rx"></block>.</block>
+  <block id="fec92c3dfb6a0b3db498488c7f4d2f29" category="section-title">Indexação para processo de pesquisa e restauração na página volumes</block>
+  <block id="20d3b0b7cfe7a9f3dcfdb0faa9398efd" category="paragraph">Antes de poder utilizar a Pesquisa e Restauro, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual pretende restaurar os dados de volume. Isso permite que o Catálogo indexado acompanhe os arquivos de backup para cada volume. A página volumes agora mostra o status da indexação:</block>
+  <block id="cd9b31737e78e0a0a755acc12151f766" category="list-text">Indexado: Os volumes foram indexados.</block>
+  <block id="02e4eb80c967f3b9add2ba16a690eef2" category="list-text">Em curso</block>
+  <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Não indexado</block>
+  <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indexação em pausa</block>
+  <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Não ativado</block>
 </blocks>
