@@ -122,9 +122,3 @@ A funcionalidade Procurar e Restaurar para restauração de um único arquivo e 
 * Restaure os arquivos ou pastas de um backup na nuvem usando o recurso pesquisar e restaurar.
 * Restaure o volume a partir de uma cópia de segurança na nuvem utilizando Procurar e Restaurar e aceda aos ficheiros ou pastas de que necessita.
 
-
-
-
-==== A verificação de ransomware dos seus backups na nuvem não é compatível
-
-A verificação de backups na nuvem para ransomware não é suportada ao usar o mecanismo Podman. Se você estiver usando o recurso DataLock & ransomware para seus backups na nuvem, será necessário desativar as varreduras de ransomware. link:task-manage-backup-settings-ontap.html#enable-or-disable-ransomware-scans["Veja como desativar a verificação de ransomware"].
