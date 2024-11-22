@@ -941,9 +941,6 @@
   <block id="dbeaadfb952b8aa57d00264751776087" category="list-text">Restaure os arquivos ou pastas de um volume replicado, se existir um volume replicado.</block>
   <block id="e647cb9e3bb11f1dcf4383ae4ae00f0f" category="list-text">Restaure os arquivos ou pastas de um backup na nuvem usando o recurso pesquisar e restaurar.</block>
   <block id="b760ac1d9088cf17812b95299a0f4c97" category="list-text">Restaure o volume a partir de uma cópia de segurança na nuvem utilizando Procurar e Restaurar e aceda aos ficheiros ou pastas de que necessita.</block>
-  <block id="58cbbdff8232fafaffb4ad6a56acd87a" category="section-title">A verificação de ransomware dos seus backups na nuvem não é compatível</block>
-  <block id="f1c936121149a4d66e8504719aa508b6" category="inline-link-macro">Veja como desativar a verificação de ransomware</block>
-  <block id="346753a5d3dc5273a067b86995fbd568" category="paragraph">A verificação de backups na nuvem para ransomware não é suportada ao usar o mecanismo Podman. Se você estiver usando o recurso DataLock &amp; ransomware para seus backups na nuvem, será necessário desativar as varreduras de ransomware. <block ref="f4c28073f17b68c88ffe0b411369b71f" category="inline-link-macro-rx"></block>.</block>
   <block id="ebf717b1a7acfe5b3fb0c86dacb00223" category="summary">Pode haver situações em que você precisará reiniciar o serviço de backup e recuperação do BlueXP .</block>
   <block id="f9ae73c127d2a161124debbe8f6eab30" category="doc">Reinicie o serviço de backup e recuperação do BlueXP </block>
   <block id="3520561cc3a058255ff7212b8bcde81e" category="paragraph">A funcionalidade de backup e recuperação do BlueXP  está integrada ao BlueXP  Connector. Você precisará seguir diferentes etapas iniciais para reiniciar o serviço, dependendo se você implantou o conetor na nuvem ou se instalou o conetor manualmente em um sistema Linux.</block>
@@ -1316,7 +1313,6 @@
   <block id="e1e27de3274b6be648bacdf85d89a282" category="list-text">Permissões para o cluster do ONTAP no local para que ele possa ler e gravar dados no bucket do S3.</block>
   <block id="a7c7bd193740210990d86811ef377b56" category="inline-link">Política de BlueXP </block>
   <block id="a6e42fec71384a3a5d77eba684fba2c9" category="inline-link">Documentação da AWS: Editando políticas do IAM</block>
-  <block id="94bf6d31d85a9e7f628b488ba9a25200" category="list-text">Confirme se as seguintes permissões do S3 (a partir da última<block ref="d97dc29944250663fe9dd52fa43d79d7" category="inline-link-rx"></block>) fazem parte da função do IAM que fornece permissões ao conetor. Se não estiverem, consulte<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>.</block>
   <block id="6b238043e3f0cbcb294416f3238efea2" category="admonition">Ao criar backups nas regiões da AWS China, você precisa alterar o Nome de recurso da AWS "ARN" em todas as seções _Resource_ nas políticas do IAM de "aws" para "aws-cn"; por exemplo<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>.</block>
   <block id="27481ab02cd2907ee58a87a01de37de2" category="list-text">Quando você ativa o serviço, o assistente Backup solicitará que você insira uma chave de acesso e uma chave secreta. Essas credenciais são passadas para o cluster do ONTAP para que o ONTAP possa fazer backup e restaurar os dados para o bucket do S3. Para isso, você precisará criar um usuário do IAM com as seguintes permissões.</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">Documentação da AWS: Criando uma função para delegar permissões a um usuário do IAM</block>
@@ -3661,4 +3657,20 @@
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Quando mais de cinco volumes estão ativados para backup, o backup e a recuperação do BlueXP  inicializam apenas cinco volumes de cada vez. Quando eles estiverem concluídos, ele cria o próximo lote de cinco subtrabalhos para iniciar o próximo conjunto e continua até que todos os volumes sejam inicializados.</block>
   <block id="542b4404b0cd2b4cf01b81a3a97b2c20" category="inline-link">Insights da infraestrutura de dados e Cloud Secure</block>
   <block id="5212f7d39ed0f1c16c365beda23afc75" category="paragraph">Esse recurso não fornece proteção para os volumes de origem, apenas para os backups desses volumes de origem. Use o NetApp<block ref="17959d7def942fae173290691e2a40ae" category="inline-link-rx"></block> ou alguns dos<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block> para proteger os volumes de origem.</block>
+  <block id="46206fcd0fa4af78eefe04f1bd8d42c6" category="list-text">SnapLock Compliance para volumes no local (requer ONTAP 9.14 ou posterior)</block>
+  <block id="c4357ca22c7a0a7b40dcc64dcd915aad" category="paragraph">Para obter detalhes sobre os requisitos de proteção de DataLock e ransomware para StorageGRID, <block ref="cb8de3051c432af9d9d024226709f28f" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="e44dd1be7752eb1b45f88c82336a3d7d" category="inline-link">Permissões de política do BlueXP </block>
+  <block id="3cf1245b58a388120f82dc669e62f015" category="list-text">Certifique-se de que o conetor tem as permissões necessárias. Para obter detalhes,<block ref="291c868684ffc00e2f96b2378d7b7449" category="inline-link-rx"></block> consulte .</block>
+  <block id="008c6d012aabba0e44e2b94f8259635c" category="section-title">22 de novembro de 2024</block>
+  <block id="3c97d3b45dd14b2958c1e0e304230aa0" category="paragraph">Esta versão de backup e recuperação do BlueXP  inclui as seguintes atualizações.</block>
+  <block id="517624d736bd2a385ee8cda71584112f" category="section-title">Modos de proteção SnapLock Compliance e SnapLock Enterprise</block>
+  <block id="139da935670a9f985194d3241917c359" category="paragraph">Agora, o backup e a recuperação do BlueXP  podem fazer backup de volumes no local do FlexVol e do FlexGroup configurados com os modos de proteção SnapLock Compliance ou SnapLock Enterprise. Os clusters precisam estar executando o ONTAP 9.14 ou superior para esse suporte. O backup de volumes do FlexVol usando o modo SnapLock Enterprise tem sido suportado desde a versão 9.11.1 do ONTAP. As versões anteriores do ONTAP não oferecem suporte para fazer backup de volumes de proteção SnapLock.</block>
+  <block id="9ddb3e6714694f5c7f619d474fec8169" category="paragraph">Consulte a lista completa de volumes suportados no<block ref="9e68a582cc487ad29425f5a4796c9e45" category="inline-link-rx"></block>.</block>
+  <block id="fec92c3dfb6a0b3db498488c7f4d2f29" category="section-title">Indexação para processo de pesquisa e restauração na página volumes</block>
+  <block id="20d3b0b7cfe7a9f3dcfdb0faa9398efd" category="paragraph">Antes de poder utilizar a Pesquisa e Restauro, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual pretende restaurar os dados de volume. Isso permite que o Catálogo indexado acompanhe os arquivos de backup para cada volume. A página volumes agora mostra o status da indexação:</block>
+  <block id="cd9b31737e78e0a0a755acc12151f766" category="list-text">Indexado: Os volumes foram indexados.</block>
+  <block id="02e4eb80c967f3b9add2ba16a690eef2" category="list-text">Em curso</block>
+  <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Não indexado</block>
+  <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indexação em pausa</block>
+  <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Não ativado</block>
 </blocks>

@@ -230,6 +230,8 @@ Como você pode replicar para o Cloud Volumes ONTAP ou sistemas locais, revise o
 
 O StorageGRID deve atender aos seguintes requisitos. Consulte https://docs.netapp.com/us-en/storagegrid-117/["Documentação do StorageGRID"^] para obter mais informações.
 
+Para obter detalhes sobre os requisitos de proteção de DataLock e ransomware para StorageGRID, link:concept-cloud-backup-policies.html["Opções de política de backup para objeto"]consulte .
+
 Versões suportadas do StorageGRID:: O StorageGRID 10,3 e posterior é suportado.
 +
 --

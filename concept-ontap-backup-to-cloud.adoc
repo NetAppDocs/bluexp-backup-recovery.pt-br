@@ -158,6 +158,7 @@ O backup e a recuperação do BlueXP  são compatíveis com os seguintes tipos 
 * Volumes de leitura-gravação do FlexVol
 * Volumes FlexGroup (requer ONTAP 9.12,1 ou posterior)
 * Volumes SnapLock Enterprise (requer ONTAP 9.11,1 ou posterior)
+* SnapLock Compliance para volumes no local (requer ONTAP 9.14 ou posterior)
 * Volumes de destino da proteção de dados da SnapMirror (DP)
 
 
