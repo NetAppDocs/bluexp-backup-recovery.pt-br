@@ -2672,7 +2672,6 @@
   <block id="06ac0cb7b7615ba7b7f08032fcc97c6a" category="summary">Registre o plug-in do SnapCenter para o host VMware vSphere no BlueXP .</block>
   <block id="437ae89009b207d1aafce3d11e58f524" category="doc">Registre o plug-in do SnapCenter para o host VMware vSphere</block>
   <block id="8d69a4a1581a5dfb55d085bec9816e72" category="paragraph">Você deve Registrar o plug-in do SnapCenter para o host VMware vSphere no BlueXP  para que os datastores e as máquinas virtuais sejam exibidos. Somente um usuário com acesso administrativo pode Registrar o plug-in do SnapCenter para o host VMware vSphere.</block>
-  <block id="f352f7544724f99ab1b27e3e40291b49" category="admonition">Você pode Registrar vários plug-in do SnapCenter para hosts do VMware vSphere no BlueXP . No entanto, uma vez registrado, você não pode remover o plug-in do SnapCenter para o host VMware vSphere.</block>
   <block id="4e5b953e1349e67f48dba9317bba75d3" category="list-text">Clique em *Register SnapCenter Plug-in para VMware vSphere*.</block>
   <block id="12f2045076b291561318e5d9855f26de" category="list-text">Especifique os seguintes detalhes:</block>
   <block id="ebeea6bd6cc46b0c9f463f2b01659606" category="list-text">No campo Plug-in do SnapCenter para VMware vSphere, especifique o FQDN ou o endereço IP do plug-in do SnapCenter para o host VMware vSphere.</block>
@@ -3673,4 +3672,5 @@
   <block id="838534d879f74e7af515a7de57e72b71" category="list-text">Não indexado</block>
   <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indexação em pausa</block>
   <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Não ativado</block>
+  <block id="8ce617f9e6329a3aea4d9a3a19e56086" category="list-text">Se um volume que faz backup de um datastore já estiver protegido da guia volumes (Backup e recuperação do BlueXP  -&gt; volumes), o mesmo datastore não poderá ser protegido novamente da guia máquinas virtuais (Backup e recuperação do BlueXP  -&gt; máquinas virtuais).</block>
 </blocks>
