@@ -31,6 +31,9 @@ Para resumir, esses são os fluxos válidos que você pode usar para restaurar d
 
 
 
+NOTE: Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.
+
+
 NOTE: Para obter limitações relacionadas à restauração de dados do ONTAP, link:reference-limitations.html["Limitações de backup e restauração para volumes ONTAP"]consulte .
 
 

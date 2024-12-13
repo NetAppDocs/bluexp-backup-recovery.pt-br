@@ -121,3 +121,6 @@ Se a opção Desfazer diretório estiver ativada, mais logs de transações ser�
 . Clique em *seguinte*.
 . Revise os detalhes e clique em *Restaurar*.
 
+
+
+NOTE: Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.

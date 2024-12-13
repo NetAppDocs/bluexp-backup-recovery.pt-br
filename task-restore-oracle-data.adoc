@@ -142,8 +142,12 @@ Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao
 . Revise os detalhes e clique em *Restaurar*.
 
 
+.Resultados
 A opção *Restore to alternate location* (Restaurar para local alternativo) monta o backup selecionado no host fornecido. Você deve abrir manualmente o banco de dados.
 
 Depois de montar o backup, você não pode montá-lo novamente até que ele seja desmontado. Você pode usar a opção *Desmontar* da IU para desmontar o backup.
 
 Para obter informações sobre como abrir o banco de dados Oracle, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["artigo da base de conhecimento"] .
+
+
+NOTE: Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.

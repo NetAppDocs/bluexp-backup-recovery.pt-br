@@ -3673,4 +3673,5 @@
   <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">Indexação em pausa</block>
   <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">Não ativado</block>
   <block id="8ce617f9e6329a3aea4d9a3a19e56086" category="list-text">Se um volume que faz backup de um datastore já estiver protegido da guia volumes (Backup e recuperação do BlueXP  -&gt; volumes), o mesmo datastore não poderá ser protegido novamente da guia máquinas virtuais (Backup e recuperação do BlueXP  -&gt; máquinas virtuais).</block>
+  <block id="569af965dbd3ebb866de69518b576d23" category="admonition">Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.</block>
 </blocks>

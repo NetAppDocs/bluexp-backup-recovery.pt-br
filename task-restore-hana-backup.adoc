@@ -41,3 +41,6 @@ Se selecionar *alterar localização de armazenamento*, pode anexar um sufixo ao
 Esta operação faz apenas a exportação de armazenamento do backup selecionado no host fornecido. Você deve montar manualmente o sistema de arquivos e abrir o banco de dados. Depois de utilizar o volume, o administrador de armazenamento pode eliminar o volume do cluster ONTAP.
 
 Para obter informações sobre como abrir o banco de dados SAP HANA, consulte https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667: Automatizando as operações de clonagem e cópia do sistema SAP HANA com o SnapCenter"^] .
+
+
+NOTE: Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.
