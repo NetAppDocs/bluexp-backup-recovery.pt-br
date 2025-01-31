@@ -89,7 +89,6 @@ Ao usar uma versão do ONTAP antes de 9.11.1, a restauração de pastas não é 
 
 * A restauração de diretório/pasta é suportada para dados que residem no armazenamento de arquivamento somente quando o cluster está executando o ONTAP 9.13,1 e superior.
 * A restauração de diretório/pasta é suportada para dados protegidos usando o DataLock somente quando o cluster estiver executando o ONTAP 9.13,1 e superior.
-* Atualmente, a restauração de diretório/pasta não é suportada nos backups de volume do FlexGroup.
 * Atualmente, a restauração de diretório/pasta não é suportada a partir de replicações e/ou instantâneos locais.
 * A restauração do FlexGroup volumes para o FlexVol volumes ou do FlexVol volumes para o FlexGroup volumes não é compatível.
 * O arquivo que está sendo restaurado deve estar usando o mesmo idioma que o idioma no volume de destino. Você receberá uma mensagem de erro se os idiomas não forem os mesmos.
@@ -103,22 +102,4 @@ Ao usar uma versão do ONTAP antes de 9.11.1, a restauração de pastas não é 
 ** Os volumes do SnapLock são suportados apenas se o sistema de origem a partir do qual o backup na nuvem foi criado estiver executando o ONTAP 9.11,0 ou superior.
 
 
-
-
-
-
-=== Limitações ao usar RHEL 8 com Podman
-
-
-
-==== Suporte para restauração de arquivo único
-
-
-IMPORTANT: A partir da versão de 30 de setembro de 2024, essa limitação foi removida.
-
-A funcionalidade Procurar e Restaurar para restauração de um único arquivo e restauração de diretório não é suportada ao usar conetores BlueXP  em execução no Podman (conetores BlueXP  criados manualmente quando executados no RHEL 8 ou 9). Todos os outros tipos de operações de restauração são suportados ao usar o Podman, para que você possa restaurar seus dados usando esses outros métodos até que esse problema seja resolvido:
-
-* Restaure os arquivos ou pastas de um volume replicado, se existir um volume replicado.
-* Restaure os arquivos ou pastas de um backup na nuvem usando o recurso pesquisar e restaurar.
-* Restaure o volume a partir de uma cópia de segurança na nuvem utilizando Procurar e Restaurar e aceda aos ficheiros ou pastas de que necessita.
 
