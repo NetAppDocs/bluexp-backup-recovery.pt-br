@@ -20,6 +20,19 @@ As limitações conhecidas identificam funções que não são suportadas por es
 
 == Limitações de backup e restauração para volumes ONTAP
 
+* Backup e recuperação do BlueXP  fazendo backup do Cloud volume ONTAP em um armazenamento de objetos nas regiões da AWS China (incluindo Pequim e Ningxia). No entanto, talvez seja necessário modificar manualmente as políticas do IAM (Identity and Access Management) primeiro.
++
+Para obter detalhes sobre como criar um conetor na AWS, https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["Instalando um conetor na AWS"^] consulte .
+
++
+Para obter detalhes adicionais em um post de blog, https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-May-23-Updates/ba-p/444052["Blog de recursos de backup e recuperação do BlueXP  maio de 2023"^]consulte .
+
+* O backup e a recuperação do BlueXP  não são compatíveis com as regiões do Microsoft Azure.
++
+Para obter detalhes sobre como criar um conetor no Azure, https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html["Instalando um conetor no Azure"^] consulte .
+
+
+
 
 
 === Limitações de replicação
@@ -55,6 +68,7 @@ Não há limitação para o FlexVol volumes - você pode selecionar todos os vol
 +
 ** Os backups são suportados apenas a partir do secundário do ONTAP.
 ** A política Snapshot aplicada ao volume deve ser uma das políticas reconhecidas pelo backup e recuperação do BlueXP , incluindo diária, semanal, mensal, etc. a política padrão "SM_created" (usada para *espelhar todos os snapshots*) não é reconhecida e o volume DP não será exibido na lista de volumes que podem ser copiados.
+** O SVM-DR e o backup e recuperação de volume funcionam de forma totalmente independente quando o backup é retirado da origem ou destino. A única restrição é que o SVM-DR não replica o relacionamento de nuvem da SnapMirror. No cenário de recuperação de desastres, quando o SVM fica on-line no local secundário, você precisa atualizar manualmente o relacionamento de nuvem do SnapMirror.
 
 
 
