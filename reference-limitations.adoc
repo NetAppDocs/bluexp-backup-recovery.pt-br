@@ -55,6 +55,13 @@ Não há limitação para o FlexVol volumes - você pode selecionar todos os vol
 
 === Limitações de backup para objeto
 
+* O backup e a recuperação do BlueXP  não fazem backup de volumes em storage de objetos que tenham a criptografia de volume NetApp (NVE) habilitada e a criptografia agregada do NetApp (NAE) habilitada no ONTAP.
++
+Para obter uma explicação sobre esses tipos de criptografia, https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Configurar a visão geral da encriptação de volume do NetApp"^]consulte .
+
+
+
+* Se os snapshots de retenção de longo prazo estiverem habilitados em um volume de destino do SnapMirror usando a programação na política do SnapMirror, os snapshots serão criados diretamente no volume de destino. Nesse caso, você não deve fazer backup desses volumes usando o backup e a recuperação do BlueXP , pois esses snapshots não serão movidos para o storage de objetos.
 * Quando você cria ou edita uma política de backup quando nenhum volume é atribuído à política, o número de backups retidos pode ser no máximo 1018. Depois de atribuir volumes à política, você pode editar a política para criar até 4000 backups.
 * Ao fazer backup de volumes de proteção de dados (DP):
 +

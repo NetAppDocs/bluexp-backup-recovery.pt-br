@@ -352,7 +352,11 @@ Se você criar seus próprios buckets, use um nome de bucket do "NetApp-backup".
 
 Se você quiser usar as chaves de criptografia padrão do Amazon S3 para criptografar os dados passados entre o cluster no local e o bucket do S3, tudo estará definido porque a instalação padrão usa esse tipo de criptografia.
 
-Se, em vez disso, você quiser usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves padrão, precisará ter as chaves gerenciadas de criptografia já configuradas antes de iniciar o assistente de backup e recuperação do BlueXP . https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Consulte como usar suas próprias chaves"^].
+Se, em vez disso, você quiser usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves padrão, precisará ter as chaves gerenciadas de criptografia já configuradas antes de iniciar o assistente de backup e recuperação do BlueXP .
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Consulte como usar suas próprias chaves de criptografia da Amazon com o Cloud Volumes ONTAP"^].
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Consulte como usar suas próprias chaves de criptografia Amazon com backup e recuperação do BlueXP "^].
 
 
 

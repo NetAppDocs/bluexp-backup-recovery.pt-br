@@ -1293,8 +1293,6 @@
   <block id="50b086f5a622de5e2ad8e86ada10bc12" category="paragraph">"Action": [ "S3 S3 S3 S3:ListBucket" "S3 S3 S3 S3:GetBucketLocation" ] "Resource": "arn:aws:S3 S3 S3 S3:::*", "Effect": "Allow", "Action": [ "S3:GetObject", "S3:PutObject", "S3</block>
   <block id="868fb9c55d4ddac7523d9c4697eb9d9f" category="section-title">Configurar chaves AWS gerenciadas pelo cliente para criptografia de dados</block>
   <block id="72828ef5ab3d5aa027bfcdd1a9224f67" category="paragraph">Se você quiser usar as chaves de criptografia padrão do Amazon S3 para criptografar os dados passados entre o cluster no local e o bucket do S3, tudo estará definido porque a instalação padrão usa esse tipo de criptografia.</block>
-  <block id="e2eb08f750d15308f8411635e75fc5e7" category="inline-link">Consulte como usar suas próprias chaves</block>
-  <block id="de4ef5a5f97836ab944189954e7907e4" category="paragraph">Se, em vez disso, você quiser usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves padrão, precisará ter as chaves gerenciadas de criptografia já configuradas antes de iniciar o assistente de backup e recuperação do BlueXP .<block ref="4f334d1f128fd0a003f5f48bc9fc4cbc" category="inline-link-rx"></block>.</block>
   <block id="486567bdd60f21beefa59174661f6d52" category="section-title">Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC</block>
   <block id="d37ada70a820c5c84f992a48e05045cf" category="inline-link-macro">primeiro diagrama</block>
   <block id="4ec233ea13ab88b2246fbb211a91665c" category="paragraph">Se você quiser usar uma conexão de internet pública padrão, todas as permissões serão definidas pelo conetor e não há mais nada que você precise fazer. Esse tipo de conexão é mostrado no <block ref="38757d2cfcaca456ef39c830b3fbfbb6" category="inline-link-macro-rx"></block>.</block>
@@ -2921,9 +2919,6 @@
   <block id="b3cf2a0723236b8965edb17a6adc8bf5" category="list-text">Para backups armazenados no Google Cloud, ele provisiona um novo bucket e os<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> são provisionados em um nível de conta/projeto.</block>
   <block id="8100b28bcfd3e23e2256df4e160ffe93" category="list-text">Para backups armazenados no StorageGRID ou no ONTAP S3, ele provisiona espaço no conetor ou no ambiente do provedor de nuvem.</block>
   <block id="ad13cab5dd920f50df05b097ac6ce5f3" category="paragraph">Se a Indexação já tiver sido ativada para o seu ambiente de trabalho, vá para a próxima seção para restaurar seus dados.</block>
-  <block id="8c3d8e8290011affd1cc36d8fb6ca3a8" category="paragraph">Para ativar a Indexação para um ambiente de trabalho:</block>
-  <block id="77b424e494cba30c234da205f975c6ba" category="list-text">Se nenhum ambiente de trabalho tiver sido indexado, no Painel de Restauro em _Search &amp; Restore_, clique em *Enable Indexing for Working Environments* (Ativar Indexação para ambientes de trabalho) e clique em *Enable Indexing* (Ativar Indexação) para o ambiente de trabalho.</block>
-  <block id="3c672ca6b1c8663911932efdc7cb9761" category="list-text">Se pelo menos um ambiente de trabalho já tiver sido indexado, no Painel de Restauro em _Search &amp; Restore_, clique em *Indexing Settings* e clique em *Enable Indexing* para o ambiente de trabalho.</block>
   <block id="d76950a27877cc1b2fad2a533be5bd70" category="paragraph">Depois que todos os serviços são provisionados e o Catálogo indexado foi ativado, o ambiente de trabalho é mostrado como "Ativo".</block>
   <block id="22a8553a7fcf088b4624bfb22aca2c00" category="inline-image-macro">Uma captura de tela mostrando os ambientes de trabalho que ativaram o Catálogo indexado.</block>
   <block id="2e6096622065e7d9092ff099425f8bf0" category="paragraph"><block ref="2e6096622065e7d9092ff099425f8bf0" category="inline-image-macro-rx" type="image"></block></block>
@@ -3616,4 +3611,59 @@
   <block id="757ec8d082a1a9becacdf32c01678f5b" category="list-text">O SVM-DR e o backup e recuperação de volume funcionam de forma totalmente independente quando o backup é retirado da origem ou destino. A única restrição é que o SVM-DR não replica o relacionamento de nuvem da SnapMirror. No cenário de recuperação de desastres, quando o SVM fica on-line no local secundário, você precisa atualizar manualmente o relacionamento de nuvem do SnapMirror.</block>
   <block id="2fb18b7eb7edfd6ac0fa8586ecbd9a12" category="inline-link">Saiba mais sobre como adicionar licenças com carteira digital</block>
   <block id="e2a36029181f04d6208811edf66b0c62" category="paragraph"><block ref="039fd09b60dad6f86188402eac2ef738" category="inline-link-rx"></block>.</block>
+  <block id="9126fc20b93ed61d342990460cdaaa43" category="doc">Indexação de alto desempenho</block>
+  <block id="c31a2ae5c0b165eb1cee78223b508907" category="paragraph">O backup e a recuperação do BlueXP  introduz um recurso de indexação atualizado que torna a indexação de dados no ambiente de trabalho de origem mais eficiente. O novo recurso de indexação inclui atualizações para a interface do usuário, melhor desempenho do método de pesquisa e restauração de dados, atualizações para recursos de pesquisa global e melhor escalabilidade.</block>
+  <block id="135dcb5e7fddaabc736ce2d72074e3bf" category="paragraph">Aqui está um detalhamento das melhorias:</block>
+  <block id="2fd910d863c39557d994a40fedd27b38" category="list-text">*Consolidação de pastas*: A versão atualizada agrupa as pastas usando nomes que incluem identificadores específicos, tornando o processo de indexação mais suave.</block>
+  <block id="415e39ccfe49c5161a2a27cbc19cbaac" category="list-text">*Compactação de arquivos Parquet*: A versão atualizada reduz o número de arquivos usados para indexar cada volume, simplificando o processo e eliminando a necessidade de um banco de dados extra.</block>
+  <block id="c53ca191fcf89c8c42d05fd203ce3d03" category="list-text">*Escale-out com mais sessões*: A nova versão adiciona mais sessões para lidar com tarefas de indexação, acelerando o processo.</block>
+  <block id="9ad2108ab54a2f84cdce51c70aedf218" category="list-text">*Suporte para vários contentores de índice*: A nova versão usa vários contentores para gerenciar e distribuir melhor as tarefas de indexação.</block>
+  <block id="4a3dba07ec28235aef40beaad924f29a" category="list-text">*Fluxo de trabalho de índice dividido*: A nova versão divide o processo de indexação em duas partes, aumentando a eficiência.</block>
+  <block id="4524da26c6e536d9203dad25cbe67e46" category="list-text">*Melhoria da simultaneidade*: A nova versão permite excluir ou mover diretórios ao mesmo tempo, acelerando o processo de indexação.</block>
+  <block id="4cd005b9bd7832f2f50d7bfa9ef8c5bd" category="paragraph-title">Quem se beneficia desta funcionalidade?</block>
+  <block id="c0b0a9d9f7b65ce3e277b13bce1241d3" category="paragraph">O novo recurso de indexação está disponível para todos os novos clientes.</block>
+  <block id="eb3dc66c3f5547559da4bd69622b70f1" category="paragraph-title">Como você ativa a indexação?</block>
+  <block id="1928ef25d05266e1052541c930f2737c" category="paragraph">Antes de poder utilizar o método de pesquisa e restauro de restaurar dados, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual pretende restaurar volumes ou ficheiros. Isso permite que o Catálogo indexado acompanhe cada volume e cada arquivo de backup, tornando suas pesquisas rápidas e eficientes.</block>
+  <block id="d28994d1a9691ce26fcae71b9a05d1bc" category="paragraph">Ative a indexação no ambiente de trabalho de origem selecionando a opção "Ativar indexação" quando estiver a efetuar uma pesquisa e restauro.</block>
+  <block id="6b14c6e0d643870ea727335d7739df30" category="inline-link">Como restaurar dados do ONTAP usando pesquisar &amp;amp; Restaurar</block>
+  <block id="9031cfd1bcd3de043cd6391f098dc91b" category="paragraph">Para obter mais informações, consulte a documentação<block ref="7ae860a58fb7c028461eb3a0f3043711" category="inline-link-rx"></block>.</block>
+  <block id="2d31667baed414ccd330141663dac284" category="paragraph-title">Escala suportada</block>
+  <block id="b2ec30cb49afbacbac6cc89a95133887" category="paragraph">O novo recurso de indexação suporta o seguinte:</block>
+  <block id="3201cddda2c272104ed2ef30674f361a" category="list-text">Eficiência de pesquisa global em menos de 3 minutos</block>
+  <block id="5386e74ecf10139fea9af2308674b2f3" category="list-text">Até 5 bilhões de arquivos</block>
+  <block id="ed6f4100c4fab2301cff975ad76b4882" category="list-text">Até 5000 volumes por cluster</block>
+  <block id="1154c1f5439a3f20019e89d49f3ba075" category="list-text">Até 100K instantâneos por volume</block>
+  <block id="bca4b5a9086c6c17f64be092486e45ad" category="list-text">O tempo máximo para indexação da linha de base é inferior a 7 dias. O tempo real irá variar dependendo do seu ambiente.</block>
+  <block id="783d72b35e6b2ea46fd074f6f0960e45" category="section-title">Melhorias de desempenho de pesquisa global</block>
+  <block id="66fba34c17d26bb2c0e9b396915f9a4f" category="paragraph">Esta versão também inclui melhorias no desempenho de pesquisa global. Agora você verá indicadores de progresso e resultados de pesquisa mais detalhados, incluindo a contagem de arquivos e o tempo necessário para a pesquisa. Os contentores dedicados para pesquisa e indexação garantem que as pesquisas globais sejam concluídas em menos de cinco minutos.</block>
+  <block id="ba7df4741bd77385c236fcf981dd357a" category="paragraph">Observe estas considerações relacionadas à pesquisa global:</block>
+  <block id="03602fc4621dad9ee00f9e5d533ff5ea" category="list-text">O novo índice não é executado em instantâneos rotulados como por hora.</block>
+  <block id="2bacd7c8c96302172c5d0324d784cf03" category="list-text">O novo recurso de indexação funciona apenas em snapshots no FlexVols e não em snapshots no FlexGroups.</block>
+  <block id="9a817228de7a6ae8f0c7de31a40bf58e" category="list-text">O backup e a recuperação do BlueXP  não fazem backup de volumes em storage de objetos que tenham a criptografia de volume NetApp (NVE) habilitada e a criptografia agregada do NetApp (NAE) habilitada no ONTAP.</block>
+  <block id="c638f77e97a62d0d11f775816222d62a" category="inline-link">Configurar a visão geral da encriptação de volume do NetApp</block>
+  <block id="3553f96cf9281793975488d9cea2ab17" category="paragraph">Para obter uma explicação sobre esses tipos de criptografia, <block ref="4e5be28408ee7dfd001133bf87f0a28f" category="inline-link-rx"></block>consulte .</block>
+  <block id="e00d7f7aeae26763ad3c75c98433f2e9" category="list-text">Se os snapshots de retenção de longo prazo estiverem habilitados em um volume de destino do SnapMirror usando a programação na política do SnapMirror, os snapshots serão criados diretamente no volume de destino. Nesse caso, você não deve fazer backup desses volumes usando o backup e a recuperação do BlueXP , pois esses snapshots não serão movidos para o storage de objetos.</block>
+  <block id="01413f389bd4cf68af61ca2a62ee7d87" category="paragraph">Se, em vez disso, você quiser usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves padrão, precisará ter as chaves gerenciadas de criptografia já configuradas antes de iniciar o assistente de backup e recuperação do BlueXP .</block>
+  <block id="81d60e20c02d2dc4f1f049ef17d9c0f3" category="inline-link">Consulte como usar suas próprias chaves de criptografia da Amazon com o Cloud Volumes ONTAP</block>
+  <block id="88ccd2720227f5c1164c6497d4ae47f6" category="paragraph"><block ref="8ab54e2b609b251be3bd34cf7a9c9391" category="inline-link-rx"></block>.</block>
+  <block id="76cbe937e740eca839bf63ad19034f3f" category="inline-link">Consulte como usar suas próprias chaves de criptografia Amazon com backup e recuperação do BlueXP </block>
+  <block id="6fdce727e6de4160eacd28b15da69c4f" category="paragraph"><block ref="a3f58d2c0ba0e72062adb488b84ae17c" category="inline-link-rx"></block>.</block>
+  <block id="f92649b1217dc96d6552e63d3b09c966" category="paragraph">Para obter informações sobre o Catálogo indexado v2, consulte a seção abaixo sobre como ativar o Catálogo indexado.</block>
+  <block id="166abda58938787377e1425ec8d5bfe0" category="paragraph">O Catálogo indexado é um banco de dados que armazena metadados sobre todos os volumes e arquivos de backup em seu ambiente de trabalho. Ele é usado pela funcionalidade pesquisar e Restaurar para localizar rapidamente os arquivos de backup que contêm os dados que você deseja restaurar.</block>
+  <block id="ace26ef20d7de77728de7522bd26d7de" category="paragraph-title">Catálogo indexado v2 recursos</block>
+  <block id="c63a5bc5fc4b32b1bff45d50374410d4" category="paragraph">O Catálogo indexado v2, lançado em fevereiro de 2025, tem novos recursos que o tornam mais eficiente e fácil de usar. Esta versão tem um aprimoramento significativo de desempenho e é ativada por padrão para todos os novos clientes.</block>
+  <block id="e45e80a3aa32c47a9d6ef311dd8f2980" category="paragraph">Reveja as seguintes considerações relativas ao v2:</block>
+  <block id="b98d519952606f96dcc615efa4f4e85c" category="list-text">O Catálogo indexado v2 está disponível no modo de visualização.</block>
+  <block id="951398abbe6e1c3079efe911a6951621" category="list-text">Se você é um cliente existente e deseja usar o Catálogo v2, você precisa reindexar completamente seu ambiente.</block>
+  <block id="eb720e0effbb1828841ea62695a758b9" category="list-text">O Catálogo v2 indexa apenas os instantâneos que têm um rótulo de instantâneo.</block>
+  <block id="2c3a11da75201509ee9fcbd0114229d0" category="list-text">O backup e a recuperação do BlueXP  não indexam snapshots com rótulos SnapMirror "por hora". Se você quiser indexar snapshots com o rótulo SnapMirror "por hora", você precisa ativá-lo manualmente enquanto o v2 estiver no modo de visualização.</block>
+  <block id="30de1e9ffcdc3df41ad87fe991035205" category="list-text">O backup e a recuperação do BlueXP  indexarão volumes e snapshots associados a ambientes de trabalho protegidos pelo backup e recuperação do BlueXP  somente com o Catálogo v2. Outros ambientes de trabalho descobertos na plataforma BlueXP  não serão indexados.</block>
+  <block id="cba8da890b429c54fa89c60426136832" category="paragraph">O Catálogo indexado v2 suporta o seguinte:</block>
+  <block id="46428b76e969ff123fba9ae4f0798b31" category="paragraph-title">Ativar o Catálogo indexado para um ambiente de trabalho</block>
+  <block id="e7a2b56d589698a713ae6f0ee11d094a" category="list-title">Passos para ativar a Indexação para um ambiente de trabalho:</block>
+  <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">Execute um dos seguintes procedimentos:</block>
+  <block id="a3d610bf46189d3cbce48f595c45499f" category="list-text">Se nenhum ambiente de trabalho tiver sido indexado, no Painel de Restauro em _Search &amp; Restore_, selecione *Enable Indexing for Working Environments* (Ativar Indexação para ambientes de trabalho).</block>
+  <block id="4d15abe2ea84fc45daf040e94beae3f3" category="list-text">Se pelo menos um ambiente de trabalho já tiver sido indexado, no Painel de Restauro em _Search &amp; Restore_, clique em *Indexing Settings*.</block>
+  <block id="96c51ce828ef9cc79ee2121bdd9dc630" category="list-text">Selecione *Ativar Indexação* para o ambiente de trabalho.</block>
+  <block id="09d7c2dac047caa965175fead07159aa" category="section-title">21 de fevereiro de 2025</block>
 </blocks>

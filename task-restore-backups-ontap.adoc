@@ -658,6 +658,9 @@ Dependendo da sua configuração, existem 2 maneiras pelas quais a Pesquisa e Re
 
 +
 ** Se não houver credenciais de provedor de nuvem em sua conta, as informações do Catálogo indexado serão armazenadas no conetor.
++
+Para obter informações sobre o Catálogo indexado v2, consulte a seção abaixo sobre como ativar o Catálogo indexado.
+
 ** Se você estiver usando um conetor em um site privado (escuro), as informações do Catálogo indexado serão armazenadas no conetor (requer a versão 3.9.25 ou superior do conetor).
 ** Se você tiver https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html["Credenciais AWS"^] ou https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html["Credenciais do Azure"^] estiver na conta, o Catálogo indexado será armazenado no provedor de nuvem, assim como com um conetor implantado na nuvem. (Se você tiver ambas as credenciais, a AWS será selecionada por padrão.)
 +
@@ -694,6 +697,30 @@ Como você pode ver, você realmente só precisa saber um nome parcial e pesquis
 
 Antes de poder utilizar a Pesquisa e Restauro, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual está a planear restaurar volumes ou ficheiros. Isso permite que o Catálogo indexado acompanhe cada volume e cada arquivo de backup - tornando suas pesquisas muito rápidas e eficientes.
 
+O Catálogo indexado é um banco de dados que armazena metadados sobre todos os volumes e arquivos de backup em seu ambiente de trabalho. Ele é usado pela funcionalidade pesquisar e Restaurar para localizar rapidamente os arquivos de backup que contêm os dados que você deseja restaurar.
+
+.Catálogo indexado v2 recursos
+O Catálogo indexado v2, lançado em fevereiro de 2025, tem novos recursos que o tornam mais eficiente e fácil de usar. Esta versão tem um aprimoramento significativo de desempenho e é ativada por padrão para todos os novos clientes.
+
+Reveja as seguintes considerações relativas ao v2:
+
+* O Catálogo indexado v2 está disponível no modo de visualização.
+* Se você é um cliente existente e deseja usar o Catálogo v2, você precisa reindexar completamente seu ambiente.
+* O Catálogo v2 indexa apenas os instantâneos que têm um rótulo de instantâneo.
+* O backup e a recuperação do BlueXP  não indexam snapshots com rótulos SnapMirror "por hora". Se você quiser indexar snapshots com o rótulo SnapMirror "por hora", você precisa ativá-lo manualmente enquanto o v2 estiver no modo de visualização.
+* O backup e a recuperação do BlueXP  indexarão volumes e snapshots associados a ambientes de trabalho protegidos pelo backup e recuperação do BlueXP  somente com o Catálogo v2. Outros ambientes de trabalho descobertos na plataforma BlueXP  não serão indexados.
+
+
+O Catálogo indexado v2 suporta o seguinte:
+
+* Eficiência de pesquisa global em menos de 3 minutos
+* Até 5 bilhões de arquivos
+* Até 5000 volumes por cluster
+* Até 100K instantâneos por volume
+* O tempo máximo para indexação da linha de base é inferior a 7 dias. O tempo real irá variar dependendo do seu ambiente.
+
+
+.Ativar o Catálogo indexado para um ambiente de trabalho
 Ao habilitar esse recurso, o backup e a recuperação do BlueXP  habilitam o SnapDiff v3 no SVM para seus volumes, e ele executa as seguintes ações:
 
 ifdef::aws[]
@@ -722,12 +749,17 @@ endif::gcp[]
 
 Se a Indexação já tiver sido ativada para o seu ambiente de trabalho, vá para a próxima seção para restaurar seus dados.
 
-Para ativar a Indexação para um ambiente de trabalho:
+.Passos para ativar a Indexação para um ambiente de trabalho:
+. Execute um dos seguintes procedimentos:
++
+** Se nenhum ambiente de trabalho tiver sido indexado, no Painel de Restauro em _Search & Restore_, selecione *Enable Indexing for Working Environments* (Ativar Indexação para ambientes de trabalho).
+** Se pelo menos um ambiente de trabalho já tiver sido indexado, no Painel de Restauro em _Search & Restore_, clique em *Indexing Settings*.
 
-* Se nenhum ambiente de trabalho tiver sido indexado, no Painel de Restauro em _Search & Restore_, clique em *Enable Indexing for Working Environments* (Ativar Indexação para ambientes de trabalho) e clique em *Enable Indexing* (Ativar Indexação) para o ambiente de trabalho.
-* Se pelo menos um ambiente de trabalho já tiver sido indexado, no Painel de Restauro em _Search & Restore_, clique em *Indexing Settings* e clique em *Enable Indexing* para o ambiente de trabalho.
+
+. Selecione *Ativar Indexação* para o ambiente de trabalho.
 
 
+.Resultado
 Depois que todos os serviços são provisionados e o Catálogo indexado foi ativado, o ambiente de trabalho é mostrado como "Ativo".
 
 image:screenshot_restore_enable_indexing.png["Uma captura de tela mostrando os ambientes de trabalho que ativaram o Catálogo indexado."]
