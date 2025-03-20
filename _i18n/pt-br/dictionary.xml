@@ -297,7 +297,6 @@
   <block id="7d62785ab590dc8a4df70476d1074112" category="list-text">Em comparação com o<block ref="4fce6ae07afb93b8fa68feba2b9e59c3" category="inline-link-rx"></block>, a replicação no backup e recuperação do BlueXP  inclui os seguintes recursos:</block>
   <block id="66e7c889f1d203b98d4330686da2e2cd" category="list-text">Replique vários volumes FlexVol de cada vez para um sistema secundário.</block>
   <block id="5cb11ed35306a1eb272c0463127877ee" category="list-text">Restaure um volume replicado para o sistema de origem ou para um sistema diferente usando a IU.</block>
-  <block id="727c837c47e40b96ddd39f15636181fe" category="list-text">Gerenciar políticas de replicação</block>
   <block id="2eb3c16f8718eea213343bfcb6e0d47c" category="inline-link-macro">Limitações de replicação</block>
   <block id="0cfaa5ae5082470bafba0615d45f7751" category="paragraph">Consulte <block ref="d040451a2351bab208828c79c3596d9a" category="inline-link-macro-rx"></block> para obter uma lista de recursos de replicação que não estão disponíveis com backup e recuperação do BlueXP .</block>
   <block id="8b590f1e30dffdb9f9bfcd672f78e4cc" category="paragraph">*Recursos de backup para objeto:*</block>
@@ -3639,7 +3638,6 @@
   <block id="ba7df4741bd77385c236fcf981dd357a" category="paragraph">Observe estas considerações relacionadas à pesquisa global:</block>
   <block id="03602fc4621dad9ee00f9e5d533ff5ea" category="list-text">O novo índice não é executado em instantâneos rotulados como por hora.</block>
   <block id="2bacd7c8c96302172c5d0324d784cf03" category="list-text">O novo recurso de indexação funciona apenas em snapshots no FlexVols e não em snapshots no FlexGroups.</block>
-  <block id="9a817228de7a6ae8f0c7de31a40bf58e" category="list-text">O backup e a recuperação do BlueXP  não fazem backup de volumes em storage de objetos que tenham a criptografia de volume NetApp (NVE) habilitada e a criptografia agregada do NetApp (NAE) habilitada no ONTAP.</block>
   <block id="c638f77e97a62d0d11f775816222d62a" category="inline-link">Configurar a visão geral da encriptação de volume do NetApp</block>
   <block id="3553f96cf9281793975488d9cea2ab17" category="paragraph">Para obter uma explicação sobre esses tipos de criptografia, <block ref="4e5be28408ee7dfd001133bf87f0a28f" category="inline-link-rx"></block>consulte .</block>
   <block id="e00d7f7aeae26763ad3c75c98433f2e9" category="list-text">Se os snapshots de retenção de longo prazo estiverem habilitados em um volume de destino do SnapMirror usando a programação na política do SnapMirror, os snapshots serão criados diretamente no volume de destino. Nesse caso, você não deve fazer backup desses volumes usando o backup e a recuperação do BlueXP , pois esses snapshots não serão movidos para o storage de objetos.</block>
@@ -3666,4 +3664,14 @@
   <block id="4d15abe2ea84fc45daf040e94beae3f3" category="list-text">Se pelo menos um ambiente de trabalho já tiver sido indexado, no Painel de Restauro em _Search &amp; Restore_, clique em *Indexing Settings*.</block>
   <block id="96c51ce828ef9cc79ee2121bdd9dc630" category="list-text">Selecione *Ativar Indexação* para o ambiente de trabalho.</block>
   <block id="09d7c2dac047caa965175fead07159aa" category="section-title">21 de fevereiro de 2025</block>
+  <block id="30ba4ee29fda0b7285b4297943459cf9" category="doc">Navegação de instantâneos SMB</block>
+  <block id="024bc4989e66777454fa98cbaf9a7d3e" category="paragraph">Esta atualização de backup e recuperação do BlueXP  resolveu um problema que impedia os clientes de navegar em snapshots locais em um ambiente SMB.</block>
+  <block id="151a83fcfdad3b420d256dbc19095068" category="section-title">Atualização de ambiente do AWS GovCloud</block>
+  <block id="c4ff0af994997811a9867969c1b26bf3" category="paragraph">Essa atualização de backup e recuperação do BlueXP  corrigiu um problema que impedia a interface do usuário de se conetar a um ambiente AWS GovCloud devido a erros de certificado TLS. O problema foi resolvido usando o nome do host do conetor BlueXP  em vez do endereço IP.</block>
+  <block id="a758068ed72f0a6858316a7ff791b4ba" category="section-title">Limites de retenção da política de backup</block>
+  <block id="7937af8bb9aecdab11a666bfc7946c61" category="paragraph">Anteriormente, a IU de backup e recuperação do BlueXP  limitava os backups a 999 cópias, enquanto a CLI permitia mais. Agora, você pode anexar até 4.000 volumes a uma política de backup e incluir volumes 1.018 não anexados a uma política de backup. Esta atualização inclui validações adicionais que impedem a superação desses limites.</block>
+  <block id="d5479e738a91b3a64956ed9f9e81bc5a" category="section-title">Ressincronizar a nuvem da SnapMirror</block>
+  <block id="06476618a5631fabf79c4d5ebe8b60b0" category="paragraph">Essa atualização garante que o ressync do SnapMirror Cloud não possa ser iniciado a partir do backup e recuperação do BlueXP  para versões ONTAP não suportadas depois que uma relação do SnapMirror for excluída.</block>
+  <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">Ao fazer backup de dados, o backup e a recuperação do BlueXP  não mantêm o NetApp volume Encryption (NVE). Isso significa que os dados criptografados no volume NVE serão descriptografados enquanto os dados estiverem sendo transferidos para o destino e a criptografia não será mantida.</block>
+  <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">17 de março de 2025</block>
 </blocks>

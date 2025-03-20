@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery' 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection' 
 summary: Saiba o que há de novo no backup e recuperação do BlueXP . 
 ---
 = Novidades do backup e recuperação do BlueXP 
@@ -15,6 +15,36 @@ summary: Saiba o que há de novo no backup e recuperação do BlueXP .
 
 [role="lead"]
 Saiba o que há de novo no backup e recuperação do BlueXP .
+
+
+
+== 17 de março de 2025
+
+Esta versão de backup e recuperação do BlueXP  inclui as seguintes atualizações.
+
+
+
+=== Navegação de instantâneos SMB
+
+Esta atualização de backup e recuperação do BlueXP  resolveu um problema que impedia os clientes de navegar em snapshots locais em um ambiente SMB.
+
+
+
+=== Atualização de ambiente do AWS GovCloud
+
+Essa atualização de backup e recuperação do BlueXP  corrigiu um problema que impedia a interface do usuário de se conetar a um ambiente AWS GovCloud devido a erros de certificado TLS. O problema foi resolvido usando o nome do host do conetor BlueXP  em vez do endereço IP.
+
+
+
+=== Limites de retenção da política de backup
+
+Anteriormente, a IU de backup e recuperação do BlueXP  limitava os backups a 999 cópias, enquanto a CLI permitia mais. Agora, você pode anexar até 4.000 volumes a uma política de backup e incluir volumes 1.018 não anexados a uma política de backup. Esta atualização inclui validações adicionais que impedem a superação desses limites.
+
+
+
+=== Ressincronizar a nuvem da SnapMirror
+
+Essa atualização garante que o ressync do SnapMirror Cloud não possa ser iniciado a partir do backup e recuperação do BlueXP  para versões ONTAP não suportadas depois que uma relação do SnapMirror for excluída.
 
 
 

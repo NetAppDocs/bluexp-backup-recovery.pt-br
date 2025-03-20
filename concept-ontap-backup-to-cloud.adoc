@@ -51,7 +51,6 @@ Quando necessário, você pode restaurar um _volume_ inteiro, uma _pasta_ ou um 
 +
 ** Replique vários volumes FlexVol de cada vez para um sistema secundário.
 ** Restaure um volume replicado para o sistema de origem ou para um sistema diferente usando a IU.
-** Gerenciar políticas de replicação
 
 
 
