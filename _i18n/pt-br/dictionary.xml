@@ -3550,7 +3550,6 @@
   <block id="3a66ab30f960deed7e2d6dbe5675eebc" category="paragraph">O backup e a recuperação do BlueXP  podem ser usados em um site com conetividade limitada à Internet (também conhecido como _modo restrito_) para fazer backup dos dados de volume. Nesse caso, você precisará implantar o BlueXP  Connector na região da nuvem de destino.</block>
   <block id="c042a7ac26c00953bd87e1129908e5c7" category="list-text">É possível fazer backup dos dados de sistemas ONTAP locais ou de sistemas Cloud Volumes ONTAP instalados em regiões comerciais da AWS para o Amazon S3. <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>.</block>
   <block id="eb908336fca360ed35207a1e198562b2" category="list-text">É possível fazer backup de dados de sistemas ONTAP locais ou sistemas Cloud Volumes ONTAP instalados em regiões comerciais do Azure para o Azure Blob. <block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>.</block>
-  <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">Quando mais de cinco volumes estão ativados para backup, o backup e a recuperação do BlueXP  inicializam apenas cinco volumes de cada vez. Quando eles estiverem concluídos, ele cria o próximo lote de cinco subtrabalhos para iniciar o próximo conjunto e continua até que todos os volumes sejam inicializados.</block>
   <block id="542b4404b0cd2b4cf01b81a3a97b2c20" category="inline-link">Insights da infraestrutura de dados e Cloud Secure</block>
@@ -3674,4 +3673,5 @@
   <block id="06476618a5631fabf79c4d5ebe8b60b0" category="paragraph">Essa atualização garante que o ressync do SnapMirror Cloud não possa ser iniciado a partir do backup e recuperação do BlueXP  para versões ONTAP não suportadas depois que uma relação do SnapMirror for excluída.</block>
   <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">Ao fazer backup de dados, o backup e a recuperação do BlueXP  não mantêm o NetApp volume Encryption (NVE). Isso significa que os dados criptografados no volume NVE serão descriptografados enquanto os dados estiverem sendo transferidos para o destino e a criptografia não será mantida.</block>
   <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">17 de março de 2025</block>
+  <block id="c11347a85201b35f4b0302aff21bc226" category="cell"><block ref="c9017d174080d415365a112c68422e95" prefix="" category="inline-code"></block></block>
 </blocks>

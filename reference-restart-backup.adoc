@@ -38,10 +38,10 @@ A funcionalidade de backup e recuperação do BlueXP  está integrada ao BlueXP
 | Localização do conetor | Comando Docker | Podman comando 
 
 
-| Implantação de nuvem | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs` 
+| Implantação de nuvem | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
 
 
-| Instalação manual com acesso à Internet | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs` 
+| Instalação manual com acesso à Internet | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
 
 
 | Instalação manual sem acesso à Internet | `docker restart ds_cloudmanager_cbs_1` | `podman restart ds_cloudmanager_cbs_1` 
