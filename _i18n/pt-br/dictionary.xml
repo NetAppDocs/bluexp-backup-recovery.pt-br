@@ -3674,4 +3674,28 @@
   <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">Ao fazer backup de dados, o backup e a recuperação do BlueXP  não mantêm o NetApp volume Encryption (NVE). Isso significa que os dados criptografados no volume NVE serão descriptografados enquanto os dados estiverem sendo transferidos para o destino e a criptografia não será mantida.</block>
   <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">17 de março de 2025</block>
   <block id="c11347a85201b35f4b0302aff21bc226" category="cell"><block ref="c9017d174080d415365a112c68422e95" prefix="" category="inline-code"></block></block>
+  <block id="46c8a90c914cf567466d573545fb57d9" category="doc">Painel de controlo de volume melhorado (pré-visualização)</block>
+  <block id="d4400da5c041019019538ea47e6a4d7e" category="paragraph">O Painel de volume agora é carregado em menos de 10 segundos, fornecendo uma interface muito mais rápida e eficiente. Esta versão de pré-visualização está disponível para clientes selecionados, oferecendo-lhes uma visão antecipada dessas melhorias.</block>
+  <block id="a43e01afb7862afba8cef123bb022bd8" category="section-title">Melhorias na IU</block>
+  <block id="d631beb153bc97ac47e69041180f2bda" category="paragraph">Esta versão melhora sua experiência simplificando a interface:</block>
+  <block id="7945214ab9edda2604c048e3254b6820" category="list-text">A remoção da coluna agregada das tabelas volumes, juntamente com as colunas Política de snapshot, Política de backup e Política de replicação da tabela volume no Painel V2, resulta em um layout mais simplificado.</block>
+  <block id="1f4ea4d0a55155c1ea9271081e2e118f" category="list-text">A exclusão de ambientes de trabalho não ativados da lista suspensa torna a interface menos organizada, a navegação mais eficiente e o carregamento mais rápido.</block>
+  <block id="c42ae4d1274def078f227f6b5526ed38" category="list-text">Enquanto a classificação na coluna Tags está desativada, você ainda pode visualizar as tags, garantindo que informações importantes permaneçam facilmente acessíveis.</block>
+  <block id="ee5a89c90c463c21f6188d8945b6a165" category="list-text">A remoção de etiquetas nos ícones de proteção contribui para uma aparência mais limpa e diminui o tempo de carregamento.</block>
+  <block id="4deca0db77c0cb1d491b7636aff218c4" category="list-text">Durante o processo de ativação do ambiente de trabalho, uma caixa de diálogo exibe um ícone de carregamento para fornecer feedback até que o processo de descoberta esteja concluído, aumentando a transparência e a confiança nas operações do sistema.</block>
+  <block id="e933dec5f784259760ab3c9400fb8e0b" category="section-title">Suporte para armazenamento de objetos Wasabi de terceiros (Preview)</block>
+  <block id="57a83bf4b6d8f755d141ebf2bb282ed3" category="paragraph">O backup e a recuperação do BlueXP  agora estendem seu suporte a armazenamentos de objetos de terceiros com foco principal no Wasabi. Este novo recurso de visualização permite que você aproveite qualquer armazenamento de objetos compatível com S3 para suas necessidades de backup e recuperação.</block>
+  <block id="da21b58c44ce1975cb8550ec689df5b3" category="section-title">Introdução ao Wasabi</block>
+  <block id="f3afa8b48aa14a1da6a21d82ad964f5d" category="paragraph">Para começar a usar esse recurso, você deve habilitar um sinalizador na IU do BlueXP . Em seguida, você pode inserir os detalhes de conexão do seu armazenamento de objetos de terceiros e integrá-los aos fluxos de trabalho de backup e recuperação.</block>
+  <block id="9b6d9b582a741bc832b2557c16d31b09" category="section-title">Limitações do modo de visualização</block>
+  <block id="fdf10a1d090d444123d00414152f7943" category="paragraph">Embora esse recurso esteja na visualização, considere as seguintes limitações:</block>
+  <block id="7ebc42140a656312f7a985f14e55f3a6" category="list-text">Bring Your own Bucket (BYOB) não é suportado.</block>
+  <block id="1361fc3308297e6892c65225fef43d57" category="list-text">A ativação do DataLock em uma política não é suportada.</block>
+  <block id="250e26d77f45f9c60f2e7d28e0011265" category="list-text">A ativação do modo de arquivamento em uma política não é suportada.</block>
+  <block id="b86033acef55ce16df9b8accc019fc9d" category="list-text">Somente ambientes ONTAP locais são compatíveis.</block>
+  <block id="5ba05bcaf18ef618c0ef794d4ae3e855" category="list-text">O MetroCluster não é suportado.</block>
+  <block id="2a9854e98da75bbc07132378bef6de4d" category="list-text">As opções para habilitar a criptografia no nível do bucket não são suportadas.</block>
+  <block id="f98d5407ffd34a829996a4bb36d6e582" category="paragraph">Durante essa visualização, recomendamos que você explore esse novo recurso e forneça feedback sobre a integração com armazenamentos de objetos de terceiros antes que a funcionalidade completa seja implementada.</block>
+  <block id="c2539a9855f013822344851d0fcb1184" category="admonition">O backup e a recuperação do BlueXP  não são compatíveis com backups de volumes FlexCache.</block>
+  <block id="801c0fa0d304ca22d8afec06189bcf93" category="section-title">16 de abril de 2025</block>
 </blocks>

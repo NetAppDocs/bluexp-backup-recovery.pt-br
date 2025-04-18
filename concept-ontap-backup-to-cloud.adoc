@@ -161,6 +161,9 @@ O backup e a recuperação do BlueXP  são compatíveis com os seguintes tipos 
 * Volumes de destino da proteção de dados da SnapMirror (DP)
 
 
+
+NOTE: O backup e a recuperação do BlueXP  não são compatíveis com backups de volumes FlexCache.
+
 Consulte as secções em link:reference-limitations.html#backup-to-object-limitations["Limitações de backup e restauração"] para obter requisitos e limitações adicionais.
 
 
