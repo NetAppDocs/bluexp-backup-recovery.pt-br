@@ -14,11 +14,11 @@ summary: 'Ao usar o backup e a recuperação do BlueXP  em um site sem acesso �
 
 
 [role="lead"]
-Ao usar o backup e a recuperação do BlueXP  em um site sem acesso à Internet, conhecido como _modo privado_, o backup e os dados de configuração de recuperação do BlueXP  são copiados para o bucket do StorageGRID ou ONTAP S3, onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP  Connector no futuro, poderá implantar um novo conetor e restaurar os dados críticos de backup e recuperação do BlueXP .
+Ao usar o backup e a recuperação do BlueXP  em um site sem acesso à Internet, conhecido como _modo privado_, o backup e os dados de configuração de recuperação do BlueXP  são copiados para o bucket do StorageGRID ou ONTAP S3, onde seus backups estão sendo armazenados. Se você tiver algum problema com o sistema host do BlueXP  Connector, poderá implantar um novo conetor e restaurar os dados críticos de backup e recuperação do BlueXP .
 
-Observe que quando você usa o backup e a recuperação do BlueXP  em um ambiente SaaS em que o BlueXP  Connector é implantado em seu fornecedor de nuvem ou em seu próprio sistema de host que tem acesso à Internet, todos os dados importantes de configuração de backup e recuperação do BlueXP  são protegidos na nuvem. Se você tiver um problema com o conetor, basta criar um novo conetor e adicionar seus ambientes de trabalho e os detalhes do backup serão restaurados automaticamente.
+Quando você usa o backup e a recuperação do BlueXP  em um ambiente SaaS em que o BlueXP  Connector é implantado em seu fornecedor de nuvem ou em seu próprio sistema de host que tenha acesso à Internet, todos os dados importantes de configuração de backup e recuperação do BlueXP  são protegidos na nuvem. Se você tiver um problema com o conetor, basta criar um novo conetor e adicionar seus ambientes de trabalho e os detalhes do backup serão restaurados automaticamente.
 
-Existem 2 tipos de dados que são copiados:
+Há dois tipos de dados que são copiados:
 
 * Banco de dados de backup e recuperação do BlueXP  - contém uma lista de todos os volumes, arquivos de backup, políticas de backup e informações de configuração.
 * Arquivos de catálogo indexados - contém índices detalhados que são usados para a funcionalidade de pesquisa e restauração que tornam suas pesquisas muito rápidas e eficientes ao procurar dados de volume que você deseja restaurar.
@@ -31,11 +31,11 @@ TIP: Nenhum volume de dados é incluído no banco de dados de backup e recupera�
 
 
 
-== Restaure os dados de backup e recuperação do BlueXP  para um novo conetor
+== Restaure os dados de backup e recuperação do BlueXP  para um novo BlueXP  Connector
 
-Se o seu conector no local apresentar uma falha catastrófica, você precisará instalar um novo conector e restaurar os dados de backup e recuperação do BlueXP  para o novo conector.
+Se o seu BlueXP  Connector no local apresentar uma falha catastrófica, você precisará instalar um novo conector e restaurar os dados de backup e recuperação do BlueXP  para o novo conector.
 
-Há 4 tarefas que você precisará executar para retornar seu sistema de backup e recuperação do BlueXP  a um estado de funcionamento:
+Você precisará executar as seguintes tarefas para retornar seu sistema de backup e recuperação do BlueXP  a um estado de funcionamento:
 
 * Instale um novo conetor BlueXP 
 * Restaure o banco de dados de backup e recuperação do BlueXP 
@@ -151,15 +151,20 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 Adicione os detalhes do sistema StorageGRID associados aos ambientes de trabalho do ONTAP conforme eles foram configurados na configuração do conetor original usando o https://docs.netapp.com/us-en/bluexp-automation/index.html["APIs da BlueXP "^].
 
+As seguintes informações aplicam-se a instalações de modo privado a partir de BlueXP  3,9.xx. Para versões mais antigas, use o seguinte procedimento https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["Backup em nuvem DarkSite: Backup e restauração de catálogos indexados e MySQL"^]: .
+
 Você precisará executar estas etapas para cada sistema ONTAP que estiver fazendo backup de dados no StorageGRID.
 
 . Extraia o token de autorização usando a seguinte API oauth/token.
 +
 [source, http]
 ----
-curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":admin@netapp.com,"password":"Netapp@123","grant_type":"password"}
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
 > '
 ----
++
+Embora o endereço IP, o nome de usuário e as senhas sejam valores personalizados, o nome da conta não é. O nome da conta é sempre "Account-DARKSITE1".
+
 +
 Esta API retornará uma resposta como a seguinte. Você pode recuperar o token de autorização como mostrado abaixo.
 

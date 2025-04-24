@@ -1,12 +1,6 @@
-= Painel de controlo de volume melhorado (pré-visualização)
+= Melhorias na IU
 :allow-uri-read: 
 
-
-
-
-=== Painel de controlo de volume melhorado (pré-visualização)
-
-O Painel de volume agora é carregado em menos de 10 segundos, fornecendo uma interface muito mais rápida e eficiente. Esta versão de pré-visualização está disponível para clientes selecionados, oferecendo-lhes uma visão antecipada dessas melhorias.
 
 
 
@@ -23,6 +17,12 @@ Esta versão melhora sua experiência simplificando a interface:
 
 
 
+=== Painel de controlo de volume melhorado (pré-visualização)
+
+O Painel de volume agora é carregado em menos de 10 segundos, fornecendo uma interface muito mais rápida e eficiente. Esta versão de pré-visualização está disponível para clientes selecionados, oferecendo-lhes uma visão antecipada dessas melhorias.
+
+
+
 === Suporte para armazenamento de objetos Wasabi de terceiros (Preview)
 
 O backup e a recuperação do BlueXP  agora estendem seu suporte a armazenamentos de objetos de terceiros com foco principal no Wasabi. Este novo recurso de visualização permite que você aproveite qualquer armazenamento de objetos compatível com S3 para suas necessidades de backup e recuperação.
@@ -31,7 +31,30 @@ O backup e a recuperação do BlueXP  agora estendem seu suporte a armazenament
 
 ==== Introdução ao Wasabi
 
-Para começar a usar esse recurso, você deve habilitar um sinalizador na IU do BlueXP . Em seguida, você pode inserir os detalhes de conexão do seu armazenamento de objetos de terceiros e integrá-los aos fluxos de trabalho de backup e recuperação.
+Para começar a usar o armazenamento de terceiros como um armazenamento de objetos, você deve habilitar um sinalizador no BlueXP  Connector. Em seguida, você pode inserir os detalhes de conexão do seu armazenamento de objetos de terceiros e integrá-los aos fluxos de trabalho de backup e recuperação.
+
+.Passos
+. SSH em seu conetor.
+. Vá para o contentor do servidor cbs de backup e recuperação do BlueXP :
++
+[listing]
+----
+docker exec -it cloudmanager_cbs sh
+----
+. Abra o `default.json` arquivo dentro `config` da pasta via VIM ou qualquer outro editor:
++
+[listing]
+----
+vi default.json
+----
+.  `allow-s3-compatible`Modificar : false para `allow-s3-compatible`: true.
+. Salve as alterações.
+. Saia do recipiente.
+. Reinicie o contentor do servidor cbs de backup e recuperação do BlueXP .
+
+
+.Resultado
+Depois que o contentor estiver LIGADO novamente, abra a IU de backup e recuperação do BlueXP . Ao iniciar um backup ou editar uma estratégia de backup, você verá o novo provedor "compatível com S3" listado junto com outros provedores de backup da AWS, Microsoft Azure, Google Cloud, StorageGRID e ONTAP S3.
 
 
 

@@ -76,6 +76,9 @@ endif::gcp[]
 
 
 
+NOTE: O backup e a recuperação do BlueXP  estende seu suporte para armazenamentos de objetos de terceiros como uma opção de visualização. Este recurso de visualização permite que você aproveite qualquer armazenamento de objetos compatível com S3 para suas necessidades de backup e recuperação. Para obter detalhes sobre como ativar esse recurso de visualização, consulte link:whats-new.html["Suporte para armazenamento de objetos de terceiros"]a seção.
+
+
 
 === Quando os backups são feitos
 
