@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
-keywords: backup database, recover database 
+keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector 
 summary: 'Ao usar o backup e a recuperação do BlueXP  em um site sem acesso à Internet, conhecido como "modo privado", o backup e os dados de configuração de recuperação do BlueXP  são copiados para o bucket do StorageGRID ou ONTAP S3, onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP  Connector no futuro, poderá implantar um novo conetor e restaurar os dados críticos de backup e recuperação do BlueXP .' 
 ---
 = Restaure os dados de recuperação e backup do BlueXP  em um local escuro
@@ -153,17 +153,17 @@ Adicione os detalhes do sistema StorageGRID associados aos ambientes de trabalho
 
 As seguintes informações aplicam-se a instalações de modo privado a partir de BlueXP  3,9.xx. Para versões mais antigas, use o seguinte procedimento https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["Backup em nuvem DarkSite: Backup e restauração de catálogos indexados e MySQL"^]: .
 
-Você precisará executar estas etapas para cada sistema ONTAP que estiver fazendo backup de dados no StorageGRID.
+Você precisará executar estas etapas para cada sistema que está fazendo backup de dados no StorageGRID.
 
 . Extraia o token de autorização usando a seguinte API oauth/token.
 +
 [source, http]
 ----
-curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
 > '
 ----
 +
-Embora o endereço IP, o nome de usuário e as senhas sejam valores personalizados, o nome da conta não é. O nome da conta é sempre "Account-DARKSITE1".
+Embora o endereço IP, o nome de usuário e as senhas sejam valores personalizados, o nome da conta não é. O nome da conta é sempre "Account-DARKSITE1". Além disso, o nome de usuário deve usar um nome formatado por e-mail.
 
 +
 Esta API retornará uma resposta como a seguinte. Você pode recuperar o token de autorização como mostrado abaixo.
