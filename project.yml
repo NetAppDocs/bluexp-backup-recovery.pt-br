@@ -38,12 +38,14 @@ sidebar:
       url: "/concept-backup-to-cloud.html"
     - title: Configure o licenciamento
       url: "/task-licensing-cloud-backup.html"
-  - title: Monitorar a proteção de dados
-    entries:
-    - title: Relatório sobre a cobertura de proteção de dados
-      url: "/task-report-inventory.html"
-    - title: Monitore o status dos trabalhos de backup e restauração
-      url: "/task-monitor-backup-jobs.html"
+    - title: Ativar funcionalidades de pré-visualização
+      url: "/task-preview-enable.html"
+    - title: Monitorar a proteção de dados
+      entries:
+      - title: Relatório sobre a cobertura de proteção de dados
+        url: "/task-report-inventory.html"
+      - title: Monitore o status dos trabalhos de backup e restauração
+        url: "/task-monitor-backup-jobs.html"
   - title: Faça backup e restaure dados do ONTAP
     entries:
     - title: Proteger os dados de volume do ONTAP
@@ -78,6 +80,8 @@ sidebar:
       url: "/task-backup-onprem-to-ontap-s3.html"
     - title: Fazer backup do ONTAP no local para o StorageGRID
       url: "/task-backup-onprem-private-cloud.html"
+    - title: Migre volumes com o SnapMirror para o Cloud Resync
+      url: "/task-migrate-volumes-snapmirror-cloud-resync.html"
     - title: Gerenciar backups do ONTAP
       url: "/task-manage-backups-ontap.html"
     - title: Restauração a partir de backups do ONTAP
