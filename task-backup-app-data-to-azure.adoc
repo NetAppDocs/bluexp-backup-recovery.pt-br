@@ -4,7 +4,7 @@ permalink: task-backup-app-data-to-azure.html
 keywords: backing up, back up, backup, backup application data, Microsoft Azure, Azure, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: Conclua algumas etapas para fazer backup dos dados de aplicativos do ONTAP para o Azure. 
 ---
-= Faça backup dos dados das aplicações locais para o Microsoft Azure
+= Faça backup de dados de aplicativos locais no Microsoft Azure com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: Conclua algumas etapas para fazer backup dos dados de aplicativos do ON
 
 
 [role="lead"]
-Conclua algumas etapas para fazer backup dos dados de aplicativos do ONTAP para o Microsoft Azure.
+Conclua algumas etapas no backup e recuperação do BlueXP para fazer backup dos dados dos aplicativos do ONTAP para o Microsoft Azure.
 
-O BlueXP  é compatível com bloqueio de dados e proteção contra ransomware. Se o cluster do ONTAP estiver em execução no ONTAP 9.12,1 ou posterior e não tiver configurado o storage de arquivamento, os backups podem ser protegidos contra a substituição, a exclusão e as ameaças de ransomware.
+O backup e a recuperação do BlueXP oferecem suporte para bloqueio de dados e proteção contra ransomware. Se o cluster do ONTAP estiver em execução no ONTAP 9.12,1 ou posterior e não tiver configurado o storage de arquivamento, os backups podem ser protegidos contra a substituição, a exclusão e as ameaças de ransomware.
 
 .Passos
 . Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.

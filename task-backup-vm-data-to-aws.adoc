@@ -4,7 +4,7 @@ permalink: task-backup-vm-data-to-aws.html
 keywords: back up, backup, backup datastore, aws, Amazon Web Services, backup datastores 
 summary: Faça backup dos armazenamentos de dados do ONTAP no local para a AWS. 
 ---
-= Faça backup de armazenamentos de dados no Amazon Web Services
+= Faça backup de datastores no Amazon Web Services com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Faça backup dos armazenamentos de dados do ONTAP no local para a AWS.
 
 
 [role="lead"]
-Você pode fazer backup e arquivar um ou mais datastores no Amazon Web Services para melhorar a eficiência de storage e a transição para a nuvem.
+Você pode fazer backup e arquivar um ou mais armazenamentos de dados com o backup e recuperação do BlueXP no Amazon Web Services para melhorar a eficiência do armazenamento e a transição para a nuvem.
 
 Se o datastore estiver associado a uma política de arquivamento, você terá a opção de selecionar o nível de arquivamento. Os níveis de arquivamento compatíveis são Glacier e Glacier Deep.
 

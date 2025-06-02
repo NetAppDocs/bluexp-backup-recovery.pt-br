@@ -4,7 +4,7 @@ permalink: task-backup-to-azure.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, azure, azure blob, back up volumes, cloud backup, bluexp, bluexp backup and recovery 
 summary: Conclua algumas etapas para começar a fazer backup de dados de volume de seus sistemas Cloud Volumes ONTAP para o armazenamento de Blobs do Azure. 
 ---
-= Fazer backup de dados do Cloud Volumes ONTAP para o armazenamento de Blobs do Azure
+= Faça backup dos dados do Cloud Volumes ONTAP no armazenamento de Blobs do Azure com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Conclua algumas etapas para começar a fazer backup de dados de volume 
 
 
 [role="lead"]
-Conclua algumas etapas para começar a fazer backup de dados de volume de seus sistemas Cloud Volumes ONTAP para o armazenamento de Blobs do Azure.
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas Cloud Volumes ONTAP para o armazenamento de Blobs do Azure.
 
 
 
@@ -77,7 +77,7 @@ Opcionalmente, você pode se conectar a um sistema ONTAP secundário para volume
 image:diagram_cloud_backup_cvo_azure.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam com os volumes nos sistemas de origem e o armazenamento de destino onde os arquivos de backup estão localizados."]
 
 Versões de ONTAP compatíveis:: É recomendado um mínimo de ONTAP 9.8; ONTAP 9.8P13 e posterior.
-Regiões Azure compatíveis:: O backup e a recuperação do BlueXP  são compatíveis em todas as regiões do Azure https://cloud.netapp.com/cloud-volumes-global-regions["Onde o Cloud Volumes ONTAP é suportado"^] , incluindo regiões do governo do Azure.
+Regiões Azure compatíveis:: O backup e a recuperação do BlueXP têm suporte em todas as regiões do Azure, incluindo as regiões governamentais do Azure.
 +
 --
 Por padrão, o backup e a recuperação do BlueXP  provisiona o contentor Blob com redundância local (LRS) para otimização de custos. Você pode alterar essa configuração para redundância de zona (ZRS) depois que o backup e a recuperação do BlueXP  tiverem sido ativados se desejar garantir que seus dados sejam replicados entre diferentes zonas. Consulte as instruções da Microsoft para https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["alterar a forma como a sua conta de armazenamento é replicada"^].

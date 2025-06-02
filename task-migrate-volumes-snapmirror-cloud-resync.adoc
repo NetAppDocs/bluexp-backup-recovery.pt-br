@@ -4,12 +4,12 @@ permalink: task-migrate-volumes-snapmirror-cloud-resync.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, cloud, snapmirror, migrate, volume migration, resync, 
 summary: Siga estas etapas para começar a fazer backup de dados de volume de seus sistemas ONTAP locais para um sistema de storage secundário e para o Google Cloud Storage. 
 ---
-= Migre volumes usando o SnapMirror para o Cloud Resync
+= Migrar volumes usando o SnapMirror para o Cloud Resync com backup e recuperação do BlueXP
 :allow-uri-read: 
 
 
 [role="lead"]
-O recurso Resync do SnapMirror para a nuvem simplifica a proteção e a continuidade dos dados durante migrações de volume em ambientes NetApp. Quando um volume é migrado usando a replicação lógica do SnapMirror (LRSE), de uma implantação de NetApp no local para outra ou para uma solução baseada em nuvem, como Cloud Volumes ONTAP ou Cloud Volumes Service, o SnapMirror para o Cloud Resync garante que os backups existentes na nuvem permaneçam intactos e operacionais.
+O recurso SnapMirror to Cloud Resync no backup e recuperação do BlueXP simplifica a proteção de dados e a continuidade durante migrações de volume em ambientes NetApp. Quando um volume é migrado usando a replicação lógica do SnapMirror (LRSE), de uma implantação de NetApp no local para outra ou para uma solução baseada em nuvem, como Cloud Volumes ONTAP ou Cloud Volumes Service, o SnapMirror para o Cloud Resync garante que os backups existentes na nuvem permaneçam intactos e operacionais.
 
 Esse recurso elimina a necessidade de uma operação de re-linha de base demorada e intensiva em recursos, permitindo que as operações de backup continuem após a migração. Esse recurso é valioso em cenários de migração de carga de trabalho, compatível com FlexVols e FlexGroups, e está disponível a partir do ONTAP versão 9.16.1.
 

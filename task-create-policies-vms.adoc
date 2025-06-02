@@ -4,7 +4,7 @@ permalink: task-create-policies-vms.html
 keywords: create policy, protection policies, predefined policies, custom policies 
 summary: Crie uma política para fazer backup de armazenamentos de dados 
 ---
-= Crie uma política para fazer backup de armazenamentos de dados
+= Crie uma política para fazer backup de datastores com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Crie uma política para fazer backup de armazenamentos de dados
 
 
 [role="lead"]
-Você pode criar uma política ou usar uma das seguintes políticas predefinidas que estão disponíveis no BlueXP .
+Você pode criar uma política ou usar uma das seguintes políticas predefinidas que estão disponíveis no backup e recuperação do BlueXP.
 
 .Antes de começar
 * Você deve criar políticas se não quiser editar as políticas predefinidas.

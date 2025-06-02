@@ -4,7 +4,7 @@ permalink: task-restore-sql-data.html
 keywords: restore, Azure, Amazon Web services, Microsoft SQL Server database 
 summary: Você pode restaurar o banco de dados SQL Server da nuvem para o servidor SnapCenter local. 
 ---
-= Restaure o banco de dados do SQL Server
+= Restaurar bancos de dados SQL Server com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Você pode restaurar o banco de dados SQL Server da nuvem para o servid
 
 
 [role="lead"]
-Você pode restaurar o banco de dados do SQL Server para o local original ou para o local alternativo.
+Você pode restaurar bancos de dados do SQL Server com o backup e recuperação do BlueXP para o local original ou para o local alternativo.
 
 
 NOTE: Restauração de arquivo único (SFR), recuperação de backups de log e repleed de grupos de disponibilidade não são suportados.

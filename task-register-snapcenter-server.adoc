@@ -4,7 +4,7 @@ permalink: task-register-snapcenter-server.html
 keywords: SnapCenter Server, register 
 summary: Conclua algumas etapas para Registrar o servidor SnapCenter. 
 ---
-= Registre o servidor SnapCenter
+= Registre o SnapCenter Server para backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Conclua algumas etapas para Registrar o servidor SnapCenter.
 
 
 [role="lead"]
-Somente um usuário com a função SnapCenterAdmin pode Registrar o host no qual o servidor SnapCenter 4,6 ou posterior está sendo executado. Você pode Registrar vários hosts do servidor SnapCenter no BlueXP .
+Somente um usuário com a função SnapCenterAdmin pode Registrar o host no qual o servidor SnapCenter 4,6 ou posterior está sendo executado. Você pode registrar vários hosts do SnapCenter Server no backup e recuperação do BlueXP.
 
 .Passos
 . Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *aplicativos*.

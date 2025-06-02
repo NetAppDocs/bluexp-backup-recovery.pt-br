@@ -4,7 +4,7 @@ permalink: task-restore-oracle-data.html
 keywords: restore, Azure, Amazon Web services, Oracle database 
 summary: Você pode restaurar o banco de dados Oracle da nuvem para o servidor SnapCenter local. 
 ---
-= Restaure o banco de dados Oracle
+= Restaure bancos de dados Oracle com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Você pode restaurar o banco de dados Oracle da nuvem para o servidor S
 
 
 [role="lead"]
-Você pode restaurar o banco de dados Oracle para o local original ou para o local alternativo. Para um banco de dados RAC, os dados são restaurados para o nó local onde o backup foi criado.
+Você pode restaurar bancos de dados Oracle com backup e recuperação do BlueXP para o local original ou para um local alternativo. Para um banco de dados RAC, os dados são restaurados para o nó local onde o backup foi criado.
 
 Apenas é suportado um banco de dados completo com restauração de arquivos de controle. Se os registos de arquivo não estiverem presentes no AFS, deve especificar a localização que contém os registos de arquivo necessários para a recuperação.
 

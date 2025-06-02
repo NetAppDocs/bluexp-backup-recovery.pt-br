@@ -4,7 +4,7 @@ permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
 summary: É possível monitorar o status de snapshots locais, replicações e backups em tarefas de storage de objetos iniciadas ou agendadas e restaurar tarefas iniciadas ou agendadas. Você pode ver os trabalhos que foram concluídos, estão em andamento ou falharam para que você possa diagnosticar e corrigir problemas. Usando a Central de notificações do BlueXP , você pode habilitar notificações para serem enviadas por e-mail para que você possa ser informado sobre atividades importantes do sistema, mesmo quando não estiver conetado ao sistema. Usando a linha do tempo do BlueXP , você pode ver detalhes de todas as ações iniciadas por meio da interface do usuário ou da API. 
 ---
-= Monitore o status dos trabalhos de backup e restauração
+= Monitore o status dos trabalhos de backup e restauração de backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: É possível monitorar o status de snapshots locais, replicações e ba
 
 
 [role="lead"]
-Você pode monitorar o status de snapshots locais, replicações e tarefas de backup para armazenamento de objetos iniciadas e restaurar tarefas iniciadas por você. Você pode ver os trabalhos que foram concluídos, estão em andamento ou falharam para que você possa diagnosticar e corrigir problemas. Usando a Central de notificações do BlueXP , você pode habilitar notificações para serem enviadas por e-mail para que você possa ser informado sobre atividades importantes do sistema, mesmo quando não estiver conetado ao sistema. Usando a linha do tempo do BlueXP , você pode ver detalhes de todas as ações iniciadas por meio da interface do usuário ou da API.
+Com o backup e a recuperação do BlueXP, monitore o status de snapshots locais, replicações e trabalhos de backup em armazenamento de objetos que você iniciou, além de restaurar os trabalhos que você iniciou. Você pode ver os trabalhos que foram concluídos, estão em andamento ou falharam para que você possa diagnosticar e corrigir problemas. Usando a Central de notificações do BlueXP , você pode habilitar notificações para serem enviadas por e-mail para que você possa ser informado sobre atividades importantes do sistema, mesmo quando não estiver conetado ao sistema. Usando a linha do tempo do BlueXP , você pode ver detalhes de todas as ações iniciadas por meio da interface do usuário ou da API.
 
 
 

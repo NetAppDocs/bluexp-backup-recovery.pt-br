@@ -4,7 +4,7 @@ permalink: task-backup-onprem-private-cloud.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, StorageGRID 
 summary: Siga estas etapas para começar a fazer backup de dados de volume de seus sistemas ONTAP locais para storage de objetos em seus sistemas NetApp StorageGRID. 
 ---
-= Fazer backup de dados ONTAP on-premises para o StorageGRID
+= Faça backup de dados ONTAP locais no StorageGRID com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Siga estas etapas para começar a fazer backup de dados de volume de se
 
 
 [role="lead"]
-Siga estas etapas para começar a fazer backup de dados de volume de seus sistemas ONTAP primários no local para um sistema de storage secundário e para o storage de objetos em seus sistemas NetApp StorageGRID.
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas ONTAP primários locais para um sistema de armazenamento secundário e para o armazenamento de objetos nos seus sistemas NetApp StorageGRID.
 
 
 NOTE: "Sistemas ONTAP no local" incluem sistemas FAS, AFF e ONTAP Select.
@@ -238,6 +238,10 @@ Versões suportadas do StorageGRID:: O StorageGRID 10,3 e posterior é suportado
 Para usar a proteção DataLock & ransomware para seus backups, seus sistemas StorageGRID devem estar executando a versão 11.6.0.3 ou superior.
 
 Para categorizar backups mais antigos para storage de arquivamento em nuvem, seus sistemas StorageGRID precisam estar executando a versão 11,3 ou superior. Além disso, seus sistemas StorageGRID devem ser descobertos no BlueXP  Canvas.
+
+Para usar o armazenamento de arquivo, é necessário acesso IP ao nó de administrador.
+
+O acesso IP do gateway é sempre necessário.
 
 --
 S3 credenciais:: Você precisa ter criado uma conta de locatário do S3 para controlar o acesso ao storage do StorageGRID. https://docs.netapp.com/us-en/storagegrid-117/admin/creating-tenant-account.html["Consulte os documentos do StorageGRID para obter detalhes"^].

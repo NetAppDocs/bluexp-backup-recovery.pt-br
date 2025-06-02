@@ -4,7 +4,7 @@ permalink: task-restore-backups-ontap.html
 keywords: restoring, restore, restore volumes, restore files, restore folders, cloud backup, file restore, single file restore, folder restore, volume restore, browse and restore, search and restore, restore snapshot, restore replication, restore backup, ONTAP 
 summary: Os backups dos dados de volume do ONTAP estão disponíveis nos locais em que você criou backups, nas cópias Snapshot, volumes replicados e/ou backups armazenados no storage de objetos. Você pode restaurar dados de um ponto específico no tempo a partir de qualquer um desses locais de backup. Pode restaurar um volume ONTAP inteiro a partir de um ficheiro de cópia de segurança ou, se necessitar apenas de restaurar alguns ficheiros, pode restaurar uma pasta ou ficheiros individuais. 
 ---
-= Restaure dados do ONTAP a partir de arquivos de backup
+= Restaure dados ONTAP de arquivos de backup com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Os backups dos dados de volume do ONTAP estão disponíveis nos locais 
 
 
 [role="lead"]
-Os backups dos dados de volume do ONTAP estão disponíveis nos locais em que você criou backups: Cópias snapshot, volumes replicados e backups armazenados no storage de objetos. Você pode restaurar dados de um ponto específico no tempo a partir de qualquer um desses locais de backup. Pode restaurar um volume ONTAP inteiro a partir de um ficheiro de cópia de segurança ou, se necessitar apenas de restaurar alguns ficheiros, pode restaurar uma pasta ou ficheiros individuais.
+Os backups dos dados de volume do ONTAP estão disponíveis nos locais em que você criou backups: Cópias snapshot, volumes replicados e backups armazenados no storage de objetos. Você pode restaurar dados de um ponto específico no tempo a partir de qualquer um desses locais de backup. Com o backup e recuperação do BlueXP, restaure um volume ONTAP inteiro a partir de um arquivo de backup ou, se precisar restaurar apenas alguns arquivos, restaure uma pasta ou arquivos individuais.
 
 * Você pode restaurar um *volume* (como um novo volume) para o ambiente de trabalho original, para um ambiente de trabalho diferente que esteja usando a mesma conta na nuvem ou para um sistema ONTAP local.
 * Você pode restaurar uma pasta * para um volume no ambiente de trabalho original, para um volume em um ambiente de trabalho diferente que esteja usando a mesma conta na nuvem ou para um volume em um sistema ONTAP local.
@@ -55,7 +55,7 @@ Como você pode ver, o Painel de Restauração oferece 2 maneiras diferentes de 
 
 Em termos gerais, _Browse & Restore_ normalmente é melhor quando você precisa restaurar um volume, pasta ou arquivo específico da última semana ou mês -- e você sabe o nome e a localização do arquivo e a data em que ele foi último em boa forma. _Search & Restore_ normalmente é melhor quando você precisa restaurar um volume, pasta ou arquivo, mas você não se lembra do nome exato, do volume em que reside, ou da data em que foi a última em boa forma.
 
-Esta tabela fornece uma comparação de recursos dos 2 métodos.
+Esta tabela fornece uma comparação de recursos dos dois métodos.
 
 [cols="50,50"]
 |===
@@ -328,7 +328,7 @@ Observe que a restauração de um volume de um arquivo de backup que reside no s
 Se você precisar restaurar apenas alguns arquivos de um backup de volume do ONTAP, poderá optar por restaurar uma pasta ou arquivos individuais em vez de restaurar todo o volume. Você pode restaurar pastas e arquivos para um volume existente no ambiente de trabalho original ou para um ambiente de trabalho diferente que esteja usando a mesma conta na nuvem. Você também pode restaurar pastas e arquivos para um volume em um sistema ONTAP local.
 
 
-NOTE: Você pode restaurar uma pasta ou arquivos individuais apenas de um arquivo de backup no armazenamento de objetos neste momento. A restauração de arquivos e pastas não é suportada atualmente a partir de uma cópia Snapshot local ou de um arquivo de backup que reside em um ambiente de trabalho secundário (um volume replicado).
+NOTE: Você pode restaurar uma pasta ou arquivos individuais apenas de um arquivo de backup no armazenamento de objetos neste momento. Atualmente, não há suporte para restauração de arquivos e pastas a partir de uma cópia de instantâneo local ou de um arquivo de backup que reside em um ambiente de trabalho secundário (um volume replicado).
 
 Se você selecionar vários arquivos, todos os arquivos serão restaurados para o mesmo volume de destino que você escolher. Então, se você quiser restaurar arquivos para diferentes volumes, você precisará executar o processo de restauração várias vezes.
 
@@ -631,7 +631,7 @@ ifdef::azure[]
 +
 Observe que se você já estava usando o backup e a recuperação do BlueXP  com um conetor que você configurou no passado, você precisará adicionar as permissões da conta de armazenamento do Azure Synapse Workspace e do data Lake à função de usuário do BlueXP  agora. Eles são necessários para Pesquisa e Restauração.
 
-** O conetor deve ser configurado *sem* um servidor proxy para comunicação HTTP com a Internet. Se tiver configurado um servidor proxy HTTP para o seu conetor, não poderá utilizar a funcionalidade pesquisar e substituir.
+** O conetor deve ser configurado *sem* um servidor proxy para comunicação HTTP com a Internet. Se você tiver configurado um servidor proxy HTTP para seu Conector, não poderá usar a funcionalidade Pesquisar e Restaurar.
 
 
 

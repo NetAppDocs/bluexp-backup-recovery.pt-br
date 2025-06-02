@@ -4,7 +4,7 @@ permalink: task-backup-to-gcp.html
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, gcp, google cloud, back up volumes, cloud backup, bluexp, bluexp backup and recovery 
 summary: Conclua algumas etapas para começar a fazer backup de dados de volume de seus sistemas Cloud Volumes ONTAP para o armazenamento do Google Cloud. 
 ---
-= Faça backup dos dados do Cloud Volumes ONTAP no Google Cloud Storage
+= Faça backup dos dados do Cloud Volumes ONTAP no Google Cloud Storage com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Conclua algumas etapas para começar a fazer backup de dados de volume 
 
 
 [role="lead"]
-Execute algumas etapas para começar a fazer backup de dados de volume de seus sistemas Cloud Volumes ONTAP para o Google Cloud Storage.
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas Cloud Volumes ONTAP para o Google Cloud Storage.
 
 
 
@@ -74,7 +74,7 @@ Opcionalmente, você pode se conectar a um sistema ONTAP secundário para volume
 image:diagram_cloud_backup_cvo_google.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam com os volumes no sistema de origem e o armazenamento de destino onde os arquivos de backup estão localizados."]
 
 Versões de ONTAP compatíveis:: É recomendado um mínimo de ONTAP 9.8; ONTAP 9.8P13 e posterior.
-Regiões GCP compatíveis:: O backup e a recuperação do BlueXP  são compatíveis em todas as regiões do GCP https://cloud.netapp.com/cloud-volumes-global-regions["Onde o Cloud Volumes ONTAP é suportado"^] .
+Regiões GCP compatíveis:: O backup e a recuperação do BlueXP são suportados em todas as regiões do GCP.
 Conta de serviço do GCP:: Você precisa ter uma conta de serviço no Google Cloud Project que tenha a função personalizada. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html["Saiba como criar uma conta de serviço"^].
 
 

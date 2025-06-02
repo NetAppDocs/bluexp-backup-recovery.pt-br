@@ -4,7 +4,7 @@ permalink: task-register-snapCenter-plug-in-for-vmware-vsphere.html
 keywords: register, registration, SnapCenter Plug-in for VMware vSphere 
 summary: Registre o plug-in do SnapCenter para o host VMware vSphere no BlueXP . 
 ---
-= Registre o plug-in do SnapCenter para o host VMware vSphere
+= Registre o plug-in SnapCenter para o host VMware vSphere com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Registre o plug-in do SnapCenter para o host VMware vSphere no BlueXP 
 
 
 [role="lead"]
-Você deve Registrar o plug-in do SnapCenter para o host VMware vSphere no BlueXP  para que os datastores e as máquinas virtuais sejam exibidos. Somente um usuário com acesso administrativo pode Registrar o plug-in do SnapCenter para o host VMware vSphere.
+Você deve registrar o plug-in SnapCenter para o host VMware vSphere no backup e recuperação do BlueXP para que os armazenamentos de dados e máquinas virtuais sejam exibidos. Somente um usuário com acesso administrativo pode Registrar o plug-in do SnapCenter para o host VMware vSphere.
 
 .Passos
 . Na IU do BlueXP , clique em *proteção* > *Backup e recuperação* > *máquinas virtuais*.

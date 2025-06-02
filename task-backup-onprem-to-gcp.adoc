@@ -4,7 +4,7 @@ permalink: task-backup-onprem-to-gcp.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, gcp, google cloud 
 summary: Siga estas etapas para começar a fazer backup de dados de volume de seus sistemas ONTAP locais para um sistema de storage secundário e para o Google Cloud Storage. 
 ---
-= Faça backup dos dados do ONTAP no local para o Google Cloud Storage
+= Faça backup de dados ONTAP locais no Google Cloud Storage com backup e recuperação BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Siga estas etapas para começar a fazer backup de dados de volume de se
 
 
 [role="lead"]
-Siga estas etapas para começar a fazer backup de dados de volume de seus sistemas ONTAP primários no local para um sistema de storage secundário e para o Google Cloud Storage.
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas ONTAP primários locais para um sistema de armazenamento secundário e para o Google Cloud Storage.
 
 
 NOTE: "Sistemas ONTAP no local" incluem sistemas FAS, AFF e ONTAP Select.
@@ -156,7 +156,7 @@ bigquery.tables.create
 
 *Regiões suportadas*
 
-É possível criar backups de sistemas locais para o Google Cloud Storage em todas as regiões https://cloud.netapp.com/cloud-volumes-global-regions["Onde o Cloud Volumes ONTAP é suportado"^]. Você especifica a região onde os backups serão armazenados quando você configurar o serviço.
+Você pode criar backups de sistemas locais para o Google Cloud Storage em todas as regiões. Você especifica a região onde os backups serão armazenados quando você configurar o serviço.
 
 
 
