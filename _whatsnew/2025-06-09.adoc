@@ -23,6 +23,8 @@ Para obter mais informações, https://docs.netapp.com/us-en/bluexp-backup-recov
 
 Normalmente, o backup e a recuperação do BlueXP estabelecem um endpoint privado com o provedor de nuvem para lidar com diversas tarefas de proteção. Esta versão apresenta uma configuração opcional que permite habilitar ou desabilitar a criação automática de um endpoint privado pelo backup e recuperação do BlueXP. Isso pode ser útil se você deseja ter mais controle sobre o processo de criação de endpoints privados.
 
+Você pode habilitar ou desabilitar esta opção ao habilitar a proteção ou iniciar o processo de restauração.
+
 Se você desabilitar esta configuração, precisará criar manualmente o endpoint privado para que o backup e a recuperação do BlueXP funcionem corretamente. Sem a conectividade adequada, talvez você não consiga executar tarefas de backup e recuperação com sucesso.
 
 

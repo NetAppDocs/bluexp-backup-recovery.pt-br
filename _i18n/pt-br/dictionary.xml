@@ -2838,7 +2838,6 @@
   <block id="3909c405c5c3e8aaab7d2079c933cb0f" category="paragraph">Como você pode ver, você realmente só precisa saber um nome parcial e pesquisas de backup e recuperação do BlueXP  através de todos os arquivos de backup que correspondem à sua pesquisa.</block>
   <block id="e54aa3261321d2266c275e4f0837c144" category="section-title">Ative o Catálogo indexado para cada ambiente de trabalho</block>
   <block id="721f0292b89494d52fd3ab7655e44491" category="paragraph">Antes de poder utilizar a Pesquisa e Restauro, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual está a planear restaurar volumes ou ficheiros. Isso permite que o Catálogo indexado acompanhe cada volume e cada arquivo de backup - tornando suas pesquisas muito rápidas e eficientes.</block>
-  <block id="cde27c2ee36cb857ffdbfe24fb0f0fef" category="paragraph">Ao habilitar esse recurso, o backup e a recuperação do BlueXP  habilitam o SnapDiff v3 no SVM para seus volumes, e ele executa as seguintes ações:</block>
   <block id="1bf27db2b6cddc0bbfeb50bd92d954d2" category="inline-link">Serviço de consulta interativa do Amazon Athena</block>
   <block id="304514e0e009199a95060650dbf9337e" category="inline-link">Serviço de integração de dados sem servidor do AWS Glue</block>
   <block id="7f55f1ead15a67b08eea9e732f6ed59d" category="list-text">Para backups armazenados na AWS, ele provisiona um novo bucket do S3 e o<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> e<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>o .</block>
@@ -3051,7 +3050,6 @@
   <block id="fc79de85a483938f72fbcb9822ec0ae3" category="list-text">Se você precisar atualizar seus tokens de credenciais de login, há também uma opção *Atualizar credenciais* <block ref="5151db0ded96d46f40ae09b5e5b167a1" category="inline-image-macro-rx" type="image"></block>no menu.</block>
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">Usando esta opção, você solicita que você faça login novamente. Observe que o token para essas contas expira após 90 dias. Uma notificação será postada para alertá-lo sobre isso.</block>
   <block id="993e951005a20173ae0c8c379739a8f1" category="summary">Saiba o que há de novo no backup e recuperação do BlueXP .</block>
-  <block id="fd3d1ba9a2328492349b6ebea92fe728" category="doc">Novidades do backup e recuperação do BlueXP </block>
   <block id="5fcc5d3ffc4bbbcf6d018ab4a9639205" category="section-title">27 de setembro de 2024</block>
   <block id="aa6a53998d98bae73a6913ff1c2eecbc" category="section-title">Suporte a Podman no RHEL 8 ou 9 com Browse and Restore</block>
   <block id="c6bad3b272d5eeec569990b050d88123" category="paragraph">O backup e a recuperação do BlueXP  agora suportam restaurações de arquivos e pastas no Red Hat Enterprise Linux (RHEL) versões 8 e 9 usando o mecanismo Podman. Isso se aplica ao método de pesquisa e restauração de backup e recuperação do BlueXP .</block>
@@ -3858,4 +3856,8 @@
   <block id="4d1f1dc63841491797cde0fde7dec31d" category="list-text">Selecione o local de destino onde você deseja que o volume, pasta ou arquivo(s) sejam restaurados e selecione *Restaurar*.</block>
   <block id="dc98364e6680ec201dcd1e55df5cf2e1" category="paragraph">O volume, a pasta ou o(s) arquivo(s) são restaurados e você é retornado ao Painel de Restauração para que você possa revisar o andamento da operação de restauração. Você também pode selecionar a aba *Monitoramento de Tarefas* para ver o progresso da restauração.</block>
   <block id="791d05d0e9072626d0316ef0a7cf21bc" category="section-title">09 de junho de 2025</block>
+  <block id="0a849c115a4741e75692ddd548e07b4d" category="paragraph">Você pode habilitar ou desabilitar esta opção ao habilitar a proteção ou iniciar o processo de restauração.</block>
+  <block id="9bbf67835dcc255a2362d9d5043708ad" category="paragraph">O serviço não provisiona um bucket separado quando você usa o Catálogo Indexado v2. Em vez disso, para backups armazenados na AWS, Azure, Google Cloud Platform, StorageGRID ou ONTAP S3, o serviço provisiona espaço no Conector ou no ambiente do provedor de nuvem.</block>
+  <block id="c2da3976b7bba43b7d1d45f7a32a43bd" category="paragraph">Se você habilitou o Catálogo Indexado antes do lançamento da v2, o seguinte ocorrerá com ambientes de trabalho:</block>
+  <block id="5323d04b0f0228d9a4b7ec5629ddb280" category="doc">Novidades no backup e recuperação do BlueXP</block>
 </blocks>
