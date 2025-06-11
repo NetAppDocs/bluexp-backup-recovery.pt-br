@@ -200,9 +200,7 @@ Você pode criar o bucket do BlueXP  ou do seu fornecedor de nuvem.
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html["Crie buckets do Google Cloud Storage no BlueXP "]
 
 
-*Observação:* neste momento, você não pode usar seus próprios buckets do S3 ao criar backups em sistemas StorageGRID ou para o ONTAP S3.
-
-Se você planeja usar um prefixo de bucket diferente do "NetApp-backup-xxxxxx", será necessário modificar as permissões S3 para a função do IAM do conetor. Para obter detalhes, consulte como criar backups no AWS S3.
+Se você planeja usar um prefixo de bucket diferente do "NetApp-backup-xxxxxx", será necessário modificar as permissões S3 para a função do IAM do conetor.
 
 * Configurações avançadas do balde*
 
@@ -214,7 +212,7 @@ Se você planeja mover arquivos de backup mais antigos para armazenamento de arq
 ** Mova os objetos com a tag "smc_push_to_archive: True" para _Glacier Flexible Retrieval_ (anteriormente S3 Glacier)
 
 
-* A proteção DataLock e ransomware é suportada no armazenamento da AWS ao usar o software ONTAP 9.11,1 ou superior nos clusters e o armazenamento do Azure ao usar o software ONTAP 9.12,1 ou superior.
+* A proteção contra DataLock e Ransomware é suportada no armazenamento da AWS ao usar o software ONTAP 9.11.1 ou superior em seus clusters, e no armazenamento do Azure ao usar o software ONTAP 9.12.1 ou superior.
 +
 ** Para a AWS, você deve habilitar o bloqueio de objetos no bucket usando um período de retenção de 30 dias.
 ** Para o Azure, você precisa criar a Classe de armazenamento com suporte à imutabilidade no nível da versão.

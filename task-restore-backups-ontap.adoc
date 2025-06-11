@@ -47,7 +47,7 @@ NOTE: O backup e a recuperação do BlueXP  já devem estar ativados para pelo 
 
 image:screenshot_restore_dashboard.png["O Painel de Restauro que mostra as opções para utilizar a funcionalidade Procurar  Restaurar ou pesquisar  Restaurar."]
 
-Como você pode ver, o Painel de Restauração oferece 2 maneiras diferentes de restaurar dados de arquivos de backup: *Procurar e Restaurar* e *pesquisar e Restaurar*.
+Como você pode ver, o Painel de Restauração oferece duas maneiras diferentes de restaurar dados de arquivos de backup: *Navegar e Restaurar* e *Pesquisar e Restaurar*.
 
 
 
@@ -225,7 +225,7 @@ video::9Og5agUWyRk[youtube,width=848,height=480,end=164]
 . Clique na guia *Restore* e o Restore Dashboard será exibido.
 . Na seção _Browse & Restore_, clique em *Restore volume*.
 +
-image:screenshot_restore_volume_selection.png["Uma captura de tela da seleção do botão Restaurar volumes no Painel de Restauração."]
+image:screenshot_restore_dashboard.png["O Painel de Restauro que mostra as opções para utilizar a funcionalidade Procurar  Restaurar ou pesquisar  Restaurar."]
 
 . Na página _Select Source_, navegue até o arquivo de backup do volume que você deseja restaurar. Selecione o *ambiente de trabalho*, o *volume* e o ficheiro *Backup* que tem o carimbo de data/hora a partir do qual pretende restaurar.
 +
@@ -386,7 +386,7 @@ video::9Og5agUWyRk[youtube,width=848,height=480,start=165]
 . Clique na guia *Restore* e o Restore Dashboard será exibido.
 . Na seção _Browse & Restore_, clique em *Restore Files or Folder* (Restaurar arquivos ou pasta).
 +
-image:screenshot_restore_files_selection.png["Uma captura de tela da seleção do botão Restaurar arquivos ou pasta no Painel de Restauração."]
+image:screenshot_restore_dashboard.png["O Painel de Restauro que mostra as opções para utilizar a funcionalidade Procurar  Restaurar ou pesquisar  Restaurar."]
 
 . Na página _Select Source_, navegue até o arquivo de backup do volume que contém a pasta ou os arquivos que você deseja restaurar. Selecione o *ambiente de trabalho*, o *volume* e o *Backup* que tem o carimbo de data/hora a partir do qual você deseja restaurar arquivos.
 +
@@ -700,7 +700,7 @@ Antes de poder utilizar a Pesquisa e Restauro, tem de ativar a "Indexação" em 
 O Catálogo indexado é um banco de dados que armazena metadados sobre todos os volumes e arquivos de backup em seu ambiente de trabalho. Ele é usado pela funcionalidade pesquisar e Restaurar para localizar rapidamente os arquivos de backup que contêm os dados que você deseja restaurar.
 
 .Catálogo indexado v2 recursos
-O Catálogo indexado v2, lançado em fevereiro de 2025, tem novos recursos que o tornam mais eficiente e fácil de usar. Esta versão tem um aprimoramento significativo de desempenho e é ativada por padrão para todos os novos clientes.
+O Catálogo Indexado v2, lançado em fevereiro de 2025 e atualizado em junho de 2025, inclui recursos que o tornam mais eficiente e fácil de usar. Esta versão tem um aprimoramento significativo de desempenho e é ativada por padrão para todos os novos clientes.
 
 Reveja as seguintes considerações relativas ao v2:
 
@@ -709,6 +709,7 @@ Reveja as seguintes considerações relativas ao v2:
 * O Catálogo v2 indexa apenas os instantâneos que têm um rótulo de instantâneo.
 * O backup e a recuperação do BlueXP  não indexam snapshots com rótulos SnapMirror "por hora". Se você quiser indexar snapshots com o rótulo SnapMirror "por hora", você precisa ativá-lo manualmente enquanto o v2 estiver no modo de visualização.
 * O backup e a recuperação do BlueXP  indexarão volumes e snapshots associados a ambientes de trabalho protegidos pelo backup e recuperação do BlueXP  somente com o Catálogo v2. Outros ambientes de trabalho descobertos na plataforma BlueXP  não serão indexados.
+* A indexação de dados com o Catalog v2 ocorre em ambientes locais e em ambientes Amazon Web Services, Microsoft Azure e Google Cloud Platform (GCP).
 
 
 O Catálogo indexado v2 suporta o seguinte:
@@ -774,31 +775,34 @@ Depois do <<enable-the-indexed-catalog-for-each-working-environment,Indexação 
 
 .Passos
 . No menu BlueXP , selecione *proteção > Backup e recuperação*.
-. Clique na guia *Restore* e o Restore Dashboard será exibido.
-. Na seção _Search & Restore_, clique em *Search & Restore*.
+. Clique na aba *Restaurar*.
 +
-image:screenshot_restore_start_search_restore.png["Uma captura de tela da seleção do botão pesquisar  Restaurar no Painel de Restauração."]
+O Painel de Restauração é exibido.
 
-. Na página pesquisar para restaurar:
+. Na seção _Pesquisar e restaurar_, selecione *Pesquisar e restaurar*.
++
+image:screenshot_restore_dashboard.png["O Painel de Restauro que mostra as opções para utilizar a funcionalidade Procurar  Restaurar ou pesquisar  Restaurar."]
+
+. Na página Pesquisar e Restaurar:
 +
 .. Na barra _Search_, insira um nome de volume completo ou parcial, nome da pasta ou nome de arquivo.
 .. Selecione o tipo de recurso: *Volumes*, *arquivos*, *pastas* ou *todos*.
 .. Na área _Filtrar por_, selecione os critérios de filtro. Por exemplo, você pode selecionar o ambiente de trabalho onde os dados residem e o tipo de arquivo, por exemplo, um arquivo .JPEG. Ou você pode selecionar o tipo de local de backup se quiser pesquisar resultados somente nas cópias Snapshot disponíveis ou arquivos de backup no storage de objetos.
 
 
-. Clique em *pesquisar* e a área resultados da pesquisa exibe todos os recursos que têm um arquivo, pasta ou volume que corresponde à sua pesquisa.
+. Selecione *Pesquisar* e a área Resultados da pesquisa exibirá todos os recursos que têm um arquivo, pasta ou volume que corresponde à sua pesquisa.
 +
 image:screenshot_restore_step1_search_restore.png["Uma captura de tela mostrando os critérios de pesquisa e os resultados da pesquisa na página pesquisar  Restaurar."]
 
-. Localize o recurso que tem os dados que você deseja restaurar e clique em *Exibir todos os backups* para exibir todos os arquivos de backup que contêm o volume, pasta ou arquivo correspondentes.
+. Localize o recurso que contém os dados que você deseja restaurar e selecione *Exibir todos os backups* para exibir todos os arquivos de backup que contêm o volume, pasta ou arquivo correspondente.
 +
 image:screenshot_restore_step2_search_restore.png["Uma captura de tela mostrando como exibir todos os backups que correspondem aos seus critérios de pesquisa."]
 
-. Localize o arquivo de backup que você deseja usar para restaurar os dados e clique em *Restaurar*.
+. Localize o arquivo de backup que você deseja usar para restaurar os dados e selecione *Restaurar*.
 +
 Observe que os resultados identificam cópias Snapshot de volume local e volumes replicados remotos que contêm o arquivo na pesquisa. Você pode optar por restaurar a partir do arquivo de backup em nuvem, da cópia Snapshot ou do volume replicado.
 
-. Selecione o local de destino onde deseja restaurar o volume, a pasta ou o(s) arquivo(s) e clique em *Restaurar*.
+. Selecione o local de destino onde você deseja que o volume, pasta ou arquivo(s) sejam restaurados e selecione *Restaurar*.
 +
 ** Para volumes, você pode selecionar o ambiente de trabalho de destino original ou selecionar um ambiente de trabalho alternativo. Ao restaurar um volume FlexGroup, você precisará escolher vários agregados.
 ** Para pastas, você pode restaurar o local original ou selecionar um local alternativo, incluindo o ambiente de trabalho, o volume e a pasta.
@@ -838,6 +842,6 @@ endif::gcp[]
 
 
 .Resultados
-O volume, a pasta ou o(s) arquivo(s) são restaurados e você é retornado ao Painel de Restauração para que você possa revisar o andamento da operação de restauração. Você também pode clicar na guia *Monitoramento de tarefas* para ver o progresso da restauração.
+O volume, a pasta ou o(s) arquivo(s) são restaurados e você é retornado ao Painel de Restauração para que você possa revisar o andamento da operação de restauração. Você também pode selecionar a aba *Monitoramento de Tarefas* para ver o progresso da restauração.
 
 Para volumes restaurados, você podelink:task-manage-backups-ontap.html["gerencie as configurações de backup para este novo volume"], conforme necessário.

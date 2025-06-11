@@ -1,0 +1,40 @@
+= Atualizações de suporte ao catálogo indexado
+:allow-uri-read: 
+
+
+
+
+=== Atualizações de suporte ao catálogo indexado
+
+Em fevereiro de 2025, introduzimos o recurso de indexação atualizado (Catálogo Indexado v2) que você usa durante o método de Pesquisa e Restauração para restaurar dados. A versão anterior melhorou significativamente o desempenho da indexação de dados em ambientes locais. Com esta versão, o catálogo de indexação agora está disponível em ambientes Amazon Web Services, Microsoft Azure e Google Cloud Platform (GCP).
+
+Se você for um novo cliente, o Catálogo Indexado v2 estará habilitado por padrão para todos os novos ambientes. Se você já for cliente, poderá reindexar seu ambiente para aproveitar o Catálogo Indexado v2.
+
+.Como você ativa a indexação?
+Antes de poder utilizar o método de pesquisa e restauro de restaurar dados, tem de ativar a "Indexação" em cada ambiente de trabalho de origem a partir do qual pretende restaurar volumes ou ficheiros. Selecione a opção *Ativar indexação* quando estiver executando uma pesquisa e restauração.
+
+O Catálogo Indexado pode então rastrear cada volume e arquivo de backup, tornando suas pesquisas rápidas e eficientes.
+
+Para obter mais informações, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Como restaurar dados do ONTAP usando pesquisar  Restaurar"]consulte .
+
+
+
+=== Pontos de extremidade de link privado e pontos de extremidade de serviço do Azure
+
+Normalmente, o backup e a recuperação do BlueXP estabelecem um endpoint privado com o provedor de nuvem para lidar com diversas tarefas de proteção. Esta versão apresenta uma configuração opcional que permite habilitar ou desabilitar a criação automática de um endpoint privado pelo backup e recuperação do BlueXP. Isso pode ser útil se você deseja ter mais controle sobre o processo de criação de endpoints privados.
+
+Se você desabilitar esta configuração, precisará criar manualmente o endpoint privado para que o backup e a recuperação do BlueXP funcionem corretamente. Sem a conectividade adequada, talvez você não consiga executar tarefas de backup e recuperação com sucesso.
+
+
+
+=== Suporte para SnapMirror para ressincronização em nuvem no ONTAP S3
+
+A versão anterior introduziu suporte para SnapMirror para Cloud Resync (SM-C Resync). O recurso otimiza a proteção de dados durante a migração de volumes em ambientes NetApp. Esta versão adiciona suporte para SM-C Resync no ONTAP S3, bem como em outros provedores compatíveis com S3, como Wasabi e MinIO.
+
+
+
+=== Traga seu próprio bucket para o StorageGRID
+
+Ao criar arquivos de backup no armazenamento de objetos para um ambiente de trabalho, por padrão, o BlueXP Backup and Recovery cria o contêiner (bucket ou conta de armazenamento) para os arquivos de backup na conta de armazenamento de objetos configurada. Anteriormente, era possível substituir isso e especificar seu próprio contêiner para Amazon S3, Azure Blob Storage e Google Cloud Storage. Com esta versão, agora você pode trazer seu próprio contêiner de armazenamento de objetos StorageGRID.
+
+ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Crie seu próprio contêiner de armazenamento de objetos"]Consulte .
