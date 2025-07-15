@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-restore-overview.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Os backups dos seus dados estão disponíveis para restauração nos locais onde você os criou, o que inclui snapshots, replicações e backups em armazenamento de objetos. Revise os locais de restauração, os pontos de restauração e os tipos de recursos a serem restaurados. 
+---
+= Visão geral da restauração de cargas de trabalho do Microsoft SQL usando BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Os backups dos seus dados do Microsoft SQL Server do BlueXP backup and recovery estão disponíveis para restauração nos locais para onde você os moveu: snapshots, replicações ou backups em armazenamento de objetos. Você pode restaurar uma carga de trabalho para o ambiente de trabalho original, para um ambiente de trabalho diferente que esteja usando a mesma conta de nuvem ou para um sistema ONTAP local. Revise os locais de restauração, os pontos de restauração e os tipos de recursos a serem restaurados.
+
+.Restaurar a partir desses locais
+Você pode restaurar cargas de trabalho de diferentes locais de partida:
+
+* Restaurar de um local primário
+* Restaurar de um recurso replicado
+* Restaurar de um backup de armazenamento de objetos
+
+
+.Restaurar esses pontos
+Você pode restaurar dados para o snapshot mais recente ou para estes pontos:
+
+* Restaurar a partir de instantâneos
+* Restaurar para um ponto específico no tempo. Isso é útil se você souber o nome e a localização do arquivo, além da data em que ele esteve em bom estado pela última vez.
+* Restaurar para o backup mais recente
+
+
+
+
+== O que vem a seguir
+
+Para obter detalhes sobre como restaurar cargas de trabalho, consulte link:br-use-mssql-restore.html["Restaurar cargas de trabalho"] .

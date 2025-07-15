@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: br-start-preview-setup.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Ao participar da versão prévia do BlueXP backup and recovery , você desempenha um papel crucial no aprimoramento e aprimoramento do serviço de BlueXP backup and recovery . Para a versão prévia do BlueXP backup and recovery, ajudaremos na configuração. Veja o processo. 
+---
+= Configurar a versão de pré-visualização de BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ao participar de uma das versões de pré-visualização do BlueXP backup and recovery , você desempenha um papel crucial no aprimoramento e aprimoramento do serviço de BlueXP backup and recovery . Para a versão de pré-visualização do BlueXP backup and recovery, ajudaremos na configuração. Veja o processo.
+
+. *Registro*: Se você ainda não tem uma conta BlueXP , crie uma. Veja como:
++
+.. Visite o  https://bluexp.netapp.com/["Portal BlueXP"] .
++
+image:screen-preview-bluexp-portal.png["Tela do portal BlueXP"]
+
+.. Selecione *Começar*.
++
+image:screen-preview-login.png["Faça login na tela do portal"]
+
+.. Selecione *Inscrever-se*.
++
+image:screen-preview-signup-profile.png["Inscreva-se na tela BlueXP"]
+
+.. Digite seu nome, endereço de e-mail, nome da organização e outros detalhes e selecione *Avançar*.
++
+Você receberá um e-mail com um link para verificar seu endereço de e-mail.
+
+.. Selecione o link no e-mail para verificar seu endereço de e-mail.
+.. Faça login no Portal BlueXP .
+.. Complete seu perfil inserindo as seguintes informações:
++
+*** *ID da organização*: Após o cadastro, você receberá um nome e um ID para a organização. Insira-os aqui.
+*** *ID de compartilhamento*: compartilhe o nome e o ID da organização com a equipe de produtos da NetApp .
++
+*Prazo de acesso*: Dentro de 48 a 72 horas, você terá acesso ao serviço de BlueXP backup and recovery .
+
+
+
+
+
+. *Explore* o serviço, teste seus recursos e integre-o às suas cargas de trabalho existentes do SQL Server.
+. *Mantenha contato regular*. Durante a sessão de pré-visualização, participe de reuniões regulares com a Equipe de Produtos da NetApp . Essas sessões ajudam você a entender o serviço e fornecer feedback:
++
+** *Ouça sobre atualizações*: Você ouvirá sobre os últimos desenvolvimentos relacionados à Prévia.
+** *Faça perguntas* e obtenha respostas imediatas da equipe BlueXP .
+** *Forneça feedback* à equipe de produtos da NetApp para melhorar o serviço.
+** *Compartilhe as melhores práticas* e dicas para usar o serviço de forma eficaz.
+** *Promova a colaboração*: colabore com outros usuários para compartilhar experiências e aprender uns com os outros.
+
+
+. *Forneça feedback* à equipe de produtos da NetApp .
+

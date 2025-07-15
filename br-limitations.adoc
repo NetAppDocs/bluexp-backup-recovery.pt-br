@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: br-limitations.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: O serviço de BlueXP backup and recovery precisa primeiro descobrir os dados para que você possa utilizá-lo. Durante a descoberta, o BlueXP backup and recovery analisa todos os volumes e arquivos nos ambientes de trabalho da sua organização. 
+---
+= Limitações conhecidas com BlueXP backup and recovery para cargas de trabalho do Microsoft SQL Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+As limitações conhecidas identificam plataformas, dispositivos ou funções que não são suportadas por esta versão do produto ou que não interoperam corretamente com ele. Revise essas limitações com cuidado.
+
+
+
+== Somente modo de implantação padrão
+
+A versão de BlueXP backup and recovery funciona apenas no modo de implantação padrão, não nos modos restrito ou privado.
+
+
+
+== Restrição de nome de cluster do Windows
+
+O nome do cluster do Windows não pode conter um caractere de sublinhado (_).
+
+
+
+== Problemas de migração do SnapCenter
+
+A migração de recursos do SnapCenter para o BlueXP backup and recovery tem as seguintes limitações.
+
+Para obter detalhes sobre como as políticas do SnapCenter migram para as políticas de BlueXP backup and recovery , consulte link:reference-policy-differences-snapcenter.html["Políticas no SnapCenter comparadas com aquelas no BlueXP backup and recovery"] .
+
+
+
+=== Limitações do grupo de recursos
+
+Se todos os recursos em um grupo de recursos estiverem protegidos e um desses recursos também estiver protegido fora do grupo de recursos, a migração do SnapCenter será bloqueada.
+
+*Solução alternativa*: proteja o recurso em um grupo de recursos ou sozinho, mas não em ambos.
+
+
+
+=== Recursos com várias políticas usando a mesma camada de agendamento não são suportados
+
+Não é possível atribuir várias políticas que usem o mesmo nível de agendamento (por exemplo, por hora, diariamente, semanalmente, etc.) a um recurso. O BlueXP backup and recovery não importarão esses recursos do SnapCenter.
+
+*Solução alternativa*: Anexe apenas uma política usando a mesma camada de agendamento a um recurso.
+
+
+
+=== As políticas horárias devem começar no início da hora
+
+Se você tiver uma política do SnapCenter que se repete a cada hora, mas os horários não estiverem em intervalos no início da hora, o BlueXP backup and recovery não importarão o recurso. Por exemplo, políticas com agendamentos de 1h30, 14h30, 15h30 etc. não são suportadas, enquanto políticas com agendamentos de 1h, 14h, 15h etc. são suportadas.
+
+*Solução alternativa*: use uma política que se repita em intervalos de 1 hora, começando no início da hora.
+
+
+
+=== Políticas diárias e mensais vinculadas a um recurso não são suportadas
+
+Se uma política do SnapCenter for repetida em intervalos de um dia e de um mês, o BlueXP backup and recovery não importarão a política.
+
+Por exemplo, você não pode anexar uma política diária (com menos ou igual a 7 dias ou mais de 7 dias) a um recurso e também anexar uma política mensal ao mesmo recurso.
+
+*Solução alternativa*: use uma política que utilize um intervalo diário ou mensal, mas não ambos.
+
+
+
+=== Políticas de backup sob demanda não migradas
+
+O BlueXP backup and recovery não importam políticas de backup sob demanda do SnapCenter.
+
+
+
+=== Políticas de backup somente de log não migradas
+
+O BlueXP backup and recovery não importam políticas de backup somente de log do SnapCenter. Se uma política do SnapCenter incluir backups somente de log, o BlueXP backup and recovery não importarão o recurso.
+
+*Solução alternativa*: use uma política no SnapCenter que use mais do que apenas backups somente de log.
+
+
+
+=== Mapeamento do host
+
+O SnapCenter não possui clusters de armazenamento de mapeamento ou SVMs para os recursos nos hosts, mas o BlueXP backup and recovery possui. O cluster ONTAP ou SVM local não será mapeado para um host na versão de pré-visualização do BlueXP backup and recovery . Além disso, o BlueXP não oferece suporte a SVMs.
+
+*Solução alternativa*: Antes de importar recursos do SnapCenter, crie um ambiente de trabalho no BlueXP backup and recovery para todos os sistemas de armazenamento ONTAP locais registrados no SnapCenter local. Em seguida, importe os recursos desse cluster do SnapCenter para o BlueXP backup and recovery.
+
+
+
+=== Horários não em intervalos de 15 minutos
+
+Se você tiver um agendamento de política do SnapCenter que começa em um determinado horário e se repete a cada tantos minutos, mas os minutos não estão em intervalos de 15 minutos, o BlueXP backup and recovery não importarão o agendamento.
+
+*Solução alternativa*: use o SnapCenter para ajustar a política para que ela seja repetida em intervalos de 15 minutos.
+
+
+
+=== Retenção de backup de log
+
+Com o SnapCenter, você pode ter vários valores de retenção em diversas políticas vinculadas a um recurso. No entanto, a versão de pré-visualização do BlueXP backup and recovery suporta apenas um único valor de retenção para todas as políticas vinculadas a um recurso.

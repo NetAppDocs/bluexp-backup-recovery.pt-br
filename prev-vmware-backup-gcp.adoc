@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-gcp.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Faça backup de armazenamentos de dados no Google Cloud Platform com backup e recuperação do BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode fazer backup de um ou mais armazenamentos de dados no Google Cloud Platform integrando o plug-in SnapCenter para o host VMware vSphere com o backup e a recuperação do BlueXP. Isso ajudará os administradores de VMs a fazer backup e arquivamento de dados com facilidade e rapidez para eficiência de storage e acelerar a transição para a nuvem.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+.Antes de começar
+Certifique-se de que você atendeu a todos os link:prev-vmware-prereqs.html["requisitos de proteção de máquina virtual"]antes de fazer backup de armazenamentos de dados na nuvem.
+
+.Passos
+. Na interface do usuário do BlueXP , selecione *Proteção* > *Backup e recuperação* > *Máquinas virtuais*.
+. Selecione image:icon-action.png["ação"] correspondente ao armazenamento de dados que você deseja fazer backup e selecione *Ativar backup*.
+. Na página Atribuir política, selecione a política e selecione *Avançar*.
+. Adicione o ambiente de trabalho.
++
+Configure o LIF de gerenciamento de cluster que você deseja que o BlueXP  descubra. Depois de adicionar o ambiente de trabalho para um dos datastores, ele pode ser reutilizado para todos os outros datastores que residem no mesmo cluster do ONTAP.
+
++
+.. Selecione *Adicionar ambiente de trabalho* correspondente ao SVM.
+.. No assistente Adicionar ambiente de trabalho:
++
+... Especifique o endereço IP do LIF de gerenciamento de cluster.
+... Especifique as credenciais do usuário do cluster do ONTAP.
+
+
+.. Selecione *Adicionar ambiente de trabalho*.
+
+
+. Selecione *Google Cloud Platform* para configurá-lo como o provedor de nuvem.
++
+.. Selecione o projeto do Google Cloud onde você deseja que o bucket do Google Cloud Storage seja criado para backups.
+.. No campo chave de acesso do Google Cloud, especifique a chave.
+.. No campo chave secreta do Google Cloud, especifique a senha.
+.. Selecione a região onde deseja criar os backups.
+.. Especifique o espaço IP.
+
+
+. Revise os detalhes e selecione *Ativar backup*.
+

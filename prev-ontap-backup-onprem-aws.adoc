@@ -1,0 +1,578 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-onprem-aws.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Faça backup de dados ONTAP locais no Amazon S3 com backup e recuperação do BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas ONTAP locais para um sistema de armazenamento secundário e para o armazenamento em nuvem do Amazon S3.
+
+
+NOTE: "Sistemas ONTAP no local" incluem sistemas FAS, AFF e ONTAP Select.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+
+
+== Identificar o método de ligação
+
+Escolha qual dos dois métodos de conexão você usará ao configurar backups de sistemas ONTAP locais para o AWS S3.
+
+* * Conexão pública* - Conete diretamente o sistema ONTAP ao AWS S3 usando um endpoint S3 público.
+* * Conexão privada* - Use uma VPN ou AWS Direct Connect e encaminhe o tráfego por meio de uma interface VPC Endpoint que usa um endereço IP privado.
+
+
+Opcionalmente, você pode se conectar a um sistema ONTAP secundário para volumes replicados usando a conexão pública ou privada.
+
+O diagrama a seguir mostra o método *public Connection* e as conexões que você precisa preparar entre os componentes. Você pode usar um conetor instalado no local ou um conetor implantado na VPC da AWS.
+
+image:diagram_cloud_backup_onprem_aws_public.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam por meio de uma conexão pública com os volumes no cluster e o storage do AWS S3 onde os arquivos de backup estão localizados."]
+
+O diagrama a seguir mostra o método *private Connection* e as conexões que você precisa preparar entre os componentes. Você pode usar um conetor instalado no local ou um conetor implantado na VPC da AWS.
+
+image:diagram_cloud_backup_onprem_aws_private.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam por meio de uma conexão privada com os volumes no cluster e o armazenamento do AWS S3 onde os arquivos de backup estão localizados."]
+
+
+
+== Prepare o conetor BlueXP 
+
+O conetor BlueXP  é o software principal para a funcionalidade BlueXP . É necessário um conetor para fazer backup e restaurar os dados do ONTAP.
+
+
+
+=== Crie ou troque os conetores
+
+Se você já tiver um conetor implantado na AWS VPC ou no local, tudo estará pronto.
+
+Caso contrário, você precisará criar um conetor em um desses locais para fazer backup dos dados do ONTAP no storage AWS S3. Não é possível usar um conetor que seja implantado em outro provedor de nuvem.
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Saiba mais sobre conetores"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["Instale um conetor na AWS"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["Instale um conetor nas suas instalações"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-restricted-mode.html["Instale um conetor em uma região do AWS GovCloud"^]
++
+Backup e recuperação do BlueXP  são suportados nas regiões GovCloud quando o conetor é implantado na nuvem, não quando ele é instalado em suas instalações. Além disso, você deve implantar o conetor no AWS Marketplace. Não é possível implantar o conetor em uma região do governo a partir do site SaaS da BlueXP .
+
+
+
+
+
+=== Preparar os requisitos de rede do conetor
+
+Certifique-se de que os seguintes requisitos de rede são atendidos:
+
+* Certifique-se de que a rede onde o conetor está instalado permite as seguintes ligações:
++
+** Uma conexão HTTPS pela porta 443 ao serviço de backup e recuperação do BlueXP  e ao storage de objetos S3 (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["consulte a lista de endpoints"^])
+** Uma conexão HTTPS pela porta 443 ao LIF de gerenciamento de cluster do ONTAP
+** Regras adicionais de grupo de segurança de entrada e saída são necessárias para implantações AWS e AWS GovCloud.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["Regras para o conetor na AWS"^]Consulte para obter detalhes.
+
+
+* Se você tiver uma conexão Direct Connect ou VPN do seu cluster ONTAP para o VPC e quiser que a comunicação entre o Connector e o S3 permaneça na sua rede interna da AWS (uma conexão *privada*), será necessário habilitar uma interface de endpoint do VPC para o S3. <<Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC>>.
+
+
+
+
+== Verifique os requisitos de licença
+
+Você precisará verificar os requisitos de licença para AWS e BlueXP :
+
+* Antes de ativar o backup e a recuperação do BlueXP  para seu cluster, você precisará inscrever-se em uma oferta de mercado BlueXP  de pagamento conforme o uso (PAYGO) da AWS ou comprar e ativar uma licença BYOL de backup e recuperação do BlueXP  da NetApp. Essas licenças são para sua conta e podem ser usadas em vários sistemas.
++
+** Para o licenciamento PAYGO de backup e recuperação do BlueXP , você precisará de uma assinatura do https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Oferta da NetApp BlueXP  no AWS Marketplace"^]. A cobrança do backup e recuperação do BlueXP  é feita por meio dessa assinatura.
+** Para o licenciamento BYOL de backup e recuperação do BlueXP , você precisará do número de série do NetApp que permite usar o serviço durante a duração e a capacidade da licença.
+
+
+* Você precisa ter uma assinatura da AWS para o espaço de armazenamento de objetos onde seus backups estarão localizados.
+
+
+*Regiões suportadas*
+
+Você pode criar backups de sistemas locais para o Amazon S3 em todas as regiões, incluindo regiões AWS GovCloud. Você especifica a região onde os backups serão armazenados quando você configurar o serviço.
+
+
+
+== Preparar os clusters do ONTAP
+
+Você precisará preparar seu sistema ONTAP de origem no local e qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local.
+
+Preparar os clusters do ONTAP envolve as etapas a seguir:
+
+* Descubra os seus sistemas ONTAP no BlueXP 
+* Verifique os requisitos do sistema ONTAP
+* Verifique os requisitos de rede do ONTAP para fazer backup de dados para armazenamento de objetos
+* Verificar os requisitos de rede do ONTAP para replicação de volumes
+
+
+
+
+=== Descubra os seus sistemas ONTAP no BlueXP 
+
+Tanto o sistema ONTAP de origem no local quanto qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local devem estar disponíveis no BlueXP  Canvas.
+
+Você precisará saber o endereço IP de gerenciamento de cluster e a senha da conta de usuário admin para adicionar o cluster. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Saiba como descobrir um cluster"^].
+
+
+
+=== Verifique os requisitos do sistema ONTAP
+
+Certifique-se de que os seguintes requisitos do ONTAP são atendidos:
+
+* É recomendado um mínimo de ONTAP 9.8; ONTAP 9.8P13 e posterior.
+* Uma licença SnapMirror (incluída como parte do pacote Premium ou do pacote de proteção de dados).
++
+*Observação:* o "pacote de nuvem híbrida" não é necessário ao usar o backup e a recuperação do BlueXP .
+
++
+Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["gerencie suas licenças de cluster"^].
+
+* A hora e o fuso horário estão definidos corretamente. Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["configure a hora do cluster"^].
+* Se você quiser replicar dados, verifique se os sistemas de origem e destino estão executando versões compatíveis do ONTAP antes de replicar dados.
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Veja versões compatíveis do ONTAP para relacionamentos do SnapMirror"^].
+
+
+
+
+
+=== Verifique os requisitos de rede do ONTAP para fazer backup de dados para armazenamento de objetos
+
+Você deve configurar os seguintes requisitos no sistema que se coneta ao storage de objetos.
+
+* Para uma arquitetura de backup fan-out, configure as seguintes configurações no sistema _Primary_.
+* Para uma arquitetura de backup em cascata, configure as seguintes configurações no sistema _secundário_.
+
+
+São necessários os seguintes requisitos de rede de cluster do ONTAP:
+
+* O cluster requer uma conexão HTTPS de entrada do conetor para o LIF de gerenciamento de cluster.
+* É necessário um LIF entre clusters em cada nó do ONTAP que hospeda os volumes que você deseja fazer backup. Essas LIFs entre clusters devem ser capazes de acessar o armazenamento de objetos.
++
+O cluster inicia uma conexão HTTPS de saída pela porta 443 das LIFs entre clusters para o armazenamento Amazon S3 para operações de backup e restauração. O ONTAP lê e grava dados no storage de objetos e a partir dele. O storage de objetos nunca é iniciado, ele apenas responde.
+
+* As LIFs entre clusters devem estar associadas ao _espaço_IPspace_ que o ONTAP deve usar para se conetar ao armazenamento de objetos. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Saiba mais sobre IPspaces"^].
++
+Ao configurar o backup e a recuperação do BlueXP , você será solicitado a usar o IPspace. Você deve escolher o espaço IPspace ao qual essas LIFs estão associadas. Esse pode ser o espaço IPspace "padrão" ou um espaço IPspace personalizado que você criou.
+
++
+Se você usa um IPspace diferente de "padrão", talvez seja necessário criar uma rota estática para obter acesso ao armazenamento de objetos.
+
++
+Todas as LIFs entre clusters dentro do IPspace devem ter acesso ao armazenamento de objetos. Se você não puder configurar isso para o IPspace atual, precisará criar um IPspace dedicado onde todas as LIFs entre clusters tenham acesso ao armazenamento de objetos.
+
+* Os servidores DNS devem ter sido configurados para a VM de armazenamento onde os volumes estão localizados. Consulte como https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Configurar serviços DNS para o SVM"^] .
+* Atualize regras de firewall, se necessário, para permitir conexões de backup e recuperação do BlueXP  do ONTAP para o armazenamento de objetos através da porta 443 e tráfego de resolução de nomes da VM de armazenamento para o servidor DNS através da porta 53 (TCP/UDP).
+* Se você estiver usando um endpoint de interface VPC privada na AWS para a conexão S3, para que o HTTPS/443 seja usado, você precisará carregar o certificado do endpoint S3 no cluster ONTAP . <<Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC>>. *[Certifique-se de que seu cluster ONTAP tenha permissões para acessar o bucket S3.
+
+
+
+
+=== Verificar os requisitos de rede do ONTAP para replicação de volumes
+
+Se você planeja criar volumes replicados em um sistema ONTAP secundário usando o backup e a recuperação do BlueXP , certifique-se de que os sistemas de origem e destino atendam aos seguintes requisitos de rede.
+
+
+
+==== Requisitos de rede da ONTAP no local
+
+* Se o cluster estiver em suas instalações, você deverá ter uma conexão da rede corporativa à rede virtual no provedor de nuvem. Normalmente, esta é uma conexão VPN.
+* Os clusters do ONTAP devem atender a requisitos adicionais de sub-rede, porta, firewall e cluster.
++
+Como você pode replicar para o Cloud Volumes ONTAP ou sistemas locais, revise os requisitos de peering para sistemas ONTAP locais. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Veja os pré-requisitos para peering de cluster na documentação do ONTAP"^].
+
+
+
+
+
+==== Requisitos de rede da Cloud Volumes ONTAP
+
+* O grupo de segurança da instância deve incluir as regras de entrada e saída necessárias: Especificamente, regras para ICMP e portas 11104 e 11105. Essas regras estão incluídas no grupo de segurança predefinido.
+
+
+
+
+== Prepare o Amazon S3 como destino de backup
+
+Preparar o Amazon S3 como destino de backup envolve as seguintes etapas:
+
+* Configure S3 permissões.
+* (Opcional) Crie seus próprios buckets do S3. (O serviço criará buckets para você, se você quiser.)
+* (Opcional) Configurar chaves AWS gerenciadas pelo cliente para criptografia de dados.
+* (Opcional) Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC.
+
+
+
+
+=== Configure S3 permissões
+
+Você precisará configurar dois conjuntos de permissões:
+
+* Permissões para que o conetor crie e gerencie o bucket do S3.
+* Permissões para o cluster do ONTAP no local para que ele possa ler e gravar dados no bucket do S3.
+
+
+.Passos
+. Certifique-se de que o conetor tem as permissões necessárias. Para obter detalhes, https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["Permissões de política do BlueXP "^] consulte .
++
+
+NOTE: Ao criar backups nas regiões da AWS China, você precisa alterar o Nome de recurso da AWS "ARN" em todas as seções _Resource_ nas políticas do IAM de "aws" para "aws-cn"; por exemplo `arn:aws-cn:s3:::netapp-backup-*`.
+
+. Quando você ativa o serviço, o assistente Backup solicitará que você insira uma chave de acesso e uma chave secreta. Essas credenciais são passadas para o cluster do ONTAP para que o ONTAP possa fazer backup e restaurar os dados para o bucket do S3. Para isso, você precisará criar um usuário do IAM com as seguintes permissões.
++
+Consulte a https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["Documentação da AWS: Criando uma função para delegar permissões a um usuário do IAM"^] .
+
++
+[%collapsible]
+====
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+     "Statement": [
+        {
+           "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+                "s3:PutEncryptionConfiguration"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup-*",
+            "Effect": "Allow",
+            "Sid": "backupPolicy"
+        },
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
+----
+====
+
+
+
+
+=== Crie seus próprios baldes
+
+Por padrão, o serviço cria buckets para você. Ou, se você quiser usar seus próprios buckets, você pode criá-los antes de iniciar o assistente de ativação de backup e, em seguida, selecionar esses buckets no assistente.
+
+link:prev-ontap-protect-journey.html["Saiba mais sobre como criar seus próprios buckets"^].
+
+Se você criar seus próprios buckets, use um nome de bucket do "NetApp-backup". Se você precisar usar um nome personalizado, edite o `ontapcloud-instance-policy-netapp-backup` IAMRole para os CVOs existentes e adicione a seguinte lista às permissões do S3. Você precisa incluir `“Resource”: “arn:aws:s3:::*”` e atribuir todas as permissões necessárias que precisam ser associadas ao bucket.
+
+[%collapsible]
+====
+"Action": [ "S3 S3 S3 S3:ListBucket" "S3 S3 S3 S3:GetBucketLocation" ] "Resource": "arn:aws:S3 S3 S3 S3:::*", "Effect": "Allow", "Action": [ "S3:GetObject", "S3:PutObject", "S3
+
+====
+
+
+=== Configurar chaves AWS gerenciadas pelo cliente para criptografia de dados
+
+Se você quiser usar as chaves de criptografia padrão do Amazon S3 para criptografar os dados passados entre o cluster no local e o bucket do S3, tudo estará definido porque a instalação padrão usa esse tipo de criptografia.
+
+Se, em vez disso, você quiser usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves padrão, precisará ter as chaves gerenciadas de criptografia já configuradas antes de iniciar o assistente de backup e recuperação do BlueXP .
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["Consulte como usar suas próprias chaves de criptografia da Amazon com o Cloud Volumes ONTAP"^].
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html#configure-encryption-settings["Consulte como usar suas próprias chaves de criptografia Amazon com backup e recuperação do BlueXP "^].
+
+
+
+=== Configure seu sistema para uma conexão privada usando uma interface de endpoint VPC
+
+Se você quiser usar uma conexão de internet pública padrão, todas as permissões serão definidas pelo Conector e não há mais nada que você precise fazer.
+
+Se você quiser ter uma conexão mais segura pela Internet do data center local para a VPC, há uma opção para selecionar uma conexão do AWS PrivateLink no assistente de ativação do backup. É necessário se você planeja usar uma VPN ou o AWS Direct Connect para conetar seu sistema local por meio de uma interface VPC Endpoint que use um endereço IP privado.
+
+.Passos
+. Crie uma configuração de endpoint de interface usando o console Amazon VPC ou a linha de comando. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Consulte detalhes sobre como usar o AWS PrivateLink para Amazon S3"^].
+. Modifique a configuração do grupo de segurança associada ao conetor BlueXP . Você deve alterar a política para "Personalizado" (de "Acesso total"), e você deve<<Configure S3 permissões,Adicione as permissões S3 da política de backup>>, como mostrado anteriormente.
++
+image:screenshot_backup_aws_sec_group.png["Uma captura de tela do grupo de segurança da AWS associado ao conetor."]
+
++
+Se você estiver usando a porta 80 (HTTP) para comunicação com o endpoint privado, você está tudo definido. Você pode habilitar o backup e a recuperação do BlueXP  agora no cluster.
+
++
+Se você estiver usando a porta 443 (HTTPS) para comunicação com o endpoint privado, copie o certificado do endpoint VPC S3 e adicione-o ao cluster do ONTAP, conforme mostrado nas próximas 4 etapas.
+
+. Obtenha o nome DNS do endpoint no Console AWS.
++
+image:screenshot_endpoint_dns_aws_console.png["Uma captura de tela do nome DNS do endpoint VPC do Console AWS."]
+
+. Obtenha o certificado do endpoint VPC S3. Você faz isso https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["Fazer login na VM que hospeda o BlueXP  Connector"^] executando o seguinte comando. Ao inserir o nome DNS do endpoint, adicione "bucket" ao início, substituindo o "*":
++
+[source, text]
+----
+[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts
+----
+. A partir da saída deste comando, copie os dados para o certificado S3 (todos os dados entre, e incluindo, as tags DE CERTIFICADO DE início / FIM):
++
+[source, text]
+----
+Certificate chain
+0 s:/CN=s3.us-west-2.amazonaws.com`
+   i:/C=US/O=Amazon/OU=Server CA 1B/CN=Amazon
+-----BEGIN CERTIFICATE-----
+MIIM6zCCC9OgAwIBAgIQA7MGJ4FaDBR8uL0KR3oltTANBgkqhkiG9w0BAQsFADBG
+…
+…
+GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
+-----END CERTIFICATE-----
+----
+. Faça login na CLI do cluster do ONTAP e aplique o certificado copiado usando o seguinte comando (substitua o nome da VM de storage):
++
+[source, text]
+----
+cluster1::> security certificate install -vserver cluster1 -type server-ca
+Please enter Certificate: Press <Enter> when done
+----
+
+
+
+
+== Ative backups no ONTAP volumes
+
+Ative os backups a qualquer momento diretamente do seu ambiente de trabalho no local.
+
+Um assistente leva você através dos seguintes passos principais:
+
+* <<Selecione os volumes que deseja fazer backup>>
+* <<Defina a estratégia de backup>>
+* <<Reveja as suas seleções>>
+
+
+Você também pode <<Mostrar os comandos API>>na etapa de revisão, para que você possa copiar o código para automatizar a ativação de backup para futuros ambientes de trabalho.
+
+
+
+=== Inicie o assistente
+
+.Passos
+. Acesse o assistente Ativar backup e recuperação usando uma das seguintes maneiras:
++
+** Na tela BlueXP , selecione o ambiente de trabalho e selecione *Ativar > volumes de backup* ao lado do serviço de backup e recuperação no painel direito.
++
+Se o destino do Amazon S3 para seus backups existir como um ambiente de trabalho no Canvas, você poderá arrastar o cluster do ONTAP para o armazenamento de objetos do Amazon S3.
+
+** Selecione *volumes* na barra de backup e recuperação. Na guia volumes, selecione o ícone *ações* image:icon-action.png["Ícone ações"]e selecione *Ativar Backup* para um único volume (que ainda não tem replicação ou backup para armazenamento de objetos já ativado).
+
+
++
+A página Introdução do assistente mostra as opções de proteção, incluindo snapshots locais, replicação e backups. Se você fez a segunda opção nesta etapa, a página Definir estratégia de backup será exibida com um volume selecionado.
+
+. Continue com as seguintes opções:
++
+** Se já tiver um conetor BlueXP , está tudo definido. Basta selecionar *seguinte*.
+** Se você ainda não tiver um conetor BlueXP , a opção *Adicionar um conetor* será exibida. <<Prepare o conetor BlueXP >>Consulte a .
+
+
+
+
+
+
+=== Selecione os volumes que deseja fazer backup
+
+Escolha os volumes que você deseja proteger. Um volume protegido é aquele que tem uma ou mais das seguintes opções: Política de snapshot, política de replicação, política de backup para objeto.
+
+Você pode optar por proteger o FlexVol ou o FlexGroup volumes. No entanto, não é possível selecionar uma combinação desses volumes ao ativar o backup para um ambiente de trabalho. Veja como link:prev-ontap-backup-manage.html["ative o backup para volumes adicionais no ambiente de trabalho"](FlexVol ou FlexGroup) depois de configurar o backup para os volumes iniciais.
+
+[NOTE]
+====
+* Você pode ativar um backup apenas em um único volume FlexGroup de cada vez.
+* Os volumes selecionados devem ter a mesma configuração SnapLock. Todos os volumes devem ter o SnapLock Enterprise ativado ou o SnapLock desativado.
+
+
+====
+.Passos
+Se os volumes escolhidos já tiverem políticas de snapshot ou replicação aplicadas, as políticas selecionadas posteriormente substituirão essas políticas existentes.
+
+. Na página Selecionar volumes, selecione o volume ou volumes que deseja proteger.
++
+** Opcionalmente, filtre as linhas para mostrar apenas volumes com determinados tipos de volume, estilos e muito mais para facilitar a seleção.
+** Depois de selecionar o primeiro volume, você pode selecionar todos os volumes FlexVol (volumes FlexGroup podem ser selecionados um de cada vez somente). Para fazer backup de todos os volumes FlexVol existentes, marque primeiro um volume e marque a caixa na linha de título.
+** Para fazer backup de volumes individuais, marque a caixa de cada volume.
+
+
+. Selecione *seguinte*.
+
+
+
+
+=== Defina a estratégia de backup
+
+Definir a estratégia de backup envolve definir as seguintes opções:
+
+* Se você deseja uma ou todas as opções de backup: instantâneos locais, replicação e backup para armazenamento de objetos
+* Arquitetura
+* Política de instantâneo local
+* Destino e política de replicação
++
+
+NOTE: Se os volumes escolhidos tiverem políticas de snapshot e replicação diferentes das políticas selecionadas nesta etapa, as políticas existentes serão substituídas.
+
+* Backup para informações de armazenamento de objetos (provedor, criptografia, rede, política de backup e opções de exportação).
+
+
+.Passos
+. Na página Definir estratégia de backup, escolha uma ou todas as opções a seguir. Todos os três são selecionados por padrão:
++
+** *Snapshots locais*: se você estiver executando replicação ou backup em armazenamento de objetos, snapshots locais deverão ser criados.
+** *Replicação*: Cria volumes replicados em outro sistema de armazenamento ONTAP.
+** *Backup*: Faz backup de volumes para armazenamento de objetos.
+
+
+. *Arquitetura*: Se você escolheu replicação e backup, escolha um dos seguintes fluxos de informações:
++
+** *Cascading*: As informações fluem do armazenamento primário para o secundário para o armazenamento de objetos e do armazenamento secundário para o armazenamento de objetos.
+** *Fan out*: As informações fluem do primário para o secundário _e_ do armazenamento primário para o objeto.
++
+Para obter detalhes sobre essas arquiteturas, link:prev-ontap-protect-journey.html["Planeje sua jornada de proteção"]consulte .
+
+
+
+. *Instantâneo local*: escolha uma política de instantâneo existente ou crie uma política.
++
+
+TIP: Para criar uma política personalizada antes de ativar o instantâneo, consulte link:br-use-policies-create.html["Crie uma política"] .
+
+. Para criar uma política, selecione *criar nova política* e faça o seguinte:
++
+** Introduza o nome da política.
+** Selecione até cinco programações, normalmente com frequências diferentes.
++
+*** Para políticas de backup para objeto, defina as configurações DataLock e proteção contra ransomware. Para obter detalhes sobre DataLock e proteção contra ransomware, link:prev-ontap-policy-object-options.html["Configurações de política de backup para objeto"]consulte .
+
+
+** Selecione *criar*.
+
+
+. *Replicação*: Defina as seguintes opções:
++
+** *Destino de replicação*: Selecione o ambiente de trabalho de destino e SVM. Opcionalmente, selecione o agregado de destino ou agregados e o prefixo ou sufixo que será adicionado ao nome do volume replicado.
+** *Política de replicação*: Escolha uma política de replicação existente ou crie uma política.
++
+
+TIP: Para criar uma política personalizada antes de ativar a replicação, link:br-use-policies-create.html["Crie uma política"]consulte .
+
++
+Para criar uma política, selecione *criar nova política* e faça o seguinte:
+
++
+*** Introduza o nome da política.
+*** Selecione até cinco programações, normalmente com frequências diferentes.
+*** Selecione *criar*.
+
+
+
+
+. *Fazer backup para Objeto*: Se você selecionou *Backup*, defina as seguintes opções:
++
+** *Fornecedor*: Selecione *Amazon Web Services*.
+** *Configurações do provedor*: Insira os detalhes do provedor e a região da AWS onde os backups serão armazenados.
++
+A chave de acesso e a chave secreta destinam-se ao usuário do IAM criado para dar ao cluster do ONTAP acesso ao bucket do S3.
+
+** *Bucket*: Escolha um bucket S3 existente ou crie um novo. Consulte a https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html["Adicione S3 baldes"^].
+** *Chave de criptografia*: Se você criou um novo bucket do S3, insira as informações da chave de criptografia fornecidas pelo provedor. Escolha se você usará as chaves de criptografia padrão do Amazon S3 ou escolha suas próprias chaves gerenciadas pelo cliente na sua conta da AWS para gerenciar a criptografia de seus dados.
+
+
++
+
+NOTE: Se você escolheu um bucket existente, as informações de criptografia já estão disponíveis, para que você não precise inseri-lo agora.
+
++
+** *Rede*: Escolha o IPspace e se você usará um endpoint privado. O endpoint privado está desativado por predefinição.
++
+... O espaço de IPspace no cluster do ONTAP onde residem os volumes que você deseja fazer backup. As LIFs entre clusters para este espaço IPspace devem ter acesso de saída à Internet.
+... Opcionalmente, escolha se você usará um AWS PrivateLink que você configurou anteriormente. https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["Veja detalhes sobre como usar o AWS PrivateLink para Amazon S3"^].
+
+
+** *Política de backup*: Selecione uma política de backup existente ou crie uma política.
++
+
+TIP: Para criar uma política personalizada antes de ativar a cópia de segurança, link:br-use-policies-create.html["Crie uma política"]consulte .
+
++
+Para criar uma política, selecione *criar nova política* e faça o seguinte:
+
++
+*** Introduza o nome da política.
+*** Selecione até cinco programações, normalmente com frequências diferentes.
+*** Selecione *criar*.
+
+
+** *Exportar cópias de snapshot existentes para o armazenamento de objetos como cópias de backup*: Se houver cópias de snapshot locais para volumes neste ambiente de trabalho que correspondam ao rótulo de agendamento de backup que você acabou de selecionar para este ambiente de trabalho (por exemplo, diário, semanal, etc.), este prompt adicional será exibido. Marque esta caixa para que todos os snapshots históricos sejam copiados para o armazenamento de objetos como arquivos de backup, garantindo a proteção mais completa para seus volumes.
+
+
+. Selecione *seguinte*.
+
+
+
+
+=== Reveja as suas seleções
+
+Esta é a oportunidade de rever as suas seleções e fazer ajustes, se necessário.
+
+.Passos
+. Na página Review (Revisão), reveja as suas seleções.
+. Opcionalmente, marque a caixa para *Sincronizar automaticamente os rótulos de política Snapshot com os rótulos de política de replicação e backup*. Isso cria snapshots com um rótulo que corresponde aos rótulos nas políticas de replicação e backup.
+. Selecione *Ativar Backup*.
+
+
+.Resultado
+O backup e a recuperação do BlueXP  começam a fazer os backups iniciais dos seus volumes. A transferência de linha de base do volume replicado e do arquivo de backup inclui uma cópia completa dos dados do sistema de storage primário. As transferências subsequentes contêm cópias diferenciais dos dados primários contidos nas cópias Snapshot.
+
+Um volume replicado é criado no cluster de destino que será sincronizado com o volume de armazenamento primário.
+
+O bucket do S3 é criado na conta de serviço indicada pela chave de acesso S3 e chave secreta que você inseriu, e os arquivos de backup são armazenados lá. O Painel de backup de volume é exibido para que você possa monitorar o estado dos backups.
+
+Também pode monitorizar o estado dos trabalhos de cópia de segurança e restauro utilizando o link:br-use-monitor-tasks.html["Página monitorização de trabalhos"^].
+
+
+
+=== Mostrar os comandos API
+
+Você pode querer exibir e, opcionalmente, copiar os comandos API usados no assistente Ativar backup e recuperação. Você pode querer fazer isso para automatizar a ativação de backup em futuros ambientes de trabalho.
+
+.Passos
+. No assistente Ativar backup e recuperação, selecione *Exibir solicitação de API*.
+. Para copiar os comandos para a área de transferência, selecione o ícone *Copiar*.
+

@@ -30,140 +30,129 @@ sidebar:
     entries:
     - title: O que há de novo
       url: "/whats-new.html"
-    - title: Limitações conhecidas
-      url: "/reference-limitations.html"
+    - title: Limitações conhecidas para cargas de trabalho do Microsoft SQL Server
+      url: "/br-limitations.html"
+    - title: Limitações conhecidas para cargas de trabalho de volumes ONTAP
+      url: "/br-reference-limitations.html"
   - title: Comece agora
     entries:
     - title: Saiba mais sobre o backup e a recuperação do BlueXP 
       url: "/concept-backup-to-cloud.html"
-    - title: Configure o licenciamento
-      url: "/task-licensing-cloud-backup.html"
-    - title: Ativar funcionalidades de pré-visualização
-      url: "/task-preview-enable.html"
-    - title: Monitorar a proteção de dados
+    - title: Pré-requisitos para BlueXP backup and recovery
+      url: "/concept-start-prereq.html"
+    - title: Configure o licenciamento para backup e recuperação do BlueXP
+      url: "/br-start-licensing.html"
+    - title: Configure destinos de backup antes de usar o BlueXP backup and recovery
+      url: "/br-start-setup.html"
+    - title: Faça login no BlueXP backup and recovery
+      url: "/br-start-login.html"
+    - title: Descubra alvos de backup
+      url: "/br-start-discover-backup-targets.html"
+    - title: Mude para diferentes cargas de trabalho de BlueXP backup and recovery
+      url: "/br-start-switch-ui.html"
+    - title: Configurar as configurações gerais de BlueXP backup and recovery
+      url: "/br-start-configure.html"
+  - title: Use o BlueXP backup and recovery
+    entries:
+    - title: Visualizar a saúde da proteção no Painel
+      url: "/br-use-dashboard.html"
+    - title: Crie políticas para governar backups e restaurações
+      url: "/br-use-policies-create.html"
+    - title: Proteja cargas de trabalho de volume ONTAP
       entries:
-      - title: Relatório sobre a cobertura de proteção de dados
-        url: "/task-report-inventory.html"
-      - title: Monitore o status dos trabalhos de backup e restauração
-        url: "/task-monitor-backup-jobs.html"
-  - title: Faça backup e restaure dados do ONTAP
-    entries:
-    - title: Proteger os dados de volume do ONTAP
-      url: "/concept-ontap-backup-to-cloud.html"
-    - title: Planeje sua jornada de proteção
-      url: "/concept-protection-journey.html"
-    - title: Gerenciar políticas para ONTAP volumes
-      url: "/task-create-policies-ontap.html"
-    - title: Opções de política de backup para objeto
-      url: "/concept-cloud-backup-policies.html"
-    - title: Gerencie opções de backup para objeto em Configurações avançadas
-      url: "/task-manage-backup-settings-ontap.html"
-    - title: Faça backup do Cloud Volumes ONTAP para o Amazon S3
-      flavor: aws
-      url: "/task-backup-to-s3.html"
-    - title: Faça backup do Cloud Volumes ONTAP para o Azure Blob
-      flavor: azure
-      url: "/task-backup-to-azure.html"
-    - title: Faça backup do Cloud Volumes ONTAP para o Google Cloud
-      flavor: gcp
-      url: "/task-backup-to-gcp.html"
-    - title: Fazer backup do ONTAP no local para o Amazon S3
-      flavor: aws
-      url: "/task-backup-onprem-to-aws.html"
-    - title: Fazer backup do ONTAP no local para Azure Blob
-      flavor: azure
-      url: "/task-backup-onprem-to-azure.html"
-    - title: Fazer backup do ONTAP no local para o Google Cloud
-      flavor: gcp
-      url: "/task-backup-onprem-to-gcp.html"
-    - title: Fazer backup do ONTAP no local para o ONTAP S3
-      url: "/task-backup-onprem-to-ontap-s3.html"
-    - title: Fazer backup do ONTAP no local para o StorageGRID
-      url: "/task-backup-onprem-private-cloud.html"
-    - title: Migre volumes com o SnapMirror para o Cloud Resync
-      url: "/task-migrate-volumes-snapmirror-cloud-resync.html"
-    - title: Gerenciar backups do ONTAP
-      url: "/task-manage-backups-ontap.html"
-    - title: Restauração a partir de backups do ONTAP
-      url: "/task-restore-backups-ontap.html"
-  - title: Fazer backup e restaurar dados de aplicações no local
-    entries:
-    - title: Proteja os dados das aplicações no local
-      url: "/concept-protect-app-data-to-cloud.html"
-    - title: Registre o servidor SnapCenter
-      url: "/task-register-snapcenter-server.html"
-    - title: Crie uma política para fazer backup de aplicativos
-      url: "/task-create-policies-apps.html"
-    - title: Faça backup dos dados de aplicativos locais para o Amazon Web Services
-      flavor: aws
-      url: "/task-backup-app-data-to-aws.html"
-    - title: Faça backup dos dados das aplicações locais para o Microsoft Azure
-      flavor: azure
-      url: "/task-backup-app-data-to-azure.html"
-    - title: Fazer backup dos dados das aplicações locais no Google Cloud
-      flavor: gcp
-      url: "/task-backup-app-data-to-gcp.html"
-    - title: Fazer backup dos dados das aplicações locais no StorageGRID
-      url: "/task-backup-app-data-to-storagegrid.html"
-    - title: Gerenciar a proteção de aplicativos
-      url: "/task-manage-app-backups.html"
-    - title: Restaure os dados das aplicações no local
+      - title: Visão geral das cargas de trabalho de volume Protect ONTAP
+        url: "/prev-ontap-protect-overview.html"
+      - title: Planeje sua jornada de proteção para volumes ONTAP
+        url: "/prev-ontap-protect-journey.html"
+      - title: Gerenciar políticas para ONTAP volumes
+        url: "/prev-ontap-policy-manage.html"
+      - title: Opções de política de backup para objeto para volumes ONTAP
+        url: "/prev-ontap-policy-object-options.html"
+      - title: Gerenciar opções de configurações avançadas da política de backup para
+          objeto
+        url: "/prev-ontap-policy-object-advanced-settings.html"
+      - title: Faça backup do Cloud Volumes ONTAP para o Amazon S3
+        url: "/prev-ontap-backup-cvo-aws.html"
+      - title: Faça backup do Cloud Volumes ONTAP para o Azure Blob
+        url: "/prev-ontap-backup-cvo-azure.html"
+      - title: Faça backup do Cloud Volumes ONTAP para o Google Cloud
+        url: "/prev-ontap-backup-cvo-gcp.html"
+      - title: Fazer backup do ONTAP no local para o Amazon S3
+        url: "/prev-ontap-backup-onprem-aws.html"
+      - title: Fazer backup do ONTAP no local para Azure Blob
+        url: "/prev-ontap-backup-onprem-azure.html"
+      - title: Fazer backup do ONTAP no local para o Google Cloud
+        url: "/prev-ontap-backup-onprem-gcp.html"
+      - title: Fazer backup do ONTAP no local para o ONTAP S3
+        url: "/prev-ontap-backup-onprem-ontaps3.html"
+      - title: Fazer backup do ONTAP no local para o StorageGRID
+        url: "/prev-ontap-backup-onprem-storagegrid.html"
+      - title: Migre volumes usando o SnapMirror para o Cloud Resync
+        url: "/prev-ontap-migrate-resync.html"
+      - title: Gerenciar backups do ONTAP
+        url: "/prev-ontap-backup-manage.html"
+      - title: Restauração a partir de backups do ONTAP
+        url: "/prev-ontap-restore.html"
+    - title: Proteja as cargas de trabalho do Microsoft SQL Server (visualização)
       entries:
-      - title: Restaure o banco de dados Oracle
-        url: "/task-restore-oracle-data.html"
-      - title: Restaure o banco de dados do SQL Server
-        url: "/task-restore-sql-data.html"
-      - title: Restaure o banco de dados SAP HANA
-        url: "/task-restore-hana-backup.html"
-      - title: Restaure bancos de dados MongoDB, MySQL e PostgreSQL
-        url: "/task-restore-customplugin-backup.html"
-  - title: Faça backup e restaure os dados das máquinas virtuais
-    entries:
-    - title: Proteja seus dados de máquinas virtuais
-      url: "/concept-protect-vm-data.html"
-    - title: Registre o plug-in do SnapCenter para o host VMware vSphere
-      url: "/task-register-snapCenter-plug-in-for-vmware-vsphere.html"
-    - title: Crie uma política para fazer backup de armazenamentos de dados
-      url: "/task-create-policies-vms.html"
-    - title: Faça backup de armazenamentos de dados no Amazon Web Services
-      flavor: aws
-      url: "/task-backup-vm-data-to-aws.html"
-    - title: Faça backup de armazenamentos de dados no Microsoft Azure
-      flavor: azure
-      url: "/task-backup-vm-data-to-azure.html"
-    - title: Faça backup de armazenamentos de dados no Google Cloud Platform
-      flavor: gcp
-      url: "/task-backup-vm-data-to-gcp.html"
-    - title: Faça backup de armazenamentos de dados no StorageGRID
-      url: "/task-backup-vm-data-to-storagegrid.html"
-    - title: Gerenciar a proteção dos dados de datastores e máquinas virtuais
-      url: "/task-manage-vm-data-in-cloud.html"
-    - title: Restaure os dados das máquinas virtuais
-      url: "/task-restore-vm-data.html"
-  - title: Automatize com a API REST
-    url: "/api-backup-restore.html"
-  - title: Referência
-    entries:
-    - title: Camadas de storage de arquivamento AWS compatíveis
-      url: "/reference-aws-backup-tiers.html"
-    - title: Camadas de acesso de arquivamento do Azure compatíveis
-      url: "/reference-azure-backup-tiers.html"
-    - title: Categorias de storage de arquivamento do Google compatíveis
-      url: "/reference-google-backup-tiers.html"
-    - title: Configure o backup para acesso a várias contas no Azure
-      flavor: azure
-      url: "/reference-backup-multi-account-azure.html"
-    - title: Restaure o banco de dados de backup e recuperação do BlueXP  em um local
-        escuro
-      url: "/reference-backup-cbs-db-in-dark-site.html"
+      - title: Visão geral da proteção de cargas de trabalho do Microsoft SQL Server
+        url: "/br-use-mssql-protect-overview.html"
+      - title: Configurar itens adicionais se importar do SnapCenter
+        url: "/concept-start-prereq-snapcenter-import.html"
+      - title: Descubra as cargas de trabalho do Microsoft SQL Server
+        url: "/br-start-discover.html"
+      - title: Fazer backup de cargas de trabalho do Microsoft SQL Server
+        url: "/br-use-mssql-backup.html"
+      - title: Restaurar cargas de trabalho do Microsoft SQL Server
+        url: "/br-use-mssql-restore.html"
+      - title: Clonar cargas de trabalho do Microsoft SQL Server
+        url: "/br-use-mssql-clone.html"
+      - title: Gerenciar inventário do Microsoft SQL Server
+        url: "/br-use-manage-inventory.html"
+      - title: Gerenciar instantâneos do Microsoft SQL Server
+        url: "/br-use-manage-snapshots.html"
+      - title: Criar relatórios do Microsoft SQL Server
+        url: "/br-use-reports.html"
+    - title: Proteja cargas de trabalho de máquinas virtuais
+      entries:
+      - title: Visão geral da proteção de cargas de trabalho de máquinas virtuais
+        url: "/prev-vmware-protect-overview.html"
+      - title: Pré-requisitos para proteger cargas de trabalho de máquinas virtuais
+        url: "/prev-vmware-prereqs.html"
+      - title: Registre o plug-in do SnapCenter para o host VMware vSphere
+        url: "/prev-vmware-register-snapcenter.html"
+      - title: Crie uma política para fazer backup de datastores VMware
+        url: "/prev-vmware-policy-create.html"
+      - title: Faça backup de armazenamentos de dados no Amazon Web Services
+        url: "/prev-vmware-backup-aws.html"
+      - title: Faça backup de armazenamentos de dados no Microsoft Azure
+        url: "/prev-vmware-backup-azure.html"
+      - title: Faça backup de armazenamentos de dados no Google Cloud Platform
+        url: "/prev-vmware-backup-gcp.html"
+      - title: Faça backup de armazenamentos de dados no StorageGRID
+        url: "/prev-vmware-backup-storagegrid.html"
+      - title: Gerenciar a proteção dos dados de datastores e máquinas virtuais
+        url: "/prev-vmware-manage.html"
+      - title: Restaurar datastores VMware
+        url: "/prev-vmware-restore.html"
+    - title: Monitorizar trabalhos
+      url: "/br-use-monitor-tasks.html"
     - title: Reinicie o backup e a recuperação do BlueXP 
       url: "/reference-restart-backup.html"
-  - title: Conhecimento e apoio
+  - title: Automatize com a API REST
+    url: "/br-api-backup-restore.html"
+  - title: Referência
     entries:
-    - title: Registre-se para obter suporte
-      url: "/task-support-registration.html"
-    - title: Obtenha ajuda
-      url: "/task-get-help.html"
+    - title: Políticas no SnapCenter comparadas ao BlueXP backup and recovery
+      url: "/reference-policy-differences-snapcenter.html"
+    - title: Funções e privilégios de BlueXP backup and recovery
+      url: "/reference-roles.html"
+    - title: Camadas de storage de arquivamento AWS compatíveis
+      url: "/prev-reference-aws-archive-storage-tiers.html"
+    - title: Camadas de armazenamento de arquivo do Azure com suporte
+      url: "/prev-reference-azure-archive-storage-tiers.html"
+    - title: Níveis de armazenamento de arquivo do Google Cloud compatíveis
+      url: "/prev-reference-gcp-archive-storage-tiers.html"
   - title: Avisos legais
     url: "/legal-notices.html"
 product-family:

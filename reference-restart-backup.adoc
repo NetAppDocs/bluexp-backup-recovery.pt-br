@@ -16,7 +16,7 @@ summary: Pode haver situações em que você precisará reiniciar o serviço de 
 [role="lead"]
 Pode haver situações em que você precisará reiniciar o serviço de backup e recuperação do BlueXP .
 
-A funcionalidade de backup e recuperação do BlueXP  está integrada ao BlueXP  Connector. Você precisará seguir diferentes etapas iniciais para reiniciar o serviço, dependendo se você implantou o conetor na nuvem ou se instalou o conetor manualmente em um sistema Linux.
+A funcionalidade de backup e recuperação do BlueXP  está integrada ao BlueXP  Connector.
 
 .Passos
 . Conete-se ao sistema Linux no qual o conetor está sendo executado.

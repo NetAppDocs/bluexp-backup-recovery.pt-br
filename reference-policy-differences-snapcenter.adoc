@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: reference-policy-differences-snapcenter.html 
+keywords: backup policy, backup policies, snapcenter, migration 
+summary: Existem algumas diferenças entre as políticas usadas no BlueXP backup and recovery e aquelas usadas no SnapCenter. 
+---
+= Políticas no SnapCenter comparadas com aquelas no BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há algumas diferenças entre as políticas usadas no SnapCenter e aquelas usadas no BlueXP backup and recovery que podem afetar o que você vê após importar recursos e políticas do SnapCenter.
+
+O BlueXP backup and recovery do SnapCenter e do BlueXP usam agendamentos de políticas ligeiramente diferentes.
+
+O SnapCenter usa os seguintes níveis de agendamento:
+
+* *Por hora*: Várias horas e minutos com quaisquer horas (0-23) e quaisquer minutos (0-60).
+* *Diariamente*: Inclui uma opção para repetir a cada tantos dias, por exemplo, a cada 3 dias.
+* *Semanal*: de domingo a segunda-feira, com a opção de realizar um snapshot no primeiro dia da semana ou em vários dias da semana.
+* *Mensal*: Meses de janeiro a dezembro, com opção de execução em dias específicos do mês, por exemplo, no dia 7 de cada mês e até mesmo em vários dias do mês.
+
+
+O BlueXP backup and recovery usam os seguintes níveis de agendamento, que são ligeiramente diferentes:
+
+* *Por hora*: executa instantâneos somente em intervalos de 15 minutos, por exemplo, intervalos de 1 hora ou 15 minutos menores que 60.
+* *Diariamente*: Horas do dia (0-23) com horário de início, por exemplo, às 10:00, com opção de execução a cada tantas horas.
+* *Semanal*: Dia da semana (de domingo a segunda-feira) com opção de execução em 1 dia ou em vários dias. É o mesmo que o SnapCenter.
+* *Mensal*: Datas do mês (0-30) com hora de início em várias datas do mês.
+* *Anual*: Mensal. Corresponde ao mensal do SnapCenter.
+
+
+
+
+== Várias políticas no SnapCenter com o mesmo nível de agendamento
+
+Você pode atribuir várias políticas com a mesma camada de agendamento a um recurso no SnapCenter. No entanto, o BlueXP backup and recovery não oferecem suporte a várias políticas em um recurso que usa a mesma camada de agendamento.
+
+*Exemplo*: Se você usar três políticas (para Dados, Log e Log de snapshots) no SnapCenter, após a migração do SnapCenter, o BlueXP backup and recovery usarão uma única política em vez de todas as três.
+
+
+
+== Agendas diárias importadas do SnapCenter
+
+O BlueXP backup and recovery ajustam os agendamentos do SnapCenter da seguinte forma:
+
+* Se o agendamento do SnapCenter for definido como menor ou igual a 7 dias, o BlueXP backup and recovery definirão o agendamento como semanal. Alguns snapshots serão ignorados durante a semana.
++
+*Exemplo*: Se você tiver uma política diária do SnapCenter com um intervalo de repetição de 3 dias a partir de segunda-feira, o BlueXP backup and recovery definem o agendamento para semanal, às segundas, quintas e domingos. Alguns dias serão ignorados porque não são exatamente a cada 3 dias.
+
+* Se o agendamento do SnapCenter for definido para mais de 7 dias, o BlueXP backup and recovery definirão o agendamento para mensal. Alguns snapshots serão ignorados durante o mês.
++
+*Exemplo*: Se você tiver uma política diária do SnapCenter com um intervalo de repetição de 10 dias a partir do dia 2 do mês, o BlueXP backup and recovery (pós-migração) definirão o agendamento para mensal nos dias 2, 12 e 22 do mês. Alguns dias serão ignorados no mês seguinte.
+
+
+
+
+
+== Cronogramas horários importados do SnapCenter
+
+As políticas horárias do SnapCenter com intervalos de repetição maiores que uma hora são convertidas em uma política diária no BlueXP backup and recovery.
+
+Qualquer política horária com intervalos repetidos que não sejam um fator de 24 (por exemplo, 5, 7, etc.) pulará alguns instantâneos em um dia.
+
+*Exemplo*: Se você tiver uma política horária do SnapCenter com um intervalo de repetição a cada 5 horas, começando à 1h, o BlueXP backup and recovery (após a migração) definirão a programação para diária, com intervalos de 5 horas à 1h, 6h, 11h, 16h e 21h. Alguns horários serão ignorados; após as 21h, o horário padrão seria 2h para repetir a cada 5 horas, mas será sempre à 1h.
+
+
+
+== Retenção de logs de políticas do SnapCenter
+
+Se você tiver um recurso no SnapCenter com várias políticas, o BlueXP backup and recovery usarão a seguinte ordem de prioridade para atribuir o valor de retenção de log:
+
+* Para "Backup completo com política de backup de log" mais políticas "somente log" no SnapCenter, o BlueXP backup and recovery usam o valor de retenção da política somente log.
+* Para as políticas "Backup completo somente com log" e "Completo e log" no SnapCenter, o BlueXP backup and recovery usam o valor de retenção somente log.
+* Para "Backup e log completos" mais "Backup completo" no SnapCenter, o BlueXP backup and recovery usam o valor de retenção "Backup e log completos".
+* Se você tiver apenas um backup completo no SnapCenter, o BlueXP backup and recovery não habilitarão o backup de log.
+
+
+
+
+== Contagem de retenção das políticas do SnapCenter
+
+Se você tiver um recurso com proteção secundária habilitada no SnapCenter com vários volumes de origem, vários volumes de destino e vários relacionamentos SnapMirror , o BlueXP backup and recovery usarão apenas a contagem de retenção da primeira política.
+
+*Exemplo*: Se você tiver uma política do SnapCenter com uma contagem de retenção de 5 e outra política com uma contagem de retenção de 10, o BlueXP backup and recovery usarão a contagem de retenção de 5.
+
+
+
+== Rótulos SnapMirror de políticas SnapCenter
+
+Os rótulos do SnapMirror para cada política no SnapCenter permanecem intactos após a migração, mesmo que o nível seja alterado.
+
+*Exemplo*: Uma política horária do SnapCenter pode mudar para diária no BlueXP backup and recovery. No entanto, os rótulos do SnapMirror permanecem os mesmos após a migração.

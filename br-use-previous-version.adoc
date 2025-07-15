@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: br-use-previous-version.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: A versão anterior do BlueXP backup and recovery permite proteger vários tipos de carga de trabalho, incluindo cargas de trabalho VMware e ONTAP . 
+---
+= Use uma versão anterior do BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A versão anterior do BlueXP backup and recovery permite proteger vários tipos de carga de trabalho, incluindo cargas de trabalho VMware e ONTAP .
+
+Você pode alternar entre a nova interface de BlueXP backup and recovery e a interface de BlueXP backup and recovery . A nova interface está disponível para todos, e você pode retornar à interface anterior se precisar fazer backup de cargas de trabalho que ainda não estão disponíveis na nova interface.
+
+*Quais cargas de trabalho você pode fazer backup em cada interface de usuário?*
+
+[cols="40,30,30"]
+|===
+| Workload | Nova IU | UI anterior 
+
+
+| Cargas de trabalho do Microsoft SQL Server | Disponível | Não disponível 
+
+
+| Workloads da VMware | Ainda não disponível | Disponível 
+
+
+| Volumes | Ainda não disponível | Disponível 
+
+
+| Cargas de trabalho do Kubernetes | Ainda não disponível | Não disponível 
+|===
+*Como você sabe qual interface de usuário está usando?* A nova interface de usuário usa uma estrutura de menu diferente da interface de usuário anterior.
+
+A nova interface do usuário: image:screen-br-menu-unified.png["Nova captura de tela da interface do usuário para BlueXP backup and recovery"]
+
+A interface do usuário anterior: image:screen-br-menu-legacy.png["Captura de tela anterior da interface do usuário para BlueXP backup and recovery"]
+
+
+
+== Mudar para uma carga de trabalho diferente
+
+Você pode alternar para uma carga de trabalho diferente na interface de BlueXP backup and recovery .
+
+.Passos
+. Na navegação à esquerda do BlueXP , selecione *Proteção* > *Backup e recuperação*.
+. No canto superior direito da página, selecione a lista suspensa *Alternar carga de trabalho*.
+. Selecione a carga de trabalho para a qual você deseja alternar. image:screen-br-menu-switch-ui.png["Captura de tela da carga de trabalho do switch para BlueXP backup and recovery"]
++
+A página é atualizada e mostra a carga de trabalho selecionada na interface do usuário apropriada.
+
+

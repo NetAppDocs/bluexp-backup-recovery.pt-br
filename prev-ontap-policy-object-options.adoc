@@ -1,0 +1,404 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-object-options.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Opções de política de backup para objeto no backup e recuperação do BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O BlueXP backup and recovery permitem que você crie políticas de backup com uma variedade de configurações para seus sistemas ONTAP locais e Cloud Volumes ONTAP .
+
+
+NOTE: Essas configurações de política são relevantes somente para o armazenamento de backup para objeto. Nenhuma dessas configurações afeta suas políticas de snapshot ou replicação.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+
+
+== Opções de agendamento de backup
+
+O backup e a recuperação do BlueXP  permitem que você crie várias políticas de backup com programações exclusivas para cada ambiente de trabalho (cluster). É possível atribuir diferentes políticas de backup a volumes com objetivos de ponto de restauração (RPO) diferentes.
+
+Cada política de backup fornece uma seção para _rótulos e retenção_ que você pode aplicar aos arquivos de backup. Observe que a política Snapshot aplicada ao volume deve ser uma das políticas reconhecidas pelo backup do BlueXP  e os arquivos de backup ou recuperação não serão criados.
+
+image:screenshot_backup_schedule_settings.png["Uma captura de tela das configurações do Backup Schedule ao criar uma política de backup."]
+
+Existem duas partes do programa: O rótulo e o valor de retenção:
+
+* O *label* define com que frequência um arquivo de backup é criado (ou atualizado) a partir do volume. Você pode selecionar entre os seguintes tipos de rótulos:
++
+** Você pode escolher um, ou uma combinação de prazos *hora*, *diária*, *semanal*, *mensal* e *anual*.
+** Você pode selecionar uma das políticas definidas pelo sistema que forneça backup e retenção por 3 meses, 1 ano ou 7 anos.
+** Se você criou políticas de proteção de backup personalizadas no cluster usando o Gerenciador de sistemas do ONTAP ou a CLI do ONTAP, selecione uma dessas políticas.
+
+
+* O valor *retension* define quantos arquivos de backup para cada rótulo (período de tempo) são retidos. Uma vez atingido o número máximo de backups em uma categoria ou intervalo, os backups mais antigos são removidos para que você tenha sempre os backups mais atuais. Isso também economiza custos de armazenamento porque backups obsoletos não continuam ocupando espaço na nuvem.
+
+
+Por exemplo, digamos que você crie uma política de backup que crie backups 7 * semanais* e 12 *mensais*:
+
+* cada semana e cada mês, um arquivo de backup é criado para o volume
+* na semana 8th, o primeiro backup semanal é removido e o novo backup semanal para a semana 8th é adicionado (mantendo um máximo de 7 backups semanais)
+* no 13th mês, o primeiro backup mensal é removido e o novo backup mensal para o 13th mês é adicionado (mantendo um máximo de 12 backups mensais)
+
+
+Os backups anuais são excluídos automaticamente do sistema de origem após serem transferidos para o armazenamento de objetos. Esse comportamento padrão pode ser alterado na página Configurações Avançadas do Ambiente de Trabalho.
+
+
+
+== Opções de proteção DataLock e ransomware
+
+O backup e a recuperação do BlueXP  oferecem suporte à proteção DataLock e ransomware para seus backups de volume. Esses recursos permitem que você bloqueie seus arquivos de backup e digitalize-os para detetar possíveis ransomware nos arquivos de backup. Esta é uma configuração opcional que você pode definir em suas políticas de backup quando quiser proteção extra para seus backups de volume de um cluster.
+
+Ambos esses recursos protegem seus arquivos de backup para que você sempre tenha um arquivo de backup válido para recuperar dados em caso de uma tentativa de ataque de ransomware em seus backups. Também é útil atender a certos requisitos regulatórios em que os backups precisam ser bloqueados e retidos por um determinado período de tempo. Quando a opção proteção DataLock e ransomware estiver ativada, o bucket da nuvem que é provisionado como parte da ativação de backup e recuperação do BlueXP  terá o bloqueio de objetos e o controle de versão de objetos ativados.
+
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["Consulte o blog de proteção DataLock e ransomware para obter mais detalhes"^].
+
+Esse recurso não fornece proteção para os volumes de origem, apenas para os backups desses volumes de origem. Use alguns dos  https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["Proteções anti-ransomware fornecidas pela ONTAP"^] para proteger seus volumes de origem.
+
+[CAUTION]
+====
+* Se você planeja usar a proteção DataLock e ransomware, poderá habilitá-la ao criar sua primeira política de backup e ativar o backup e a recuperação do BlueXP  para esse cluster. Mais tarde, você pode ativar ou desativar a verificação de ransomware usando o backup e recuperação do BlueXP  Configurações avançadas.
+* Quando o BlueXP  verifica um arquivo de backup em busca de ransomware ao restaurar dados de volume, você incorrerá em custos extras de saída do seu provedor de nuvem para acessar o conteúdo do arquivo de backup.
+
+
+====
+
+
+=== O que é DataLock
+
+Com este recurso, você pode bloquear os snapshots de nuvem replicados via SnapMirror para a Nuvem e também habilitar o recurso para detectar um ataque de ransomware e recuperar uma cópia consistente do snapshot no repositório de objetos. Este recurso é compatível com AWS, Azure e StorageGRID.
+
+O DataLock protege seus arquivos de backup de serem modificados ou excluídos por um determinado período de tempo - também chamado de _armazenamento imutável_. Esta funcionalidade utiliza a tecnologia do fornecedor de armazenamento de objetos para "bloqueio de objetos".
+
+Os provedores de nuvem utilizam uma Data de Retenção (RUD), que é calculada com base no Período de Retenção de Snapshot. O Período de Retenção de Snapshot é calculado com base no rótulo e na contagem de retenção definidos na política de backup.
+
+O Período mínimo de retenção de instantâneos é de 30 dias. Vejamos alguns exemplos de como isso funciona:
+
+* Se você escolher o rótulo *Diário* com Contagem de retenção 20, o Período de retenção do instantâneo será de 20 dias, cujo padrão é o mínimo de 30 dias.
+* Se você escolher o rótulo *Semanal* com Contagem de retenção 4, o Período de retenção do instantâneo será de 28 dias, cujo padrão é o mínimo de 30 dias.
+* Se você escolher o rótulo *Mensal* com Contagem de retenção 3, o Período de retenção do instantâneo será de 90 dias.
+* Se você escolher o rótulo *Anual* com Contagem de retenção 1, o Período de retenção do instantâneo será de 365 dias.
+
+
+
+
+=== O que é Retenção Até a Data (RUD) e como ela é calculada?
+
+A data de retenção (RUD) é determinada com base no período de retenção do instantâneo.
+
+* A data de retenção é calculada somando o período de retenção do instantâneo e um buffer.
+* Buffer é o Buffer para Tempo de Transferência (6 dias) + Buffer para Otimização de Custos (8 dias), o que totaliza 14 dias.
+* O prazo mínimo de retenção até a data é de 30 dias + 14 dias.
+
+
+Aqui estão alguns exemplos:
+
+* Se você criar um agendamento de backup mensal com 12 retenções, seus backups serão bloqueados por 12 meses (mais 14 dias) antes de serem excluídos (substituídos pelo próximo arquivo de backup).
+* Se você criar uma política de backup que crie 30 backups diários, 7 semanais e 12 mensais, haverá três períodos de retenção bloqueados:
++
+** Os backups "30 diários" são mantidos por 44 dias (30 dias mais 14 dias de buffer),
+** Os backups “semanais” são mantidos por 9 semanas (7 semanas mais 14 dias) e
+** Os backups "de 12 meses" são mantidos por 12 meses (mais 14 dias).
+
+
+* Se você criar um agendamento de backup por hora com retenções 24, talvez pense que os backups estão bloqueados por 24 horas. Entretanto, como esse período é menor que o mínimo de 30 dias, cada backup será bloqueado e retido por 44 dias (30 dias mais 14 dias de buffer).
+
+
+
+CAUTION: Os backups antigos são excluídos após o término do Período de Retenção do DataLock, não após o período de retenção da política de backup.
+
+A configuração de retenção do DataLock substitui a configuração de retenção de política da sua política de backup. Isso pode afetar seus custos de armazenamento, pois seus arquivos de backup serão salvos no armazenamento de objetos por um período de tempo maior.
+
+
+
+=== Habilitar proteção contra DataLock e Ransomware
+
+Você pode ativar a proteção contra DataLock e Ransomware ao criar uma política. Não é possível ativar, modificar ou desativar essa proteção após a criação da política.
+
+. Ao criar uma política, expanda a seção *DataLock e proteção contra ransomware*.
+. Escolha uma das seguintes opções:
++
+** *Nenhum*: A proteção do DataLock e a proteção contra ransomware estão desativadas.
+** *Desbloqueado*: A proteção DataLock e a proteção contra ransomware estão ativadas. Usuários com permissões específicas podem substituir ou excluir arquivos de backup protegidos durante o período de retenção.
+** *Bloqueado*: A proteção DataLock e a proteção contra ransomware estão ativadas. Nenhum usuário pode sobrescrever ou excluir arquivos de backup protegidos durante o período de retenção. Isso atende à total conformidade regulatória.
+
+
+
+
+link:prev-ontap-policy-object-advanced-settings.html["Como atualizar as opções de proteção contra ransomware na página Configurações avançadas"]Consulte a .
+
+
+
+=== O que é proteção contra ransomware
+
+A proteção contra ransomware verifica seus arquivos de backup para procurar evidências de um ataque de ransomware. A detecção de ataques de ransomware é realizada usando uma comparação de checksum. Se um possível ransomware for identificado em um novo arquivo de backup em comparação com o arquivo de backup anterior, esse arquivo de backup mais recente será substituído pelo arquivo de backup mais recente que não mostra sinais de um ataque de ransomware. (O arquivo identificado como tendo um ataque de ransomware é excluído 1 dia após ele ter sido substituído.)
+
+As varreduras ocorrem nas seguintes situações:
+
+* As verificações em objetos de backup na nuvem são iniciadas logo após a transferência para o armazenamento de objetos na nuvem. A verificação não é realizada no arquivo de backup quando ele é gravado pela primeira vez no armazenamento na nuvem, mas sim quando o próximo arquivo de backup é gravado.
+* As verificações de ransomware podem ser iniciadas quando o backup é selecionado para o processo de restauração.
+* As varreduras podem ser realizadas sob demanda a qualquer momento.
+
+
+*Como funciona o processo de recuperação?*
+
+Quando um ataque de ransomware é detectado, o serviço utiliza a API REST do Active Data Connector Integrity Checker para iniciar o processo de recuperação. A versão mais antiga dos objetos de dados é a fonte da verdade e é transformada na versão atual como parte do processo de recuperação.
+
+Vamos ver como isso funciona:
+
+* No caso de um ataque de ransomware, o serviço tenta substituir ou excluir o objeto no bucket.
+* Como o armazenamento em nuvem possui controle de versão habilitado, ele cria automaticamente uma nova versão do objeto de backup. Se um objeto for excluído com o controle de versão ativado, ele será marcado como excluído, mas ainda poderá ser recuperado. Se um objeto for substituído, as versões anteriores serão armazenadas e marcadas.
+* Quando uma verificação de ransomware é iniciada, as somas de verificação são validadas para ambas as versões do objeto e comparadas. Se as somas de verificação forem inconsistentes, um possível ransomware foi detectado.
+* O processo de recuperação envolve reverter para a última cópia boa conhecida.
+
+
+
+
+=== Ambientes de trabalho compatíveis e provedores de storage de objetos
+
+Você pode habilitar a proteção DataLock e ransomware no ONTAP volumes dos seguintes ambientes de trabalho ao usar o storage de objetos nos seguintes provedores de nuvem pública e privada. Outros fornecedores de nuvem serão adicionados em versões futuras.
+
+[cols="55,45"]
+|===
+| Fonte ambiente de trabalho | Destino do arquivo de backup ifdef::aws[] 
+
+
+| Cloud Volumes ONTAP na AWS | Amazon S3 endif::aws[] ifdef::azul[] 
+
+
+| Cloud Volumes ONTAP no Azure | Azure Blob endif::azure[] ifdef::gcp[] endif::gcp[] 
+
+
+| Sistema ONTAP no local | Ifdef::aws[] Amazon S3 endif::aws[] ifdef::azure[] Azure Blob endif::azure[] ifdef::gcp[] endif::gcp[] NetApp StorageGRID 
+|===
+
+
+=== Requisitos
+
+ifdef::aws[]
+
+* Para AWS:
++
+** Os clusters precisam executar o ONTAP 9.11,1 ou superior
+** O conetor pode ser implantado na nuvem ou no local
+** As seguintes permissões do S3 devem fazer parte da função do IAM que fornece permissões ao conetor. Eles residem na seção "backupS3Policy" do recurso "ARN:aws:S3:::NetApp-backup-*":
++
+.Permissões do AWS S3
+[%collapsible]
+====
+*** S3:GetObjectVersionTagging
+*** S3:GetBucketObjectLockConfiguration
+*** S3:GetObjectVersionAcl
+*** S3:PutObjectTagging
+*** S3:DeleteObject
+*** S3:DeleteObjectTagging
+*** S3:GetObjectRetention
+*** S3:DeleteObjectVersionTagging
+*** S3:PutObject
+*** S3:GetObject
+*** S3:PutBucketObjectLockConfiguration
+*** S3:GetLifecycleConfiguration
+*** S3:GetBucketTagging
+*** S3:DeleteObjectVersion
+*** S3:ListBucketVersions
+*** S3: ListBucket
+*** S3:PutBucketTagging
+*** S3:GetObjectTagging
+*** S3:PutBucketControle de versão
+*** S3:PutObjectVersionTagging
+*** S3:GetBucketControle de versão
+*** S3:GetBucketAcl
+*** S3:BypassGovernanceretenção
+*** S3:retenção de objetos Put
+*** S3:GetBucketLocation
+*** S3:GetObjectVersion
+
+
+====
++
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["Veja o formato JSON completo da política onde você pode copiar e colar as permissões necessárias"^].
+
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Para o Azure:
++
+** Os clusters precisam executar o ONTAP 9.12,1 ou superior
+** O conetor pode ser implantado na nuvem ou no local
+
+
+
+
+endif::azure[]
+
+* Para o StorageGRID:
++
+** Os clusters precisam executar o ONTAP 9.11,1 ou superior
+** Seus sistemas StorageGRID devem estar executando 11.6.0.3 ou mais
+** O conetor deve ser implantado em suas instalações (ele pode ser instalado em um site com ou sem acesso à Internet)
+** As seguintes permissões do S3 devem fazer parte da função do IAM que fornece permissões ao conetor:
++
+.Permissões do StorageGRID S3
+[%collapsible]
+====
+*** S3:GetObjectVersionTagging
+*** S3:GetBucketObjectLockConfiguration
+*** S3:GetObjectVersionAcl
+*** S3:PutObjectTagging
+*** S3:DeleteObject
+*** S3:DeleteObjectTagging
+*** S3:GetObjectRetention
+*** S3:DeleteObjectVersionTagging
+*** S3:PutObject
+*** S3:GetObject
+*** S3:PutBucketObjectLockConfiguration
+*** S3:GetLifecycleConfiguration
+*** S3:GetBucketTagging
+*** S3:DeleteObjectVersion
+*** S3:ListBucketVersions
+*** S3: ListBucket
+*** S3:PutBucketTagging
+*** S3:GetObjectTagging
+*** S3:PutBucketControle de versão
+*** S3:PutObjectVersionTagging
+*** S3:GetBucketControle de versão
+*** S3:GetBucketAcl
+*** S3:retenção de objetos Put
+*** S3:GetBucketLocation
+*** S3:GetObjectVersion
+
+
+====
+
+
+
+
+
+
+=== Restrições
+
+* O recurso de proteção DataLock e ransomware não estará disponível se você tiver configurado o armazenamento de arquivamento na política de backup.
+* A opção DataLock selecionada ao ativar o backup e a recuperação do BlueXP  deve ser usada para todas as políticas de backup desse cluster.
+* Não é possível usar vários modos DataLock em um único cluster.
+* Se você ativar o DataLock, todos os backups de volume serão bloqueados. Não é possível misturar backups de volume bloqueados e não bloqueados para um único cluster.
+* A proteção DataLock and ransomware é aplicável para novos backups de volume usando uma política de backup com a proteção DataLock e ransomware ativada. Mais tarde, você pode ativar ou desativar esses recursos usando a opção Configurações avançadas.
+* Os volumes do FlexGroup podem usar a proteção DataLock e ransomware somente ao usar o ONTAP 9.13,1 ou superior.
+
+
+
+
+=== Dicas sobre como mitigar os custos do DataLock
+
+Você pode ativar ou desativar o recurso ransomware Scan enquanto mantém o recurso DataLock ativo. Para evitar cobranças extras, você pode desativar varreduras de ransomware agendadas. Isso permite que você personalize suas configurações de segurança e evite incorrer em custos do provedor de nuvem.
+
+Mesmo que as varreduras programadas de ransomware estejam desativadas, você ainda pode executar varreduras sob demanda quando necessário.
+
+Você pode escolher diferentes níveis de proteção:
+
+* *DataLock _without_ ransomware scans*: Fornece proteção para dados de backup no armazenamento de destino que podem estar no modo Governança ou conformidade.
++
+** *Modo de governança*: Oferece flexibilidade aos administradores para substituir ou excluir dados protegidos.
+** *Modo de conformidade*: Fornece total indelébilidade até o período de retenção expirar. Isso ajuda a atender aos requisitos mais rigorosos de segurança de dados de ambientes altamente regulamentados. Os dados não podem ser sobrescritos ou modificados durante seu ciclo de vida, fornecendo o nível mais forte de proteção para suas cópias de backup.
++
+
+NOTE: Em vez disso, o Microsoft Azure usa um modo de bloqueio e desbloqueio.
+
+
+
+* *DataLock _with_ ransomware scans*: Fornece uma camada adicional de segurança para seus dados. Esse recurso ajuda a detetar qualquer tentativa de alterar cópias de backup. Se qualquer tentativa for feita, uma nova versão dos dados é criada discretamente. A frequência de digitalização pode ser alterada para 1, 2, 3, 4, 5, 6 ou 7 dias. Se as digitalizações forem definidas para cada 7 dias, os custos diminuem significativamente.
+
+
+Para obter mais dicas para mitigar os custos do DataLock, consulte https://community.netapp.com/t5/Tech-ONTAP-Blogs/Understanding-BlueXP-Backup-and-Recovery-DataLock-and-Ransomware-Feature-TCO/ba-p/453475[]
+
+Além disso, você pode obter estimativas para o custo associado ao DataLock visitando o https://bluexp.netapp.com/cloud-backup-service-tco-calculator["Calculadora de custo total de propriedade (TCO) de recuperação e backup do BlueXP "].
+
+
+
+== Opções de armazenamento de arquivamento
+
+Ao usar o storage de nuvem AWS, Azure ou Google, você pode mover arquivos de backup mais antigos para uma classe de storage de arquivamento ou categoria de acesso mais barata após um determinado número de dias. Você também pode optar por enviar seus arquivos de backup para o armazenamento de arquivamento imediatamente sem ser gravado no armazenamento padrão na nuvem. Basta digitar *0* como "Arquivo depois de dias" para enviar seu arquivo de backup diretamente para o armazenamento de arquivamento. Isso pode ser especialmente útil para usuários que raramente precisam acessar dados de backups na nuvem ou usuários que estão substituindo uma solução de backup em fita.
+
+Os dados em camadas de arquivamento não podem ser acessados imediatamente quando necessário e exigirão um custo de recuperação mais alto, portanto, você precisará considerar com que frequência você pode precisar restaurar dados de arquivos de backup antes de decidir arquivar seus arquivos de backup.
+
+[NOTE]
+====
+* Mesmo que você selecione "0" para enviar todos os blocos de dados para o storage de nuvem de arquivamento, os blocos de metadados sempre são gravados no storage de nuvem padrão.
+* O armazenamento de arquivamento não pode ser usado se você tiver ativado o DataLock.
+* Não é possível alterar a política de arquivamento depois de selecionar *0* dias (arquivar imediatamente).
+
+
+====
+Cada política de backup fornece uma seção para _Política de arquivamento_ que você pode aplicar aos arquivos de backup.
+
+image:screenshot_archive_tier_settings.png["Uma captura de tela das configurações da Política de arquivamento ao criar uma política de backup."]
+
+ifdef::aws[]
+
+* Na AWS, os backups são iniciados na classe de armazenamento _Standard_ e passam para a classe de armazenamento _Standard-unusual Access_ após 30 dias.
++
+Se o cluster estiver usando o ONTAP 9.10,1 ou superior, você poderá categorizar backups mais antigos para o armazenamento _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["Saiba mais sobre o armazenamento de arquivamento da AWS"].
+
++
+** Se você selecionar nenhum nível de arquivamento na primeira política de backup ao ativar o backup e a recuperação do BlueXP , o _S3 Glacier_ será a única opção de arquivamento para políticas futuras.
+** Se você selecionar _S3 Glacier_ em sua primeira política de backup, poderá alterar para o nível _S3 Glacier Deep Archive_ para futuras políticas de backup para esse cluster.
+** Se você selecionar _S3 Glacier Deep Archive_ em sua primeira política de backup, esse nível será o único nível de arquivamento disponível para políticas futuras de backup para esse cluster.
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* No Azure, os backups estão associados ao nível de acesso _Cool_.
++
+Se o cluster estiver usando o ONTAP 9.10,1 ou superior, você poderá categorizar backups mais antigos no storage _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["Saiba mais sobre o armazenamento de arquivamento do Azure"].
+
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* No GCP, os backups estão associados à classe de armazenamento _Standard_.
++
+Se o cluster no local estiver usando o ONTAP 9.12,1 ou superior, você poderá optar por categorizar backups mais antigos para o storage _Archive_ na IU de backup e recuperação do BlueXP  após um determinado número de dias para otimização adicional de custos. link:prev-reference-gcp-archive-storage-tiers.html["Saiba mais sobre o armazenamento de arquivos do Google"].
+
+
+
+endif::gcp[]
+
+* No StorageGRID, os backups estão associados à classe de armazenamento _Standard_.
++
+Se o cluster no local estiver usando o ONTAP 9.12,1 ou superior e o sistema StorageGRID estiver usando o 11,4 ou superior, você poderá arquivar arquivos de backup mais antigos para storage de arquivamento em nuvem pública.
+
+
+
+ifdef::aws[]
+
+** Para a AWS, você pode categorizar backups no armazenamento AWS _S3 Glacier_ ou _S3 Glacier Deep Archive_. link:prev-reference-aws-archive-storage-tiers.html["Saiba mais sobre o armazenamento de arquivamento da AWS"^].
+
+endif::aws[]
+
+ifdef::azure[]
+
+** Para o Azure, você pode categorizar backups mais antigos para o armazenamento _Azure Archive_. link:prev-reference-azure-archive-storage-tiers.html["Saiba mais sobre o armazenamento de arquivamento do Azure"^].
+
+endif::azure[]

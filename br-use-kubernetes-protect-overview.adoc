@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: br-use-kubernetes-protect-overview.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: Você pode proteger aplicativos e dados de aplicativos do Kubernetes de sistemas ONTAP locais até Amazon Web Services, Microsoft Azure, Google Cloud Platform e StorageGRID, garantindo que seus dados estejam protegidos. 
+---
+= Visão geral do gerenciamento de cargas de trabalho do Kubernetes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Gerenciar cargas de trabalho do Kubernetes no BlueXP backup and recovery permite que você gerencie e proteja seus clusters e aplicativos do Kubernetes em um só lugar. Você pode gerenciar recursos e aplicativos hospedados pelos seus clusters do Kubernetes. Você também pode gerenciar as configurações de proteção das suas cargas de trabalho do Kubernetes.
+
+
+NOTE: ESTA DOCUMENTAÇÃO É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Durante a pré-visualização, a funcionalidade do Kubernetes não é recomendada para cargas de trabalho de produção. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+
+Você pode realizar as seguintes tarefas relacionadas ao gerenciamento de cargas de trabalho do Kubernetes:
+
+* link:br-start-discover.html#discover-kubernetes-workloads["Descubra as cargas de trabalho do Kubernetes"].
+* link:br-use-manage-kubernetes-clusters.html["Gerenciar clusters do Kubernetes"].
+* link:br-use-protect-kubernetes-applications.html["Adicionar e proteger aplicativos Kubernetes"].
+* link:br-use-manage-kubernetes-applications.html["Gerenciar aplicativos Kubernetes"].
+* link:br-use-restore-kubernetes-applications.html["Restaurar aplicativos Kubernetes"].
+

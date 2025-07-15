@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: br-start-trial.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Inicie ou encerre um teste gratuito do BlueXP backup and recovery. O teste gratuito estará disponível por 30 dias após a assinatura do NetApp Intelligent Services, com pagamento conforme o uso, no marketplace do seu provedor de nuvem. 
+---
+= Inicie um teste gratuito do BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um teste gratuito de 30 dias de backup e recuperação do BlueXP  está disponível se você se inscrever para uma assinatura paga conforme o uso no mercado do seu provedor de nuvem para *Serviços inteligentes da NetApp*. O teste gratuito começa no momento em que você se inscrever na lista do mercado. Observe que se você pagar pela assinatura do marketplace ao implantar um sistema Cloud Volumes ONTAP e iniciar o teste gratuito de backup e recuperação do BlueXP  10 dias depois, você terá 20 dias restantes para usar a avaliação gratuita.
+
+Quando a avaliação gratuita terminar, você será automaticamente transferido para a assinatura PAYGO sem interrupção. Se você decidir não continuar usando o BlueXP backup and recovery, basta encerrar o teste gratuito.
+
+Você pode iniciar o teste gratuito do BlueXP backup and recovery após efetuar login no BlueXP.
+
+.Passos
+. Na navegação à esquerda do BlueXP , selecione *Proteção* > *Backup e recuperação*.
+. Se esta for a primeira vez que você faz login neste serviço, você já tem um ambiente de trabalho no BlueXP, mas ainda não iniciou o teste gratuito, a página inicial "Bem-vindo ao novo BlueXP backup and recovery" aparece e mostra uma opção para *Iniciar teste gratuito*.
++
+image:screen-br-landing-unified-start-trial.png["Captura de tela da página de destino para backup e recuperação do BlueXP sem teste gratuito"]
+
+
+
+
+
+== O que se segue?
+
+Após iniciar o teste gratuito, você pode descobrir cargas de trabalho e criar políticas para fazer backup delas.
+
+Se esta for a primeira vez que você faz login neste serviço, você já tem um ambiente de trabalho no BlueXP e iniciou o teste gratuito, mas não descobriu nenhum recurso, a página inicial "Bem-vindo ao novo BlueXP backup and recovery" aparece e mostra uma opção para *Descobrir recursos*.
+
+Para obter detalhes sobre como descobrir cargas de trabalho, consulte link:br-start-discover.html["Localizar workloads"] .
+
+image:screen-br-landing-unified.png["Captura de tela da página de destino para backup e recuperação do BlueXP"]
+
+
+
+== Termine a avaliação gratuita
+
+Você pode encerrar o teste gratuito a qualquer momento. Se encerrar o teste gratuito, você não será cobrado pelo serviço.
+
+.Passos
+. Na navegação à esquerda do BlueXP , selecione *Proteção* > *Backup e recuperação*.
++
+image:screen-br-landing-unified.png["Captura de tela da página de destino para backup e recuperação do BlueXP"]
+
+. Na página inicial "Bem-vindo ao novo BlueXP backup and recovery", selecione *Exibir detalhes - teste gratuito* ou, no canto superior direito da página, selecione *Teste gratuito*.
++
+image:screen-br-landing-unified-end-trial.png["Captura de tela da página de destino para teste gratuito de backup e recuperação do BlueXP"]
+
+. Selecione *Encerrar teste gratuito*.
+. Na caixa de diálogo de confirmação Encerrar avaliação gratuita, digite *Encerrar avaliação*.
+. Selecione *fim*.
+

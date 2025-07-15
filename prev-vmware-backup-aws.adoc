@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-aws.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Faça backup de datastores no Amazon Web Services no BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode fazer backup e arquivar um ou mais armazenamentos de dados com o backup e recuperação do BlueXP no Amazon Web Services para melhorar a eficiência do armazenamento e a transição para a nuvem.
+
+Se o datastore estiver associado a uma política de arquivamento, você terá a opção de selecionar o nível de arquivamento. Os níveis de arquivamento compatíveis são Glacier e Glacier Deep.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+.Antes de começar
+Certifique-se de que você atendeu a todos os link:prev-vmware-prereqs.html["requisitos de proteção de máquina virtual"]antes de fazer backup de armazenamentos de dados na nuvem.
+
+.Passos
+. Na interface do usuário do BlueXP , selecione *Proteção* > *Backup e recuperação* > *Máquinas virtuais*.
+. Selecione image:icon-action.png["ação"] correspondente ao armazenamento de dados que você deseja fazer backup e clique em *Ativar backup*.
+. Na página Atribuir política, selecione a política e selecione *Avançar*.
+. Adicione o ambiente de trabalho.
++
+Configure o LIF de gerenciamento de cluster que você deseja que o BlueXP  descubra. Depois de adicionar o ambiente de trabalho para um dos datastores, ele pode ser reutilizado para todos os outros datastores que residem no mesmo cluster do ONTAP.
+
++
+.. Selecione *Adicionar ambiente de trabalho* correspondente ao SVM.
+.. No assistente Adicionar ambiente de trabalho:
++
+... Especifique o endereço IP do LIF de gerenciamento de cluster.
+... Especifique as credenciais do usuário do cluster do ONTAP.
+
+
+.. Selecione *Adicionar ambiente de trabalho*.
+
+
+. Selecione *Amazon Web Services* para configurá-lo como o provedor de nuvem.
++
+.. Especifique a conta da AWS.
+.. No campo chave de acesso da AWS, especifique a chave para criptografia de dados.
+.. No campo chave secreta da AWS, especifique a senha para criptografia de dados.
+.. Selecione a região onde deseja criar os backups.
+.. Especifique os endereços IP do LIF de gerenciamento de cluster que foram adicionados como os ambientes de trabalho.
+.. Selecione o nível de arquivamento.
++
+Recomenda-se definir o nível de arquivo porque esta é uma atividade única e não é possível configurá-lo mais tarde.
+
+
+
+. Revise os detalhes e selecione *Ativar backup*.
+

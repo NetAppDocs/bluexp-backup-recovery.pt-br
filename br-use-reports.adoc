@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: br-use-reports.html 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
+summary: No BlueXP backup and recovery, crie relatórios para visualizar o status dos seus backups, incluindo o número de backups, o número de backups bem-sucedidos e o número de backups com falha. Você também pode visualizar os detalhes de cada backup, incluindo o tipo de backup, o sistema de armazenamento usado para o backup e a hora do backup. 
+---
+= Crie relatórios para cargas de trabalho do Microsoft SQL Server no BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+No BlueXP backup and recovery, crie relatórios para cargas de trabalho do Microsoft SQL Server para visualizar o status dos seus backups, incluindo o número de backups, o número de backups bem-sucedidos e o número de backups com falha. Você também pode visualizar os detalhes de cada backup, incluindo o tipo de backup, o sistema de armazenamento usado para o backup e a hora do backup.
+
+
+
+== Criar um relatório
+
+*Função BlueXP necessária* Administrador da organização, Administrador de pasta ou projeto, Superadministrador de Backup e Recuperação, Administrador de backup de Backup e Recuperação, Administrador de restauração de Backup e Recuperação, Administrador de clone de Backup e Recuperação. Saiba mais sobre link:reference-roles.html["Funções e privilégios de backup e recuperação"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+
+. No menu de BlueXP backup and recovery , selecione a aba *Relatórios*.
+. Selecione *criar relatório*.
++
+image:../media/screen-br-reports.png["Captura de tela de criação de novo relatório"]
+
+. Insira os detalhes do escopo do relatório:
++
+** *Nome do relatório*: insira um nome exclusivo para o relatório.
+** *Tipo de relatório*: Escolha se deseja um relatório por conta ou por carga de trabalho (Microsoft SQL Server).
+** *Selecionar host*: Se você selecionou por carga de trabalho, selecione o host para o qual deseja gerar o relatório.
+** *Selecionar conteúdo*: Escolha se deseja que o relatório inclua um resumo de todos os backups ou detalhes de cada backup. (Se você escolher "Por conta")
+
+
+. Insira o intervalo do relatório: escolha se deseja que o relatório inclua dados do último dia, dos últimos 7 dias, dos últimos 30 dias, do último trimestre ou do último ano.
+. Insira os detalhes de entrega do relatório: Se desejar que o relatório seja entregue por e-mail, marque a opção *Enviar relatório por e-mail*. Insira o endereço de e-mail para onde deseja que o relatório seja enviado.
++
+Configure as notificações por e-mail na página Configurações. Para obter detalhes sobre como configurar notificações por e-mail, consulte link:br-use-settings-advanced.html["Configure as definições"] .
+
+

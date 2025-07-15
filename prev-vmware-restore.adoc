@@ -1,0 +1,118 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-restore.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Restaure dados de máquinas virtuais com BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode restaurar dados de máquinas virtuais da nuvem para o vCenter local com o backup e recuperação do BlueXP. Você pode restaurar a máquina virtual para o mesmo local exato de onde o backup foi feito ou para um local alternativo. Se o backup da máquina virtual foi feito usando política de arquivamento, você pode definir a prioridade de restauração de arquivamento.
+
+
+NOTE: Não é possível restaurar máquinas virtuais que se estendem por armazenamentos de dados.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+.Antes de começar
+* Certifique-se de que você atendeu a todos os link:prev-vmware-prereqs.html["requisitos de proteção de máquina virtual"]antes de fazer backup de armazenamentos de dados na nuvem.
+* Se você estiver restaurando para um local alternativo:
++
+** Certifique-se de que os vCenters de origem e destino estão no modo vinculado.
+** Verifique se os detalhes do cluster de origem e destino são adicionados no BlueXP  Canvas e em vCenters de modo vinculado no plug-in do SnapCenter para o host VMware vSphere.
+** Certifique-se de que o ambiente de trabalho (NÓS) é adicionado correspondente ao local alternativo no BlueXP  Canvas.
+
+
+
+
+.Passos
+. Na interface do usuário BlueXP , selecione *Proteção* > *Backup e recuperação* > *Máquinas virtuais* > * SnapCenter Plug-in for VMware vSphere* e selecione o host do SnapCenter Plug-in for VMware vSphere .
+
+
+
+NOTE: Se a máquina virtual de origem for movida para outro local (vMotion) e se o usuário acionar uma restauração dessa máquina virtual do BlueXP , a máquina virtual será restaurada para o local de origem de onde o backup foi feito.
+
+. É possível restaurar a máquina virtual para o local original ou para um local alternativo do datastore ou de máquinas virtuais:
+
+
+|===
+| Se você quiser restaurar a máquina virtual... | Faça isso... 
+
+
+ a| 
+para o local original do datastore
+ a| 
+. Selecione o ícone Ações image:icon-action.png["ação"] correspondente ao armazenamento de dados que você deseja restaurar e clique em *Exibir detalhes*.
+. Selecione *Restaurar* correspondente ao backup que você deseja restaurar.
+. Selecione a máquina virtual que você deseja restaurar do backup e selecione *Avançar*.
+. Certifique-se de que *Original* esteja selecionado e selecione *Continuar*.
+. Se a máquina virtual estiver protegida usando uma política em que as configurações de arquivamento são definidas, selecione *Prioridade de restauração de arquivamento* e selecione *Avançar*.
++
+A prioridade de restauração de arquivamento suportada para Amazon Web Services é alta, padrão e baixa, e a prioridade de restauração de arquivamento suportada para Microsoft Azure é alta e padrão.
+
+. Revise os detalhes e selecione *Restaurar*.
+
+
+
+
+ a| 
+para um local alternativo do datastore
+ a| 
+. Selecione o ícone Ações image:icon-action.png["ação"] correspondente ao armazenamento de dados que você deseja restaurar e selecione *Exibir detalhes*.
+. Selecione *Restaurar* correspondente ao backup que você deseja restaurar.
+. Selecione a máquina virtual que você deseja restaurar do backup e selecione *Avançar*.
+. Selecione *alternativa*.
+. Selecione o vCenter Server, o host ESXi, o datastore e a rede alternativos.
+. Forneça um nome para a VM após a restauração e selecione *Continuar*.
+. Se a máquina virtual estiver protegida usando uma política em que as configurações de arquivamento são definidas, selecione *Prioridade de restauração de arquivamento* e selecione *Avançar*.
++
+A prioridade de restauração de arquivamento suportada para Amazon Web Services é alta, padrão e baixa, e a prioridade de restauração de arquivamento suportada para Microsoft Azure é alta e padrão.
+
+. Revise os detalhes e selecione *Restaurar*.
+
+
+
+
+ a| 
+para o local original de máquinas virtuais
+ a| 
+. Selecione o ícone Ações image:icon-action.png["ação"] correspondente à máquina virtual que você deseja restaurar e selecione *Restaurar*.
+. Selecione a cópia de segurança através da qual pretende restaurar a máquina virtual.
+. Certifique-se de que *Original* esteja selecionado e selecione *Continuar*.
+. Se a máquina virtual estiver protegida usando uma política em que as configurações de arquivamento são definidas, selecione *Prioridade de restauração de arquivamento* e selecione *Avançar*.
++
+A prioridade de restauração de arquivamento suportada para Amazon Web Services é alta, padrão e baixa, e a prioridade de restauração de arquivamento suportada para Microsoft Azure é alta e padrão.
+
+. Revise os detalhes e selecione *Restaurar*.
+
+
+
+
+ a| 
+para um local alternativo de máquinas virtuais
+ a| 
+. Selecione o ícone Ações image:icon-action.png["ação"] correspondente à máquina virtual que você deseja restaurar e selecione *Restaurar*.
+. Selecione a cópia de segurança através da qual pretende restaurar a máquina virtual.
+. Selecione *alternativa*.
+. Selecione o vCenter Server, o host ESXi, o datastore e a rede alternativos.
+. Forneça um nome para a VM após a restauração e selecione *Continuar*.
+. Se a máquina virtual estiver protegida usando uma política em que as configurações de arquivamento são definidas, selecione *Prioridade de restauração de arquivamento* e selecione *Avançar*.
++
+A prioridade de restauração de arquivamento suportada para Amazon Web Services é alta, padrão e baixa, e a prioridade de restauração de arquivamento suportada para Microsoft Azure é alta e padrão.
+
+. Revise os detalhes e selecione *Restaurar*.
+
+
+|===
+
+NOTE: Se a operação de restauração não for concluída, não tente o processo de restauração novamente até que o Monitor de trabalho mostre que a operação de restauração falhou. Se você tentar o processo de restauração novamente antes que o Monitor de trabalho mostre que a operação de restauração falhou, a operação de restauração falhará novamente. Quando o status do Monitor de trabalho for exibido como "Falha", você poderá tentar o processo de restauração novamente.

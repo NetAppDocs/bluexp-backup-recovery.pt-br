@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: br-use-dashboard.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, bluexp, backup, recovery, dashboard, view, health, status, alerts, notifications 
+summary: Monitorar a integridade das suas cargas de trabalho garante que você esteja ciente dos problemas com a proteção das cargas de trabalho e possa tomar medidas para resolvê-los. Visualize o status dos seus backups e restaurações e responda a quaisquer alertas que apareçam no Painel de Backup e Recuperação do BlueXP . Você pode consultar o Resumo da Proteção, o Resumo da Restauração, o Resumo do Sistema e muito mais. 
+---
+= Visualize a integridade da proteção no painel de BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Monitorar a integridade das suas cargas de trabalho garante que você esteja ciente de problemas com a proteção das cargas de trabalho e possa tomar medidas para resolvê-los. Veja o status dos seus backups e restaurações no Painel de BlueXP backup and recovery . Você pode consultar o resumo do sistema, o resumo da proteção, o resumo das tarefas, o resumo da restauração e muito mais.
+
+*Função BlueXP obrigatória* Administrador da organização, Administrador de pasta ou projeto, Superadministrador de Backup e Recuperação, Administrador de backup de Backup e Recuperação, Administrador de restauração de Backup e Recuperação, Administrador de clone de Backup e Recuperação ou Visualizador de Backup e Recuperação. Saiba mais sobre link:reference-roles.html["Funções e privilégios de backup e recuperação"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+
+.Passos
+. No menu de BlueXP backup and recovery , selecione *Painel*.
++
+image:screen-br-dashboard2.png["Painel de BlueXP backup and recovery"]
+
+
+
+
+
+== Veja o resumo geral do sistema
+
+O resumo do sistema fornece as seguintes informações:
+
+* Número de hosts ou VMs descobertos
+* Número de clusters do Kubernetes descobertos
+* Número de destinos de backup no armazenamento de objetos
+* Número de vCenters
+* Número de clusters de armazenamento no ONTAP
+
+
+
+
+== Ver o resumo da proteção
+
+Revise as seguintes informações no resumo de proteção:
+
+* O número total de bancos de dados protegidos e desprotegidos.
++
+
+TIP: Um banco de dados protegido é aquele que possui uma política de backup atribuída. Um banco de dados desprotegido é aquele que não possui uma política de backup atribuída.
+
+* O número de backups que foram bem-sucedidos, apresentaram um aviso ou falharam.
+* Capacidade total descoberta pelo serviço de backup e capacidade protegida versus desprotegida. Passe o mouse sobre o ícone "*i*" para ver os detalhes.
+
+
+
+
+== Ver o resumo do trabalho
+
+Revise o total de trabalhos concluídos, em execução ou com falha no Resumo do trabalho.
+
+.Passos
+. Para cada distribuição de tarefa, altere um filtro para mostrar o resumo de tarefas com falha, em execução e concluídas com base no número de dias, por exemplo, os últimos 30 dias, os últimos 7 dias, as últimas 24 horas ou o último 1 ano.
+. Veja detalhes dos trabalhos com falha, em execução e concluídos selecionando *Exibir monitoramento de trabalhos*.
+
+
+
+
+== Ver o resumo da restauração
+
+Revise as seguintes informações no resumo da restauração:
+
+* O número total de trabalhos de restauração realizados
+* A quantidade total de capacidade que foi restaurada
+* Número de trabalhos de restauração realizados no armazenamento local, secundário e de objetos. Passe o mouse sobre o gráfico para ver os detalhes.
+

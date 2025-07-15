@@ -1,0 +1,539 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-onprem-gcp.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Faça backup de dados ONTAP locais no Google Cloud Storage com backup e recuperação BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Conclua algumas etapas no backup e recuperação do BlueXP para começar a fazer backup de dados de volume dos seus sistemas ONTAP primários locais para um sistema de armazenamento secundário e para o Google Cloud Storage.
+
+
+NOTE: "Sistemas ONTAP no local" incluem sistemas FAS, AFF e ONTAP Select.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+
+
+== Identificar o método de ligação
+
+Escolha qual dos dois métodos de conexão você usará ao configurar backups de sistemas ONTAP locais para o Google Cloud Storage.
+
+* *Conexão pública* - Conete diretamente o sistema ONTAP ao Google Cloud Storage usando um endpoint público do Google.
+* * Conexão privada* - Use uma VPN ou o Google Cloud Interconnect e encaminhe o tráfego através de uma interface privada do Google Access que usa um endereço IP privado.
+
+
+Opcionalmente, você pode se conectar a um sistema ONTAP secundário para volumes replicados usando a conexão pública ou privada.
+
+O diagrama a seguir mostra o método *public Connection* e as conexões que você precisa preparar entre os componentes. O conetor deve ser implantado na VPC do Google Cloud Platform.
+
+image:diagram_cloud_backup_onprem_gcp_public.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam por meio de uma conexão pública com os volumes no cluster e com o storage do Google Cloud onde os arquivos de backup estão localizados."]
+
+O diagrama a seguir mostra o método *private Connection* e as conexões que você precisa preparar entre os componentes. O conetor deve ser implantado na VPC do Google Cloud Platform.
+
+image:diagram_cloud_backup_onprem_gcp_private.png["Um diagrama mostrando como o backup e a recuperação do BlueXP  se comunicam por meio de uma conexão privada com os volumes no cluster e no storage do Google Cloud onde os arquivos de backup estão localizados."]
+
+
+
+== Prepare o conetor BlueXP 
+
+O conetor BlueXP  é o software principal para a funcionalidade BlueXP . É necessário um conetor para fazer backup e restaurar os dados do ONTAP.
+
+
+
+=== Crie ou troque os conetores
+
+Se você já tiver um conetor implantado na VPC do Google Cloud Platform, tudo estará definido.
+
+Caso contrário, você precisará criar um conetor nesse local para fazer backup dos dados do ONTAP no Google Cloud Storage. Não é possível usar um conetor implantado em outro provedor de nuvem ou no local.
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Saiba mais sobre conetores"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["Instale um conetor no GCP"^]
+
+
+
+
+== Prepare a rede para o conetor
+
+Certifique-se de que o conetor tem as ligações de rede necessárias.
+
+.Passos
+. Certifique-se de que a rede onde o conetor está instalado permite as seguintes ligações:
++
+** Uma conexão HTTPS pela porta 443 para o serviço de backup e recuperação do BlueXP  e para o armazenamento do Google Cloud (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["consulte a lista de endpoints"^])
+** Uma conexão HTTPS pela porta 443 ao LIF de gerenciamento de cluster do ONTAP
+
+
+. Ative o Acesso privado do Google (ou o Private Service Connect) na sub-rede onde pretende implementar o conetor. https://cloud.google.com/vpc/docs/configure-private-google-access["Acesso privado ao Google"^] Ou https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises["Conexão de serviço privado"^] são necessários se você tiver uma conexão direta do cluster do ONTAP com a VPC e quiser que a comunicação entre o conetor e o Google Cloud Storage permaneça em sua rede privada virtual (uma conexão *privada*).
++
+Siga as instruções do Google para configurar estas opções de Acesso Privado. Certifique-se de que os servidores DNS foram configurados para apontar `www.googleapis.com` e `storage.googleapis.com` para os endereços IP internos (privados) corretos.
+
+
+
+
+
+=== Verifique ou adicione permissões ao conetor
+
+Para usar a funcionalidade "pesquisar e restaurar" de backup e recuperação do BlueXP , você precisa ter permissões específicas na função do conetor para que ele possa acessar o serviço do Google Cloud BigQuery. Revise as permissões abaixo e siga as etapas se precisar modificar a política.
+
+.Passos
+. No https://console.cloud.google.com["Google Cloud Console"^], vá para a página *Roles*.
+. Usando a lista suspensa na parte superior da página, selecione o projeto ou organização que contém a função que deseja editar.
+. Selecione uma função personalizada.
+. Selecione *Editar função* para atualizar as permissões da função.
+. Selecione *Adicionar permissões* para adicionar as seguintes novas permissões à função.
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. Selecione *Atualizar* para salvar a função editada.
+
+
+
+
+== Verifique os requisitos de licença
+
+* Antes de ativar o backup e a recuperação do BlueXP  para o seu cluster, você precisará inscrever-se em uma oferta de mercado BlueXP  de pagamento conforme o uso (PAYGO) do Google ou comprar e ativar uma licença BYOL de backup e recuperação do BlueXP  da NetApp. Essas licenças são para sua conta e podem ser usadas em vários sistemas.
++
+** Para o licenciamento PAYGO de backup e recuperação do BlueXP , você precisará de uma assinatura do https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Oferta de NetApp BlueXP  do Google Marketplace"^]. A cobrança do backup e recuperação do BlueXP  é feita por meio dessa assinatura.
+** Para o licenciamento BYOL de backup e recuperação do BlueXP , você precisará do número de série do NetApp que permite usar o serviço durante a duração e a capacidade da licença. link:br-start-licensing.html["Saiba como gerenciar suas licenças BYOL"].
+
+
+* Você precisa ter uma assinatura do Google para o espaço de armazenamento de objetos onde seus backups serão localizados.
+
+
+*Regiões suportadas*
+
+Você pode criar backups de sistemas locais para o Google Cloud Storage em todas as regiões. Você especifica a região onde os backups serão armazenados quando você configurar o serviço.
+
+
+
+== Preparar os clusters do ONTAP
+
+Você precisará preparar seu sistema ONTAP de origem no local e qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local.
+
+Preparar os clusters do ONTAP envolve as etapas a seguir:
+
+* Descubra os seus sistemas ONTAP no BlueXP 
+* Verifique os requisitos do sistema ONTAP
+* Verifique os requisitos de rede do ONTAP para fazer backup de dados para armazenamento de objetos
+* Verificar os requisitos de rede do ONTAP para replicação de volumes
+
+
+
+
+=== Descubra os seus sistemas ONTAP no BlueXP 
+
+Tanto o sistema ONTAP de origem no local quanto qualquer sistema ONTAP ou Cloud Volumes ONTAP secundário no local devem estar disponíveis no BlueXP  Canvas.
+
+Você precisará saber o endereço IP de gerenciamento de cluster e a senha da conta de usuário admin para adicionar o cluster. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Saiba como descobrir um cluster"^].
+
+
+
+=== Verifique os requisitos do sistema ONTAP
+
+Certifique-se de que os seguintes requisitos do ONTAP são atendidos:
+
+* É recomendado um mínimo de ONTAP 9.8; ONTAP 9.8P13 e posterior.
+* Uma licença SnapMirror (incluída como parte do pacote Premium ou do pacote de proteção de dados).
++
+*Observação:* o "pacote de nuvem híbrida" não é necessário ao usar o backup e a recuperação do BlueXP .
+
++
+Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["gerencie suas licenças de cluster"^].
+
+* A hora e o fuso horário estão definidos corretamente. Aprenda a https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["configure a hora do cluster"^].
+* Se você quiser replicar dados, verifique se os sistemas de origem e destino estão executando versões compatíveis do ONTAP antes de replicar dados.
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["Veja versões compatíveis do ONTAP para relacionamentos do SnapMirror"^].
+
+
+
+
+
+=== Verifique os requisitos de rede do ONTAP para fazer backup de dados para armazenamento de objetos
+
+Você deve configurar os seguintes requisitos no sistema que se coneta ao storage de objetos.
+
+* Para uma arquitetura de backup fan-out, configure as seguintes configurações no sistema _Primary_.
+* Para uma arquitetura de backup em cascata, configure as seguintes configurações no sistema _secundário_.
+
+
+São necessários os seguintes requisitos de rede de cluster do ONTAP:
+
+* O cluster do ONTAP inicia uma conexão HTTPS pela porta 443 do LIF entre clusters para o Google Cloud Storage para operações de backup e restauração.
++
+O ONTAP lê e grava dados no storage de objetos. O armazenamento de objetos nunca inicia, ele apenas responde.
+
+* O ONTAP requer uma conexão de entrada do conetor para o LIF de gerenciamento de cluster. O conetor pode residir em uma VPC do Google Cloud Platform.
+* É necessário um LIF entre clusters em cada nó do ONTAP que hospeda os volumes que você deseja fazer backup. O LIF deve estar associado ao _IPspace_ que o ONTAP deve usar para se conetar ao armazenamento de objetos. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["Saiba mais sobre IPspaces"^].
++
+Ao configurar o backup e a recuperação do BlueXP , você será solicitado a usar o IPspace. Você deve escolher o espaço IPspace ao qual cada LIF está associado. Esse pode ser o espaço IPspace "padrão" ou um espaço IPspace personalizado que você criou.
+
+* Os LIFs de clusters dos nós são capazes de acessar o armazenamento de objetos.
+* Os servidores DNS foram configurados para a VM de armazenamento onde os volumes estão localizados. Consulte como https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["Configurar serviços DNS para o SVM"^] .
++
+Se estiver a utilizar o Private Google Access ou o Private Service Connect, certifique-se de que os seus servidores DNS foram configurados para apontar `storage.googleapis.com` para o endereço IP interno (privado) correto.
+
+* Observe que, se você usar um IPspace diferente do padrão, talvez seja necessário criar uma rota estática para obter acesso ao armazenamento de objetos.
+* Atualize regras de firewall, se necessário, para permitir conexões de backup e recuperação do BlueXP  do ONTAP para o armazenamento de objetos através da porta 443, e tráfego de resolução de nomes da VM de armazenamento para o servidor DNS através da porta 53 (TCP/UDP).
+
+
+
+
+=== Verificar os requisitos de rede do ONTAP para replicação de volumes
+
+Se você planeja criar volumes replicados em um sistema ONTAP secundário usando o backup e a recuperação do BlueXP , certifique-se de que os sistemas de origem e destino atendam aos seguintes requisitos de rede.
+
+
+
+==== Requisitos de rede da ONTAP no local
+
+* Se o cluster estiver em suas instalações, você deverá ter uma conexão da rede corporativa à rede virtual no provedor de nuvem. Normalmente, esta é uma conexão VPN.
+* Os clusters do ONTAP devem atender a requisitos adicionais de sub-rede, porta, firewall e cluster.
++
+Como você pode replicar para o Cloud Volumes ONTAP ou sistemas locais, revise os requisitos de peering para sistemas ONTAP locais. https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["Veja os pré-requisitos para peering de cluster na documentação do ONTAP"^].
+
+
+
+
+
+==== Requisitos de rede da Cloud Volumes ONTAP
+
+* O grupo de segurança da instância deve incluir as regras de entrada e saída necessárias: Especificamente, regras para ICMP e portas 11104 e 11105. Essas regras estão incluídas no grupo de segurança predefinido.
+
+
+
+
+== Prepare o Google Cloud Storage como destino de backup
+
+Preparar o Google Cloud Storage como destino de backup envolve as seguintes etapas:
+
+* Configurar permissões.
+* (Opcional) Crie seus próprios buckets. (O serviço criará buckets para você, se você quiser.)
+* (Opcional) Configurar chaves gerenciadas pelo cliente para criptografia de dados
+
+
+
+
+=== Configurar permissões
+
+Você precisa fornecer chaves de acesso ao armazenamento para uma conta de serviço que tenha permissões específicas usando uma função personalizada. Uma conta de serviço permite que o backup e a recuperação do BlueXP  autentiquem e acessem os buckets do Cloud Storage usados para armazenar backups. As chaves são necessárias para que o Google Cloud Storage saiba quem está fazendo a solicitação.
+
+.Passos
+. No https://console.cloud.google.com["Google Cloud Console"^], vá para a página *Roles*.
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["Crie uma nova função"^] com as seguintes permissões:
++
+[source, json]
+----
+storage.buckets.create
+storage.buckets.delete
+storage.buckets.get
+storage.buckets.list
+storage.buckets.update
+storage.buckets.getIamPolicy
+storage.multipartUploads.create
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.list
+storage.objects.update
+----
+. No console do Google Cloud, https://console.cloud.google.com/iam-admin/serviceaccounts["Vá para a página Contas de Serviço"^].
+. Selecione seu projeto Cloud.
+. Selecione *criar conta de serviço* e forneça as informações necessárias:
++
+.. *Detalhes da conta de serviço*: Insira um nome e uma descrição.
+.. *Conceder acesso a essa conta de serviço ao projeto*: Selecione a função personalizada que você acabou de criar.
+.. Selecione *Concluído*.
+
+
+. Vá para https://console.cloud.google.com/storage/settings["Configurações de armazenamento do GCP"^] e crie chaves de acesso para a conta de serviço:
++
+.. Selecione um projeto e selecione *interoperabilidade*. Se ainda não o tiver feito, selecione *Ativar acesso à interoperabilidade*.
+.. Em *chaves de acesso para contas de serviço*, selecione *criar uma chave para uma conta de serviço*, selecione a conta de serviço que acabou de criar e clique em *criar chave*.
++
+Você precisará inserir as chaves no backup e recuperação do BlueXP  mais tarde quando configurar o serviço de backup.
+
+
+
+
+
+
+
+=== Crie seus próprios baldes
+
+Por padrão, o serviço cria buckets para você. Ou, se você quiser usar seus próprios buckets, você pode criá-los antes de iniciar o assistente de ativação de backup e, em seguida, selecionar esses buckets no assistente.
+
+link:prev-ontap-protect-journey.html["Saiba mais sobre como criar seus próprios buckets"^].
+
+
+
+=== Configurar chaves de criptografia gerenciadas pelo cliente (CMEK) para criptografia de dados
+
+Você pode usar suas próprias chaves gerenciadas pelo cliente para criptografia de dados em vez de usar as chaves de criptografia gerenciadas pelo Google padrão. As chaves entre regiões e entre projetos são suportadas, para que você possa escolher um projeto para um bucket diferente do projeto da chave CMEK.
+
+Se você está planejando usar suas próprias chaves gerenciadas pelo cliente:
+
+* Você precisará ter o Key Ring e o Key Name para poder adicionar essas informações no assistente de ativação. https://cloud.google.com/kms/docs/cmek["Saiba mais sobre chaves de criptografia gerenciadas pelo cliente"^].
+* Você precisará verificar se essas permissões necessárias estão incluídas na função do conetor:
++
+[source, json]
+----
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+----
+* Você precisará verificar se a API "Cloud Key Management Service (KMS)" do Google está habilitada em seu projeto. Consulte https://cloud.google.com/apis/docs/getting-started#enabling_apis["Documentação do Google Cloud: Habilitando APIs"^] para obter detalhes.
+
+
+*Considerações CMEK:*
+
+* Tanto as chaves HSM (suportadas por hardware) como as chaves geradas por software são suportadas.
+* As chaves do Cloud KMS recém-criadas ou importadas são suportadas.
+* Apenas são suportadas chaves regionais, não são suportadas chaves globais.
+* Atualmente, apenas o propósito "Symmetric encriptar/desencriptar" é suportado.
+* Ao agente de serviço associado à conta de armazenamento é atribuída a função do IAM "CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)" pelo backup e recuperação do BlueXP .
+
+
+
+
+== Ative backups no ONTAP volumes
+
+Ative os backups a qualquer momento diretamente do seu ambiente de trabalho no local.
+
+Um assistente leva você através dos seguintes passos principais:
+
+* <<Selecione os volumes que deseja fazer backup>>
+* <<Defina a estratégia de backup>>
+* <<Reveja as suas seleções>>
+
+
+Você também pode <<Mostrar os comandos API>>na etapa de revisão, para que você possa copiar o código para automatizar a ativação de backup para futuros ambientes de trabalho.
+
+
+
+=== Inicie o assistente
+
+.Passos
+. Acesse o assistente Ativar backup e recuperação usando uma das seguintes maneiras:
++
+** Na tela BlueXP , selecione o ambiente de trabalho e selecione *Ativar > volumes de backup* ao lado do serviço de backup e recuperação no painel direito.
++
+image:screenshot_backup_onprem_enable.png["Uma captura de tela que mostra o botão de ativação de backup e recuperação que está disponível depois de selecionar um ambiente de trabalho."]
+
++
+Se o destino do Google Cloud Storage para seus backups existir como um ambiente de trabalho no Canvas, você poderá arrastar o cluster do ONTAP para o armazenamento de objetos do Google Cloud.
+
+** Selecione *volumes* na barra de backup e recuperação. Na guia volumes, selecione o ícone *ações* image:icon-action.png["Ícone ações"]e selecione *Ativar Backup* para um único volume (que ainda não tem replicação ou backup para armazenamento de objetos já ativado).
+
+
++
+A página Introdução do assistente mostra as opções de proteção, incluindo snapshots locais, replicação e backups. Se você fez a segunda opção nesta etapa, a página Definir estratégia de backup será exibida com um volume selecionado.
+
+. Continue com as seguintes opções:
++
+** Se já tiver um conetor BlueXP , está tudo definido. Basta selecionar *seguinte*.
+** Se você ainda não tiver um conetor BlueXP , a opção *Adicionar um conetor* será exibida. <<Prepare o conetor BlueXP >>Consulte a .
+
+
+
+
+
+
+=== Selecione os volumes que deseja fazer backup
+
+Escolha os volumes que você deseja proteger. Um volume protegido é aquele que tem uma ou mais das seguintes opções: Política de snapshot, política de replicação, política de backup para objeto.
+
+Você pode optar por proteger o FlexVol ou o FlexGroup volumes. No entanto, não é possível selecionar uma combinação desses volumes ao ativar o backup para um ambiente de trabalho. Veja como link:prev-ontap-backup-manage.html["ative o backup para volumes adicionais no ambiente de trabalho"](FlexVol ou FlexGroup) depois de configurar o backup para os volumes iniciais.
+
+[NOTE]
+====
+* Você pode ativar um backup apenas em um único volume FlexGroup de cada vez.
+* Os volumes selecionados devem ter a mesma configuração SnapLock. Todos os volumes devem ter o SnapLock Enterprise ativado ou o SnapLock desativado.
+
+
+====
+.Passos
+Se os volumes escolhidos já tiverem políticas de snapshot ou replicação aplicadas, as políticas selecionadas posteriormente substituirão essas políticas existentes.
+
+. Na página Selecionar volumes, selecione o volume ou volumes que deseja proteger.
++
+** Opcionalmente, filtre as linhas para mostrar apenas volumes com determinados tipos de volume, estilos e muito mais para facilitar a seleção.
+** Depois de selecionar o primeiro volume, você pode selecionar todos os volumes FlexVol (volumes FlexGroup podem ser selecionados um de cada vez somente). Para fazer backup de todos os volumes FlexVol existentes, marque primeiro um volume e marque a caixa na linha de título.
+** Para fazer backup de volumes individuais, marque a caixa de cada volume.
+
+
+. Selecione *seguinte*.
+
+
+
+
+=== Defina a estratégia de backup
+
+Definir a estratégia de backup envolve definir as seguintes opções:
+
+* Se você deseja uma ou todas as opções de backup: instantâneos locais, replicação e backup para armazenamento de objetos
+* Arquitetura
+* Política de instantâneo local
+* Destino e política de replicação
++
+
+NOTE: Se os volumes escolhidos tiverem políticas de snapshot e replicação diferentes das políticas selecionadas nesta etapa, as políticas existentes serão substituídas.
+
+* Backup para informações de armazenamento de objetos (provedor, criptografia, rede, política de backup e opções de exportação).
+
+
+.Passos
+. Na página Definir estratégia de backup, escolha uma ou todas as opções a seguir. Todos os três são selecionados por padrão:
++
+** *Instantâneos locais*: Se você estiver executando replicação ou fazendo backup em armazenamento de objetos, os snapshots locais devem ser criados.
+** *Replicação*: Cria volumes replicados em outro sistema de armazenamento ONTAP.
+** *Backup*: Faz backup de volumes para armazenamento de objetos.
+
+
+. *Arquitetura*: Se você escolheu replicação e backup, escolha um dos seguintes fluxos de informações:
++
+** *Cascading*: As informações fluem do primário para o secundário e do secundário para o armazenamento de objetos.
+** *Fan out*: As informações fluem do primário para o secundário _e_ do armazenamento primário para o objeto.
++
+Para obter detalhes sobre essas arquiteturas, link:prev-ontap-protect-journey.html["Planeje sua jornada de proteção"]consulte .
+
+
+
+. *Instantâneo local*: escolha uma política de instantâneo existente ou crie uma nova.
++
+
+TIP: Para criar uma política personalizada, consulte link:br-use-policies-create.html["Crie uma política"] .
+
++
+Para criar uma política, selecione *criar nova política* e faça o seguinte:
+
++
+** Introduza o nome da política.
+** Selecione até cinco programações, normalmente com frequências diferentes.
+** Selecione *criar*.
+
+
+. *Replicação*: Defina as seguintes opções:
++
+** *Destino de replicação*: Selecione o ambiente de trabalho de destino e SVM. Opcionalmente, selecione o agregado de destino ou agregados e o prefixo ou sufixo que será adicionado ao nome do volume replicado.
+** *Política de replicação*: Escolha uma política de replicação existente ou crie uma nova.
++
+
+TIP: Para criar uma política personalizada, consulte link:br-use-policies-create.html["Crie uma política"] .
+
++
+Para criar uma política, selecione *criar nova política* e faça o seguinte:
+
++
+*** Introduza o nome da política.
+*** Selecione até cinco programações, normalmente com frequências diferentes.
+*** Selecione *criar*.
+
+
+
+
+. *Fazer backup para Objeto*: Se você selecionou *Backup*, defina as seguintes opções:
++
+** *Fornecedor*: Selecione *Google Cloud*.
+** *Configurações do provedor*: Insira os detalhes do provedor e a região onde os backups serão armazenados.
++
+Crie um novo bucket ou selecione um que você já criou.
+
++
+
+TIP: Se você quiser categorizar arquivos de backup mais antigos no storage do Google Cloud Archive para otimização adicional de custos, verifique se o intervalo tem a regra de ciclo de vida apropriada.
+
++
+Insira a chave secreta e a chave secreta do Google Cloud Access.
+
+** *Chave de criptografia*: Se você criou uma nova conta de armazenamento do Google Cloud, insira as informações da chave de criptografia fornecidas pelo provedor. Escolha se você usará as chaves de criptografia padrão do Google Cloud ou escolha suas próprias chaves gerenciadas pelo cliente na sua conta do Google Cloud para gerenciar a criptografia de seus dados.
++
+
+NOTE: Se você escolher uma conta de armazenamento do Google Cloud existente, as informações de criptografia já estarão disponíveis, para que você não precise inseri-la agora.
+
++
+Se você optar por usar suas próprias chaves gerenciadas pelo cliente, digite o anel de chave e o nome da chave. https://cloud.google.com/kms/docs/cmek["Saiba mais sobre chaves de criptografia gerenciadas pelo cliente"^].
+
+** *Networking*: Escolha o IPspace.
++
+O espaço de IPspace no cluster do ONTAP onde residem os volumes que você deseja fazer backup. As LIFs entre clusters para este espaço IPspace devem ter acesso de saída à Internet.
+
+** *Política de backup*: Selecione uma política de armazenamento de backup para objetos existente ou crie uma nova.
++
+
+TIP: Para criar uma política personalizada, consulte link:br-use-policies-create.html["Crie uma política"] .
+
++
+Para criar uma política, selecione *criar nova política* e faça o seguinte:
+
++
+*** Introduza o nome da política.
+*** Selecione até cinco programações, normalmente com frequências diferentes.
+*** Selecione *criar*.
+
+
+** *Exportar cópias de snapshot existentes para armazenamento de objetos como cópias de backup*: Se houver cópias de snapshot locais para volumes neste ambiente de trabalho que correspondam ao rótulo de agendamento de backup que você acabou de selecionar para este ambiente de trabalho (por exemplo, diário, semanal, etc.), este prompt adicional será exibido. Marque esta caixa para que todos os snapshots históricos sejam copiados para o armazenamento de objetos como arquivos de backup para garantir a proteção mais completa para seus volumes.
+
+
+. Selecione *seguinte*.
+
+
+
+
+=== Reveja as suas seleções
+
+Esta é a oportunidade de rever as suas seleções e fazer ajustes, se necessário.
+
+.Passos
+. Na página Review (Revisão), reveja as suas seleções.
+. Opcionalmente, marque a caixa para *Sincronizar automaticamente os rótulos de política Snapshot com os rótulos de política de replicação e backup*. Isso cria instantâneos com um rótulo que corresponde aos rótulos nas políticas de replicação e backup.
+. Selecione *Ativar Backup*.
+
+
+.Resultado
+O backup e a recuperação do BlueXP  começam a fazer os backups iniciais dos seus volumes. A transferência de linha de base do volume replicado e do arquivo de backup inclui uma cópia completa dos dados do sistema de storage primário. As transferências subsequentes contêm cópias diferenciais dos dados do sistema de storage primário contidos nas cópias Snapshot.
+
+Um volume replicado é criado no cluster de destino que será sincronizado com o volume de origem.
+
+Um intervalo do Google Cloud Storage é criado automaticamente na conta de serviço indicada pela chave de acesso e chave secreta do Google que você inseriu, e os arquivos de backup são armazenados lá. O Painel de backup de volume é exibido para que você possa monitorar o estado dos backups.
+
+Também pode monitorizar o estado dos trabalhos de cópia de segurança e restauro utilizando o link:br-use-monitor-tasks.html["Página monitorização de trabalhos"^].
+
+
+
+=== Mostrar os comandos API
+
+Você pode querer exibir e, opcionalmente, copiar os comandos API usados no assistente Ativar backup e recuperação. Você pode querer fazer isso para automatizar a ativação de backup em futuros ambientes de trabalho.
+
+.Passos
+. No assistente Ativar backup e recuperação, selecione *Exibir solicitação de API*.
+. Para copiar os comandos para a área de transferência, selecione o ícone *Copiar*.
+

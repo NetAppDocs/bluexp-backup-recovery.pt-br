@@ -1,0 +1,40 @@
+= Painel de volume ONTAP aprimorado
+:allow-uri-read: 
+
+
+
+
+=== Painel de volume ONTAP aprimorado
+
+Em abril de 2025, lançamos uma prévia de um Painel de Volume ONTAP aprimorado que é muito mais rápido e eficiente.
+
+Este painel foi projetado para ajudar clientes corporativos com um alto número de cargas de trabalho. Mesmo para clientes com 20.000 volumes, o novo painel carrega em menos de 10 segundos.
+
+Após uma prévia bem-sucedida e ótimos comentários dos usuários, agora estamos tornando a experiência padrão para todos os nossos clientes. Prepare-se para um painel incrivelmente rápido.
+
+Para obter detalhes, link:br-use-dashboard.html["Visualizar a saúde da proteção no Painel"]consulte .
+
+
+
+=== Suporte à carga de trabalho do Microsoft SQL Server como uma prévia de tecnologia pública
+
+Esta versão do BlueXP backup and recovery oferece uma interface de usuário atualizada que permite gerenciar cargas de trabalho do Microsoft SQL Server usando uma estratégia de proteção 3-2-1, familiar ao serviço de BlueXP backup and recovery . Com esta nova versão, você pode fazer backup dessas cargas de trabalho no armazenamento primário, replicá-las no armazenamento secundário e fazer backup delas no armazenamento de objetos na nuvem.
+
+Você pode se inscrever para a prévia preenchendo este formulário  https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Formulário de inscrição de pré-visualização"^] .
+
+
+NOTE: ESTA DOCUMENTAÇÃO SOBRE A PROTEÇÃO DE CARGAS DE TRABALHO DO MICROSOFT SQL SERVER É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+
+Esta versão do BlueXP backup and recovery inclui as seguintes atualizações:
+
+* *Recurso de backup 3-2-1*: Esta versão integra recursos do SnapCenter , permitindo que você gerencie e proteja seus recursos do SnapCenter com uma estratégia de proteção de dados 3-2-1 a partir da interface de usuário de BlueXP backup and recovery .
+* *Importar do SnapCenter*: Você pode importar dados e políticas de backup do SnapCenter para o BlueXP backup and recovery.
+* *Uma interface de usuário redesenhada* proporciona uma experiência mais intuitiva para gerenciar suas tarefas de backup e recuperação.
+* *Destinos de backup*: Você pode adicionar buckets em ambientes Amazon Web Services (AWS), Microsoft Azure Blob Storage, StorageGRID e ONTAP S3 para usar como destinos de backup para suas cargas de trabalho do Microsoft SQL Server.
+* *Suporte a cargas de trabalho*: Esta versão permite fazer backup, restaurar, verificar e clonar bancos de dados e grupos de disponibilidade do Microsoft SQL Server. (Suporte para outras cargas de trabalho será adicionado em versões futuras.)
+* *Opções de restauração flexíveis*: Esta versão permite que você restaure bancos de dados em locais originais e alternativos em caso de corrupção ou perda acidental de dados.
+* *Cópias de produção instantâneas*: gere cópias de produção com eficiência de espaço para desenvolvimento, testes ou análises em minutos, em vez de horas ou dias.
+* Esta versão inclui a capacidade de criar relatórios detalhados.
+
+
+Para obter detalhes sobre como proteger cargas de trabalho do Microsoft SQL Server, consulte link:br-use-mssql-protect-overview.html["Visão geral da proteção de cargas de trabalho do Microsoft SQL Server"] .

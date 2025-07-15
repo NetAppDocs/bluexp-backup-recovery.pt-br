@@ -1,0 +1,156 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-object-advanced-settings.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Gerenciar opções de armazenamento de backup para objeto nas configurações avançadas de BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode alterar as configurações de armazenamento de backup para objeto no nível do cluster que você definir ao ativar o backup e a recuperação do BlueXP  para cada sistema ONTAP usando a página Configurações avançadas. Você também pode modificar algumas configurações que são aplicadas como configurações de backup "padrão". Isso inclui alterar a taxa de transferência de backups para o armazenamento de objetos, se as cópias Snapshot históricas são exportadas como arquivos de backup e ativar ou desativar verificações de ransomware para um ambiente de trabalho.
+
+
+NOTE: Essas configurações estão disponíveis apenas para armazenamento de backup para objeto. Nenhuma dessas configurações afeta suas configurações de Snapshot ou replicação.
+
+[]
+====
+*NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
+
+====
+Você pode alterar as seguintes opções na página Configurações avançadas:
+
+* Alterar a largura de banda da rede alocada para fazer upload de backups para armazenamento de objetos usando a opção taxa de transferência máxima ifdef::aws[]
+
+
+endif::aws[]
+
+* Alterar se as cópias Snapshot históricas são exportadas como arquivos de backup e incluídas nos arquivos de backup da linha de base inicial para volumes futuros
+* Alterar se os instantâneos "anuais" são removidos do sistema de origem
+* Ativar ou desativar varreduras de ransomware para um ambiente de trabalho, incluindo varreduras agendadas
+
+
+
+
+== Veja as configurações de backup no nível do cluster
+
+Pode visualizar as definições de cópia de segurança no nível do cluster para cada ambiente de trabalho.
+
+.Passos
+. No menu BlueXP , selecione *proteção > Backup e recuperação*.
+. Na guia *volumes*, selecione *Configurações de backup*.
++
+image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Configurações de backup para que você possa ver como o Backup está configurado para todos os seus ambientes de trabalho."]
+
+. Na página _Backup Settings_, clique image:icon-actions-horizontal.gif["Ícone mais"] em para o ambiente de trabalho e selecione *Advanced Settings*.
++
+image:screenshot_backup_advanced_settings_button.png["Uma captura de tela que mostra o botão Configurações avançadas na página Configurações de backup."]
+
++
+A página _Configurações avançadas_ exibe as configurações atuais para esse ambiente de trabalho.
+
++
+image:screenshot_backup_advanced_settings_page2.png["Uma captura de tela que mostra os valores de Configurações avançadas de backup para um ambiente de trabalho específico."]
+
+. Expanda a opção e faça a alteração.
+
+
+Todas as operações de backup após a alteração usarão os novos valores.
+
+Observe que algumas opções não estão disponíveis com base na versão do ONTAP no cluster de origem e com base no destino do provedor de nuvem onde os backups residem.
+
+
+
+== Altere a largura de banda de rede disponível para carregar backups para o armazenamento de objetos
+
+Quando você ativa o backup e a recuperação do BlueXP  em um ambiente de trabalho, por padrão, o ONTAP pode usar uma quantidade ilimitada de largura de banda para transferir os dados de backup de volumes no ambiente de trabalho para o storage de objetos. Se você notar que o tráfego de backup está afetando as cargas de trabalho normais do usuário, você pode controlar a quantidade de largura de banda da rede usada durante a transferência usando a opção Max Transfer Rate (taxa de transferência máxima) na página Advanced Settings (Configurações avançadas).
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
+. Na página _Backup Settings_, clique image:icon-actions-horizontal.gif["Ícone mais"] em para o ambiente de trabalho e selecione *Advanced Settings*.
+. Na página Configurações avançadas, expanda a seção *Max Transfer Rate*.
++
+image:screenshot_backup_edit_transfer_rate.png["Uma captura de tela da entrada taxa máxima de transferência na página Configurações avançadas."]
+
+. Escolha um valor entre 1 e 1.000 Mbps como a taxa de transferência máxima.
+. Selecione o botão de opção *Limited* e insira a largura de banda máxima que pode ser usada ou selecione *Unlimited* para indicar que não há limite.
+. Selecione *aplicar*.
+
+
+Esta configuração não afeta a largura de banda alocada a quaisquer outras relações de replicação que possam ser configuradas para volumes no ambiente de trabalho.
+
+ifdef::aws[]
+
+endif::aws[]
+
+
+
+== Alterar se cópias de instantâneos históricos são exportadas como arquivos de backup
+
+Se houver cópias de instantâneos locais para volumes que correspondam ao rótulo de agendamento de backup que você está usando neste ambiente de trabalho (por exemplo, diário, semanal, etc.), você poderá exportar esses instantâneos históricos para o armazenamento de objetos como arquivos de backup. Isso permite inicializar seus backups na nuvem movendo cópias snapshot mais antigas para a cópia de backup da linha de base.
+
+Observe que essa opção se aplica somente a novos arquivos de backup para novos volumes de leitura/gravação e não é compatível com volumes de proteção de dados (DP).
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
+. Na página _Backup Settings_, clique image:icon-actions-horizontal.gif["Ícone mais"] em para o ambiente de trabalho e selecione *Advanced Settings*.
+. Na página Configurações avançadas, expanda a seção *Exportar cópias Snapshot existentes*.
++
+image:screenshot_backup_edit_export_snapshots.png["Uma captura de tela da entrada Exportar cópias Snapshot existentes na página Configurações avançadas."]
+
+. Selecione se deseja que as cópias Snapshot existentes sejam exportadas.
+. Selecione *aplicar*.
+
+
+
+
+== Altere se os instantâneos "anuais" são removidos do sistema de origem
+
+Quando você seleciona o rótulo de backup "anual" para uma política de backup para qualquer um de seus volumes, a cópia Snapshot criada é muito grande. Por padrão, esses snapshots anuais são excluídos automaticamente do sistema de origem após serem transferidos para o armazenamento de objetos. Você pode alterar esse comportamento padrão na seção exclusão de instantâneo anual.
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
+. Na página _Backup Settings_, clique image:icon-actions-horizontal.gif["Ícone mais"] em para o ambiente de trabalho e selecione *Advanced Settings*.
+. Na página Configurações avançadas, expanda a seção *eliminação anual de instantâneo*.
++
+image:screenshot_backup_edit_yearly_snap_delete.png["Uma captura de tela da entrada Snapshots anuais na página Configurações avançadas."]
+
+. Selecione *Disabled* (Desativado) para reter os instantâneos anuais no sistema de origem.
+. Selecione *aplicar*.
+
+
+
+
+== Ative ou desative varreduras de ransomware
+
+As verificações de proteção contra ransomware são ativadas por padrão. A predefinição para a frequência de digitalização é de 7 dias. A verificação ocorre apenas na cópia mais recente do snapshot. Você pode ativar ou desativar as verificações de ransomware na cópia mais recente do snapshot usando a opção na página Configurações Avançadas. Se você ativá-lo, as verificações são realizadas a cada 7 dias por padrão.
+
+Para obter detalhes sobre as opções de proteção DataLock e Ransomware, consulte link:prev-ontap-policy-object-options.html["Opções de proteção DataLock e ransomware"] .
+
+Você pode alterar esse horário para dias ou semanas ou desativá-lo, economizando custos.
+
+
+TIP: A ativação das varreduras de ransomware incorrerá em cobranças extras, dependendo do provedor de nuvem.
+
+As verificações agendadas de ransomware são executadas apenas na cópia mais recente do snapshot.
+
+Se as varreduras de ransomware agendadas estiverem desativadas, você ainda poderá executar varreduras sob demanda e a varredura durante uma operação de restauração ainda ocorrerá.
+
+Consulte a link:prev-ontap-policy-manage.html["Gerenciar políticas"] para obter detalhes sobre o gerenciamento de políticas que implementam a detecção de ransomware.
+
+.Passos
+. Na guia *volumes*, selecione *Configurações de backup*.
+. Na página _Backup Settings_, clique image:icon-actions-horizontal.gif["Ícone mais"] em para o ambiente de trabalho e selecione *Advanced Settings*.
+. Na página Configurações avançadas, expanda a seção *ransomware scan*.
+. Habilitar ou desabilitar *Verificação de ransomware*.
+. Selecione *varredura programada de ransomware*.
+. Opcionalmente, altere a verificação padrão de cada semana para dias ou semanas.
+. Defina a frequência em dias ou semanas que a digitalização deve ser executada.
+. Selecione *aplicar*.
+

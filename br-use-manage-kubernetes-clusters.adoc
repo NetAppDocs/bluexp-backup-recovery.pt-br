@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: br-use-manage-kubernetes-clusters.html 
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
+summary: O BlueXP backup and recovery permitem que você descubra e gerencie seus clusters do Kubernetes para que você possa proteger os recursos hospedados pelos clusters. 
+---
+= Gerenciar clusters do Kubernetes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O BlueXP backup and recovery permitem que você descubra e gerencie seus clusters do Kubernetes para que você possa proteger os recursos hospedados pelos clusters.
+
+.Função BlueXP necessária
+Administrador da organização ou administrador do SnapCenter . link:reference-roles.html["Saiba mais sobre as funções de acesso de BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+
+
+
+== Editar informações do cluster Kubernetes
+
+Você pode editar um cluster se precisar alterar seu nome.
+
+.Passos
+. No BlueXP backup and recovery, selecione *Inventário* > *Clusters*.
+. Na lista de clusters, escolha um cluster que deseja editar e selecione o menu Ações associado.
+. Selecione *Editar cluster*.
+. Faça as alterações necessárias no nome do cluster.
+. Selecione *Concluído*.
+
+
+
+
+== Remover um cluster do Kubernetes
+
+Se você não precisar mais proteger os recursos hospedados por um cluster Kubernetes, poderá removê-lo do BlueXP backup and recovery. A remoção de um cluster não o exclui nem seus recursos; apenas o remove do inventário do BlueXP . Antes de remover um cluster, você precisa desativar a proteção e excluir os aplicativos associados do BlueXP backup and recovery.
+
+.Passos
+. No BlueXP backup and recovery, selecione *Inventário* > *Clusters*.
+. Na lista de clusters, escolha um cluster que deseja editar e selecione o menu Ações associado.
+. Selecione *Remover cluster*.
+. Revise as informações na caixa de diálogo de confirmação e selecione *Remover*.
+

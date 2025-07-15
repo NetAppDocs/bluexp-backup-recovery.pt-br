@@ -1,0 +1,287 @@
+---
+sidebar: sidebar 
+permalink: reference-roles.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, roles, permissions, access control, role-based access control, rbac 
+summary: O BlueXP backup and recovery empregam funções para controlar o acesso que cada usuário tem a recursos e ações específicos 
+---
+= Acesso baseado em função de BlueXP backup and recovery aos recursos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O BlueXP backup and recovery empregam funções para controlar o acesso que cada usuário tem a recursos e ações específicos.
+
+O serviço usa as seguintes funções específicas para BlueXP backup and recovery.
+
+* *Superadministrador de backup e recuperação*: Execute qualquer ação no BlueXP backup and recovery.
+* *Administrador de backup*: execute backups em instantâneos locais, replique para armazenamento secundário e faça backup em ações de armazenamento de objetos no BlueXP backup and recovery.
+* *Restaurar administrador*: Restaurar cargas de trabalho usando BlueXP backup and recovery.
+* *Clone admin*: Clone aplicativos e dados usando o BlueXP backup and recovery.
+* *Visualizador de backup e recuperação*: visualize informações no BlueXP backup and recovery, mas não execute nenhuma ação.
+
+
+Para obter detalhes sobre todas as funções de acesso do BlueXP , consulte  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["A documentação de configuração e administração do BlueXP"^] .
+
+A tabela a seguir indica as ações que cada função de BlueXP backup and recovery pode executar.
+
+[cols="20,20,15,15a,15a,15a"]
+|===
+| Recurso e ação | Superadministrador de backup e recuperação | Administrador de backup | Restaurar administrador | Clonar administrador | Visualizador 
+
+
+| Adicionar, editar ou excluir hosts | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Instalar plugins | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Adicionar credenciais (host, instância, vCenter) | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Visualize o painel e todas as guias | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Inicie o teste gratuito | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Inicie a descoberta de cargas de trabalho | Não | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Ver informações da licença | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Ativar licença | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Ver hosts | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+6+| *Horários*: 
+
+
+| Ativar agendamentos | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Suspender horários | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+6+| *Políticas e proteção*: 
+
+
+| Ver planos de proteção | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar, modificar ou excluir proteção | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Restaurar cargas de trabalho | Sim | Não  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Criar clone, dividir clone ou excluir clone | Sim | Não  a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Criar, modificar ou excluir política | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Relatórios*: 
+
+
+| Ver relatórios | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Crie relatórios | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+| Eliminar relatórios | Sim | Não  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Importar do SnapCenter e gerenciar host*: 
+
+
+| Exibir dados importados do SnapCenter | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Importar dados do SnapCenter | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Gerenciar (migrar) host | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Configurar definições*: 
+
+
+| Configure o diretório de log | Sim | Sim  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+| Associar ou remover credenciais de instância | Sim | Sim  a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+6+| *Baldes*: 
+
+
+| Ver baldes | Sim | Sim  a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+| Criar, editar ou excluir bucket | Sim | Sim  a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+|===
