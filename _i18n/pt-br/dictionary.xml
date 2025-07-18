@@ -4143,17 +4143,8 @@
   <block id="b06c9fd76246f4cfb339125284b25aa5" category="list-text">Se você escolher o rótulo *Mensal* com Contagem de retenção 3, o Período de retenção do instantâneo será de 90 dias.</block>
   <block id="efdf2d46dfa5c7a9f73d28bb893f836f" category="list-text">Se você escolher o rótulo *Anual* com Contagem de retenção 1, o Período de retenção do instantâneo será de 365 dias.</block>
   <block id="a60142749401298f0a788c8439772777" category="section-title">O que é Retenção Até a Data (RUD) e como ela é calculada?</block>
-  <block id="eeada300415ab437a13601d2e69f066a" category="paragraph">A data de retenção (RUD) é determinada com base no período de retenção do instantâneo.</block>
-  <block id="6984bab6fc7fe177ce259ff499fada58" category="list-text">A data de retenção é calculada somando o período de retenção do instantâneo e um buffer.</block>
-  <block id="95ff93ddc0c74a02cf692e476561a39d" category="list-text">Buffer é o Buffer para Tempo de Transferência (6 dias) + Buffer para Otimização de Custos (8 dias), o que totaliza 14 dias.</block>
-  <block id="ac3a820fa3f3116f54715975be367471" category="list-text">O prazo mínimo de retenção até a data é de 30 dias + 14 dias.</block>
   <block id="c0dc453646abf19770644c4988b76265" category="paragraph">Aqui estão alguns exemplos:</block>
-  <block id="19606e2b227c881953690cfcbb2621ad" category="list-text">Se você criar um agendamento de backup mensal com 12 retenções, seus backups serão bloqueados por 12 meses (mais 14 dias) antes de serem excluídos (substituídos pelo próximo arquivo de backup).</block>
   <block id="19703e6040b3a90f1ca1c6525c9432f8" category="list-text">Se você criar uma política de backup que crie 30 backups diários, 7 semanais e 12 mensais, haverá três períodos de retenção bloqueados:</block>
-  <block id="32e9736765675e582a92ea22621346f6" category="list-text">Os backups "30 diários" são mantidos por 44 dias (30 dias mais 14 dias de buffer),</block>
-  <block id="08725775ceb79bf9dd25c482670a47a4" category="list-text">Os backups “semanais” são mantidos por 9 semanas (7 semanas mais 14 dias) e</block>
-  <block id="f0d1e71c852348fd449a59d2b4456479" category="list-text">Os backups "de 12 meses" são mantidos por 12 meses (mais 14 dias).</block>
-  <block id="bf7c437191fdcde55e7d7e2fc049c230" category="list-text">Se você criar um agendamento de backup por hora com retenções 24, talvez pense que os backups estão bloqueados por 24 horas. Entretanto, como esse período é menor que o mínimo de 30 dias, cada backup será bloqueado e retido por 44 dias (30 dias mais 14 dias de buffer).</block>
   <block id="16ec215ee395a25e960a53b7cdcdc794" category="admonition">Os backups antigos são excluídos após o término do Período de Retenção do DataLock, não após o período de retenção da política de backup.</block>
   <block id="b31b5b22923a2871f33f5a4b77d6be83" category="paragraph">A configuração de retenção do DataLock substitui a configuração de retenção de política da sua política de backup. Isso pode afetar seus custos de armazenamento, pois seus arquivos de backup serão salvos no armazenamento de objetos por um período de tempo maior.</block>
   <block id="010f0e105bcb6f73ab6c815fef84dd1c" category="section-title">Habilitar proteção contra DataLock e Ransomware</block>
@@ -4447,11 +4438,19 @@
   <block id="79cf38f604ea494dd925df57b6a906b6" category="sidebar">Proteja cargas de trabalho de máquinas virtuais</block>
   <block id="7706cc052aa7120ddac8475709793258" category="sidebar">Visão geral da proteção de cargas de trabalho de máquinas virtuais</block>
   <block id="9ce88727019b612743000c7bcc2bfd23" category="sidebar">Pré-requisitos para proteger cargas de trabalho de máquinas virtuais</block>
-  <block id="6a1574cd5135a4d659f7c25fd4102feb" category="sidebar">Crie uma política para fazer backup de datastores VMware</block>
-  <block id="6cc90c7021ed31cf57b48ce2a8946fd6" category="sidebar">Restaurar datastores VMware</block>
   <block id="4639d0e2e2909a747265c2f704128bca" category="sidebar">Monitorizar trabalhos</block>
   <block id="3e8569bed0b50d0e3ac8dd96195c94f1" category="sidebar">Políticas no SnapCenter comparadas ao BlueXP backup and recovery</block>
   <block id="f1518f15324a3922da2c43bf2d8a6950" category="sidebar">Funções e privilégios de BlueXP backup and recovery</block>
   <block id="62967cdcfc7912e3c1a9b3870580fe3f" category="sidebar">Camadas de armazenamento de arquivo do Azure com suporte</block>
   <block id="6af2225d62ab9c4b0de4dfa7f9e852f5" category="sidebar">Níveis de armazenamento de arquivo do Google Cloud compatíveis</block>
+  <block id="33f34f378ec48f478eda58fa96594aa4" category="paragraph">A data de retenção (RUD) é determinada com base no período de retenção do instantâneo. A data de retenção é calculada somando o período de retenção do instantâneo e um buffer.</block>
+  <block id="0b918c8e643ab519717fd0eec681371c" category="list-text">Buffer é o Buffer para Tempo de Transferência (3 dias) + Buffer para Otimização de Custos (28 dias), o que totaliza 31 dias.</block>
+  <block id="10040237b3e7b790c7f0c1983647279e" category="list-text">A data mínima de retenção é de 30 dias + buffer de 31 dias = 61 dias.</block>
+  <block id="f84724515a26602458b4cabf395689b0" category="list-text">Se você criar um agendamento de backup mensal com 12 retenções, seus backups serão bloqueados por 12 meses (mais 31 dias) antes de serem excluídos (substituídos pelo próximo arquivo de backup).</block>
+  <block id="dc1987905977bd763b00c2a0741b977b" category="list-text">Os backups "30 diários" são mantidos por 61 dias (30 dias mais 31 dias de buffer),</block>
+  <block id="dda5e0548944d946d7ab9e81fdd1296f" category="list-text">Os backups “semanais” são mantidos por 11 semanas (7 semanas mais 31 dias) e</block>
+  <block id="b8400c37ab80692ef1ca26e1fa71d6f7" category="list-text">Os backups "de 12 meses" são mantidos por 12 meses (mais 31 dias).</block>
+  <block id="52d355afb10d30259b33c1f1c1cd46c8" category="list-text">Se você criar um agendamento de backup por hora com retenções 24, talvez pense que os backups estão bloqueados por 24 horas. Entretanto, como esse período é menor que o mínimo de 30 dias, cada backup será bloqueado e retido por 61 dias (30 dias mais 31 dias de buffer).</block>
+  <block id="776ec5ed6f61de56be98c037c8ca01c9" category="sidebar">Crie uma política para fazer backup de dados da máquina virtual</block>
+  <block id="9234f5bc35aa09673eacbf8fece508db" category="sidebar">Restaurar dados e armazenamentos de dados de máquinas virtuais</block>
 </blocks>

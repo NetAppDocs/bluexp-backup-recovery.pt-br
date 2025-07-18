@@ -96,24 +96,23 @@ O Período mínimo de retenção de instantâneos é de 30 dias. Vejamos alguns 
 
 === O que é Retenção Até a Data (RUD) e como ela é calculada?
 
-A data de retenção (RUD) é determinada com base no período de retenção do instantâneo.
+A data de retenção (RUD) é determinada com base no período de retenção do instantâneo. A data de retenção é calculada somando o período de retenção do instantâneo e um buffer.
 
-* A data de retenção é calculada somando o período de retenção do instantâneo e um buffer.
-* Buffer é o Buffer para Tempo de Transferência (6 dias) + Buffer para Otimização de Custos (8 dias), o que totaliza 14 dias.
-* O prazo mínimo de retenção até a data é de 30 dias + 14 dias.
+* Buffer é o Buffer para Tempo de Transferência (3 dias) + Buffer para Otimização de Custos (28 dias), o que totaliza 31 dias.
+* A data mínima de retenção é de 30 dias + buffer de 31 dias = 61 dias.
 
 
 Aqui estão alguns exemplos:
 
-* Se você criar um agendamento de backup mensal com 12 retenções, seus backups serão bloqueados por 12 meses (mais 14 dias) antes de serem excluídos (substituídos pelo próximo arquivo de backup).
+* Se você criar um agendamento de backup mensal com 12 retenções, seus backups serão bloqueados por 12 meses (mais 31 dias) antes de serem excluídos (substituídos pelo próximo arquivo de backup).
 * Se você criar uma política de backup que crie 30 backups diários, 7 semanais e 12 mensais, haverá três períodos de retenção bloqueados:
 +
-** Os backups "30 diários" são mantidos por 44 dias (30 dias mais 14 dias de buffer),
-** Os backups “semanais” são mantidos por 9 semanas (7 semanas mais 14 dias) e
-** Os backups "de 12 meses" são mantidos por 12 meses (mais 14 dias).
+** Os backups "30 diários" são mantidos por 61 dias (30 dias mais 31 dias de buffer),
+** Os backups “semanais” são mantidos por 11 semanas (7 semanas mais 31 dias) e
+** Os backups "de 12 meses" são mantidos por 12 meses (mais 31 dias).
 
 
-* Se você criar um agendamento de backup por hora com retenções 24, talvez pense que os backups estão bloqueados por 24 horas. Entretanto, como esse período é menor que o mínimo de 30 dias, cada backup será bloqueado e retido por 44 dias (30 dias mais 14 dias de buffer).
+* Se você criar um agendamento de backup por hora com retenções 24, talvez pense que os backups estão bloqueados por 24 horas. Entretanto, como esse período é menor que o mínimo de 30 dias, cada backup será bloqueado e retido por 61 dias (30 dias mais 31 dias de buffer).
 
 
 
