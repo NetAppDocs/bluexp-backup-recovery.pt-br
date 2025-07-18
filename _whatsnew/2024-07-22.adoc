@@ -14,7 +14,7 @@ Com esta versão, agora você pode restaurar volumes criados no ONTAP com menos 
 
 O recurso DataLock protege seus arquivos de backup de serem modificados ou excluídos por um período de tempo especificado. Isso é útil para proteger seus arquivos contra ataques de ransomware.
 
-Para obter detalhes sobre o DataLock e dicas sobre como mitigar os custos associados, https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html["Configurações de política de backup para objeto"] consulte .
+Para obter detalhes sobre o DataLock e dicas sobre como mitigar os custos associados, https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-policy-object-options.html["Configurações de política de backup para objeto"] consulte .
 
 
 
@@ -26,7 +26,7 @@ Com esta versão, o suporte para o serviço AWS IAM Roles Anywhere é uma prévi
 
 ifdef::aws[]
 
-Isto aplica-se ao link:task-backup-to-s3.html["Fazer backup do Cloud Volumes ONTAP para a AWS"]. Isto aplica-se ao link:task-backup-onprem-to-aws.html["Fazer backup de dados ONTAP on-premises para a AWS"].
+Isto aplica-se ao link:prev-ontap-backup-cvo-aws.html["Fazer backup do Cloud Volumes ONTAP para a AWS"].
 
 endif::aws[]
 
@@ -40,6 +40,6 @@ Anteriormente, os volumes do FlexVol podiam ser restaurados, mas não era possí
 
 Com esta versão, o suporte para a restauração de pastas FlexGroup é uma prévia da tecnologia.
 
-Para obter detalhes, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-browse-restore["Restaure pastas e ficheiros utilizando Procurar  Restaurar"] consulte .
+Para obter detalhes, https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Restaure pastas e ficheiros utilizando Procurar  Restaurar"] consulte .
 
 Para obter detalhes para ativá-lo manualmente, https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["Blog de lançamento de backup e recuperação do BlueXP  em julho de 2024"] consulte .

@@ -26,7 +26,7 @@ Antes de poder utilizar o método de pesquisa e restauro de restaurar dados, tem
 
 Ative a indexação no ambiente de trabalho de origem selecionando a opção "Ativar indexação" quando estiver a efetuar uma pesquisa e restauro.
 
-Para obter mais informações, consulte a documentação https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Como restaurar dados do ONTAP usando pesquisar  Restaurar"].
+Para obter mais informações, consulte a documentação https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Como restaurar dados do ONTAP usando pesquisar  Restaurar"].
 
 .Escala suportada
 O novo recurso de indexação suporta o seguinte:

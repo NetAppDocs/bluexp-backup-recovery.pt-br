@@ -12,7 +12,7 @@ Esse recurso elimina a necessidade de uma operação de re-linha de base demorad
 
 Ao manter a continuidade do backup nos ambientes, o SnapMirror to Cloud Resync aumenta a eficiência operacional e reduz a complexidade do gerenciamento de dados em várias nuvens híbridas e em várias nuvens.
 
-Para obter detalhes sobre como executar a operação ressincronizada, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html["Migre volumes usando o SnapMirror para o Cloud Resync"]consulte .
+Para obter detalhes sobre como executar a operação ressincronizada, https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-migrate-resync.html["Migre volumes usando o SnapMirror para o Cloud Resync"]consulte .
 
 
 
@@ -40,5 +40,3 @@ Embora esse recurso esteja na visualização, há certas limitações:
 *Introdução*
 
 Para começar a usar esse recurso de pré-visualização, você deve habilitar um sinalizador no conetor BlueXP . Em seguida, você pode inserir os detalhes de conexão do seu armazenamento de objetos de terceiros MinIO no fluxo de trabalho de proteção escolhendo *armazenamento de objetos compatível com terceiros* na seção de backup.
-
-Para obter instruções sobre como ativar os recursos de visualização, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-preview-enable.html["Ative os recursos de visualização no backup e recuperação do BlueXP "] consulte .

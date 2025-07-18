@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection' 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection, sql server, workloads, volumes, snapshots' 
 summary: Saiba o que há de novo no backup e recuperação do BlueXP . 
 ---
 = Novidades no backup e recuperação do BlueXP
@@ -78,13 +78,13 @@ Antes de poder utilizar o método de pesquisa e restauro de restaurar dados, tem
 
 O Catálogo Indexado pode então rastrear cada volume e arquivo de backup, tornando suas pesquisas rápidas e eficientes.
 
-Para obter mais informações, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Como restaurar dados do ONTAP usando pesquisar  Restaurar"]consulte .
+Para obter mais informações, https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Habilitar indexação para Pesquisa e Restauração"] consulte .
 
 
 
 === Pontos de extremidade de link privado e pontos de extremidade de serviço do Azure
 
-Normalmente, o backup e a recuperação do BlueXP estabelecem um endpoint privado com o provedor de nuvem para lidar com diversas tarefas de proteção. Esta versão apresenta uma configuração opcional que permite habilitar ou desabilitar a criação automática de um endpoint privado pelo backup e recuperação do BlueXP. Isso pode ser útil se você deseja ter mais controle sobre o processo de criação de endpoints privados.
+Normalmente, o BlueXP backup and recovery estabelecem um ponto de extremidade privado com o provedor de nuvem para lidar com tarefas de proteção. Esta versão apresenta uma configuração opcional que permite habilitar ou desabilitar a criação automática de um endpoint privado pelo backup e recuperação do BlueXP. Isso pode ser útil se você deseja ter mais controle sobre o processo de criação de endpoints privados.
 
 Você pode habilitar ou desabilitar esta opção ao habilitar a proteção ou iniciar o processo de restauração.
 
@@ -102,7 +102,7 @@ A versão anterior introduziu suporte para SnapMirror para Cloud Resync (SM-C Re
 
 Ao criar arquivos de backup no armazenamento de objetos para um ambiente de trabalho, por padrão, o BlueXP Backup and Recovery cria o contêiner (bucket ou conta de armazenamento) para os arquivos de backup na conta de armazenamento de objetos configurada. Anteriormente, era possível substituir isso e especificar seu próprio contêiner para Amazon S3, Azure Blob Storage e Google Cloud Storage. Com esta versão, agora você pode trazer seu próprio contêiner de armazenamento de objetos StorageGRID.
 
- https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["Crie seu próprio contêiner de armazenamento de objetos"]Consulte .
+ https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-journey.html["Crie seu próprio contêiner de armazenamento de objetos"]Consulte .
 
 
 
@@ -120,7 +120,7 @@ Esse recurso elimina a necessidade de uma operação de re-linha de base demorad
 
 Ao manter a continuidade do backup nos ambientes, o SnapMirror to Cloud Resync aumenta a eficiência operacional e reduz a complexidade do gerenciamento de dados em várias nuvens híbridas e em várias nuvens.
 
-Para obter detalhes sobre como executar a operação ressincronizada, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html["Migre volumes usando o SnapMirror para o Cloud Resync"]consulte .
+Para obter detalhes sobre como executar a operação ressincronizada, https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-migrate-resync.html["Migre volumes usando o SnapMirror para o Cloud Resync"]consulte .
 
 
 
@@ -148,8 +148,6 @@ Embora esse recurso esteja na visualização, há certas limitações:
 *Introdução*
 
 Para começar a usar esse recurso de pré-visualização, você deve habilitar um sinalizador no conetor BlueXP . Em seguida, você pode inserir os detalhes de conexão do seu armazenamento de objetos de terceiros MinIO no fluxo de trabalho de proteção escolhendo *armazenamento de objetos compatível com terceiros* na seção de backup.
-
-Para obter instruções sobre como ativar os recursos de visualização, https://docs.netapp.com/us-en/bluexp-backup-recovery/task-preview-enable.html["Ative os recursos de visualização no backup e recuperação do BlueXP "] consulte .
 
 
 
@@ -287,7 +285,7 @@ Antes de poder utilizar o método de pesquisa e restauro de restaurar dados, tem
 
 Ative a indexação no ambiente de trabalho de origem selecionando a opção "Ativar indexação" quando estiver a efetuar uma pesquisa e restauro.
 
-Para obter mais informações, consulte a documentação https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["Como restaurar dados do ONTAP usando pesquisar  Restaurar"].
+Para obter mais informações, consulte a documentação https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Como restaurar dados do ONTAP usando pesquisar  Restaurar"].
 
 .Escala suportada
 O novo recurso de indexação suporta o seguinte:
@@ -346,7 +344,7 @@ Esta versão de backup e recuperação do BlueXP  inclui as seguintes atualiza�
 
 Agora, o backup e a recuperação do BlueXP  podem fazer backup de volumes no local do FlexVol e do FlexGroup configurados com os modos de proteção SnapLock Compliance ou SnapLock Enterprise. Os clusters precisam estar executando o ONTAP 9.14 ou superior para esse suporte. O backup de volumes do FlexVol usando o modo SnapLock Enterprise tem sido suportado desde a versão 9.11.1 do ONTAP. As versões anteriores do ONTAP não oferecem suporte para fazer backup de volumes de proteção SnapLock.
 
-Consulte a lista completa de volumes suportados no https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["Saiba mais sobre o backup e a recuperação do BlueXP "].
+Consulte a lista completa de volumes suportados no https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["Saiba mais sobre o backup e a recuperação do BlueXP "].
 
 
 
@@ -376,7 +374,7 @@ O backup e a recuperação do BlueXP  agora suportam restaurações de arquivos
 
 O BlueXP  Connector versão 3.9.40 suporta determinadas versões do Red Hat Enterprise Linux versões 8 e 9 para qualquer instalação manual do software Connector em um host RHEL 8 ou 9, independentemente do local, além dos sistemas operacionais mencionados no https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["requisitos de host"^] . Essas novas versões RHEL requerem o mecanismo Podman em vez do mecanismo Docker. Anteriormente, o backup e a recuperação do BlueXP  tinham duas limitações ao usar o motor Podman. Estas limitações foram removidas.
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Saiba mais sobre como restaurar dados do ONTAP a partir de arquivos de backup"].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Saiba mais sobre como restaurar dados do ONTAP a partir de arquivos de backup"].
 
 
 
@@ -384,4 +382,4 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 Esta versão inclui um índice de catálogo melhorado que completa a indexação da linha de base muito mais rápido. A indexação mais rápida permite que você use o recurso Pesquisa e Restauração mais rapidamente.
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["Saiba mais sobre como restaurar dados do ONTAP a partir de arquivos de backup"].
+https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["Saiba mais sobre como restaurar dados do ONTAP a partir de arquivos de backup"].

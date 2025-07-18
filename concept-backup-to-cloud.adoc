@@ -249,11 +249,11 @@ endif::gcp[]
 
 
 
-=== As cópias de backup estão associadas à sua conta do NetApp
+=== As cópias de backup estão associadas à sua organização BlueXP
 
-As cópias de backup estão associadas ao https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["Conta BlueXP"^] no qual reside o BlueXP  Connector.
+As cópias de backup são associadas à organização BlueXP na qual o BlueXP Connector reside.  https://docs.netapp.com/us-en/bluexp-setup-admin/concept-identity-and-access-management.html["Saiba mais sobre o gerenciamento de identidades e acesso do BlueXP"^] .
 
-Se você tiver vários Conectores na mesma conta BlueXP , cada Conector exibirá a mesma lista de backups.
+Se você tiver vários Conectores na mesma organização BlueXP , cada Conector exibirá a mesma lista de backups.
 
 
 
