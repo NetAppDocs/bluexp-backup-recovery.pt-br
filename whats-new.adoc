@@ -43,7 +43,7 @@ Esta versão do BlueXP backup and recovery oferece uma interface de usuário atu
 Você pode se inscrever para a prévia preenchendo este formulário  https://forms.office.com/pages/responsepage.aspx?id=oBEJS5uSFUeUS8A3RRZbOojtBW63mDRDv3ZK50MaTlJUNjdENllaVTRTVFJGSDQ2MFJIREcxN0EwQi4u&route=shorturl["Formulário de inscrição de pré-visualização"^] .
 
 
-NOTE: ESTA DOCUMENTAÇÃO SOBRE A PROTEÇÃO DE CARGAS DE TRABALHO DO MICROSOFT SQL SERVER É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+NOTE: Esta documentação sobre a proteção de cargas de trabalho do Microsoft SQL Server é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.
 
 Esta versão do BlueXP backup and recovery inclui as seguintes atualizações:
 
@@ -322,7 +322,7 @@ Esta versão de backup e recuperação do BlueXP  inclui as seguintes atualiza�
 Esta versão de pré-visualização do BlueXP backup and recovery fornece uma interface de usuário atualizada que permite gerenciar cargas de trabalho do Microsoft SQL Server usando uma estratégia de proteção 3-2-1, familiar no serviço de BlueXP backup and recovery . Com esta nova versão, você pode fazer backup dessas cargas de trabalho no armazenamento primário, replicá-las no armazenamento secundário e fazer backup delas no armazenamento de objetos na nuvem.
 
 
-NOTE: ESTA DOCUMENTAÇÃO É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
+NOTE: Esta documentação é fornecida como uma prévia da tecnologia. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.
 
 Esta versão do BlueXP backup and recovery Preview 2025 inclui as seguintes atualizações.
 

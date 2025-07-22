@@ -1404,8 +1404,6 @@
   <block id="9d06990508d25d367d9158c6558eb9c8" category="list-text"><block ref="9d06990508d25d367d9158c6558eb9c8" category="inline-link-macro-rx"></block></block>
   <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="inline-link-macro">Azure NetApp Files</block>
   <block id="2e0c742f4616eb27b5b7646aa790edfe" category="list-text"><block ref="2e0c742f4616eb27b5b7646aa790edfe" category="inline-link-macro-rx"></block></block>
-  <block id="b0cee72642f5457a71ddd0b49efb6d93" category="inline-link-macro">Cloud Volumes Service para Google Cloud</block>
-  <block id="cf14bff66a8b72d3675db8ffe0f02ee3" category="list-text"><block ref="cf14bff66a8b72d3675db8ffe0f02ee3" category="inline-link-macro-rx"></block></block>
   <block id="3880ae5df9fdc4d0fc4a6d00a2239530" category="paragraph">Para receber suporte técnico específico da BlueXP  e de suas soluções e serviços de storage, use as opções de suporte descritas abaixo.</block>
   <block id="edd15fbeb7b2dffa163336ecd4f3e80c" category="section-title">Use opções de suporte autônomo</block>
   <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">Estas opções estão disponíveis gratuitamente, 24 horas por dia, 7 dias por semana:</block>
@@ -2471,7 +2469,6 @@
   <block id="5323d04b0f0228d9a4b7ec5629ddb280" category="doc">Novidades no backup e recuperação do BlueXP</block>
   <block id="0a3f9b34ec4d0b6be00b165816b91f34" category="doc">Versão prévia do BlueXP backup and recovery</block>
   <block id="935441eb9ed33d9e6fa5111dbffa79e2" category="paragraph">Esta versão de pré-visualização do BlueXP backup and recovery fornece uma interface de usuário atualizada que permite gerenciar cargas de trabalho do Microsoft SQL Server usando uma estratégia de proteção 3-2-1, familiar no serviço de BlueXP backup and recovery . Com esta nova versão, você pode fazer backup dessas cargas de trabalho no armazenamento primário, replicá-las no armazenamento secundário e fazer backup delas no armazenamento de objetos na nuvem.</block>
-  <block id="0fa2dfbaaa2a16717a0ff0de216d77f1" category="admonition">ESTA DOCUMENTAÇÃO É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
   <block id="38a73da2187d1ecdb4beee24980f481e" category="paragraph">Esta versão do BlueXP backup and recovery Preview 2025 inclui as seguintes atualizações.</block>
   <block id="faf3668cbd6cfbf3e64bbd3b39c4fa15" category="list-text">Uma interface de usuário redesenhada que oferece uma experiência mais intuitiva para gerenciar suas tarefas de backup e recuperação.</block>
   <block id="5761e8c204fd9a3c1d366d7bd26227e4" category="list-text">A versão de visualização permite que você faça backup e restaure bancos de dados do Microsoft SQL Server. (Suporte para outras cargas de trabalho será adicionado em versões futuras.)</block>
@@ -2487,7 +2484,6 @@
   <block id="312aa67cbd2d7a037dd47a1f882d9f0d" category="paragraph">Esta versão do BlueXP backup and recovery oferece uma interface de usuário atualizada que permite gerenciar cargas de trabalho do Microsoft SQL Server usando uma estratégia de proteção 3-2-1, familiar ao serviço de BlueXP backup and recovery . Com esta nova versão, você pode fazer backup dessas cargas de trabalho no armazenamento primário, replicá-las no armazenamento secundário e fazer backup delas no armazenamento de objetos na nuvem.</block>
   <block id="b8307a4d76527581a7b59e0e8b710824" category="inline-link">Formulário de inscrição de pré-visualização</block>
   <block id="240b59983b641b146915b794a0fa4966" category="paragraph">Você pode se inscrever para a prévia preenchendo este formulário <block ref="b33811e9e55ab63ce9fecada8cb8558a" category="inline-link-rx"></block> .</block>
-  <block id="0aa114cf5979a3879018cab8149d4fc8" category="admonition">ESTA DOCUMENTAÇÃO SOBRE A PROTEÇÃO DE CARGAS DE TRABALHO DO MICROSOFT SQL SERVER É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
   <block id="55305f14da02876048cbec8f433b6e31" category="paragraph">Esta versão do BlueXP backup and recovery inclui as seguintes atualizações:</block>
   <block id="14c22a8793139c8c0e5b2ca06437ae76" category="list-text">*Recurso de backup 3-2-1*: Esta versão integra recursos do SnapCenter , permitindo que você gerencie e proteja seus recursos do SnapCenter com uma estratégia de proteção de dados 3-2-1 a partir da interface de usuário de BlueXP backup and recovery .</block>
   <block id="ad80e2efcb583c36651da40966b7c8aa" category="list-text">*Importar do SnapCenter*: Você pode importar dados e políticas de backup do SnapCenter para o BlueXP backup and recovery.</block>
@@ -2997,7 +2993,6 @@
   <block id="4c931104d6ff5fdc2a76bdfc6fba4662" category="summary">Você pode proteger aplicativos e dados de aplicativos do Kubernetes de sistemas ONTAP locais até Amazon Web Services, Microsoft Azure, Google Cloud Platform e StorageGRID, garantindo que seus dados estejam protegidos.</block>
   <block id="ff1a3fbe6f92249e286b8a93cf5b5d2e" category="doc">Visão geral do gerenciamento de cargas de trabalho do Kubernetes</block>
   <block id="eb77981f2e476b76c513faaacd09914a" category="paragraph">Gerenciar cargas de trabalho do Kubernetes no BlueXP backup and recovery permite que você gerencie e proteja seus clusters e aplicativos do Kubernetes em um só lugar. Você pode gerenciar recursos e aplicativos hospedados pelos seus clusters do Kubernetes. Você também pode gerenciar as configurações de proteção das suas cargas de trabalho do Kubernetes.</block>
-  <block id="dd0f352a678f8f7a3bd4045615456919" category="admonition">ESTA DOCUMENTAÇÃO É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Durante a pré-visualização, a funcionalidade do Kubernetes não é recomendada para cargas de trabalho de produção. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
   <block id="e94d9102ade906ff7fd5fc370d68c0d8" category="paragraph">Você pode realizar as seguintes tarefas relacionadas ao gerenciamento de cargas de trabalho do Kubernetes:</block>
   <block id="384b71db954a7a463c759208283e47c4" category="inline-link-macro">Gerenciar clusters do Kubernetes</block>
   <block id="75750592598a2163e070809696d795f5" category="list-text"><block ref="4c3d4ee32af52a5715d89ae7d8ef89d4" category="inline-link-macro-rx"></block>.</block>
@@ -3769,7 +3764,6 @@
   <block id="5165c2fbcef4d5b16f189feb7569b43b" category="paragraph">Para obter instruções sobre como usar a interface de usuário de BlueXP backup and recovery , consulte os seguintes tópicos:</block>
   <block id="219b1d964760a35bc8ac924733ed0211" category="summary">O serviço de BlueXP backup and recovery oferece proteção de dados eficiente, segura e econômica para bancos de dados e instâncias da NetApp , tanto no local quanto na nuvem. Os backups são gerados e armazenados automaticamente em um armazenamento de objetos em sua conta de nuvem pública ou privada.</block>
   <block id="21a4e084cb9eeae89f7b12a3531b652c" category="paragraph">O serviço de BlueXP backup and recovery fornece proteção de dados eficiente, segura e econômica para volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server (versão prévia) e cargas de trabalho do VMware.</block>
-  <block id="febde7c28d4412c94050819c2bc00eca" category="admonition">A DOCUMENTAÇÃO SOBRE A PROTEÇÃO DE CARGAS DE TRABALHO DO MICROSOFT SQL SERVER É FORNECIDA COMO UMA PRÉVIA DA TECNOLOGIA. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
   <block id="5ddad1ad8421fb041436bd24f4aea0c5" category="section-title">O que você pode fazer com o BlueXP backup and recovery</block>
   <block id="930ffc736eba485afa459142d19e0a4e" category="paragraph">Use o BlueXP backup and recovery para atingir os seguintes objetivos:</block>
   <block id="5940e90d8d923e2308627f8e190412e8" category="list-text">Cargas de trabalho de volume ONTAP :</block>
@@ -3821,7 +3815,6 @@
   <block id="9504b35cbb481ca2332f36aedcf456c8" category="list-text">Volumes ONTAP</block>
   <block id="58f149a832a0f214528ef836d6898835" category="list-text">Instâncias e bancos de dados do Microsoft SQL Server para NFS físico, VMware Virtual Machine File System (VMFS) e VMware Virtual Machine Disk (VMDK) (visualização)</block>
   <block id="ed11408803c4c1aca5fbebbc43d88458" category="list-text">Armazenamentos de dados VMware</block>
-  <block id="713cbd93b2ba47b4561b53a841624b51" category="list-text">Mais em breve</block>
   <block id="5ab0c2c7c8110afd8e099464217e8718" category="list-title">Ambientes de trabalho suportados</block>
   <block id="60bbb47f4c25fbe48c0eaa18d9174d22" category="list-text">ONTAP SAN local (protocolo iSCSI) e NAS (usando protocolos NFS e CIFS) com ONTAP versão 9.8 e superior</block>
   <block id="d97ad1eba4f90ab1f835497c1e04b99f" category="list-text">Cloud Volumes ONTAP 9.8 ou superior para AWS (usando SAN e NAS)</block>
@@ -4448,4 +4441,10 @@
   <block id="d135d1b6a10879ca27887c632f4576d7" category="inline-link">Saiba mais sobre o gerenciamento de identidades e acesso do BlueXP</block>
   <block id="80a8421050b068560b8a6a9ede26cb9b" category="paragraph">As cópias de backup são associadas à organização BlueXP na qual o BlueXP Connector reside. <block ref="00bb451fd39671f4aa08ee6cf3130758" category="inline-link-rx"></block> .</block>
   <block id="3fe11e28eeacfe638604d387a3e527ee" category="paragraph">Se você tiver vários Conectores na mesma organização BlueXP , cada Conector exibirá a mesma lista de backups.</block>
+  <block id="a2e3a30df706bb24099d5e00888df71a" category="admonition">Esta documentação é fornecida como uma prévia da tecnologia. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
+  <block id="6e23fbb0baad6a7a72bd41e60b71f566" category="admonition">Esta documentação sobre a proteção de cargas de trabalho do Microsoft SQL Server é fornecida como uma prévia da tecnologia. Com esta oferta de prévia, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.</block>
+  <block id="1e016758a8b3495be7c3ee2b6b26aab6" category="admonition">Esta documentação é fornecida como uma prévia da tecnologia. Durante a pré-visualização, a funcionalidade do Kubernetes não é recomendada para cargas de trabalho de produção. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
+  <block id="b75b69427facaf94889fb25900eb710a" category="admonition">Esta documentação é fornecida como uma prévia da tecnologia. Com esta oferta de pré-visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da Disponibilidade Geral.</block>
+  <block id="1215f8190533dfdf63d2224a6d88266f" category="inline-link-macro">Google Cloud NetApp volumes</block>
+  <block id="cb4bf32603c89d08cad17e7e7dd302f2" category="list-text"><block ref="cb4bf32603c89d08cad17e7e7dd302f2" category="inline-link-macro-rx"></block></block>
 </blocks>
