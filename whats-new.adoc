@@ -24,7 +24,7 @@ Esta versão de backup e recuperação do BlueXP  inclui as seguintes atualiza�
 
 
 
-=== Suporte à carga de trabalho do Kubernetes como uma prévia de tecnologia pública
+=== Suporte à carga de trabalho do Kubernetes como uma prévia
 
 Esta versão do BlueXP backup and recovery apresenta suporte para descoberta e gerenciamento de cargas de trabalho do Kubernetes:
 
@@ -36,6 +36,8 @@ Esta versão do BlueXP backup and recovery apresenta suporte para descoberta e g
 * Trabalhe com contêineres e máquinas virtuais em execução no Kubernetes.
 * Crie backups consistentes com o aplicativo usando ganchos e modelos de execução.
 
+
+Para obter detalhes sobre como proteger cargas de trabalho do Kubernetes, consulte  https://docs.netapp.com/us-en/bluexp-backup-recovery/br-use-kubernetes-protect-overview.html["Visão geral das cargas de trabalho do Protect Kubernetes"] .
 
 
 

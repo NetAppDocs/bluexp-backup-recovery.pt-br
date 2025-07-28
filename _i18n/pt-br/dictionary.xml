@@ -4412,7 +4412,6 @@
   <block id="1215f8190533dfdf63d2224a6d88266f" category="inline-link-macro">Google Cloud NetApp volumes</block>
   <block id="cb4bf32603c89d08cad17e7e7dd302f2" category="list-text"><block ref="cb4bf32603c89d08cad17e7e7dd302f2" category="inline-link-macro-rx"></block></block>
   <block id="5e58a6444bf20b49389e233ebf6021d5" category="admonition">Este recurso está disponível a partir da versão 4.0.3 do BlueXP backup and recovery, lançada em maio de 2025.</block>
-  <block id="6902ada6aa5bd3c4c129d87093d48e07" category="doc">Suporte à carga de trabalho do Kubernetes como uma prévia de tecnologia pública</block>
   <block id="36442e954ef2484603f79c5f3abc842b" category="paragraph">Esta versão do BlueXP backup and recovery apresenta suporte para descoberta e gerenciamento de cargas de trabalho do Kubernetes:</block>
   <block id="200a1ca96330b8c7561607ba3e8efa76" category="list-text">Descubra o Red Hat OpenShift e os clusters Kubernetes de código aberto, apoiados pelo NetApp ONTAP, sem compartilhar arquivos kubeconfig.</block>
   <block id="bc97cde5f3a6fe336563401fb4b522a7" category="list-text">Descubra, gerencie e proteja aplicativos em vários clusters do Kubernetes usando um plano de controle unificado.</block>
@@ -4505,4 +4504,6 @@
   <block id="60c0c463b8839d0f2c5e5cea8fa728ad" category="sidebar">Proteja as cargas de trabalho do Kubernetes (visualização)</block>
   <block id="c3c3199204503d3bbd5d4dce7eabf238" category="sidebar">Visão geral das cargas de trabalho do Protect Kubernetes</block>
   <block id="3186e7c44dc909386a0204716ffc46f6" category="sidebar">Gerenciar modelos de ganchos de execução para cargas de trabalho do Kubernetes</block>
+  <block id="5d8fc779baf0d068c296ee5013b2224f" category="doc">Suporte à carga de trabalho do Kubernetes como uma prévia</block>
+  <block id="f4270282e09abd3774ba339dc49af208" category="paragraph">Para obter detalhes sobre como proteger cargas de trabalho do Kubernetes, consulte <block ref="44b634c6507d9116150094fb69849fd2" category="inline-link-rx"></block> .</block>
 </blocks>
