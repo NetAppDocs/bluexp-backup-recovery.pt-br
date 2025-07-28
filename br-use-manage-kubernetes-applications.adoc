@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: br-use-manage-kubernetes-applications.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
-summary: O BlueXP backup and recovery permitem que você gerencie as informações do host da sua carga de trabalho, do banco de dados e das instâncias. Você pode visualizar, editar e excluir as configurações de proteção do seu inventário. 
+summary: O BlueXP backup and recovery permitem que você desproteja e exclua seus aplicativos Kubernetes e recursos associados. 
 ---
 = Gerenciar aplicativos Kubernetes
 :hardbreaks:
@@ -14,35 +14,21 @@ summary: O BlueXP backup and recovery permitem que você gerencie as informaçõ
 
 
 [role="lead"]
-O BlueXP backup and recovery permitem que você gerencie seus aplicativos Kubernetes e os recursos associados. Você pode criar, visualizar, editar e excluir configurações de proteção dos seus aplicativos Kubernetes.
+O BlueXP backup and recovery permitem que você desproteja e exclua seus aplicativos Kubernetes e recursos associados.
 
 .Função BlueXP necessária
 Administrador da organização ou administrador do SnapCenter . link:reference-roles.html["Saiba mais sobre as funções de acesso de BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
 
 
 
-== Editar um aplicativo Kubernetes
-
-Você pode modificar as configurações de um aplicativo Kubernetes existente se os recursos associados ao aplicativo tiverem sido alterados.
-
-.Passos
-. No BlueXP backup and recovery, selecione *Inventário* > *Aplicativos*.
-. Na lista de aplicativos, escolha um aplicativo que você deseja editar e selecione o menu Ações associado.
-. Selecione *Editar*.
-. Faça as alterações necessárias na definição do aplicativo, como o nome ou os recursos incluídos.
-. Quando terminar, selecione *Avançar*.
-. Faça as alterações necessárias nas configurações de proteção.
-. Quando terminar, selecione *Concluído*.
-
-
-
-
 == Desproteger um aplicativo Kubernetes
 
-Você pode desproteger um aplicativo se não quiser mais protegê-lo. Ao desproteger um aplicativo, o BlueXP backup and recovery interrompe a proteção do aplicativo, mas mantém todos os backups e snapshots associados até que expirem.
+Você pode desproteger um aplicativo se não quiser mais protegê-lo. Ao desproteger um aplicativo, o BlueXP backup and recovery interrompe a proteção do aplicativo, mas mantém todos os backups e snapshots associados.
 
 .Passos
-. No BlueXP backup and recovery, selecione *Inventário* > *Aplicativos*.
+. No BlueXP backup and recovery, selecione *Inventário*.
+. Escolha uma instância do Kubernetes e selecione *Exibir* para visualizar os recursos associados a essa instância.
+. Selecione a aba *Aplicativos*.
 . Na lista de aplicativos, escolha um aplicativo que você deseja desproteger e selecione o menu Ações associado.
 . Selecione *Desproteger*.
 . Leia o aviso e, quando estiver pronto, selecione *Desproteger*.
@@ -52,16 +38,18 @@ Você pode desproteger um aplicativo se não quiser mais protegê-lo. Ao desprot
 
 == Excluir um aplicativo Kubernetes
 
-Você pode excluir um aplicativo se não precisar mais dele. Ao excluir um aplicativo, o BlueXP backup and recovery interrompe a proteção do aplicativo e, se você optar por fazer isso, exclui todos os backups e snapshots associados.
+Você pode excluir um aplicativo se não precisar mais dele. Ao excluir um aplicativo, o BlueXP backup and recovery interrompe a proteção do aplicativo e exclui todos os backups e snapshots associados.
 
 .Passos
-. No BlueXP backup and recovery, selecione *Inventário* > *Aplicativos*.
+. No BlueXP backup and recovery, selecione *Inventário*.
+. Escolha uma instância do Kubernetes e selecione *Exibir* para visualizar os recursos associados a essa instância.
+. Selecione a aba *Aplicativos*.
 . Na lista de aplicativos, escolha o aplicativo que deseja excluir e selecione o menu Ações associado.
 . Selecione *Eliminar*.
-. Opcionalmente, ative *Excluir snapshots e backups* para remover todos os snapshots e backups do aplicativo.
+. Habilite *Excluir snapshots e backups* para remover todos os snapshots e backups do aplicativo.
 +
 
-CAUTION: Se você fizer isso, não poderá mais restaurar o aplicativo usando esses snapshots e backups.
+CAUTION: Você não poderá mais restaurar o aplicativo usando esses snapshots e backups.
 
 . Confirme a ação e selecione *Excluir*.
 

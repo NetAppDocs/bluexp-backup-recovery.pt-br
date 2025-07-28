@@ -134,6 +134,23 @@ sidebar:
         url: "/prev-vmware-manage.html"
       - title: Restaurar dados e armazenamentos de dados de máquinas virtuais
         url: "/prev-vmware-restore.html"
+    - title: Proteja as cargas de trabalho do Kubernetes (visualização)
+      entries:
+      - title: Visão geral das cargas de trabalho do Protect Kubernetes
+        url: "/br-use-kubernetes-protect-overview.html"
+      - title: Descubra as cargas de trabalho do Kubernetes
+        url: br-start-discover-kubernetes.html
+      - title: Adicionar e proteger aplicativos Kubernetes
+        url: "/br-use-protect-kubernetes-applications.html"
+      - title: Restaurar aplicativos Kubernetes
+        url: "/br-use-restore-kubernetes-applications.html"
+      - title: Gerenciar clusters do Kubernetes
+        url: "/br-use-manage-kubernetes-clusters.html"
+      - title: Gerenciar aplicativos Kubernetes
+        url: "/br-use-manage-kubernetes-applications.html"
+      - title: Gerenciar modelos de ganchos de execução para cargas de trabalho do
+          Kubernetes
+        url: "/br-use-manage-execution-hook-templates.html"
     - title: Monitorizar trabalhos
       url: "/br-use-monitor-tasks.html"
     - title: Reinicie o backup e a recuperação do BlueXP 

@@ -54,9 +54,6 @@ Se você criar vários ganchos de execução do mesmo tipo (por exemplo, pré-sn
 
 
 
-NOTE: O exemplo de pedido anterior só se aplica quando você executa um backup que não usa um snapshot existente.
-
-
 NOTE: Você deve sempre testar seus scripts de gancho de execução antes de habilitá-los em um ambiente de produção. Você pode usar o comando 'kubectl exec' para testar convenientemente os scripts. Depois de habilitar os ganchos de execução em um ambiente de produção, teste os snapshots e backups resultantes para garantir que eles sejam consistentes. Você pode fazer isso clonando o aplicativo para um namespace temporário, restaurando o snapshot ou o backup e testando o aplicativo.
 
 
@@ -101,12 +98,12 @@ Visite o https://github.com/NetApp/Verda["Projeto NetApp Verda GitHub"] para bai
 Você pode criar um modelo de gancho de execução personalizado que pode ser usado para executar ações antes ou depois de uma operação de proteção de dados em um aplicativo.
 
 .Passos
-. No BlueXP, vá em *Proteção* > *Backup e recuperação*.
+. No BlueXP, vá para *Proteção* > *Backup e recuperação*.
 . Selecione a guia *Configurações*.
 . Expanda a seção *Modelo de gancho de execução*.
 . Selecione *Criar modelo de gancho de execução*.
 . Digite um nome para o gancho de execução.
-. Escolha um tipo de gancho. Por exemplo, um gancho pós-restauração será executado após a conclusão da operação de restauração.
+. Opcionalmente, escolha um tipo de gancho. Por exemplo, um gancho pós-restauração é executado após a conclusão da operação de restauração.
 . Na caixa de texto *Script*, insira o script de shell executável que você deseja executar como parte do modelo de gancho de execução. Opcionalmente, você pode selecionar *Carregar script* para carregar um arquivo de script.
 . Selecione *criar*.
 +

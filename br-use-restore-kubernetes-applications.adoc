@@ -14,14 +14,15 @@ summary: O BlueXP backup and recovery permitem restaurar aplicativos que você p
 
 
 [role="lead"]
-O BlueXP backup and recovery permitem restaurar aplicativos protegidos com uma política de proteção. Para restaurar um aplicativo, ele precisa ter o status de proteção "Protegido" e uma política de proteção associada. Você restaura um aplicativo usando um ponto de restauração, que consiste no snapshot local, no snapshot secundário e no backup no repositório de objetos. Você pode restaurar um aplicativo usando o arquivo local, secundário ou do repositório de objetos.
+O BlueXP backup and recovery permitem restaurar aplicativos protegidos por uma política de proteção. Para restaurar um aplicativo, ele precisa ter pelo menos um ponto de restauração disponível. Um ponto de restauração consiste no snapshot local ou no backup no repositório de objetos (ou ambos). Você pode restaurar um aplicativo usando o arquivo local, secundário ou do repositório de objetos.
 
 .Função BlueXP necessária
 Administrador da organização ou administrador do SnapCenter . link:reference-roles.html["Saiba mais sobre as funções de acesso de BlueXP backup and recovery"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
 
 .Passos
 . No BlueXP backup and recovery, selecione *Inventário*.
-. Escolha uma carga de trabalho do Kubernetes e selecione *Exibir* na coluna Hosts da carga de trabalho.
+. Escolha uma instância do Kubernetes e selecione *Exibir* para visualizar os recursos associados a essa instância.
+. Selecione a aba *Aplicativos*.
 . Na lista de aplicativos, escolha um aplicativo que você deseja restaurar e selecione o menu Ações associado.
 . Selecione *Exibir e restaurar*.
 +
@@ -33,11 +34,11 @@ A lista de pontos de restauração é exibida.
 [discrete]
 ===== Configurações gerais
 
-. Escolha a origem da restauração (local, secundária ou armazenamento de objetos).
+. Escolha a origem da restauração (local ou armazenamento de objetos).
 . Escolha o cluster de destino na lista *Cluster*.
-. Escolha o namespace de destino da restauração (original ou novo).
+. Escolha o namespace de destino da restauração.
 +
-Observe que a restauração para um cluster diferente e o namespace original não são suportados.
+Você pode restaurar para o namespace original ou restaurar para um novo namespace.
 
 . Selecione *seguinte*.
 
@@ -67,6 +68,10 @@ Cada regra pode filtrar critérios como namespace do recurso, rótulos, grupo, v
 
 . Selecione *Salvar* para salvar cada regra.
 . Depois de adicionar todas as regras necessárias, selecione *Pesquisar* para ver os recursos disponíveis no arquivo de backup que correspondem aos seus critérios de filtro.
++
+
+NOTE: Os recursos mostrados são os recursos que existem atualmente no cluster.
+
 . Quando estiver satisfeito com os resultados, selecione *Avançar*.
 
 
@@ -76,6 +81,6 @@ Cada regra pode filtrar critérios como namespace do recurso, rótulos, grupo, v
 ===== Configurações de destino
 
 . Escolha restaurar para a classe de armazenamento padrão ou para uma classe de armazenamento diferente.
-. Opcionalmente, se você optar por restaurar para uma classe de armazenamento diferente, selecione uma classe de armazenamento de destino correspondente a cada classe de armazenamento de origem. A classe de armazenamento de destino deve estar disponível no cluster de destino.
+. Opcionalmente, se você optar por restaurar para uma classe de armazenamento diferente, selecione uma classe de armazenamento de destino para corresponder a cada classe de armazenamento de origem.
 . Selecione *Restaurar*.
 
