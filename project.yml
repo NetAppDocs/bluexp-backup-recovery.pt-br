@@ -139,7 +139,7 @@ sidebar:
       - title: Visão geral das cargas de trabalho do Protect Kubernetes
         url: "/br-use-kubernetes-protect-overview.html"
       - title: Descubra as cargas de trabalho do Kubernetes
-        url: br-start-discover-kubernetes.html
+        url: "/br-start-discover-kubernetes.html"
       - title: Adicionar e proteger aplicativos Kubernetes
         url: "/br-use-protect-kubernetes-applications.html"
       - title: Restaurar aplicativos Kubernetes
