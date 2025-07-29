@@ -4506,4 +4506,5 @@
   <block id="5d8fc779baf0d068c296ee5013b2224f" category="doc">Suporte à carga de trabalho do Kubernetes como uma prévia</block>
   <block id="f4270282e09abd3774ba339dc49af208" category="paragraph">Para obter detalhes sobre como proteger cargas de trabalho do Kubernetes, consulte <block ref="44b634c6507d9116150094fb69849fd2" category="inline-link-rx"></block> .</block>
   <block id="d30235bcb420e82027cadb3cffab450f" category="list-text"><block ref="bdf340f843cf54500673f62df22d5070" category="inline-link-macro-rx"></block> .</block>
+  <block id="339f6d69f0298e3d4bbd943ba3211c6c" category="list-text">Cargas de trabalho do Kubernetes (visualização)</block>
 </blocks>
