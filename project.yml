@@ -88,6 +88,8 @@ sidebar:
         url: "/prev-ontap-backup-onprem-storagegrid.html"
       - title: Migre volumes usando o SnapMirror para o Cloud Resync
         url: "/prev-ontap-migrate-resync.html"
+      - title: Restaurar dados de configuração em um site escuro
+        url: "/reference-backup-cbs-db-in-dark-site.html"
       - title: Gerenciar backups do ONTAP
         url: "/prev-ontap-backup-manage.html"
       - title: Restauração a partir de backups do ONTAP
