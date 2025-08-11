@@ -16,7 +16,7 @@ summary: O serviço de BlueXP backup and recovery precisa primeiro descobrir car
 [role="lead"]
 O serviço de BlueXP backup and recovery precisa primeiro descobrir as cargas de trabalho do Microsoft SQL Server para que você possa usá-lo. Opcionalmente, você pode importar dados e políticas de backup do SnapCenter se já tiver o SnapCenter instalado.
 
-*Função BlueXP necessária* Superadministrador de Backup e Recuperação. Saiba mais sobre link:reference-roles.html["Funções e privilégios de backup e recuperação"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+*Função BlueXP necessária* Esta tarefa requer a função de superadministrador de backup e recuperação de serviços de dados.  Aprenda sobrelink:reference-roles.html["Funções e privilégios de serviços de backup e recuperação de dados"] . https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
 
 
 
