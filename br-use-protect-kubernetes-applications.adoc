@@ -50,7 +50,7 @@ NOTE: O BlueXP não armazena os parâmetros ou resultados da pesquisa; os parâm
 
 . O BlueXP exibe uma lista de recursos que correspondem aos seus critérios de pesquisa.
 . Se a lista contiver os recursos que você deseja proteger, selecione *Avançar*.
-. Opcionalmente, na área *Política*, escolha uma política de proteção existente para proteger o aplicativo ou crie uma nova. Se você não selecionar uma política, o aplicativo será criado sem uma política de proteção. Você poderá adicionar uma política posteriormente.
+. Opcionalmente, na área *Política*, escolha uma política de proteção existente para proteger o aplicativo ou crie uma nova. Se você não selecionar uma política, o aplicativo será criado sem uma política de proteção. Você podelink:br-use-policies-create.html#create-a-policy["adicionar uma política de proteção"] mais tarde.
 . Na área *Prescripts e postscripts*, habilite e configure quaisquer ganchos de execução de prescript ou postscript que você deseja executar antes ou depois das operações de backup. Para habilitar prescripts ou postscripts, você deve ter criado pelo menos um link:br-use-manage-execution-hook-templates.html["modelo de gancho de execução"] .
 . Selecione *criar*.
 
@@ -70,7 +70,7 @@ Habilite uma política de proteção em um aplicativo Kubernetes que você já a
 . Selecione a aba *Aplicativos*.
 . Na lista de aplicativos, escolha um aplicativo que você deseja proteger e selecione o menu Ações associado.
 . Selecione *Protect*.
-. Na área *Política*, escolha uma política de proteção existente para proteger o aplicativo ou crie uma nova política.
+. Na área *Política*, escolha uma política de proteção existente para proteger o aplicativo ou crie uma nova política.  Consultelink:br-use-policies-create.html#create-a-policy["Crie uma política"] para obter mais informações sobre a criação de políticas de proteção.
 . Na área *Prescripts e postscripts*, habilite e configure quaisquer ganchos de execução prescript ou postscript que você queira executar antes ou depois das operações de backup. Você pode configurar o tipo de gancho de execução, o modelo que ele usa, argumentos e seletores de rótulo.
 . Selecione *Concluído*.
 

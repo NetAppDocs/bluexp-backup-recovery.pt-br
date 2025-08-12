@@ -106,7 +106,7 @@ Forneça informações para o instantâneo local.
 * *Retenção de instantâneos*: insira o número de instantâneos a serem mantidos.
 * *Habilitar backup de log*: (Não disponível para cargas de trabalho do Kubernetes) Marque a opção para fazer backup de logs e defina a frequência e a retenção dos backups de log. Para isso, você precisa ter configurado um backup de log. link:br-start-configure.html["Configurar diretórios de log"]Consulte .
 * *Provedor*: (somente cargas de trabalho do Kubernetes) Selecione o provedor de armazenamento que hospeda os recursos do aplicativo Kubernetes.
-* *Destino do backup*: (somente cargas de trabalho do Kubernetes) Selecione o sistema de destino para o backup. Este é o sistema de armazenamento onde os snapshots serão armazenados. Certifique-se de que o destino esteja acessível no seu ambiente de backup.
+* *Destino de backup*: (somente cargas de trabalho do Kubernetes) Selecione o bucket de armazenamento que hospeda os recursos do aplicativo Kubernetes.  Os instantâneos serão armazenados neste bucket.  Certifique-se de que o bucket esteja acessível dentro do seu ambiente de backup.
 * Opcionalmente, selecione *Avançado* à direita do agendamento para definir o rótulo SnapMirror e habilitar o bloqueio de instantâneo (não disponível para cargas de trabalho do Kubernetes).
 +
 ** * Rótulo SnapMirror *: O rótulo serve como um marcador para a transferência de um snapshot especificado, de acordo com as regras de retenção do relacionamento. Adicionar um rótulo a um snapshot o marca como alvo para replicação do SnapMirror .
