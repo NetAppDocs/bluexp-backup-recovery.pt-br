@@ -14,7 +14,7 @@ summary: O serviço de BlueXP backup and recovery oferece proteção de dados ef
 
 
 [role="lead"]
-O serviço de BlueXP backup and recovery fornece proteção de dados eficiente, segura e econômica para volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server (visualização), cargas de trabalho VMware e cargas de trabalho Kubernetes (visualização).
+O serviço de BlueXP backup and recovery fornece proteção de dados eficiente, segura e econômica para volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server, cargas de trabalho VMware e cargas de trabalho Kubernetes (visualização).
 
 
 NOTE: Parte desta documentação é fornecida como uma prévia da tecnologia.  Com esta oferta de visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.
