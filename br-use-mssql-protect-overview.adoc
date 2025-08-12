@@ -49,13 +49,16 @@ O BlueXP backup and recovery permitem que você faça backup de instâncias e ba
 | Fonte ambiente de trabalho | Ambiente de trabalho secundário (replicação) | Armazenamento de Objetos de Destino (Backup) 
 
 
-| Cloud Volumes ONTAP na AWS | Cloud Volumes ONTAP no sistema ONTAP on-premises da AWS | Amazon S3 
+| Cloud Volumes ONTAP na AWS | Cloud Volumes ONTAP no sistema ONTAP on-premises da AWS | Amazon S3 ONTAP S3 
 
 
-| Cloud Volumes ONTAP no Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure | Blob do Azure 
+| Cloud Volumes ONTAP no Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure | Azure Blob ONTAP S3 
 
 
-| Sistema ONTAP no local | Sistema ONTAP no local da Cloud Volumes ONTAP | Amazon S3 Azure Blob NetApp StorageGRID ifdef::gcp[] endif::gcp[] ifdef::gcp[] endif::gcp[] 
+| Sistema ONTAP no local | Sistema ONTAP no local da Cloud Volumes ONTAP | Amazon S3 Azure Blob NetApp StorageGRID ONTAP S3 
+
+
+| Amazon FSX para NetApp ONTAP | Amazon FSX para NetApp ONTAP | NA ifdef::gcp[] fim se::gcp[] ifdef::gcp[] fim se::gcp[] 
 |===
 .Destinos de restauração suportados
 Você pode restaurar instâncias e bancos de dados do Microsoft SQL Server de um backup que reside no armazenamento primário ou em um ambiente de trabalho secundário (um volume replicado) ou em um armazenamento de objetos (um arquivo de backup) para os seguintes ambientes de trabalho. As cópias Snapshot residem no ambiente de trabalho de origem e podem ser restauradas somente nesse mesmo sistema.
@@ -68,13 +71,16 @@ Você pode restaurar instâncias e bancos de dados do Microsoft SQL Server de um
 | *Object Store (Backup)* | *Sistema secundário (replicação)* |  
 
 
-| Amazon S3 | Cloud Volumes ONTAP no sistema ONTAP on-premises da AWS | Volumes de nuvem no sistema ONTAP local da AWS 
+| Amazon S3 | Cloud Volumes ONTAP no sistema ONTAP on-premises da AWS | Volumes de nuvem no sistema ONTAP local da AWS ONTAP S3 
 
 
-| Blob do Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure ifdef::gcp[] endif::gcp[] 
+| Blob do Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure | Cloud Volumes ONTAP no sistema ONTAP local do Azure ONTAP S3 ifdef::gcp[] endif::gcp[] 
 
 
-| StorageGRID | Sistema ONTAP no local da Cloud Volumes ONTAP | Sistema ONTAP no local 
+| StorageGRID | Sistema ONTAP no local da Cloud Volumes ONTAP | Sistema ONTAP local ONTAP S3 
+
+
+| Amazon FSX para NetApp ONTAP | Amazon FSX para NetApp ONTAP | N / D 
 |===
 
 NOTE: Referências a "sistemas ONTAP locais" incluem sistemas FAS e AFF .

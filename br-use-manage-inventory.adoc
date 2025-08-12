@@ -58,6 +58,45 @@ Você pode gerenciar as informações do host para garantir que os hosts correto
 
 
 
+=== Gerenciar hosts
+
+Você pode gerenciar os hosts descobertos no seu ambiente de trabalho. Você pode gerenciá-los separadamente ou em grupo.
+
+
+TIP: Você pode gerenciar apenas os hosts que apresentam o status "Não gerenciado" na coluna Hosts. Se o status for "Gerenciado", significa que o host já está sendo gerenciado pelo BlueXP backup and recovery.
+
+Depois de gerenciar os hosts no BlueXP backup and recovery, o SnapCenter não gerencia mais os recursos nesses hosts.
+
+*Função necessária do BlueXP * Administrador da organização, administrador de pasta ou projeto ou superadministrador de backup e recuperação.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+
+.Passos
+. No menu, selecione *Inventário*.
++
+image:screen-br-inventory.png["Captura de tela do inventário para BlueXP backup and recovery"]
+
+. Selecione uma carga de trabalho para visualizar os detalhes da proteção.
+. Selecione o ícone Ações image:../media/icon-action.png["Opção de ações"] > *Ver detalhes*.
++
+image:screen-br-inventory-sql.png["Captura de tela da página de detalhes do inventário para BlueXP backup and recovery"]
+
+. Selecione a aba *Hosts*.
+. Selecione um ou mais hosts. Se você selecionar vários hosts, uma opção de Ações em massa será exibida, onde você poderá selecionar *Gerenciar (até 5 hosts)*.
+. Selecione o ícone Ações image:../media/icon-action.png["Opção de ações"] > *Gerenciar*.
++
+image:screen-br-inventory-details-manage-hosts.png["Página de gerenciamento de hosts"]
+
+. Revise as dependências do host:
++
+** Se o vCenter não for exibido, selecione o ícone de lápis para adicionar ou editar os detalhes do vCenter.
+** Se você adicionar um vCenter, também deverá registrá-lo selecionando *Registrar vCenter*.
+
+
+. Selecione *Validar configurações* para testar suas configurações.
+. Selecione *Gerenciar* para gerenciar o host.
+
+
+
+
 === Suspender horários
 
 Você pode suspender agendamentos para interromper as operações de backup e restauração de um host. Você pode querer fazer isso se precisar realizar atividades de manutenção no host.

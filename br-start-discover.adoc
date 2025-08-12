@@ -153,7 +153,9 @@ image:../media/screen-br-inventory.png["Página de inventário"]
 
 === Se você não tiver o SnapCenter instalado, adicione um vCenter e descubra recursos
 
-Se você ainda não tiver o SnapCenter instalado, adicione informações do vCenter e faça com que o BlueXP backup and recovery descubram as cargas de trabalho. Em cada Conector BlueXP , selecione os ambientes de trabalho onde deseja descobrir as cargas de trabalho.
+Se você ainda não tiver o SnapCenter instalado, poderá adicionar informações do vCenter e fazer com que o BlueXP backup and recovery descubram as cargas de trabalho.  Em cada conector BlueXP , selecione os ambientes de trabalho onde você deseja descobrir cargas de trabalho.
+
+Isso é opcional se você tiver um ambiente VMware.
 
 .Passos
 . Na navegação à esquerda do BlueXP , selecione *Proteção* > *Backup e recuperação*.

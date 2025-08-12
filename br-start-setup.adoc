@@ -27,7 +27,7 @@ Prepare um ou mais dos seguintes destinos de backup:
 Consulte a https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["Descubra o StorageGRID"^].
 
 +
-Consulte  https://docs.netapp.com/us-en/storagegrid-117/index.html["Documentação do StorageGRID"^] para obter detalhes sobre StorageGRID.
+Consulte https://docs.netapp.com/us-en/storagegrid/index.html["Documentação do StorageGRID"^] para obter detalhes sobre StorageGRID.
 
 * Serviços Web da Amazon. Consulte a https://docs.netapp.com/us-en/bluexp-s3-storage/index.html["Documentação do Amazon S3"^].
 +

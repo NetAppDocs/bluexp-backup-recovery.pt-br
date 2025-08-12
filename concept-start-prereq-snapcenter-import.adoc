@@ -4,7 +4,7 @@ permalink: concept-start-prereq-snapcenter-import.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery, snapcenter, import, migration, migrate 
 summary: Comece a usar o BlueXP backup and recovery verificando a prontidão do seu ambiente operacional, do BlueXP Connector e da conta BlueXP . Para usar o BlueXP backup and recovery, você precisará destes pré-requisitos. 
 ---
-= Configurar itens adicionais se importar do SnapCenter para BlueXP backup and recovery
+= Pré-requisitos para importação do serviço Plug-in para BlueXP backup and recovery
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,19 @@ summary: Comece a usar o BlueXP backup and recovery verificando a prontidão do 
 
 
 [role="lead"]
-Se você for importar recursos do SnapCenter para o BlueXP backup and recovery, precisará configurar mais alguns itens.
+Se você for importar recursos do serviço SnapCenter Plug-in para Microsoft SQL Server para o BlueXP backup and recovery, precisará configurar mais alguns itens.
+
+
+
+== Crie ambientes de trabalho primeiro no BlueXP Canvas
+
+Se você for importar recursos do SnapCenter, crie ambientes de trabalho no BlueXP Canvas para todo o armazenamento em cluster do SnapCenter local antes de importar do SnapCenter. Isso garante que os recursos do host possam ser descobertos e importados corretamente.
 
 
 
 == Garantir os requisitos do host para instalar o plug-in SnapCenter
 
-Para importar recursos do SnapCenter, certifique-se de que os requisitos do host para instalar o SnapCenter Plug-in para Microsoft SQL Server sejam atendidos.
+Para importar recursos do SnapCenter Plug-in para Microsoft SQL Server, certifique-se de que os requisitos do host para instalar o SnapCenter Plug-in para Microsoft SQL Server sejam atendidos.
 
 Verifique especificamente os requisitos do SnapCenter em link:concept-start-prereq.html["Pré-requisitos de BlueXP backup and recovery"] .
 
@@ -163,8 +169,3 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 LocalAccountTokenFilterPolicy : 1
 ----
-
-
-== Crie ambientes de trabalho primeiro no BlueXP Canvas
-
-Se você for importar recursos do SnapCenter, crie ambientes de trabalho no BlueXP Canvas para todo o armazenamento em cluster do SnapCenter local antes de importar do SnapCenter. Isso garante que os recursos do host possam ser descobertos e importados corretamente.

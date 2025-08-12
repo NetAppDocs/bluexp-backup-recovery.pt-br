@@ -81,7 +81,15 @@ image:screen-br-policies-new-nodata.png["Captura de tela da criação de nova po
 +
 *** *Snapshot local*: Snapshot local no volume selecionado. Snapshots locais são um componente essencial das estratégias de proteção de dados, capturando o estado dos seus dados em momentos específicos. Isso cria cópias somente leitura e em um momento específico dos volumes de produção onde suas cargas de trabalho estão sendo executadas. O snapshot consome espaço de armazenamento mínimo e gera uma sobrecarga de desempenho insignificante, pois registra apenas as alterações nos arquivos desde o último snapshot. Você pode usar snapshots locais para recuperação de dados perdidos ou corrompidos, bem como para criar backups para fins de recuperação de desastres.
 *** *3-2-1 fanout*: (Não disponível para cargas de trabalho do Kubernetes) Armazenamento primário (disco) para armazenamento secundário (disco) para nuvem (armazenamento de objetos).  Cria várias cópias de dados em diferentes sistemas de armazenamento, como configurações de ONTAP para ONTAP e de ONTAP para armazenamento de objetos.  Este pode ser um armazenamento de objetos de hiperescala em nuvem ou um armazenamento de objetos privado — StorageGRID.  Essas configurações ajudam a alcançar proteção ideal de dados e recuperação de desastres.
++
+
+NOTE: Esta opção não está disponível para o Amazon FSx for NetApp ONTAP.
+
 *** *3-2-1 em cascata*: (Não disponível para cargas de trabalho do Kubernetes) Armazenamento primário (disco) para armazenamento secundário (disco) e armazenamento primário (disco) para armazenamento em nuvem (armazenamento de objetos).  Este pode ser um armazenamento de objetos de hiperescala em nuvem ou um armazenamento de objetos privado — StorageGRID.  Isso cria uma cadeia de replicação de dados em vários sistemas para garantir redundância e confiabilidade.
++
+
+NOTE: Esta opção não está disponível para o Amazon FSx for NetApp ONTAP.
+
 *** *Disco para disco*: (Não disponível para cargas de trabalho do Kubernetes) Armazenamento primário (disco) para armazenamento secundário (disco).  A estratégia de proteção de dados ONTAP para ONTAP replica dados entre dois sistemas ONTAP para garantir alta disponibilidade e recuperação de desastres.  Isso normalmente é obtido usando o SnapMirror, que suporta replicação síncrona e assíncrona.  Este método garante que seus dados sejam continuamente atualizados e estejam disponíveis em vários locais, fornecendo proteção robusta contra perda de dados.
 *** *Armazenamento de disco para objeto*: Armazenamento primário (disco) para a nuvem (armazenamento de objetos). Isso replica dados de um sistema ONTAP para um sistema de armazenamento de objetos, como AWS S3, Azure Blob Storage ou StorageGRID. Isso normalmente é feito usando o SnapMirror Cloud, que fornece backups incrementais permanentes transferindo apenas os blocos de dados alterados após a transferência da linha de base inicial. Pode ser um armazenamento de objetos em hiperescala na nuvem ou um armazenamento de objetos privado — StorageGRID. Esse método é ideal para retenção e arquivamento de dados a longo prazo, oferecendo uma solução econômica e escalável para proteção de dados.
 *** *Fanout de disco para disco*: (Não disponível para cargas de trabalho do Kubernetes) Armazenamento primário (disco) para armazenamento secundário (disco) e armazenamento primário (disco) para armazenamento secundário (disco).
@@ -135,6 +143,7 @@ Forneça informações para a replicação para armazenamento secundário.  As i
 ** Outras opções: Se você escolher uma transferência diferida, as transferências não serão imediatas e você poderá definir um cronograma.
 
 
+* * Relacionamento secundário do SnapMirror e do SnapVault SMAS*: use relacionamentos secundários do SnapMirror e do SnapVault SMAS para cargas de trabalho do SQL Server.
 
 
 
@@ -222,7 +231,7 @@ TIP: Se a frequência do snapshot for definida como 1 hora, o atraso máximo, ju
 
 
 
-* *Verificação de ransomware*: Selecione se deseja habilitar a verificação de ransomware em cada bucket. Isso habilita o bloqueio de snapshot no snapshot local, o bloqueio de snapshot no armazenamento secundário e o bloqueio de DataLock no armazenamento de objetos. Insira a frequência da verificação em dias.
+* *Verificação de ransomware*: selecione se deseja habilitar a verificação de ransomware em cada bucket.  Isso requer bloqueio do DataLock no armazenamento de objetos.  Insira a frequência da verificação em dias.  Esta opção se aplica ao armazenamento de objetos da AWS e do Microsoft Azure.  Observe que esta opção pode incorrer em custos adicionais, dependendo do provedor de nuvem.
 
 
 * *Verificação de backup*: Selecione se deseja ativar a verificação de backup e se deseja que ela seja feita imediatamente ou mais tarde. Este recurso garante que os backups sejam válidos e possam ser restaurados com sucesso. Recomendamos que você ative esta opção para garantir a integridade dos seus backups. Por padrão, a verificação de backup é executada a partir do armazenamento secundário, se o armazenamento secundário estiver configurado. Se o armazenamento secundário não estiver configurado, a verificação de backup é executada a partir do armazenamento primário.
@@ -246,6 +255,12 @@ Além disso, configure as seguintes opções:
 
 
 * *Notificação*: Selecione se deseja habilitar notificações por e-mail para operações de backup. Isso é útil se você quiser ser notificado quando uma operação de backup for iniciada, concluída ou falhar.
+
+
+* * Formato SnapMirror e snapshot*: Opcionalmente, insira seu próprio nome de snapshot em uma política que controla os backups para cargas de trabalho do Microsoft SQL Server.  Insira o formato e o texto personalizado.  Se você optar por fazer backup no armazenamento secundário, também poderá adicionar um prefixo e sufixo de volume do SnapMirror .
++
+image:screen-br-sql-policy-create-advanced-snapmirror.png["Captura de tela das configurações de formato SnapMirror e snapshot para políticas de BlueXP backup and recovery"]
+
 
 
 

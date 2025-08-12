@@ -36,6 +36,25 @@ Quando a avaliação gratuita terminar, você será automaticamente transferido 
 
 
 
+=== Termine a avaliação gratuita
+
+Se quiser continuar usando o BlueXP backup and recovery após o término do teste gratuito, você deverá configurar uma assinatura paga.  Você pode fazer isso na interface do BlueXP navegando até a seção de cobrança e selecionando um plano de assinatura que atenda às suas necessidades.  Se não quiser continuar usando o BlueXP backup and recovery, você pode encerrar o teste gratuito.
+
+Quando você encerra o teste gratuito sem assinar um plano pago, seus dados são excluídos automaticamente 60 dias após o término do teste gratuito.  Opcionalmente, você pode fazer com que o sistema exclua seus dados imediatamente.
+
+.Passos
+. Na página inicial de BlueXP backup and recovery , selecione *Ver teste gratuito*.
++
+*PERGUNTA AOS AVALIADORES*: Como os usuários chegam à Landing page se estiverem em outras páginas do BR?
+
+. Selecione *Encerrar teste gratuito*.
+. Selecione *Excluir dados imediatamente após encerrar meu teste gratuito* para excluir seus dados imediatamente.
+. Digite *fim do teste* na caixa.
+. Selecione *Fim* para confirmar.
+
+
+
+
 == Use uma assinatura PAYGO de backup e recuperação do BlueXP 
 
 Para pagamento conforme o uso, você pagará ao seu fornecedor de nuvem pelos custos de storage de objetos e pelos custos de licenciamento do backup do NetApp por hora em uma única assinatura. Você deve se inscrever em *Serviços inteligentes da NetApp* no mercado, mesmo se você tiver uma avaliação gratuita ou se você trouxer sua própria licença (BYOL):

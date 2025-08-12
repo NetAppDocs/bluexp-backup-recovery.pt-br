@@ -94,7 +94,7 @@ sidebar:
         url: "/prev-ontap-backup-manage.html"
       - title: Restauração a partir de backups do ONTAP
         url: "/prev-ontap-restore.html"
-    - title: Proteja as cargas de trabalho do Microsoft SQL Server (visualização)
+    - title: Proteja as cargas de trabalho do Microsoft SQL Server
       entries:
       - title: Visão geral da proteção de cargas de trabalho do Microsoft SQL Server
         url: "/br-use-mssql-protect-overview.html"

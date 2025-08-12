@@ -21,7 +21,7 @@ Monitorar a integridade das suas cargas de trabalho garante que você esteja cie
 .Passos
 . No menu de BlueXP backup and recovery , selecione *Painel*.
 +
-image:screen-br-dashboard2.png["Painel de BlueXP backup and recovery"]
+image:screen-br-dashboard3.png["Painel de BlueXP backup and recovery"]
 
 
 
