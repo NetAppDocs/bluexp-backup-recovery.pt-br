@@ -109,9 +109,3 @@ O SnapCenter não possui clusters de armazenamento de mapeamento ou SVMs para os
 Se você tiver um agendamento de política do SnapCenter que começa em um determinado horário e se repete a cada tantos minutos, mas os minutos não estão em intervalos de 15 minutos, o BlueXP backup and recovery não importarão o agendamento.
 
 *Solução alternativa*: use o SnapCenter para ajustar a política para que ela seja repetida em intervalos de 15 minutos.
-
-
-
-=== Retenção de backup de log
-
-Com o SnapCenter, você pode ter vários valores de retenção em diversas políticas vinculadas a um recurso. No entanto, a versão de pré-visualização do BlueXP backup and recovery suporta apenas um único valor de retenção para todas as políticas vinculadas a um recurso.

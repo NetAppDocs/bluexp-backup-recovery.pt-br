@@ -14,7 +14,7 @@ summary: Com o BlueXP backup and recovery, gerencie backups para seus sistemas C
 
 
 [role="lead"]
-Com o backup e recuperação do BlueXP, gerencie backups para seus sistemas Cloud Volumes ONTAP e ONTAP locais alterando o agendamento de backup, habilitando/desabilitando backups de volume, pausando backups, excluindo backups e muito mais. Isso inclui todos os tipos de backups, incluindo cópias de snapshots, volumes replicados e arquivos de backup em armazenamento de objetos. Você também pode cancelar o registro do BlueXP backup and recovery.
+Com o BlueXP backup and recovery, gerencie backups para seus sistemas Cloud Volumes ONTAP e ONTAP locais alterando o agendamento de backup, habilitando/desabilitando backups de volume, pausando backups, excluindo backups, forçando a exclusão de backups e muito mais.  Isso inclui todos os tipos de backups, incluindo cópias de instantâneos, volumes replicados e arquivos de backup em armazenamento de objetos.  Você também pode cancelar o registro do BlueXP backup and recovery.
 
 
 CAUTION: Não gerencie nem altere arquivos de backup diretamente nos sistemas de storage ou no ambiente do fornecedor de nuvem. Isso pode corromper os arquivos e resultará em uma configuração não suportada.
@@ -365,7 +365,20 @@ Observe que essa ação não afeta cópias Snapshot ou volumes replicados - esse
 image:screenshot_backup_settings_button.png["Uma captura de tela que mostra o botão Backup Settings (Configurações de backup) que está disponível depois de selecionar um ambiente de trabalho."]
 
 . Selecione image:icon-actions-horizontal.gif["Ícone ações"] para o ambiente de trabalho onde você deseja excluir todos os backups e selecione *Excluir todos os backups*.
-. Na caixa de diálogo de confirmação, insira o nome do ambiente de trabalho e selecione *Excluir*.
++
+image:screenshot_backup_delete_all_backups-working-env.png["Uma captura de tela que mostra a opção Excluir todos os backups"]
+
+. Na caixa de diálogo de confirmação, insira o nome do ambiente de trabalho.
+. Selecione *Configurações avançadas*.
+. *Forçar exclusão de backups*: indique se você deseja ou não forçar a exclusão de todos os backups.
++
+Em alguns casos extremos, você pode querer que o BlueXP backup and recovery não tenham mais acesso aos backups. Isso pode acontecer, por exemplo, se o serviço não tiver mais acesso ao bucket de backup ou se os backups forem protegidos pelo DataLock, mas você não os quiser mais. Anteriormente, não era possível excluí-los sozinho e era necessário ligar para o Suporte da NetApp . Com esta versão, você pode usar a opção para forçar a exclusão de backups (em níveis de volume e ambiente de trabalho).
+
++
+
+CAUTION: Use esta opção com cuidado e somente em casos de extrema necessidade de limpeza.  O BlueXP backup and recovery não terão mais acesso a esses backups, mesmo que eles não sejam excluídos do armazenamento de objetos.  Você precisará ir ao seu provedor de nuvem e excluir manualmente os backups.
+
+. Selecione *Eliminar*.
 
 
 
@@ -386,7 +399,16 @@ A lista de todos os arquivos de backup é exibida.
 +
 image:screenshot_backup_delete_all_backups.png["Uma captura de tela que mostra a opção Excluir todos os backups"]
 
-. Digite o nome do volume e indique se deseja ou não forçar a exclusão de todos os backups.
+. Digite o nome do volume.
+. Selecione *Configurações avançadas*.
+. *Forçar exclusão de backups*: indique se você deseja ou não forçar a exclusão de todos os backups.
++
+Em alguns casos extremos, você pode querer que o BlueXP backup and recovery não tenham mais acesso aos backups.  Isso pode acontecer, por exemplo, se o serviço não tiver mais acesso ao bucket de backup ou se os backups estiverem protegidos pelo DataLock, mas você não os quiser mais. Anteriormente, não era possível excluí-los sozinho e era necessário ligar para o Suporte da NetApp . Com esta versão, você pode usar a opção para forçar a exclusão de backups (em níveis de volume e ambiente de trabalho).
+
++
+
+CAUTION: Use esta opção com cuidado e somente em casos de extrema necessidade de limpeza.  O BlueXP backup and recovery não terão mais acesso a esses backups, mesmo que eles não sejam excluídos do armazenamento de objetos.  Você precisará ir ao seu provedor de nuvem e excluir manualmente os backups.
+
 . Selecione *Eliminar*.
 
 

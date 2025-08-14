@@ -14,7 +14,9 @@ summary: Existem algumas diferenças entre as políticas usadas no BlueXP backup
 [role="lead"]
 Há algumas diferenças entre as políticas usadas no SnapCenter e aquelas usadas no BlueXP backup and recovery que podem afetar o que você vê após importar recursos e políticas do SnapCenter.
 
-O BlueXP backup and recovery do SnapCenter e do BlueXP usam agendamentos de políticas ligeiramente diferentes.
+
+
+== Níveis de programação
 
 O SnapCenter usa os seguintes níveis de agendamento:
 
@@ -78,6 +80,12 @@ Se você tiver um recurso no SnapCenter com várias políticas, o BlueXP backup 
 * Para "Backup e log completos" mais "Backup completo" no SnapCenter, o BlueXP backup and recovery usam o valor de retenção "Backup e log completos".
 * Se você tiver apenas um backup completo no SnapCenter, o BlueXP backup and recovery não habilitarão o backup de log.
 
+
+
+
+== Retenção de backup de log
+
+Com o SnapCenter, você pode ter vários valores de retenção em várias políticas anexadas a um recurso.  No entanto, o BlueXP backup and recovery oferecem suporte apenas a um único valor de retenção para todas as políticas anexadas a um recurso.
 
 
 
