@@ -4,7 +4,7 @@ permalink: prev-ontap-migrate-resync.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, migrate volumes, SnapMirror to Cloud Resync, ONTAP, NetApp, NetApp ONTAP, NetApp Cloud Volumes ONTAP, NetApp Cloud Volumes Service, FlexVols, FlexGroups 
 summary: O recurso SnapMirror to Cloud Resync no backup e recuperação do BlueXP simplifica a proteção de dados e a continuidade durante migrações de volume em ambientes NetApp. 
 ---
-= Migrar volumes usando o SnapMirror para o Cloud Resync no BlueXP backup and recovery
+= Migrar volumes usando o SnapMirror para o Cloud Resync com backup e recuperação do BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -28,6 +28,20 @@ Ao manter a continuidade do backup nos ambientes, o SnapMirror to Cloud Resync a
 *NOTA* Para alternar entre cargas de trabalho de BlueXP backup and recovery , consulte link:br-start-switch-ui.html["Mude para diferentes cargas de trabalho de BlueXP backup and recovery"] .
 
 ====
+.Antes de começar
+Certifique-se de que estes pré-requisitos foram atendidos:
+
+* O cluster do ONTAP de destino deve estar executando o ONTAP versão 9.16.1 ou posterior.
+* O antigo cluster ONTAP de origem deve ser protegido usando BlueXP backup and recovery.
+* O recurso SnapMirror to Cloud Resync está disponível a partir da versão 4.0.3 de BlueXP backup and recovery, lançada em maio de 2025.
+* O backup mais recente no armazenamento de objetos deve ser o instantâneo comum na origem antiga, na nova origem e no armazenamento de objetos.  O snapshot comum não pode ser mais antigo que o snapshot mais recente cujo backup foi feito no armazenamento de objetos.
+* As políticas de snapshot e SnapMirror , que eram usadas no ONTAP mais antigo, devem ser criadas no novo cluster ONTAP antes de iniciar a operação de ressincronização.  Se alguma política for usada no processo de ressincronização, essa política também deverá ser criada.  A operação Resync não cria as políticas.
+* Certifique-se de que a política do SnapMirror aplicada ao relacionamento do SnapMirror do volume de migração inclua o mesmo rótulo usado pelo relacionamento da nuvem.  Para evitar problemas, use a política que controla um espelho exato do volume e de todos os instantâneos.
+
+
+
+NOTE: Ressincronização de SnapMirror para nuvem após migrações usando os métodos de migração de SVM, SVM-DR ou troca de cabeça não são compatíveis no momento.
+
 
 
 == Como funciona o BlueXP backup and recovery SnapMirror para o Cloud Resync
@@ -65,12 +79,9 @@ image:diagram-snapmirror-cloud-resync-migration.png["SnapMirror de recuperação
 
 == Notas do procedimento
 
-* O cluster do ONTAP de destino deve estar executando o ONTAP versão 9.16.1 ou posterior.
-* O cluster ONTAP de origem antiga deve ser protegido usando o backup e a recuperação do BlueXP .
 * Migrações e atualizações técnicas não são executadas com o backup e a recuperação do BlueXP . Eles devem ser realizados por uma equipe de serviços profissionais ou por um administrador de storage qualificado.
 * Uma equipe de migração do NetApp é responsável por criar a relação do SnapMirror entre os clusters do ONTAP de origem e destino para facilitar a migração de volume.
 * Certifique-se de que a migração durante uma atualização técnica é baseada na migração baseada em SnapMirror.
-* Ressincronização de SnapMirror para nuvem após migrações usando os métodos de migração de SVM, SVM-DR ou troca de cabeça não são compatíveis no momento.
 
 
 
@@ -109,6 +120,10 @@ Após a migração, uma equipe de atualização técnica da NetApp garante que a
 . Registre novos UUUIDs de instância de volume de todos os volumes migrados no cluster do ONTAP de destino.
 . Confirme se todas as políticas SnapMirror necessárias disponíveis no cluster ONTAP antigo estão configuradas corretamente no novo cluster ONTAP.
 . Adicione o novo cluster do ONTAP como um ambiente de trabalho na tela do BlueXP .
++
+
+NOTE: O UUID da instância do volume deve ser usado, não o ID do volume.  O UUID da instância do volume é um identificador exclusivo que permanece consistente em todas as migrações, enquanto o ID do volume pode mudar após a migração.
+
 
 
 
@@ -120,7 +135,11 @@ Após a migração, uma equipe de atualização técnica da NetApp executa uma o
 . Adicione o novo cluster do ONTAP como um ambiente de trabalho na tela do BlueXP .
 . Veja a página volumes de backup e recuperação do BlueXP  para garantir que os detalhes do ambiente de trabalho de origem antiga estejam disponíveis.
 . Na página volumes de backup e recuperação do BlueXP , selecione *Configurações de backup*.
-. No menu, selecione *Resync backup*.
++
+** Na página Configurações de backup, selecione *Exibir tudo*.
+** No menu Ações... à direita da _nova_ fonte, selecione *Ressincronizar backup*.
+
+
 . Na página Resync Working Environment, faça o seguinte:
 +
 .. * Novo ambiente de trabalho de origem*: Entre no novo cluster ONTAP onde os volumes foram migrados.
@@ -135,17 +154,21 @@ Após a migração, uma equipe de atualização técnica da NetApp executa uma o
 
 
 . Selecione *Upload* sob *Upload volume Mapping Details* para carregar a folha CSV concluída na interface de usuário de backup e recuperação do BlueXP .
++
+
+NOTE: O UUID da instância do volume deve ser usado, não o ID do volume.  O UUID da instância do volume é um identificador exclusivo que permanece consistente em todas as migrações, enquanto o ID do volume pode mudar após a migração.
+
 . Insira as informações de configuração do provedor e da rede necessárias para a operação ressincronizada.
 . Selecione *Submit* para iniciar o processo de validação.
 +
-O backup e a recuperação do BlueXP  validam que cada volume selecionado para ressincronização tem pelo menos um instantâneo comum. Isso garante que os volumes estejam prontos para a operação de ressincronização do SnapMirror para nuvem.
+O BlueXP backup and recovery validam se cada volume selecionado para ressincronização é o snapshot mais recente e tem pelo menos um snapshot comum.  Isso garante que os volumes estejam prontos para a operação de ressincronização do SnapMirror para a Nuvem.
 
 . Analise os resultados de validação, incluindo os novos nomes de volume de origem e o status de ressincronização para cada volume.
-. Verificar a qualificação do volume. O sistema verifica se os volumes estão qualificados para ressincronização. Se um volume não for elegível, isso significa que nenhum instantâneo comum foi encontrado.
+. Verifique a elegibilidade do volume.  O sistema verifica se os volumes são elegíveis para ressincronização.  Se um volume não for elegível, significa que não é o snapshot mais recente ou que nenhum snapshot comum foi encontrado.
 +
 
 IMPORTANT: Para garantir que os volumes permaneçam qualificados para a operação de ressincronização do SnapMirror to Cloud, faça um snapshot final de cada volume antes de excluir quaisquer relacionamentos do SnapMirror durante a fase de pré-migração. Isso preserva o estado mais recente dos dados.
 
-. Selecione *Resync* para iniciar a operação ressincronizada. O sistema usa o snapshot comum para transferir apenas as alterações incrementais, garantindo a continuidade do backup.
-. Monitorize o processo de resyn na página Monitor de trabalhos.
+. Selecione *Ressincronizar* para iniciar a operação de ressincronização.  O sistema usa o snapshot mais recente e comum para transferir apenas as alterações incrementais, garantindo a continuidade do backup.
+. Monitore o processo de ressincronização na página Monitor de tarefas.
 
