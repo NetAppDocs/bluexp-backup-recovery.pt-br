@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector 
-summary: 'Ao usar o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como "modo privado", os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados.  Se você tiver um problema com o sistema host do BlueXP Connector no futuro, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .' 
+summary: 'Quando você usa o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como "modo privado", os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP Connector no futuro, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .' 
 ---
 = Restaurar dados de configuração de BlueXP backup and recovery em um site escuro
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Ao usar o BlueXP backup and recovery em um site sem acesso à Internet
 
 
 [role="lead"]
-Ao usar o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como _modo privado_, os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados.  Se você tiver um problema com o sistema host do BlueXP Connector, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .
+Quando você usa o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como _modo privado_, os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP Connector, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .
 
 
 NOTE: Este procedimento se aplica somente aos dados de volume ONTAP .

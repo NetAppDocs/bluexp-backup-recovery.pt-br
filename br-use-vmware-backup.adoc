@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-backup.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP. 
+---
+= Faça backup de cargas de trabalho VMware com BlueXP backup and recovery
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Faça backup de VMs e datastores da VMware de sistemas ONTAP locais para o Amazon Web Services ou StorageGRID para garantir que seus dados estejam protegidos.  Os backups são gerados automaticamente e armazenados em um armazenamento de objetos na sua conta de nuvem pública ou privada.
+
+* Para fazer backup de cargas de trabalho conforme um cronograma, crie políticas que controlem as operações de backup e restauração. link:br-use-policies-create.html["Criar políticas"]Consulte para obter instruções.
+* Crie grupos de proteção para gerenciar as operações de backup e restauração de um conjunto de recursos. Ver link:br-use-vmware-protection-groups.html["Crie e gerencie grupos de proteção para cargas de trabalho VMware com BlueXP backup and recovery"] para maiores informações.
+* Faça backup das cargas de trabalho agora (crie um backup sob demanda agora).
+
+
+
+
+== Faça backup de cargas de trabalho agora com um backup sob demanda
+
+Crie um backup sob demanda imediatamente. Você pode querer executar um backup sob demanda se estiver prestes a fazer alterações no seu sistema e quiser garantir que tenha um backup antes de começar.
+
+*Função necessária do BlueXP * Administrador da organização, administrador de pasta ou projeto, superadministrador de backup e recuperação ou função de administrador de backup de backup e recuperação.  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
+
+.Passos
+. No menu, selecione *Inventário*.
++
+image:screen-vm-inventory-managed.png["Captura de tela do inventário para BlueXP backup and recovery"]
+
+. Selecione uma carga de trabalho para visualizar os detalhes da proteção.
+. Selecione o ícone Ações image:../media/icon-action.png["Opção de ações"] > *Ver detalhes*.
+. Selecione a aba *Grupos de proteção*, *Datastores* ou *Máquinas virtuais*.
++
+image:screen-vm-inventory-protection-groups.png["Captura de tela da guia Grupos de proteção para BlueXP backup and recovery"]
+
+. Selecione o grupo de proteção, os armazenamentos de dados ou as máquinas virtuais dos quais você deseja fazer backup.
+. Selecione o ícone Ações image:../media/icon-action.png["Opção de ações"] > *Faça backup agora*.
++
+image:screen-vm-inventory-backup-now.png["Captura de tela de BlueXP backup and recovery"]
+
++
+
+NOTE: A política aplicada ao backup é a mesma política atribuída ao grupo de proteção, ao armazenamento de dados ou à máquina virtual.
+
+. Selecione o nível de agendamento.
+. Selecione *Fazer backup agora*.
+

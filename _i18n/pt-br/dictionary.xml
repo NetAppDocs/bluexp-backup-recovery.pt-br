@@ -2803,7 +2803,6 @@
   <block id="a4cb4d9746fef9b2063e1e5da1c75c29" category="paragraph">Depois que a NetApp compartilhar a oferta privada com você, você poderá selecionar o plano anual ao assinar no Google Cloud Marketplace durante a ativação do BlueXP backup and recovery . endif::gcp[]</block>
   <block id="474d47e21fe92a33663dbddcf78590b4" category="summary">Use o NetApp BlueXP para efetuar login no serviço de BlueXP backup and recovery .</block>
   <block id="aeb10fc890c802b7dd8fae9cff0a209e" category="doc">Faça login no BlueXP backup and recovery</block>
-  <block id="24950a849c9d9aedd14419065a71d6d1" category="paragraph">O BlueXP backup and recovery usam o controle de acesso baseado em funções (RBAC) para controlar o acesso que cada usuário tem a ações específicas.</block>
   <block id="666cc2b78f16f8ece01853cc11f9d11a" category="inline-link-macro">Funções de usuário de BlueXP backup and recovery</block>
   <block id="31675b9e04540d4b854fca05b62b0163" category="paragraph">Para obter detalhes sobre as ações que cada função pode executar, <block ref="e48ad5b94ef60d879078857b9c9c4497" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="8e917942a77709dfd28c155f42a97553" category="inline-link">Saiba mais sobre como fazer login</block>
@@ -2884,7 +2883,6 @@
   <block id="b855e251d5df357e144fbf0e53db0c36" category="paragraph">*Como você sabe qual interface de usuário está usando?*</block>
   <block id="96ec5c3621495d866bf12104959de6fc" category="inline-image-macro">Nova captura de tela da interface do usuário para BlueXP backup and recovery</block>
   <block id="47b2e1fa9a85c125a53c3e5c9a3e0e98" category="inline-image-macro">Captura de tela anterior da interface do usuário para BlueXP backup and recovery</block>
-  <block id="db417fd26ca3425ad12946f4a0f2ff53" category="paragraph">A barra de menu para volumes ONTAP e cargas de trabalho VMware se parece com isto: <block ref="fa2e599941b781bf3a65ea0199d76803" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fe22a10f6ea181611d52a0d5759f39db" category="section-title">Mudar para uma carga de trabalho diferente</block>
   <block id="4373918dc26735d4da68b24b4eaf9a01" category="paragraph">Você pode alternar para uma carga de trabalho diferente na interface de BlueXP backup and recovery .</block>
   <block id="6796afb2b33620293536ad9e235fd848" category="list-text">No canto superior direito da página, selecione a lista suspensa *Alternar carga de trabalho*.</block>
@@ -2924,7 +2922,6 @@
   <block id="c642a1d421742bab764af6e7ce29cee9" category="list-text">Número de clusters de armazenamento no ONTAP</block>
   <block id="5b39a8b0cd985252363064e17a37e57b" category="section-title">Ver o resumo da proteção</block>
   <block id="7d16325b089791a7fec8a4ec1b1328d3" category="paragraph">Revise as seguintes informações no resumo de proteção:</block>
-  <block id="285e1429845071f628c6f8239a013cfa" category="list-text">O número total de bancos de dados protegidos e desprotegidos.</block>
   <block id="c3427cdd69e34b450f0471fa4bc0f6bc" category="admonition">Um banco de dados protegido é aquele que possui uma política de backup atribuída. Um banco de dados desprotegido é aquele que não possui uma política de backup atribuída.</block>
   <block id="b3887310c2624c2fea5b40d259f69d85" category="list-text">O número de backups que foram bem-sucedidos, apresentaram um aviso ou falharam.</block>
   <block id="d1cc4762aa621a5e420e818f9fb01417" category="list-text">Capacidade total descoberta pelo serviço de backup e capacidade protegida versus desprotegida. Passe o mouse sobre o ícone "*i*" para ver os detalhes.</block>
@@ -3423,7 +3420,6 @@
   <block id="08dde8a49187490703817f0bb0ca2c66" category="list-text">Crie uma política para replicação para armazenamento secundário</block>
   <block id="79553f51abb935dd34c66050ba8bd085" category="list-text">Crie uma política para configurações de armazenamento de objetos</block>
   <block id="560d0289c18f590a486568880a11504c" category="list-text">Configurar configurações avançadas de política</block>
-  <block id="110202b139c8c8a25346f036c902b4c8" category="list-text">Editar políticas</block>
   <block id="af5b784334cc5cfd8f61f1fa34d0aca5" category="list-text">Eliminar políticas</block>
   <block id="07e3a352f6fabbcfb1aa57866d9cc826" category="list-text">No menu de BlueXP backup and recovery , selecione *Políticas*.</block>
   <block id="efecaf049bb3027a5a57f92953795d16" category="inline-image-macro">Página de políticas</block>
@@ -3443,13 +3439,10 @@
   <block id="e0b5eb9f9d2446a8058c07e393201d73" category="paragraph">Para obter informações sobre bloqueio de instantâneo em geral, consulte <block ref="8b0c087cbf38ba7d67f735ef687ec456" category="inline-link-rx"></block> .</block>
   <block id="678bf77479fcbfef4dc290f0d62e98ff" category="list-text">Na página Políticas, selecione *Criar nova política*.</block>
   <block id="15b12387004ff245bfdfd55c084d652c" category="inline-image-macro">Captura de tela da criação de nova política</block>
-  <block id="600dcd5a0627f86042966557f6c1d641" category="paragraph"><block ref="600dcd5a0627f86042966557f6c1d641" category="inline-image-macro-rx" type="image"></block></block>
   <block id="385b9aea2790f1bf9fe2b79fdafc5b1e" category="list-text">Na página Políticas, forneça as seguintes informações.</block>
   <block id="dcf438c461663e08d25441c21a02eb89" category="list-text">Seção *Detalhes*:</block>
-  <block id="99228d8dc56ea01edce282c124fbc4db" category="list-text">O tipo de carga de trabalho "Microsoft SQL Server" é selecionado por padrão para esta versão.</block>
   <block id="c6dc8fc5264ca3745831ad65554a2b72" category="list-text">Insira um nome de política.</block>
   <block id="42daba30535e3d2a9dc6be74b0a10189" category="list-text">Seção *Arquitetura de backup*: Selecione a seta para baixo e escolha a arquitetura para o backup, como fan-out, em cascata e de disco para disco.</block>
-  <block id="bb2503172f7a2d3bf8f64d30f8db109b" category="list-text">*Snapshot local*: Snapshot local no volume selecionado. Snapshots locais são um componente essencial das estratégias de proteção de dados, capturando o estado dos seus dados em momentos específicos. Isso cria cópias somente leitura e em um momento específico dos volumes de produção onde suas cargas de trabalho estão sendo executadas. O snapshot consome espaço de armazenamento mínimo e gera uma sobrecarga de desempenho insignificante, pois registra apenas as alterações nos arquivos desde o último snapshot. Você pode usar snapshots locais para recuperação de dados perdidos ou corrompidos, bem como para criar backups para fins de recuperação de desastres.</block>
   <block id="32726057a180b606f3393a3235c80796" category="list-text">*Armazenamento de disco para objeto*: Armazenamento primário (disco) para a nuvem (armazenamento de objetos). Isso replica dados de um sistema ONTAP para um sistema de armazenamento de objetos, como AWS S3, Azure Blob Storage ou StorageGRID. Isso normalmente é feito usando o SnapMirror Cloud, que fornece backups incrementais permanentes transferindo apenas os blocos de dados alterados após a transferência da linha de base inicial. Pode ser um armazenamento de objetos em hiperescala na nuvem ou um armazenamento de objetos privado — StorageGRID. Esse método é ideal para retenção e arquivamento de dados a longo prazo, oferecendo uma solução econômica e escalável para proteção de dados.</block>
   <block id="da35c57efd612e967c7ee5f6ae122173" category="admonition">Você pode configurar várias configurações secundárias para a opção de fanout de disco para disco.</block>
   <block id="6e2bd59b02565b32b4f5f494be2d3b3c" category="paragraph">Forneça informações para o instantâneo local.</block>
@@ -3457,13 +3450,9 @@
   <block id="ea26bb825f76fc9d9f25830201533996" category="list-text">*Frequência de snapshot*: Selecione a frequência: horária, diária, semanal, mensal ou anual. A frequência anual não está disponível para cargas de trabalho do Kubernetes.</block>
   <block id="b144c9152bc25d1fc7d07fee5de2ecc6" category="list-text">*Retenção de instantâneos*: insira o número de instantâneos a serem mantidos.</block>
   <block id="5e4be38dc556e235a6420a92a206702f" category="inline-link-macro">Configurar diretórios de log</block>
-  <block id="c787ed2d7e5bc557b61149e67595840c" category="list-text">*Habilitar backup de log*: (Não disponível para cargas de trabalho do Kubernetes) Marque a opção para fazer backup de logs e defina a frequência e a retenção dos backups de log. Para isso, você precisa ter configurado um backup de log. <block ref="c4a2a21123ec8dd6e71a040e68355146" category="inline-link-macro-rx"></block>Consulte .</block>
   <block id="6f55153177e57b6d7eb7c4cad4a859a7" category="list-text">*Provedor*: (somente cargas de trabalho do Kubernetes) Selecione o provedor de armazenamento que hospeda os recursos do aplicativo Kubernetes.</block>
   <block id="747b35b746df7e37e6b643aa0c244e28" category="list-text">Opcionalmente, selecione *Avançado* à direita do agendamento para definir o rótulo SnapMirror e habilitar o bloqueio de instantâneo (não disponível para cargas de trabalho do Kubernetes).</block>
   <block id="146a0850e1031071bccdee12df305d5a" category="list-text">* Rótulo SnapMirror *: O rótulo serve como um marcador para a transferência de um snapshot especificado, de acordo com as regras de retenção do relacionamento. Adicionar um rótulo a um snapshot o marca como alvo para replicação do SnapMirror .</block>
-  <block id="8036e5e1e57026168bfeac2027f9cc84" category="list-text">*Deslocamento de uma hora*: Insira o número de minutos para o snapshot ser deslocado do início da hora. Por exemplo, se você inserir *15*, o snapshot será tirado 15 minutos após a hora.</block>
-  <block id="aab634dec47a0327e1d19e8f140b1ff5" category="list-text">*Habilitar horário de silêncio*: Selecione se deseja habilitar o horário de silêncio. O horário de silêncio é um período durante o qual nenhum snapshot é criado, permitindo manutenção ou outras operações sem interferência de processos de backup. Isso é útil para reduzir a carga do sistema durante horários de pico de uso ou janelas de manutenção.</block>
-  <block id="cd0a52a7955baba5717b6d22930ce27c" category="list-text">*Habilitar bloqueio de snapshots*: Selecione se deseja habilitar snapshots à prova de violação. Habilitar esta opção garante que os snapshots não possam ser excluídos ou alterados até que o período de retenção especificado expire. Este recurso é crucial para proteger seus dados contra ataques de ransomware e garantir a integridade dos dados.</block>
   <block id="96dbfe4652a6b876c6cb53e74da71da7" category="list-text">*Período de bloqueio do snapshot*: insira o número de dias, meses ou anos que você deseja bloquear o snapshot.</block>
   <block id="71eec9b2b57a1b041e6be9fdbb7e9d77" category="section-title">Crie uma política para configurações secundárias (replicação para armazenamento secundário)</block>
   <block id="334741c071e30fd510f26dae69ca8081" category="list-text">*Backup*: Selecione a frequência: horária, diária, semanal, mensal ou anual.</block>
@@ -3506,16 +3495,12 @@
   <block id="2ca92844b86f2b62c13c213099bda95a" category="list-text">*Backup somente cópia*: escolha o backup somente cópia (um tipo de backup do Microsoft SQL Server) que permite fazer backup dos seus recursos usando outro aplicativo de backup.</block>
   <block id="10c4d775a10f9f702a7cc573a8b32f48" category="list-text">*Configurações do grupo de disponibilidade*: Selecione réplicas de backup preferenciais ou especifique uma réplica específica. Esta configuração é útil se você tiver um grupo de disponibilidade do SQL Server e quiser controlar qual réplica será usada para backups.</block>
   <block id="132e6bd0e046e23aee25c117b1e9812c" category="list-text">*Taxa máxima de transferência*: Para não definir um limite para o uso da largura de banda, selecione *Ilimitado*. Se desejar limitar a taxa de transferência, selecione *Limitado* e selecione a largura de banda de rede entre 1 e 1.000 Mbps alocada para carregar backups no armazenamento de objetos. Por padrão, o ONTAP pode usar uma quantidade ilimitada de largura de banda para transferir os dados de backup dos volumes no ambiente de trabalho para o armazenamento de objetos. Se você notar que o tráfego de backup está afetando as cargas de trabalho normais dos usuários, considere diminuir a quantidade de largura de banda de rede usada durante a transferência.</block>
-  <block id="ec9b9920140e56313d3b026541532555" category="list-text">*Repetições de backup*: Para repetir a tarefa em caso de falha ou interrupção, selecione *Ativar repetições de tarefa durante falha*. Insira o número máximo de repetições de tarefas de snapshot e backup, bem como o intervalo de tempo para novas tentativas. A recontagem deve ser inferior a 10. Esta configuração é útil se você quiser garantir que a tarefa de backup seja repetida em caso de falha ou interrupção.</block>
   <block id="ebc38593846bd56262189cdea41159c0" category="admonition">Se a frequência do snapshot for definida como 1 hora, o atraso máximo, juntamente com a contagem de novas tentativas, não deverá exceder 45 minutos.</block>
-  <block id="aac8fe9a7b8c3de675f0a551b63cabd1" category="list-text">*Verificação de backup*: Selecione se deseja ativar a verificação de backup e se deseja que ela seja feita imediatamente ou mais tarde. Este recurso garante que os backups sejam válidos e possam ser restaurados com sucesso. Recomendamos que você ative esta opção para garantir a integridade dos seus backups. Por padrão, a verificação de backup é executada a partir do armazenamento secundário, se o armazenamento secundário estiver configurado. Se o armazenamento secundário não estiver configurado, a verificação de backup é executada a partir do armazenamento primário.</block>
   <block id="94acea0f5c2d16ea31dc3b32ac56be06" category="inline-image-macro">Captura de tela das configurações de verificação de backup para políticas de BlueXP backup and recovery</block>
   <block id="0d3d467d9c9b1d1ac6401af1552d1ff2" category="paragraph"><block ref="0d3d467d9c9b1d1ac6401af1552d1ff2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5c9b86ff3ed09d60fd7e04707b95622a" category="paragraph">Além disso, configure as seguintes opções:</block>
   <block id="73abde911f425febebd71ee70b614dd9" category="list-text">Verificação *Diária*, *Semanal*, *Mensal* ou *Anual*: Se você escolher *Mais tarde* como verificação de backup, selecione a frequência da verificação. Isso garante que os backups sejam verificados regularmente quanto à integridade e possam ser restaurados com sucesso.</block>
   <block id="f1d2410a944bd4992da0594068ed18a8" category="list-text">*Etiquetas de backup*: Insira uma etiqueta para o backup. Esta etiqueta é usada para identificar o backup no sistema e pode ser útil para rastrear e gerenciar backups.</block>
-  <block id="76dac83462d8977a9c2b8b0dbca9541c" category="list-text">*Verificação de consistência do banco de dados*: Selecione se deseja habilitar as verificações de consistência do banco de dados. Esta opção garante que os bancos de dados estejam em um estado consistente antes da realização do backup, o que é crucial para garantir a integridade dos dados.</block>
-  <block id="fa08c9ef233239f746696deef92ed56b" category="list-text">*Verificar backups de log*: Selecione se deseja verificar os backups de log. Selecione o servidor de verificação. Se você escolheu disco para disco ou 3-2-1, selecione também o local de armazenamento da verificação. Esta opção garante que os backups de log sejam válidos e possam ser restaurados com sucesso, o que é importante para manter a integridade dos seus bancos de dados.</block>
   <block id="5974a63c4cecc4432e5393e90081c541" category="list-text">*Rede*: Selecione a interface de rede a ser usada para as operações de backup. Isso é útil se você tiver várias interfaces de rede e quiser controlar qual delas será usada para backups.</block>
   <block id="72d60858fb2b96d58274c5434a6b3440" category="list-text">*Configuração de endpoint privado*: Se você estiver usando um endpoint privado para o armazenamento de objetos, selecione a configuração de endpoint privado a ser usada para as operações de backup. Isso é útil se você quiser garantir que os backups sejam transferidos com segurança por uma conexão de rede privada.</block>
   <block id="b993cc2cb4bdad71390267cbdbd3dbad" category="list-text">*Notificação*: Selecione se deseja habilitar notificações por e-mail para operações de backup. Isso é útil se você quiser ser notificado quando uma operação de backup for iniciada, concluída ou falhar.</block>
@@ -3663,18 +3648,13 @@
   <block id="b7b284ffcc14ef04cba0609819bc5974" category="list-text">Selecione **Atualizar**.</block>
   <block id="a5424dd10dd2e3be3a885a1ed3c02cdb" category="summary">Proteja suas cargas de trabalho VMware com BlueXP backup and recovery do NetApp BlueXP.</block>
   <block id="f796cbd79ca11e2909969222c0b6a77d" category="doc">Proteja as cargas de trabalho do VMware com a visão geral de BlueXP backup and recovery</block>
-  <block id="9c05788904434e779dc26b1d9f6d6456" category="paragraph">Proteja suas cargas de trabalho VMware com o BlueXP backup and recovery. O BlueXP backup and recovery oferecem operações de backup e restauração rápidas, com economia de espaço, consistentes em caso de falhas e consistentes com a VM para VMs, datastores e VMDKs.</block>
   <block id="40c5998ccd6f421d1eaa29ece0c36b59" category="paragraph">É possível fazer backup de armazenamentos de dados no Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform e StorageGRID e restaurar máquinas virtuais de volta ao plug-in do SnapCenter no local para host VMware vSphere.</block>
   <block id="af61874354a940a408aa59fc2a353b7c" category="inline-link-macro">Mudar para a interface de usuário de BlueXP backup and recovery</block>
-  <block id="66e26e427b5784b7adb6655a0b49e57f" category="paragraph">*NOTA* Este recurso usa uma versão anterior da interface de usuário de BlueXP backup and recovery . Para alternar entre as versões de interface de usuário de BlueXP backup and recovery , consulte <block ref="906891f55c4c6af31e4cf82ce54f93d9" category="inline-link-macro-rx"></block> .</block>
-  <block id="5165c2fbcef4d5b16f189feb7569b43b" category="paragraph">Para obter instruções sobre como usar a interface de usuário de BlueXP backup and recovery , consulte os seguintes tópicos:</block>
   <block id="219b1d964760a35bc8ac924733ed0211" category="summary">O serviço de BlueXP backup and recovery oferece proteção de dados eficiente, segura e econômica para bancos de dados e instâncias da NetApp , tanto no local quanto na nuvem. Os backups são gerados e armazenados automaticamente em um armazenamento de objetos em sua conta de nuvem pública ou privada.</block>
   <block id="5ddad1ad8421fb041436bd24f4aea0c5" category="section-title">O que você pode fazer com o BlueXP backup and recovery</block>
   <block id="930ffc736eba485afa459142d19e0a4e" category="paragraph">Use o BlueXP backup and recovery para atingir os seguintes objetivos:</block>
-  <block id="5940e90d8d923e2308627f8e190412e8" category="list-text">Cargas de trabalho de volume ONTAP :</block>
   <block id="2565579856adf676ae32e330c247eaf5" category="list-text">Crie snapshots locais, replique para armazenamento secundário e faça backup de volumes ONTAP de sistemas ONTAP locais ou Cloud Volumes ONTAP para armazenamento de objetos em sua conta de nuvem pública ou privada.</block>
   <block id="316cc7c6ce94033b53fda593f26e3d57" category="list-text">Crie backups incrementais permanentes em nível de bloco que são armazenados em outro cluster ONTAP e no armazenamento de objetos na nuvem.</block>
-  <block id="f159b66cf2f7365489d513e547dd48d0" category="list-text">Faça backup de datastores no Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform e StorageGRID e restaure máquinas virtuais de volta para o host SnapCenter Plug-in for VMware vSphere local.</block>
   <block id="44c669dcd757f74c8d868cde66bbadac" category="section-title">Benefícios de usar o BlueXP backup and recovery</block>
   <block id="ed058c6afaa6d55d9032558597031ccf" category="paragraph">O BlueXP backup and recovery oferecem os seguintes benefícios:</block>
   <block id="69c4a7f9c8daffe7c66421bbb98ac486" category="list-text">**Eficiente**: O BlueXP backup and recovery realizam replicação incremental contínua em nível de bloco, o que reduz significativamente a quantidade de dados replicados e armazenados. Isso ajuda a minimizar o tráfego de rede e os custos de armazenamento.</block>
@@ -3712,7 +3692,6 @@
   <block id="c8ee5c80af66e9ba0b237679d3ee2962" category="section-title">Fontes de dados, ambientes de trabalho e destinos de backup suportados</block>
   <block id="cec0c370d9c2ef0dbbf7f89c16ef1a90" category="paragraph-title">Fontes de dados de carga de trabalho suportadas</block>
   <block id="9504b35cbb481ca2332f36aedcf456c8" category="list-text">Volumes ONTAP</block>
-  <block id="ed11408803c4c1aca5fbebbc43d88458" category="list-text">Armazenamentos de dados VMware</block>
   <block id="5ab0c2c7c8110afd8e099464217e8718" category="list-title">Ambientes de trabalho suportados</block>
   <block id="60bbb47f4c25fbe48c0eaa18d9174d22" category="list-text">ONTAP SAN local (protocolo iSCSI) e NAS (usando protocolos NFS e CIFS) com ONTAP versão 9.8 e superior</block>
   <block id="d97ad1eba4f90ab1f835497c1e04b99f" category="list-text">Cloud Volumes ONTAP 9.8 ou superior para AWS (usando SAN e NAS)</block>
@@ -3720,8 +3699,6 @@
   <block id="4d82a1ec1af02725042c8c785564ee7a" category="list-text">Amazon FSX para NetApp ONTAP</block>
   <block id="d17b3abdd113c99dd97a58c22430220e" category="list-title">Destinos de backup suportados</block>
   <block id="736ca911d7d143d01bd8cbfe0d4afbca" category="list-text">Amazon Web Services (AWS) S3</block>
-  <block id="6a51ed7bcacdfb13f78abc1e0f69c201" category="list-text">Microsoft Azure Blob</block>
-  <block id="97961700280df7e97434bb488aee8673" category="paragraph">O BlueXP backup and recovery instala o plug-in para Microsoft SQL Server no servidor que hospeda o Microsoft SQL Server. O plug-in é um componente do lado do host que permite o gerenciamento da proteção de dados com reconhecimento de aplicativo de bancos de dados e instâncias do Microsoft SQL Server.</block>
   <block id="fa9b9e83c02fc7ada864618f933caa44" category="paragraph">Ao ativar o BlueXP backup and recovery, o serviço realiza um backup completo dos seus dados. Após o backup inicial, todos os backups adicionais são incrementais. Isso mantém o tráfego de rede no mínimo.</block>
   <block id="504927eafa9845be671b630ab35b5fe6" category="paragraph">A imagem a seguir mostra o relacionamento entre os componentes.</block>
   <block id="f4fad7bda109e5959fd31089dbb58bde" category="inline-image-macro">Um diagrama mostrando como o BlueXP backup and recovery usam uma estratégia de proteção 3-2-1</block>
@@ -3734,7 +3711,6 @@
   <block id="f91faf1a13607ac0db1201bfb304b328" category="section-title">Termos que podem ajudar você com BlueXP backup and recovery</block>
   <block id="4631dd7356561dcd994558a79249bcaa" category="paragraph">Você pode se beneficiar ao entender alguma terminologia relacionada à proteção.</block>
   <block id="661b3d31f95036ff86eec46ca498f96e" category="list-text">*Proteção*: A proteção no BlueXP backup and recovery significa garantir que snapshots e backups imutáveis ocorram regularmente em um domínio de segurança diferente usando políticas de proteção.</block>
-  <block id="1787981ab8b4962c0ce851610d9b9e0d" category="list-text">*Carga de trabalho*: Uma carga de trabalho no BlueXP backup and recovery pode incluir instâncias e bancos de dados do Microsoft SQL Server, armazenamentos de dados VMware ou volumes ONTAP .</block>
   <block id="a360a8dae91555caa28f2085f644a956" category="summary">Comece a usar o BlueXP backup and recovery verificando a prontidão do seu ambiente operacional, do BlueXP Connector e da conta BlueXP . Para usar o BlueXP backup and recovery, você precisará destes pré-requisitos.</block>
   <block id="9b71e2f071cfce0bcb6aaf05e7722154" category="section-title">Garantir os requisitos do host para instalar o plug-in SnapCenter</block>
   <block id="5d81a9c26b95fdbbbd94a3fc025eed88" category="inline-link-macro">Pré-requisitos de BlueXP backup and recovery</block>
@@ -3816,7 +3792,6 @@
   <block id="34c47cd4f14da734755f6694935a175d" category="list-text">Para o Azure Blob, o Conector pode ser implantado em suas instalações.</block>
   <block id="ba780b6a1a4c1c3c2dd22e2a654e32c2" category="list-text">Para o StorageGRID, o Connector deve ser implantado em suas instalações; com ou sem acesso à Internet.</block>
   <block id="f11d659b2497c3836db933d95773f939" category="admonition">Referências a "sistemas ONTAP locais" incluem sistemas FAS e AFF .</block>
-  <block id="38601d08e67d696e9a90a6fc1d51c86e" category="paragraph">Para usar o BlueXP backup and recovery para cargas de trabalho do SQL Server, você precisa dos seguintes pré-requisitos de sistema host, espaço e dimensionamento.</block>
   <block id="7d74f3b92b19da5e606d737d339a9679" category="cell">Item</block>
   <block id="43574ab73a6cbc674506ff003387dcb1" category="cell">Sistemas operacionais</block>
   <block id="9ed4a475dd3705157a9fed8811f63ce2" category="inline-link">Ferramenta de Matriz de interoperabilidade do NetApp</block>
@@ -4269,10 +4244,6 @@
   <block id="4dba655852206fd33ef2ae210d0f09ea" category="sidebar">Fazer backup de cargas de trabalho do Microsoft SQL Server</block>
   <block id="a86a44463f171d5cbfffdac926d2c5f7" category="sidebar">Restaurar cargas de trabalho do Microsoft SQL Server</block>
   <block id="c82b8b73ed613da47a71b640f8e94c5d" category="sidebar">Clonar cargas de trabalho do Microsoft SQL Server</block>
-  <block id="ab69e074c29de9ea026c02628c3ac05c" category="sidebar">Proteja cargas de trabalho de máquinas virtuais</block>
-  <block id="c07f32b29d23df4f4b3125c85d8b32ac" category="sidebar">Visão geral das cargas de trabalho de proteção de máquinas virtuais</block>
-  <block id="db9c90cd86a25bccd17673c8c8e8ea8e" category="sidebar">Crie uma política para fazer backup de cargas de trabalho de máquinas virtuais</block>
-  <block id="e912f6251092fa984cd8a427a0057382" category="sidebar">Restaurar cargas de trabalho de máquinas virtuais</block>
   <block id="09092e90e42e51dde4c6cb831f40c41e" category="sidebar">Limitações conhecidas para cargas de trabalho do Microsoft SQL Server</block>
   <block id="adc285d73b2f7cdf2384ca8c91570878" category="sidebar">Limitações conhecidas para cargas de trabalho de volumes ONTAP</block>
   <block id="ada29ec64f251f29514285defc574a33" category="sidebar">Pré-requisitos para BlueXP backup and recovery</block>
@@ -4285,7 +4256,6 @@
   <block id="c00b274754a2d13242a61b1534660a37" category="sidebar">Gerenciar inventário do Microsoft SQL Server</block>
   <block id="41e1a34ea3ba2b687b86e55ec1a7955d" category="sidebar">Gerenciar instantâneos do Microsoft SQL Server</block>
   <block id="c8ffa42e0e508862d020665c979eb5c0" category="sidebar">Criar relatórios do Microsoft SQL Server</block>
-  <block id="79cf38f604ea494dd925df57b6a906b6" category="sidebar">Proteja cargas de trabalho de máquinas virtuais</block>
   <block id="7706cc052aa7120ddac8475709793258" category="sidebar">Visão geral da proteção de cargas de trabalho de máquinas virtuais</block>
   <block id="9ce88727019b612743000c7bcc2bfd23" category="sidebar">Pré-requisitos para proteger cargas de trabalho de máquinas virtuais</block>
   <block id="4639d0e2e2909a747265c2f704128bca" category="sidebar">Monitorizar trabalhos</block>
@@ -4390,7 +4360,6 @@
   <block id="75e31fe436b541e95871c54827070e6e" category="paragraph">Você pode restaurar para o namespace original ou restaurar para um novo namespace.</block>
   <block id="a9f292136fbf924f6d8d675318db6235" category="admonition">Os recursos mostrados são os recursos que existem atualmente no cluster.</block>
   <block id="12c3c958b266fff57134abb1c9649419" category="list-text">Opcionalmente, se você optar por restaurar para uma classe de armazenamento diferente, selecione uma classe de armazenamento de destino para corresponder a cada classe de armazenamento de origem.</block>
-  <block id="cb1b8938f12c99c7787423a78f4db357" category="list-text">Cargas de trabalho do Kubernetes (visualização):</block>
   <block id="1c1c6b4c5003945f6d28242d24286ee6" category="list-text">Gerencie e proteja seus aplicativos e recursos do Kubernetes em um só lugar.</block>
   <block id="3f06fb8fe2ecccdacfaa2644488d935d" category="list-text">Use políticas de proteção para estruturar seus backups incrementais.</block>
   <block id="116fc6c4cddb8e42e7260e6817cd901f" category="list-text">Restaure aplicativos e recursos para os mesmos clusters e namespaces ou para clusters diferentes.</block>
@@ -4422,9 +4391,7 @@
   <block id="b0d36ddf3864894974cfcf7f668e9b9c" category="paragraph">A documentação para cada API de BlueXP backup and recovery está disponível em<block ref="d997d711dd0ca8a2419efc218eebd515" category="inline-link-rx"></block> .</block>
   <block id="92ab15f0eb1b97b8c4bdb14a10948af8" category="inline-link">Crie um token de acesso ao serviço</block>
   <block id="7ee1b8532fd572ee3c5a1cd48ff05db9" category="admonition">Se estiver usando uma conta de serviço, você deverá usar o token de acesso de serviço em vez de um token de usuário.  O valor para "client_id" ("Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC") é um valor fixo e não pode ser alterado.  Neste caso, siga as instruções aqui:<block ref="baaa234cb07675a6b3437f1c7177f86d" category="inline-link-rx"></block> .</block>
-  <block id="0ad47815ac126d3e59945dd94620559b" category="summary">Ao usar o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como "modo privado", os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados.  Se você tiver um problema com o sistema host do BlueXP Connector no futuro, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .</block>
   <block id="1590a700aeef97b74c78e0edddc666d6" category="doc">Restaurar dados de configuração de BlueXP backup and recovery em um site escuro</block>
-  <block id="b60143d8607e2a12a97d5dc98902b3a3" category="paragraph">Ao usar o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como _modo privado_, os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados.  Se você tiver um problema com o sistema host do BlueXP Connector, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .</block>
   <block id="701ba6e125e8ce791098165f107eb472" category="admonition">Este procedimento se aplica somente aos dados de volume ONTAP .</block>
   <block id="400d95f0927e7eaac4a93498115f8b4f" category="paragraph">Quando você usa o BlueXP backup and recovery em um ambiente SaaS onde o BlueXP Connector é implantado no seu provedor de nuvem ou no seu próprio sistema host com acesso à Internet, todos os dados importantes de configuração de BlueXP backup and recovery são armazenados em backup e protegidos na nuvem.  Se você tiver um problema com o Conector, basta criar um novo Conector e adicionar seus ambientes de trabalho e os detalhes do backup serão restaurados automaticamente.</block>
   <block id="28f81c5bbd7730901f36546c0e51e06f" category="paragraph">Existem dois tipos de dados que são copiados:</block>
@@ -4549,7 +4516,6 @@
   <block id="bb62b16690f5eb4fc0e122e119a91a50" category="paragraph"><block ref="bb62b16690f5eb4fc0e122e119a91a50" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8075ed641c15c71cd286b712adcd85b1" category="list-text">Se esta for a primeira vez que você faz login neste serviço e já tem um ambiente de trabalho no BlueXP, mas não descobriu nenhum recurso, a página inicial "Bem-vindo ao novo BlueXP backup and recovery" aparece e mostra uma opção para *Descobrir e gerenciar*.</block>
   <block id="7149d60911c70edb03703fc8f99c14fa" category="paragraph">Consulte<block ref="0db19b6ddcce18b44468167f72be8ec8" category="inline-link-rx"></block> para obter detalhes sobre StorageGRID.</block>
-  <block id="31a6e93e3798d6e32486e85c94f4c445" category="paragraph">A barra de tarefas para cargas de trabalho do Microsoft SQL Server e do Kubernetes (versão prévia) tem esta aparência:<block ref="5ec9ba2d6c07e18e4f6caf9c1d51cc8e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d9e1e4a7e3d0e29f7908164bc829cdcb" category="paragraph"><block ref="d9e1e4a7e3d0e29f7908164bc829cdcb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d71d92c939fa3dff105d8f357c507f76" category="cell">Amazon S3 ONTAP S3</block>
   <block id="b27a33d7ae0534b6066058a1d206de6c" category="cell">Azure Blob ONTAP S3</block>
@@ -4564,28 +4530,19 @@
   <block id="febcf1de845ae5c111f7fe2fdf9a0023" category="list-text">*Verificação de ransomware*: selecione se deseja habilitar a verificação de ransomware em cada bucket.  Isso requer bloqueio do DataLock no armazenamento de objetos.  Insira a frequência da verificação em dias.  Esta opção se aplica ao armazenamento de objetos da AWS e do Microsoft Azure.  Observe que esta opção pode incorrer em custos adicionais, dependendo do provedor de nuvem.</block>
   <block id="3d476264ca621aa7fb53c694b7f73e38" category="list-text">* Formato SnapMirror e snapshot*: Opcionalmente, insira seu próprio nome de snapshot em uma política que controla os backups para cargas de trabalho do Microsoft SQL Server.  Insira o formato e o texto personalizado.  Se você optar por fazer backup no armazenamento secundário, também poderá adicionar um prefixo e sufixo de volume do SnapMirror .</block>
   <block id="69fdf061d21ee7cf76fbfb7008f2338a" category="paragraph"><block ref="69fdf061d21ee7cf76fbfb7008f2338a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="99d2c5cc2d55701a7753e4cd62fa26b3" category="admonition">Parte desta documentação é fornecida como uma prévia da tecnologia.  Com esta oferta de visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.</block>
-  <block id="3fa86600a578b85fb3e25ef2bade57f7" category="list-text">Cargas de trabalho do Microsoft SQL Server:</block>
   <block id="671ccbf99c0713f4f0b10eb83e8f6fe3" category="list-text">Faça backup de instâncias e bancos de dados do Microsoft SQL Server do ONTAP local, Cloud Volumes ONTAP ou Amazon FSx for NetApp ONTAP.</block>
   <block id="89cb0f021426c550658eb8d932ca5bc6" category="list-text">Restaurar bancos de dados do Microsoft SQL Server.</block>
   <block id="6d14e8c351d9540a9e7e8a55e63daee2" category="list-text">Clonar bancos de dados do Microsoft SQL Server.</block>
-  <block id="c145ca053ede6b9644628ee9fe41dffd" category="list-text">Cargas de trabalho de VM:</block>
-  <block id="0f9064a4cbc973bbc5e114d0088fded1" category="list-text">Restaure dados de máquinas virtuais da nuvem para o vCenter local com BlueXP backup and recovery.</block>
   <block id="9b84371e23a14f93e2d9314a2599ac9a" category="admonition">Para o Microsoft SQL Server, serão aplicadas taxas quando você inicia a replicação de instantâneos para um destino ONTAP secundário ou armazenamento de objetos.</block>
   <block id="42b12d53290c6e592a4d774a432752d6" category="list-text">Instâncias e bancos de dados do Microsoft SQL Server para NFS físico, VMware Virtual Machine File System (VMFS) e VMware Virtual Machine Disk (VMDK)</block>
-  <block id="a0f528847ba517b6d5e9b7c895aa2879" category="section-title">O BlueXP backup and recovery usam o plug-in para Microsoft SQL Server</block>
   <block id="9f9f536306a1c9407f83a98c118d352f" category="doc">Pré-requisitos para importação do serviço Plug-in para BlueXP backup and recovery</block>
   <block id="54ea220a36be12c2cd55837d5084ccf2" category="paragraph">Se você for importar recursos do serviço SnapCenter Plug-in para Microsoft SQL Server para o BlueXP backup and recovery, precisará configurar mais alguns itens.</block>
   <block id="1991b7717eb9a4ce1668d0140bc90a61" category="paragraph">Para importar recursos do SnapCenter Plug-in para Microsoft SQL Server, certifique-se de que os requisitos do host para instalar o SnapCenter Plug-in para Microsoft SQL Server sejam atendidos.</block>
   <block id="05e7a5201131047cf35d26a62e1a0a4d" category="section-title">Pré-requisitos para backups no armazenamento de objetos</block>
-  <block id="60909e185928e88ef4384c60b53ac74b" category="paragraph">Ver<block ref="4d28092ae019690199710c13c5a3f7eb" category="inline-link-macro-rx"></block> para obter detalhes sobre como configurar os destinos de backup.</block>
-  <block id="773be597b82b6fc623090f4ca7acad30" category="section-title">Requisitos de carga de trabalho do Microsoft SQL Server</block>
-  <block id="727c8c2204924c94609f684e20e710ef" category="section-title">Requisitos de carga de trabalho do Kubernetes</block>
   <block id="845653726765e6e72b97b87ebc083420" category="doc">Gerenciamento de identidade e acesso a recursos de BlueXP backup and recovery</block>
   <block id="af45dce32c393d74375fcf6543060be0" category="paragraph">O BlueXP backup and recovery empregam gerenciamento de identidade e acesso (IAM) para controlar o acesso que cada usuário tem a recursos e ações específicos.</block>
   <block id="d341f0c47f4b7ad5cc1b4c9bb210cfda" category="section-title">12 de agosto de 2025</block>
   <block id="3d5a9cd83b30ec6ec9f0802593907f05" category="sidebar">Proteja as cargas de trabalho do Microsoft SQL Server</block>
-  <block id="c03ab2cafee88facbca614f17c3c08a3" category="paragraph">O serviço de BlueXP backup and recovery fornece proteção de dados eficiente, segura e econômica para volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server, cargas de trabalho VMware e cargas de trabalho Kubernetes (visualização).</block>
   <block id="94909f2ec8275797b7659a53af432b61" category="list-text">*Destino de backup*: (somente cargas de trabalho do Kubernetes) Selecione o bucket de armazenamento que hospeda os recursos do aplicativo Kubernetes. As definições de recursos do aplicativo no momento do snapshot são armazenadas neste bucket. Certifique-se de que o bucket esteja acessível dentro do seu ambiente de backup.</block>
   <block id="5c851bd90645848b446210999f3e2a77" category="paragraph">Com o BlueXP backup and recovery, gerencie backups para seus sistemas Cloud Volumes ONTAP e ONTAP locais alterando o agendamento de backup, habilitando/desabilitando backups de volume, pausando backups, excluindo backups, forçando a exclusão de backups e muito mais.  Isso inclui todos os tipos de backups, incluindo cópias de instantâneos, volumes replicados e arquivos de backup em armazenamento de objetos.  Você também pode cancelar o registro do BlueXP backup and recovery.</block>
   <block id="bc57a9fce0dfbc05c202b0f5a0ea83d6" category="paragraph"><block ref="bc57a9fce0dfbc05c202b0f5a0ea83d6" category="inline-image-macro-rx" type="image"></block></block>
@@ -4610,4 +4567,278 @@
   <block id="b98c88f62c4834a257b2a73ee9fbb4dd" category="list-text">Verifique a elegibilidade do volume.  O sistema verifica se os volumes são elegíveis para ressincronização.  Se um volume não for elegível, significa que não é o snapshot mais recente ou que nenhum snapshot comum foi encontrado.</block>
   <block id="c856ee3b535d4aa35b19af5253f54e81" category="list-text">Selecione *Ressincronizar* para iniciar a operação de ressincronização.  O sistema usa o snapshot mais recente e comum para transferir apenas as alterações incrementais, garantindo a continuidade do backup.</block>
   <block id="8d2d3fb9cf8aa026f491048ab9fdf368" category="list-text">Monitore o processo de ressincronização na página Monitor de tarefas.</block>
+  <block id="f7919ff057187672b74306b219aadaa0" category="doc">Suporte para proteção de cargas de trabalho VMware na visualização</block>
+  <block id="5e8801556a1a15a279f09b79ad9c4141" category="paragraph">Esta versão adiciona suporte de pré-visualização para proteger cargas de trabalho do VMware.  Faça backup de VMs e datastores VMware de sistemas ONTAP locais para Amazon Web Services e StorageGRID.</block>
+  <block id="b7aad0efced7f2a5664d2d5fcafeac91" category="admonition">A documentação sobre a proteção de cargas de trabalho do VMware é fornecida como uma prévia da tecnologia. Com esta oferta de visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.</block>
+  <block id="302d2ff1b066da852d5f32d8e00c49e0" category="inline-link-macro">Saiba mais sobre como proteger cargas de trabalho VMware com BlueXP backup and recovery</block>
+  <block id="9894d07c427c9fef3be75f8d985262b2" category="paragraph"><block ref="5f2dd8c93665ae25c3f244e872639cff" category="inline-link-macro-rx"></block> .</block>
+  <block id="e4fadb4a8e44a20b9cae72da5f43dd1c" category="section-title">A indexação de alto desempenho para AWS, Azure e GCP está geralmente disponível</block>
+  <block id="d2437297e3bf3cd7adfa86f57b8629f0" category="paragraph">Em fevereiro de 2025, anunciamos a prévia da indexação de alto desempenho (Indexed Catalog v2) para AWS, Azure e GCP.  Este recurso agora está disponível para o público em geral (GA).  Em junho de 2025, fornecemos isso a todos os _novos_ clientes por padrão.  Com esta versão, o suporte está disponível para _todos_ os clientes.  A indexação de alto desempenho melhora o desempenho das operações de backup e restauração para cargas de trabalho protegidas no armazenamento de objetos.</block>
+  <block id="5ced283cbe92781b3a48240fd1fde5cd" category="paragraph">Ativado por padrão:</block>
+  <block id="234f6b906c6e6adf3ab5f1a4906d5366" category="list-text">Se você for um novo cliente, a indexação de alto desempenho será habilitada por padrão.</block>
+  <block id="3b98c4910d4638f409d4421b51847611" category="list-text">Se você já for cliente, poderá habilitar a reindexação acessando a seção Restaurar da interface do usuário.</block>
+  <block id="ce498dfd4d5b300770c8609e8d1940e2" category="doc">Limitações conhecidas com BlueXP backup and recovery para cargas de trabalho VMware</block>
+  <block id="5dbc4346070765340347ff44ed21c84d" category="paragraph">As seguintes ações não são suportadas na versão de visualização das cargas de trabalho do VMware no BlueXP backup and recovery:</block>
+  <block id="eace16d66cdd93ad876c620db7456077" category="list-text">Monte</block>
+  <block id="1281764038ea27ade56d7d2b8be22798" category="list-text">Desmontar</block>
+  <block id="25e66e51214e8342374fa891a42988b3" category="list-text">Restaurar para local alternativo</block>
+  <block id="635e272d16a4b652a6ff48968baf8726" category="list-text">Restaurar VMDK</block>
+  <block id="00c5709c4d9ca9f8035d5d0e33f2421e" category="list-text">Anexar VMDK</block>
+  <block id="097b06a0d5de05867037a2fdc678ef17" category="list-text">Desanexar VMDK</block>
+  <block id="ef18d76ed6c710e78abb28c0e09b3e30" category="list-text">Suporte vVol</block>
+  <block id="2cc658d562a11cd1528c2219f2d25da7" category="list-text">Suporte NVMe</block>
+  <block id="98dc7ecfe4c87955d5fb8b98b895eac7" category="list-text">Integração de e-mail</block>
+  <block id="7c007efb4505aa1063c750565e9e0eac" category="list-text">Editar política</block>
+  <block id="2af86af91c3987a4d2353d4ec7912d76" category="list-text">Editar grupo de proteção</block>
+  <block id="0b781a1bfcfc82e8ce2c41a12166f555" category="list-text">Suporte ao controle de acesso baseado em função (RBAC)</block>
+  <block id="5d348ef49e7ed560fb940988e8d4f7eb" category="paragraph">O BlueXP backup and recovery usam o gerenciamento de identidade e acesso para controlar o acesso que cada usuário tem a ações específicas.</block>
+  <block id="f9e71ed1d4200b67c1a3bd22600d9cbe" category="inline-link-macro">Descubra as cargas de trabalho da VMware</block>
+  <block id="8eec52ebd7892b36424f0c784c1a70dc" category="list-text">Para cargas de trabalho VMware, consulte<block ref="4c90ef6c5dc037251bf65afdeeb1ee6c" category="inline-link-macro-rx"></block> .</block>
+  <block id="e5dd8794e7e239a004607625309c03bb" category="list-text">Para cargas de trabalho do Kubernetes, consulte<block ref="bdf340f843cf54500673f62df22d5070" category="inline-link-macro-rx"></block> .</block>
+  <block id="02be71f5aa538142021b27f366e28734" category="paragraph">A barra de tarefas para cargas de trabalho do Microsoft SQL Server, VMware (visualização sem o SnapCenter Plug-in for VMware vSphere) e Kubernetes (visualização) tem a seguinte aparência:<block ref="5ec9ba2d6c07e18e4f6caf9c1d51cc8e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5b7ecc81df0c12b042e90d8b438b511e" category="paragraph">A barra de menu para volumes ONTAP e cargas de trabalho VMware (com o SnapCenter Plug-in for VMware vSphere) se parece com isto:<block ref="fa2e599941b781bf3a65ea0199d76803" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b94f4dc49b7af7496f7a6c5082dcfc50" category="list-text">O número total de bancos de dados, VMs e armazenamentos de dados protegidos e desprotegidos.</block>
+  <block id="df2702a7744f8225fba6ed43ccaa93b7" category="list-text">Editar políticas (não disponível para cargas de trabalho do VMware Preview)</block>
+  <block id="bb3ff59182a5902d30640dc3a2cc6681" category="paragraph"><block ref="bb3ff59182a5902d30640dc3a2cc6681" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8cdae3804d86d7917d39808a23bc302f" category="list-text">Tipo de carga de trabalho: selecione "Microsoft SQL Server", VMware ou Kubernetes.</block>
+  <block id="b2ba8b5a519744f308bb1fe099fca96c" category="admonition">Para uma lista de caracteres a serem evitados, veja a dica de foco.</block>
+  <block id="f2ca5fbc8e99004ecb47057021601cd2" category="list-text">*Instantâneo local*: Instantâneo local no volume selecionado (Microsoft SQL Server).  Os snapshots locais são um componente essencial das estratégias de proteção de dados, capturando o estado dos seus dados em momentos específicos.  Isso cria cópias somente leitura, em um ponto específico no tempo, dos volumes de produção onde suas cargas de trabalho estão sendo executadas.  O snapshot consome espaço de armazenamento mínimo e incorre em sobrecarga de desempenho insignificante porque registra somente alterações em arquivos desde o último snapshot.  Você pode usar instantâneos locais para recuperar dados perdidos ou corrompidos, bem como para criar backups para fins de recuperação de desastres.</block>
+  <block id="493975af5e13fbc5d62bd5541a437be6" category="paragraph">Para cargas de trabalho do VMware, isso configura o snapshot local nos datastores ou VMwares no sistema de armazenamento primário.</block>
+  <block id="8aaf0953e5fd5d5ffafc343282223bc6" category="paragraph">Para cargas de trabalho do VMware, isso não está disponível na visualização do VMware.</block>
+  <block id="dd3964688f448cf4c53372241aa29860" category="paragraph">Para cargas de trabalho do VMware, isso configura o snapshot local nos armazenamentos de dados ou VMs no primário e replica do armazenamento em disco primário para o armazenamento em disco secundário, bem como replica do primário para o armazenamento de objetos na nuvem.</block>
+  <block id="f260fb21bc5bc536dbe37c5499027093" category="paragraph">Para cargas de trabalho do VMware, isso configura o snapshot local nos datastores ou VMs no armazenamento primário e uma cascata do armazenamento em disco primário para o armazenamento em disco secundário e, depois, para o armazenamento de objetos na nuvem.</block>
+  <block id="25979dfae534db8e00ebdd633f01363f" category="paragraph">Para cargas de trabalho do VMware, isso configura o snapshot local nos datastores ou VMwares no sistema de armazenamento primário e, em seguida, replica os dados do sistema de armazenamento em disco primário para o sistema de armazenamento em disco secundário.</block>
+  <block id="01bec1ecce16d176197624a69b31324a" category="paragraph">Para cargas de trabalho VMWare, isso configura o snapshot local nos datastores ou VMs no primário e a replicação do armazenamento em disco primário para o armazenamento de objetos na nuvem.</block>
+  <block id="63b46edf6d861b9b0fa883d434749d6c" category="paragraph">Para cargas de trabalho do VMware, isso configura o armazenamento em disco primário para o armazenamento em disco secundário e replica o armazenamento em disco primário para o armazenamento em disco secundário.</block>
+  <block id="606d7c15448b4efbac98875bfee945b2" category="list-text">*Habilitar backup de log*: (Aplica-se a cargas de trabalho do Microsoft SQL Server.  Não disponível para cargas de trabalho VMware ou Kubernetes) Marque a opção para fazer backup de logs e defina a frequência e a retenção dos backups de log.  Para fazer isso, você já deve ter configurado um backup de log. Ver <block ref="c4a2a21123ec8dd6e71a040e68355146" category="inline-link-macro-rx"></block> .</block>
+  <block id="18c07bbe1867bce1f9e6bea1effc24d5" category="list-text">*Deslocamento de uma hora*: insira o número de minutos para deslocar o instantâneo do início da hora.  Por exemplo, se você digitar *15*, o instantâneo será tirado 15 minutos após a hora.  Disponível apenas para programações por hora.</block>
+  <block id="5dd0d85f6dc2f17f22d05e3e80ac2efe" category="list-text">*Ativar horas silenciosas*: selecione se deseja ativar horas silenciosas.  As horas silenciosas são um período durante o qual nenhum instantâneo é tirado, permitindo manutenção ou outras operações sem interferência dos processos de backup.  Isso é útil para reduzir a carga no sistema durante horários de pico de uso ou janelas de manutenção.  Disponível apenas para programações por hora.</block>
+  <block id="8697779f7f227c4dd369a6c5b02cbad6" category="list-text">*Ativar bloqueio de instantâneos*: selecione se deseja ativar instantâneos à prova de violação.  Habilitar esta opção garante que os instantâneos não possam ser excluídos ou alterados até que o período de retenção especificado tenha expirado.  Esse recurso, que usa a tecnologia SnapLock , é crucial para proteger seus dados contra ataques de ransomware e garantir a integridade dos dados.</block>
+  <block id="d0d41deaff8d80d9bdf6d53eaab27a7e" category="list-text">*Repetições de backup*: (Não aplicável às cargas de trabalho do VMware Preview) Para repetir a tarefa em caso de falha ou interrupção, selecione *Ativar repetições de tarefa durante falha*.  Insira o número máximo de tentativas de snapshot e backup, bem como o intervalo de tempo para novas tentativas.  A recontagem deve ser inferior a 10.  Esta configuração é útil se você quiser garantir que o trabalho de backup seja repetido em caso de falha ou interrupção.</block>
+  <block id="d3e01ad5d4c898032205d39244a2e9c6" category="list-text">*Habilitar snapshot consistente com VM*: (Aplica-se somente a cargas de trabalho VMware) Selecione se deseja habilitar snapshots consistentes com VM.  Isso garante que os instantâneos recém-criados sejam consistentes com o estado da máquina virtual no momento do instantâneo.  Isso é útil para garantir que os backups possam ser restaurados com sucesso e que os dados estejam em um estado consistente.  Isso não se aplica a instantâneos existentes.</block>
+  <block id="09c246c3035ccbc9444cfad2e53204e9" category="list-text">*Verificação de backup*: (Não aplicável às cargas de trabalho do VMware Preview) Selecione se deseja habilitar a verificação de backup e se deseja fazê-lo imediatamente ou mais tarde.  Esse recurso garante que os backups sejam válidos e possam ser restaurados com sucesso.  Recomendamos que você habilite esta opção para garantir a integridade dos seus backups.  Por padrão, a verificação de backup é executada no armazenamento secundário, se o armazenamento secundário estiver configurado.  Se o armazenamento secundário não estiver configurado, a verificação de backup será executada a partir do armazenamento primário.</block>
+  <block id="7c59502dacab0ce14cebe830c4b4457a" category="list-text">*Verificação de consistência do banco de dados*: (Não aplicável às cargas de trabalho do VMware Preview) Selecione se deseja habilitar as verificações de consistência do banco de dados.  Esta opção garante que os bancos de dados estejam em um estado consistente antes do backup ser feito, o que é crucial para garantir a integridade dos dados.</block>
+  <block id="9ea086202e0c7b66ec4c31f3fc172885" category="list-text">*Verificar backups de log*: (Não aplicável às cargas de trabalho do VMware Preview) Selecione se deseja verificar os backups de log.  Selecione o servidor de verificação.  Se você escolher disco para disco ou 3-2-1, selecione também o local de armazenamento de verificação.  Esta opção garante que os backups de log sejam válidos e possam ser restaurados com sucesso, o que é importante para manter a integridade dos seus bancos de dados.</block>
+  <block id="1470ccbb595a6e1ea5dd612430fb52fd" category="list-text">*Discos independentes*: (Aplicável às cargas de trabalho do VMware Preview) Marque esta opção para incluir no backup quaisquer armazenamentos de dados com discos independentes que contenham dados temporários.  Um disco independente é um disco de VM que não está incluído em snapshots do VMware.</block>
+  <block id="ecee2fc394ac60057e7928bb6138339d" category="admonition">Este recurso não está disponível para cargas de trabalho do VMware Preview.</block>
+  <block id="320097c9a6942d1d00ed4b77d2bc667a" category="doc">Faça backup de cargas de trabalho VMware com BlueXP backup and recovery</block>
+  <block id="62a9a163cd6e3bd6fd065b8896387676" category="paragraph">Faça backup de VMs e datastores da VMware de sistemas ONTAP locais para o Amazon Web Services ou StorageGRID para garantir que seus dados estejam protegidos.  Os backups são gerados automaticamente e armazenados em um armazenamento de objetos na sua conta de nuvem pública ou privada.</block>
+  <block id="ca8b66f70346713494ab99731b150019" category="inline-link-macro">Crie e gerencie grupos de proteção para cargas de trabalho VMware com BlueXP backup and recovery</block>
+  <block id="e5c3d958658557048763c573e8d1180c" category="list-text">Crie grupos de proteção para gerenciar as operações de backup e restauração de um conjunto de recursos. Ver <block ref="6b6337992d6c9f860b0d7092a0ad98bb" category="inline-link-macro-rx"></block> para maiores informações.</block>
+  <block id="d1d463ff9c63c3a608699538a57e53d7" category="paragraph"><block ref="d1d463ff9c63c3a608699538a57e53d7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c1d62f4779d7aef54687bd64095f6b0" category="list-text">Selecione a aba *Grupos de proteção*, *Datastores* ou *Máquinas virtuais*.</block>
+  <block id="05e315e32ce2a8854a177760a86cc15a" category="inline-image-macro">Captura de tela da guia Grupos de proteção para BlueXP backup and recovery</block>
+  <block id="e20488d78125970756596ea1d902e1f6" category="paragraph"><block ref="e20488d78125970756596ea1d902e1f6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ee73fa99742e9e3aeb7d0ac2cf688922" category="list-text">Selecione o grupo de proteção, os armazenamentos de dados ou as máquinas virtuais dos quais você deseja fazer backup.</block>
+  <block id="f1b66ad4f8c1237281cd067f02db83f7" category="inline-image-macro">Captura de tela de BlueXP backup and recovery</block>
+  <block id="d3031257feb3c6cebf321c0f2d5cb776" category="paragraph"><block ref="d3031257feb3c6cebf321c0f2d5cb776" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2acfb0be8da66026203d2891fe18d378" category="admonition">A política aplicada ao backup é a mesma política atribuída ao grupo de proteção, ao armazenamento de dados ou à máquina virtual.</block>
+  <block id="212b757a4be8f411176f5dd51a72e22e" category="doc">Descubra as cargas de trabalho do VMware com BlueXP backup and recovery</block>
+  <block id="fb025cf2880557a7d78cf995c6737f62" category="paragraph">O serviço de BlueXP backup and recovery precisa primeiro descobrir datastores e VMs VMware em execução em sistemas ONTAP para que você possa usar o serviço.  Opcionalmente, você pode importar dados e políticas de backup do SnapCenter Plug-in for VMware vSphere se já o tiver instalado.</block>
+  <block id="9b4181d03263555437f8a40593f311f0" category="paragraph">*Função BlueXP necessária* Superadministrador de backup e recuperação. Aprenda sobre<block ref="c66026e4383ae9f791b566ffeb2b3bc3" category="inline-link-macro-rx"></block> .<block ref="c46fcff617e849cb6f8ded33051f7905" category="inline-link-rx"></block> .</block>
+  <block id="dcd2ed119bd25caa1d2e5fbbadd0e260" category="section-title">Descubra cargas de trabalho do VMware e, opcionalmente, importe recursos do SnapCenter</block>
+  <block id="ab2c59d9e88814e9fe89561334221761" category="paragraph">Durante a descoberta, o BlueXP backup and recovery analisam as cargas de trabalho do VMware na sua organização e avaliam e importam políticas de proteção existentes, cópias de instantâneos e opções de backup e restauração.</block>
+  <block id="eaa057da9e075c2c0a96c7a4826a1c68" category="paragraph">Você pode importar datastores e VMs VMware NFS e VMFS do SnapCenter Plug-in for VMware vSphere para o inventário de BlueXP backup and recovery .</block>
+  <block id="b7cef5a55414592254e586c5f2bf8f92" category="admonition">Esta versão do BlueXP backup and recovery oferece suporte apenas ao VMware vCenter e não descobre vVols ou VMs em vVols.</block>
+  <block id="989b9ad7511f544f3c23fd3a047e87c5" category="paragraph">Durante o processo de importação, o BlueXP backup and recovery executa as seguintes tarefas:</block>
+  <block id="bd8db3845afb35c10e4abfbdf5709291" category="list-text">Permite acesso SSH seguro ao servidor vCenter.</block>
+  <block id="185cb7fdc708526b5ebd6d1314c2c6e2" category="list-text">Ativa o modo de manutenção em todos os Grupos de Recursos no servidor vCenter.</block>
+  <block id="030b5183a6edda3d1aa3c64fd339918c" category="list-text">Prepara os metadados do vCenter e os marca como não gerenciados no BlueXP.</block>
+  <block id="f3cd1cfa60b70ab3833f6ec373ec8327" category="list-text">Configura o acesso ao banco de dados.</block>
+  <block id="ed39d64277006cf603e473c457526c25" category="list-text">Descobre o VMware vCenter, datastores e VMs.</block>
+  <block id="cacf184d61110918ea81e29a46df1f55" category="list-text">Importa políticas de proteção existentes, cópias de instantâneos e opções de backup e restauração do SnapCenter Plug-in for VMware vSphere.</block>
+  <block id="a39dd2ffd9348f81422b41a3fdbc86e8" category="list-text">Exibe os recursos descobertos na página Inventário de BlueXP backup and recovery .</block>
+  <block id="c9c2a5297eb39b1fb7e1589b15fea1ff" category="list-text">Se você já tiver o SnapCenter Plug-in for VMware vSphere, importe os recursos do SnapCenter para o BlueXP backup and recovery usando a interface do usuário de BlueXP backup and recovery .</block>
+  <block id="3aaaf39627c7d9743ac9c4b769a63106" category="admonition">Se você já tiver o SnapCenter Plug-in, certifique-se de atender aos pré-requisitos antes de importar do SnapCenter.  Por exemplo, você deve criar ambientes de trabalho no BlueXP Canvas para todo o armazenamento de cluster SnapCenter local antes de importar do SnapCenter. Ver <block ref="29f325191bf25e28eb924274ef794dd1" category="inline-link-macro-rx"></block> .</block>
+  <block id="99c7d0784ca3abf0a66853480a0b1378" category="list-text">Se você ainda não tiver o plug-in SnapCenter , ainda poderá descobrir cargas de trabalho em seus ambientes de trabalho adicionando um vCenter manualmente e executando a descoberta.</block>
+  <block id="e3ee523018b6799a0939043eefc9098c" category="section-title">Se o plug-in SnapCenter ainda não estiver instalado, adicione um vCenter e descubra recursos</block>
+  <block id="66aeebd47fcac65201475790eef9c5b3" category="paragraph">Se você ainda não tiver o SnapCenter Plug-in para VMware instalado, adicione informações do vCenter e faça com que o BlueXP backup and recovery descubram as cargas de trabalho. Em cada conector BlueXP , selecione os ambientes de trabalho onde você deseja descobrir cargas de trabalho.</block>
+  <block id="7248204ed2d72c7c934127b7789c6157" category="list-text">*Tipo de carga de trabalho*: Selecione *VMware*.</block>
+  <block id="8d2f5acbe9ae8a7ad87b9b825c0e5f29" category="list-text">*Configurações do vCenter*: Adicione um novo vCenter.  Para adicionar um novo vCenter, insira o FQDN ou endereço IP do vCenter, nome de usuário, senha, porta e protocolo.</block>
+  <block id="1b7ab9fadabd410c692af601b6da1bd2" category="list-text">*Registro de host*: Não necessário para VMware.</block>
+  <block id="f2c3faebcf5ded48c2cc729adbe796fe" category="section-title">Se o SnapCenter Plug-in já estiver instalado, importe os recursos do SnapCenter Plug-in para VMware no BlueXP backup and recovery</block>
+  <block id="e1058ecbbe41acccc2ff499cee3a58df" category="paragraph">Se você já tiver o SnapCenter Plug-in para VMware instalado, importe os recursos do SnapCenter Plug-in para o BlueXP backup and recovery usando estas etapas.  O serviço BlueXP descobre hosts ESXi, armazenamentos de dados e VMs em vCenters e agenda a partir do plug-in; você não precisa recriar todas essas informações.</block>
+  <block id="d7df5d5a7771d8964d3ad312a019f2a7" category="list-text">Durante a descoberta, selecione uma opção para importar recursos do plug-in SnapCenter .</block>
+  <block id="d0a37c5f3a756f70f149387e5e024455" category="list-text">Após a descoberta, na página Inventário, selecione uma opção para importar recursos do plug-in SnapCenter .</block>
+  <block id="80f2241d6b54392704c6e590eef6a3b3" category="list-text">Após a descoberta, no menu Configurações, selecione uma opção para importar recursos do plug-in SnapCenter . Para obter detalhes, consulte <block ref="aec7e2b36c0f4f301ce9875327a06a8d" category="inline-link-macro-rx"></block> .  Isso não é suportado pelo VMware.</block>
+  <block id="e68d5688d8ed4428f4698c24ecebe981" category="paragraph">Este é um processo de duas partes descrito nesta seção:</block>
+  <block id="bf772e2b65377c8a186a36be4307df66" category="list-text">Importe os metadados do vCenter do plug-in SnapCenter . Os recursos importados do vCenter ainda não são gerenciados pelo BlueXP backup and recovery.</block>
+  <block id="61c8373e903cff0c3b055775352486f2" category="list-text">Inicie o gerenciamento de vCenters, VMs e datastores selecionados no BlueXP backup and recovery.  Após iniciar o gerenciamento, o BlueXP backup and recovery rotulam o vCenter como "Gerenciado" na página Inventário e conseguem fazer backup e recuperar os recursos que você importou.  Após iniciar o gerenciamento no BlueXP backup and recovery, você não gerencia mais esses recursos no SnapCenter Plug-in.</block>
+  <block id="53624320c75e524d23062b211afde11a" category="section-title">Importar metadados do vCenter do plug-in SnapCenter</block>
+  <block id="fc184ffe3822cb125839cae1157c4ec4" category="paragraph">Esta primeira etapa importa os metadados do vCenter do plug-in SnapCenter . Nesse ponto, os recursos ainda não são gerenciados pelo BlueXP backup and recovery.</block>
+  <block id="e3d7491dc31b2e27790138f49698e324" category="admonition">Depois de importar metadados do vCenter do plug-in SnapCenter , o BlueXP backup and recovery não assumem o gerenciamento de proteção automaticamente.  Para fazer isso, você deve selecionar explicitamente gerenciar os recursos importados no BlueXP backup and recovery.  Isso garante que você esteja pronto para ter esses recursos armazenados em BlueXP backup and recovery.</block>
+  <block id="e225b1998b1b7ab53d184970a4487c08" category="inline-image-macro">Captura de tela do inventário para BlueXP backup and recovery mostrando a carga de trabalho do VMware</block>
+  <block id="65cd305beed2013bd8b486a3443f7eae" category="paragraph"><block ref="65cd305beed2013bd8b486a3443f7eae" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a9235637ac03ea3815dbb11128aefa80" category="list-text">No menu superior da página Inventário, selecione *Descobrir recursos*.</block>
+  <block id="f253b95a390137185aeebe4841189106" category="inline-image-macro">Opção de configurações para importar recursos do plug-in SnapCenter</block>
+  <block id="b97dc91e0fd7acf5e67d77d669169a2c" category="paragraph"><block ref="b97dc91e0fd7acf5e67d77d669169a2c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4fa4bcc2a1f0d681fb390d96f9891a59" category="list-text">No campo Importar de, selecione * SnapCenter Plug-in para VMware*.</block>
+  <block id="45ff731338448b957095de0f0c3fcd1f" category="list-text">Insira as *credenciais do VMware vCenter*:</block>
+  <block id="01a91017e242d9d1244c2d80c1caebf0" category="list-text">*IP/nome do host do vCenter*: insira o FQDN ou endereço IP do vCenter que você deseja importar para o BlueXP backup and recovery.</block>
+  <block id="83232179998a0e4df8a7fec8b01b073d" category="list-text">*Número da porta do vCenter*: insira o número da porta do vCenter.</block>
+  <block id="bf44275a582b218f2c18fd73a1b49f7d" category="list-text">*Nome de usuário e *Senha* do vCenter: insira o nome de usuário e a senha do vCenter.</block>
+  <block id="b5aeca1d93828bbceb645dcae8293b41" category="list-text">*Conector*: Selecione o Conector BlueXP para o vCenter.</block>
+  <block id="f8ccd2c36b2459b541ae637dac832e19" category="list-text">Insira * Credenciais do host do plug-in SnapCenter *:</block>
+  <block id="60b1a925906e7fb4348924a6fdd9149b" category="list-text">*Adicionar novas credenciais*: Se você não tiver credenciais de host do SnapCenter Plug-in existentes, poderá adicionar novas credenciais.  Digite o nome das credenciais, o modo de autenticação, o nome de usuário e a senha.</block>
+  <block id="7c2e72fe3815fa111632e0f221695e03" category="list-text">Selecione *Importar* para validar suas entradas e registrar o plug-in SnapCenter .</block>
+  <block id="f8af72f5d223caaa5e61fd95094871b3" category="admonition">Se o plug-in SnapCenter já estiver registrado, você poderá atualizar os detalhes de registro existentes.</block>
+  <block id="b98ffbf63d72e640786eb3001968af8c" category="paragraph">A página Inventário mostra o vCenter como não gerenciado no BlueXP backup and recovery até que você selecione explicitamente gerenciá-lo.</block>
+  <block id="3139b9fe004d3f9be3e1838b9259905b" category="inline-image-macro">Página de inventário mostrando o vCenter importado como não gerenciado</block>
+  <block id="40742df8ab25c25821240bbd1bad9724" category="paragraph"><block ref="40742df8ab25c25821240bbd1bad9724" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="25c0a491dae6caf57d57d941f0eb08d9" category="section-title">Gerenciar recursos importados do plug-in SnapCenter</block>
+  <block id="7d2e4eb456ace040abed68fc5559d320" category="paragraph">Depois de importar os metadados do vCenter do SnapCenter Plug-in para VMware, gerencie os recursos no BlueXP backup and recovery.  Depois de selecionar o gerenciamento desses recursos, o BlueXP backup and recovery poderão fazer backup e recuperar os recursos que você importou.  Após iniciar o gerenciamento no BlueXP backup and recovery, você não gerencia mais esses recursos no SnapCenter Plug-in.</block>
+  <block id="45ebed52f768aa21b719b17f00354080" category="paragraph">Depois de selecionar o gerenciamento dos recursos, os recursos, as VMs e as políticas são importados do SnapCenter Plug-in para VMware.  Os grupos de recursos, políticas e instantâneos são migrados do plug-in e passam a ser gerenciados no BlueXP backup and recovery.</block>
+  <block id="4b8f8dd3cdfd4ddf935167b3ed112e37" category="list-text">Depois de importar os recursos do VMware do SnapCenter Plug-in, no menu superior, selecione *Inventário*.</block>
+  <block id="bb036501b1cf1b1b8cfa054777bf30b6" category="list-text">Na página Inventário, selecione o vCenter importado que você deseja que o BlueXP backup and recovery gerenciem a partir de agora.</block>
+  <block id="78dcaf3b9b67d48ba4541833105cb9b7" category="inline-image-macro">Página de inventário mostrando os recursos importados do vCenter</block>
+  <block id="56de8651dcd91ab7be24c38517cb21ea" category="paragraph"><block ref="56de8651dcd91ab7be24c38517cb21ea" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3bad3af408bb48efcddbf97415e11709" category="list-text">Na página Inventário &gt; carga de trabalho, selecione o ícone Ações<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Gerenciar* para exibir a página Gerenciar vCenter.</block>
+  <block id="148cd597c69806c2cd61aebff1b2f683" category="inline-image-macro">Gerenciar o vCenter na página BlueXP</block>
+  <block id="55151bba08a4065d2b9fe02c15c603f4" category="paragraph"><block ref="55151bba08a4065d2b9fe02c15c603f4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4513150785c046bfbcd37a0b9dcb7a35" category="list-text">Marque a caixa "Deseja continuar com a migração?" e selecione *Migrar*.</block>
+  <block id="13be03aaa1d065e4e2a3d1cb64d9f254" category="paragraph">A página Inventário mostra os recursos do vCenter recém-gerenciados.</block>
+  <block id="f2bd66e56f219a469d86593a4260942d" category="inline-image-macro">Página de inventário mostrando os recursos gerenciados do vCenter</block>
+  <block id="2d8efbbc6ba3519accaf9cc306cb8096" category="paragraph"><block ref="2d8efbbc6ba3519accaf9cc306cb8096" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fbf0c9d029994ad43dd1b2f7c4e2e91f" category="paragraph">Proteja suas VMs e armazenamentos de dados VMware com BlueXP backup and recovery.  O BlueXP backup and recovery oferecem operações de backup e restauração rápidas, com eficiência de espaço, consistentes em caso de falhas e consistentes com a VM.  Você pode fazer backup de cargas de trabalho do VMware no Amazon Web Services S3 ou StorageGRID e restaurar cargas de trabalho do VMware em um host VMware local.</block>
+  <block id="689fc518c441a0603a46474822810422" category="paragraph">Use o BlueXP backup and recovery para implementar uma estratégia 3-2-1, na qual você tem 3 cópias dos seus dados de origem em 2 sistemas de armazenamento diferentes, além de 1 cópia na nuvem.  Os benefícios da abordagem 3-2-1 incluem:</block>
+  <block id="63911c026a31240fc571d59053f4d6e5" category="paragraph">Você pode usar o BlueXP backup and recovery para executar as seguintes tarefas relacionadas às cargas de trabalho do VMware:</block>
+  <block id="4c90ef6c5dc037251bf65afdeeb1ee6c" category="list-text"><block ref="4c90ef6c5dc037251bf65afdeeb1ee6c" category="inline-link-macro-rx"></block></block>
+  <block id="fa3a5087c48da1a523ef45fa2253ea19" category="inline-link-macro">Crie e gerencie grupos de proteção para cargas de trabalho do VMware</block>
+  <block id="d56582b18b2c53315e597c8a39e49a92" category="list-text"><block ref="d56582b18b2c53315e597c8a39e49a92" category="inline-link-macro-rx"></block></block>
+  <block id="d20800ec3a640eb8116268213843541a" category="inline-link-macro">Fazer backup de cargas de trabalho do VMware</block>
+  <block id="90d96ca607527070c551836800704494" category="list-text"><block ref="90d96ca607527070c551836800704494" category="inline-link-macro-rx"></block></block>
+  <block id="268753a57af5b661ea9d0957e56b2a45" category="list-text"><block ref="268753a57af5b661ea9d0957e56b2a45" category="inline-link-macro-rx"></block></block>
+  <block id="953cfdd52d2ad54416d42d4e37305d6a" category="summary">Crie e gerencie grupos de proteção para cargas de trabalho do VMware no BlueXP backup and recovery.</block>
+  <block id="dfadb287a92482d24b34b55bed0b6dac" category="paragraph">Crie grupos de proteção para gerenciar as operações de backup e restauração de um conjunto de cargas de trabalho.  Um grupo de proteção é um agrupamento lógico de recursos, como VMs e armazenamentos de dados, que você deseja proteger juntos.</block>
+  <block id="fa0338ac5f2c4b70da78d26842635d39" category="paragraph">Você pode executar as seguintes tarefas relacionadas a grupos de proteção:</block>
+  <block id="36a1fea6f9834cf631ec250966041abe" category="list-text">Crie um grupo de proteção.</block>
+  <block id="df90ddd3d253f4d52c457a563325a173" category="list-text">Ver detalhes da proteção.</block>
+  <block id="f710d48f4e4bcee1159eb8476c761956" category="inline-link-macro">Faça backup das cargas de trabalho do VMware agora</block>
+  <block id="3d5278f5bd3ffe2b4cded72fffe73d2b" category="list-text">Crie um grupo de proteção agora. Ver <block ref="887743b22b352bdbc6f2d55fc0901200" category="inline-link-macro-rx"></block> .</block>
+  <block id="29881d0b044ceba86593dcfef30e0573" category="list-text">Suspenda e retome o agendamento de backup de um grupo de proteção.</block>
+  <block id="75fd7259089ff0f83a33c40dd073fef1" category="list-text">Excluir um grupo de proteção.</block>
+  <block id="65c7327c98e288c3f5e4a2ae048a02df" category="paragraph">Agrupe as cargas de trabalho que você deseja proteger em um grupo de proteção.  Você pode criar um grupo de proteção para um conjunto de cargas de trabalho que deseja fazer backup e restaurar juntas.</block>
+  <block id="e34d18f5b9c4b93c459ba1ffd9cb5f28" category="paragraph"><block ref="e34d18f5b9c4b93c459ba1ffd9cb5f28" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="99ea4945ef61f5a29b7463a5d1480fe7" category="list-text">Selecione as VMs ou bancos de dados que você deseja incluir no grupo de proteção.</block>
+  <block id="224efd4fdb5f19c474ab2b6ea6b4132b" category="section-title">Suspender o agendamento de backup de um grupo de proteção</block>
+  <block id="8ea08fb46b36f3cd2195756f05e3b2d7" category="paragraph">Suspender um grupo de proteção pausa os backups agendados para o grupo de proteção.  Talvez você queira suspender um grupo de proteção se quiser interromper temporariamente os backups das cargas de trabalho nesse grupo.</block>
+  <block id="67671aa34b0789a08ab7d6954bfb7122" category="paragraph">O status da proteção muda para "Em manutenção" quando você suspende um grupo de proteção.  Você pode retomar o agendamento de backup a qualquer momento.</block>
+  <block id="e18d539be2570002127583bafd748cad" category="list-text">Selecione o ícone Ações<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Suspender grupo de proteção*.</block>
+  <block id="e1bdaded4d7fd6d9209905a6b9ce591a" category="list-text">Revise a mensagem de confirmação e selecione *Suspender*.</block>
+  <block id="35cb887f0e8f9745e2706572c1f317f3" category="section-title">Retomar o cronograma de backup de um grupo de proteção</block>
+  <block id="47528987ec0e2628e46f13b3689f57c4" category="paragraph">Retomar um grupo de proteção suspenso reinicia os backups agendados para o grupo de proteção.</block>
+  <block id="210bcda1bf39432c961f91813aed7699" category="paragraph">O status da proteção muda de "Em manutenção" quando você suspende um grupo de proteção para "Protegido" quando você o retoma.  Você pode retomar o agendamento de backup a qualquer momento.</block>
+  <block id="d6155b3f873b51384359a4bf55b9f95a" category="list-text">Selecione o ícone Ações<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Grupo de proteção de currículos*.</block>
+  <block id="5b760b98c14fddaa18f5b88edb9ca3f6" category="list-text">Revise a mensagem de confirmação e selecione *Continuar*.</block>
+  <block id="bc36e4718e22660ffc6a870feaf65f3a" category="paragraph">O sistema valida os agendamentos e altera o status da proteção para "Protegido" se os agendamentos forem válidos.  Se os agendamentos não forem válidos, o sistema exibirá uma mensagem de erro e não retomará o grupo de proteção.</block>
+  <block id="c7739db7f9496e0f0baeef6bd5551fb9" category="paragraph">A exclusão de um grupo de proteção o remove, juntamente com todos os agendamentos de backup associados.  Talvez você queira excluir um grupo de proteção se ele não for mais necessário.</block>
+  <block id="9aac72589a1ae47f1f060cc775fa3da0" category="list-text">Selecione o grupo de proteção que você deseja excluir.</block>
+  <block id="030b45f70db5214ea3237560f793e3a3" category="list-text">Selecione o ícone Ações<block ref="2137b8853c2ddb346939b7d46bf562c2" category="inline-image-macro-rx" type="image"></block> &gt; *Excluir*.</block>
+  <block id="725673b0a06edab1f72366f95cac31d6" category="list-text">Revise a mensagem de confirmação sobre a exclusão dos backups associados e confirme a exclusão.</block>
+  <block id="f52c624842cb06f58bfcd6e0e5601936" category="doc">Restaure cargas de trabalho VMware com BlueXP backup and recovery</block>
+  <block id="2d6b1140fe115de3abe5ec4fcc3f96f2" category="paragraph">Restaure cargas de trabalho do VMware de cópias de instantâneos, de um backup de carga de trabalho replicado para armazenamento secundário ou de backups armazenados no armazenamento de objetos usando o BlueXP backup and recovery.</block>
+  <block id="ce5b3e5e52619a3c4bbedee0586f057a" category="list-text">Restaurar de um local primário (instantâneo local)</block>
+  <block id="a34a8fde09044472852b8ae530184af7" category="list-text">Restaurar de um recurso replicado no armazenamento secundário</block>
+  <block id="a1b1d3e1eb4d41f3b8f52d69b7033868" category="list-text">Restaurar de um backup de armazenamento de objetos</block>
+  <block id="ba48c3305320f5df1a8db5cbd6fed75a" category="paragraph">Você pode restaurar dados para estes pontos:</block>
+  <block id="c149f6b4ccbdba8011de4b1e3579b42f" category="list-text">Restaurar para o local original</block>
+  <block id="1c2671aa5134c1ef3727312b995fec09" category="list-text">Ao restaurar uma carga de trabalho de um arquivo de backup local, o BlueXP backup and recovery criam um _novo_ recurso usando os dados do backup.</block>
+  <block id="0f4570eee3ca580a8c827d191240eb2b" category="paragraph">Na página Restaurar (também conhecida como Pesquisar e Restaurar)*, você pode restaurar um recurso, mesmo que não se lembre do nome exato, do local em que ele reside ou da data em que esteve em boas condições pela última vez.  Você pode pesquisar o instantâneo usando filtros.</block>
+  <block id="4967eb3bddc1aeeafa7fa83be9252bb4" category="section-title">Restaurar dados de carga de trabalho a partir da opção Restaurar (Pesquisar e Restaurar)</block>
+  <block id="600582313b42616fbf96d317e8033ef9" category="paragraph">Restaure cargas de trabalho do VMware usando a opção Restaurar.  Você pode procurar o instantâneo pelo nome ou usando filtros.</block>
+  <block id="09301202252afe8945e2ae06ed435714" category="paragraph"><block ref="09301202252afe8945e2ae06ed435714" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="71032b474c00a68ab57e3f805cdf5d61" category="list-text">Na lista suspensa à direita do campo de pesquisa de nome, selecione *Máquinas virtuais*.</block>
+  <block id="2aceb93307f82c2d88347faa7eaa4e71" category="list-text">Insira o nome do recurso que você deseja restaurar ou filtre pelo vCenter, datacenter ou armazenamento de dados onde o recurso que você deseja restaurar está localizado.</block>
+  <block id="7dd676e6cf5a1d7d0e7086f82a5a3719" category="paragraph">Aparece uma lista de instantâneos que correspondem aos seus critérios de pesquisa.</block>
+  <block id="f45e745d214ab653b3dcb97727b2a617" category="inline-image-macro">Uma captura de tela mostrando a lista de instantâneos a serem restaurados.</block>
+  <block id="04e62e972aaeeaf6622cad73a1bb3594" category="paragraph"><block ref="04e62e972aaeeaf6622cad73a1bb3594" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3fca73cfa6e5a82be82156106e4db553" category="paragraph">Uma lista de opções de local de restauração é exibida.</block>
+  <block id="b021353eca19a8ccf460e55c72d3a26d" category="inline-image-macro">Uma captura de tela mostrando a página Opções de restauração.</block>
+  <block id="05fbf2b3792bca904b5defac8e5c919f" category="paragraph"><block ref="05fbf2b3792bca904b5defac8e5c919f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eb58d19c210547f2e0cbe6a7689d6a12" category="list-text">Selecione o local de restauração onde você deseja restaurar o instantâneo:</block>
+  <block id="c318ddc11c1d9b56e2cfda2af9351a42" category="list-text">Local: restaura o instantâneo para o local original.</block>
+  <block id="e4e4935a5dbb6b2200b975d599e683e4" category="list-text">Armazenamento secundário: restaura o instantâneo em um local de armazenamento secundário.</block>
+  <block id="dde4605b1517896bb91ab0500e44ec76" category="paragraph">Se você escolher o armazenamento secundário, insira as informações de origem e destino, bem como os locais de origem e secundário dos logs.</block>
+  <block id="33a039fcca21669940ad7ee10455c43d" category="list-text">Armazenamento de objetos: restaura o instantâneo em um local de armazenamento de objetos.</block>
+  <block id="6fa9a019160376f2b85947c9116180fb" category="paragraph">Se você escolher o armazenamento de objetos, verifique se deseja verificar o instantâneo novamente antes de restaurá-lo.</block>
+  <block id="6517ca79d199404323c47b0aff4b5fed" category="inline-image-macro">Uma captura de tela mostrando a página Opções de restauração para armazenamento de objetos.</block>
+  <block id="f31e0ca6ded5830ab1a1385250fcc603" category="paragraph"><block ref="f31e0ca6ded5830ab1a1385250fcc603" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="39e791cd576f013480b8ac3c88fcd655" category="list-text">Selecione *Concluído* ou *Avançar* para continuar para a página Restaurar configurações de destino.</block>
+  <block id="94697b58b65e2562f9eac2c0fef08c35" category="paragraph">Em seguida, você pode escolher as configurações de destino e as opções de pré e pós-restauração.</block>
+  <block id="5adf47e3ae580cc745d0e52b93597d43" category="paragraph"><block ref="5adf47e3ae580cc745d0e52b93597d43" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23de539bf06cfaf2cd9dc515802272ce" category="section-title">Seleção de destino</block>
+  <block id="5dd0bd8435aec915fe085d771534ba47" category="list-text">Escolha as configurações de destino e as opções de pré e pós-restauração.</block>
+  <block id="abfc7c0c366258e23e15cd12a5f89811" category="open-title">Restaurar para o local original</block>
+  <block id="0bff45ae654663c7b091c0f6dd70d653" category="paragraph">Na página Detalhes do destino da restauração, insira as seguintes informações:</block>
+  <block id="f841432c2e7b95f0e1480a64c27a957d" category="list-text">*Ativar restauração rápida*: selecione esta opção para executar uma operação de restauração rápida.  Os volumes e dados restaurados estarão disponíveis imediatamente.  Não use isso em volumes que exigem alto desempenho porque, durante o processo de restauração rápida, o acesso aos dados pode ser mais lento que o normal.</block>
+  <block id="6ca1e0675a4f2fa0425b153f38956afe" category="list-text">*Opções de pré-restauração*: insira o caminho completo para um script que deve ser executado antes da operação de restauração e quaisquer argumentos que o script aceite.</block>
+  <block id="ea2aae05e390bc85fbb0d97c87c463b9" category="list-text">*Reiniciar VM*: selecione esta opção para reiniciar a VM após a conclusão da operação de restauração e após a aplicação do script pós-restauração.</block>
+  <block id="8dee103972185c1aba0e0c814961a8db" category="list-text">Seção *Notificação*:</block>
+  <block id="d705348f84095bf9f266942da2cf2b84" category="list-text">*Ativar notificações por e-mail*: selecione esta opção para receber notificações por e-mail sobre a operação de restauração e indique que tipo de notificação você deseja receber.</block>
+  <block id="c8f730ad9d8597b4dfcdd623d5a511aa" category="paragraph">Não disponível para visualização do VMware.</block>
+  <block id="74b448f981801b63038a919bc9d742f8" category="paragraph">Administrador da organização, administrador de pasta ou projeto, superadministrador de backup e recuperação, função de administrador de restauração de backup e recuperação.<block ref="c46fcff617e849cb6f8ded33051f7905" category="inline-link-rx"></block> .</block>
+  <block id="f55a81040334ea83030ea0b7566bf724" category="paragraph">O serviço de BlueXP backup and recovery fornece proteção de dados eficiente, segura e econômica para volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server, cargas de trabalho VMware (visualização) e cargas de trabalho Kubernetes (visualização).</block>
+  <block id="65054de523f7d3a953cb8abea5ceb422" category="admonition">A documentação sobre a proteção de cargas de trabalho do VMware e do Kubernetes é fornecida como uma prévia da tecnologia. Com esta oferta de visualização, a NetApp reserva-se o direito de modificar os detalhes, o conteúdo e o cronograma da oferta antes da disponibilidade geral.</block>
+  <block id="3b9135fa974c68d619894497e2801b13" category="list-text">* Cargas de trabalho de volume ONTAP *:</block>
+  <block id="3aeb29f81d221a24906f3f35115b8490" category="list-text">Use o BlueXP backup and recovery junto com o SnapCenter.</block>
+  <block id="9dc83174d71dfdff6c796190c3dbb058" category="inline-link-macro">Proteger volumes ONTAP</block>
+  <block id="abcd22928fd59d995b5a6963e1d6ab70" category="list-text">Consulte <block ref="9aac37a163f0c49d3343b243347ef88d" category="inline-link-macro-rx"></block> .</block>
+  <block id="ee7710a5af5d07df880c2c007b67faa7" category="list-text">*Cargas de trabalho do Microsoft SQL Server*:</block>
+  <block id="498d74104b639713e76c5fe1438ed1df" category="list-text">Use o BlueXP backup and recovery sem o SnapCenter.</block>
+  <block id="da8c1ac7631a3731bc377387b2ab2a43" category="list-text">Consulte <block ref="f095463814b2c4a573628d3f753afa9a" category="inline-link-macro-rx"></block> .</block>
+  <block id="34cd7eb5bb582ffae3f30f17c145150f" category="list-text">*Cargas de trabalho VMware (visualização com nova interface de usuário sem o SnapCenter Plug-in for VMware vSphere)*:</block>
+  <block id="f04cfbb4bfdd3cd9036922d25ec5b48a" category="list-text">Proteja suas VMs e armazenamentos de dados VMware com BlueXP backup and recovery.</block>
+  <block id="49ce1089a31878d01e3cf0cfff6ec95e" category="list-text">Faça backup de cargas de trabalho do VMware no Amazon Web Services S3 ou StorageGRID (para visualização).</block>
+  <block id="f24990c11b82173bf714c5c0ddeb194e" category="list-text">Restaure dados do VMware da nuvem para o vCenter local.</block>
+  <block id="30a07a986df042c997ea1c239ea8ae65" category="list-text">Use o BlueXP backup and recovery sem o SnapCenter Plug-in for VMware vSphere.</block>
+  <block id="5f1f4aaebaf623a5d33c8d6da504aec5" category="inline-link-macro">Proteja as cargas de trabalho do VMware</block>
+  <block id="e4f723ac59f54885d902bd6a04536b55" category="list-text">Consulte <block ref="d745d5ccb3cf0872b9a86c3887ddad65" category="inline-link-macro-rx"></block> .</block>
+  <block id="3e6d14001804fbc004cf88b3856a2939" category="list-text">*Cargas de trabalho VMware (com SnapCenter Plug-in for VMware vSphere)*:</block>
+  <block id="ba09cb4fb9d29df0e0fba819c4f6f57a" category="list-text">Faça backup de VMs e armazenamentos de dados no Amazon Web Services S3, Microsoft Azure Blob, Google Cloud Platform e StorageGRID e restaure as VMs de volta para o host SnapCenter Plug-in for VMware vSphere local.</block>
+  <block id="51b80593e638bcb66d62015b00b78c41" category="list-text">Restaure dados de VM da nuvem para o vCenter local com BlueXP backup and recovery.  Você pode restaurar a VM exatamente no mesmo local de onde o backup foi feito ou em um local alternativo.</block>
+  <block id="d3ed186e49ff2eb1e2f758a81fb48f5d" category="list-text">Use o BlueXP backup and recovery junto com o SnapCenter Plug-in for VMware vSphere.</block>
+  <block id="90dea69f07cd41705feda176fee8105f" category="list-text">Consulte <block ref="4e4c09988a18e486f48f555be9441a4c" category="inline-link-macro-rx"></block> .</block>
+  <block id="3066f1ebade966cf5d09fd225d9c82df" category="list-text">*Cargas de trabalho do Kubernetes (visualização)*:</block>
+  <block id="55b1b5c13e7a6ccad00374a8fbfd29d6" category="inline-link-macro">Proteja as cargas de trabalho do Kubernetes</block>
+  <block id="6650dc66d56f0cab512245298e4ee364" category="list-text">Consulte <block ref="b833c553f8b19b50a2155e8dd40c8baa" category="inline-link-macro-rx"></block> .</block>
+  <block id="5c1924f6230f429d87dfb7fd242478ba" category="list-text">VMs e datastores VMware</block>
+  <block id="fd986c9449acb5abd97bea849d50dc49" category="list-text">Microsoft Azure Blob (não disponível para cargas de trabalho VMware na versão de visualização)</block>
+  <block id="2892aac222ad56500a9c836677137630" category="list-text">ONTAP S3 (não disponível para cargas de trabalho VMware na versão de visualização)</block>
+  <block id="bfc869416b72c1003c9d7a26bf1c63e4" category="list-text">*Carga de trabalho*: Uma carga de trabalho no BlueXP backup and recovery pode incluir volumes ONTAP , instâncias e bancos de dados do Microsoft SQL Server; VMs e armazenamentos de dados VMware; ou clusters e aplicativos Kubernetes.</block>
+  <block id="7126662a353f79c46a7ccefe46dc4c0a" category="inline-link-macro">Proteja seus dados de volume ONTAP</block>
+  <block id="1d638e05920fe33426fac4dc6285a639" category="list-text"><block ref="1d638e05920fe33426fac4dc6285a639" category="inline-link-macro-rx"></block></block>
+  <block id="ef53d2e08e79af10a2e451632255842d" category="section-title">Requisitos para proteger cargas de trabalho do Microsoft SQL Server</block>
+  <block id="2435a02f2711ad9657062039419fd251" category="paragraph">Para usar o BlueXP backup and recovery para cargas de trabalho do Microsoft SQL Server, você precisa dos seguintes pré-requisitos de sistema host, espaço e dimensionamento.</block>
+  <block id="573531ec152a1cc1709422d00088088e" category="section-title">Requisitos para proteger cargas de trabalho do VMware</block>
+  <block id="4ccfae37bea4d344c283e2a68013c9c1" category="paragraph">Você precisa de requisitos específicos para descobrir e proteger suas cargas de trabalho do VMware.</block>
+  <block id="1269e07e6a9265be5844ea32a0494a7f" category="paragraph">*Suporte de software*</block>
+  <block id="2d5a6b46412544fb6ac242fbc736934e" category="list-text">Versões NFS suportadas: NFS 3 e NFS 4.1</block>
+  <block id="40f1a54f3602033103d74e381708e352" category="list-text">Versões do VMware ESXi Server suportadas: 7.0U1 e superior</block>
+  <block id="c7d133a7d1fcc4fc9f8bf51535dc3ef0" category="list-text">Versões do VMware vCenter vSphere suportadas: 7.0U1 e superior</block>
+  <block id="f3c396a6341d422a1f0e7a503896ed29" category="list-text">Endereços IP: IPv4 e IPv6</block>
+  <block id="a1712dda84152f55cce278e06e3fb2b9" category="list-text">VMware TLS: 1.2, 1.3</block>
+  <block id="dc735211c86b33a749d2c86bb8b39e80" category="paragraph">*Requisitos de conexão e porta para proteger cargas de trabalho do VMware*</block>
+  <block id="3672cca688eb0474cd3fee2add1a2067" category="cell">Tipo de porta</block>
+  <block id="99ddf0e823c1be51589f68696f62cf56" category="cell">Porta pré-configurada</block>
+  <block id="2cb2843b629d315325aac076907ec4b9" category="cell">Porta do servidor VMware ESXi</block>
+  <block id="62e8cb73d81843582e583ccefca95a44" category="paragraph">443 (HTTPS), bidirecional.  O recurso Restauração de arquivo convidado usa esta porta.</block>
+  <block id="7c1239972879fe0b69b4bb6d5c9a743e" category="cell">Porta do VMware vSphere vCenter Server</block>
+  <block id="4899207d672fe13ff2c710bcb5cec3e0" category="paragraph">Se estiver protegendo VMs vVol, você deverá usar a porta 443.</block>
+  <block id="131b9f1c14d26ba7a0cce7389e7679a9" category="cell">Cluster de armazenamento ou porta de VM de armazenamento</block>
+  <block id="fe2ba23f2f581d1ab01848e05711292a" category="paragraph">443 (HTTPS), bidirecional.  80 (HTTP), bidirecional.  Esta porta é usada para comunicação entre o dispositivo virtual e a VM de armazenamento ou o cluster que contém a VM de armazenamento.</block>
+  <block id="6def2be93b1fef441b3ca8a2641cc837" category="paragraph">*Requisitos de controle de acesso baseado em função (RBAC) para proteger cargas de trabalho do VMware*</block>
+  <block id="5a87933ace950bfd22e0597a2e342c27" category="paragraph">A conta de administrador do vCenter deve ter os privilégios necessários do vCenter.</block>
+  <block id="444268068dcfb1a62c19cda69301e76f" category="inline-link">Privilégios necessários do SnapCenter Plug-in for VMware vSphere vCenter</block>
+  <block id="2c5eb2a50ef564fa05d6cc4a6c86af8f" category="paragraph">Para obter uma lista de privilégios do vCenter necessários, consulte<block ref="9044a834d03d45a613d887c1c4d3ddd1" category="inline-link-rx"></block> .</block>
+  <block id="d3cbd09d6a0974ee6a694826a8598eb6" category="section-title">Requisitos para proteger aplicativos Kubernetes</block>
+  <block id="40e80975f18e076da51a2f87004f77ab" category="summary">Quando você usa o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como "modo privado", os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP Connector no futuro, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .</block>
+  <block id="b1e27f8c2d43223a85b44c94d6a02cc0" category="paragraph">Quando você usa o BlueXP backup and recovery em um site sem acesso à Internet, conhecido como _modo privado_, os dados de configuração de BlueXP backup and recovery são copiados para o bucket StorageGRID ou ONTAP S3 onde seus backups estão sendo armazenados. Se você tiver um problema com o sistema host do BlueXP Connector, poderá implantar um novo Connector e restaurar os dados críticos de BlueXP backup and recovery .</block>
+  <block id="0428e48e7f58929099e52febd0558232" category="section-title">25 de agosto de 2025</block>
+  <block id="b9d888f58b09c4007db0247286e392b5" category="section-title">11 de agosto de 2025</block>
+  <block id="0d8cae156f9904fac41e4f76eb3502db" category="sidebar">Proteja as cargas de trabalho do VMware (visualização)</block>
+  <block id="79d4e4bc94bda2b257f4190786069be1" category="sidebar">Visão geral das cargas de trabalho do Protect VMware</block>
+  <block id="fe5216e8c6ca199aaa9802985fb31c17" category="sidebar">Limitações conhecidas para cargas de trabalho VMware</block>
+  <block id="f4aa5ca6921e92380246ea7a562973a9" category="sidebar">Proteja as cargas de trabalho do VMware (visualização sem o plug-in SnapCenter para VMware)</block>
+  <block id="b1b8c22062b7762d4a3c459e880dee3b" category="sidebar">Proteja as cargas de trabalho do VMware (com o plug-in SnapCenter para VMware)</block>
+  <block id="5e8c098d325749413b23d5eba5837aad" category="sidebar">Restaurar dados de BlueXP backup and recovery em um site escuro</block>
 </blocks>

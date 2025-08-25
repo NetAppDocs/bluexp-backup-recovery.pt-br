@@ -44,7 +44,7 @@ O resumo do sistema fornece as seguintes informações:
 
 Revise as seguintes informações no resumo de proteção:
 
-* O número total de bancos de dados protegidos e desprotegidos.
+* O número total de bancos de dados, VMs e armazenamentos de dados protegidos e desprotegidos.
 +
 
 TIP: Um banco de dados protegido é aquele que possui uma política de backup atribuída. Um banco de dados desprotegido é aquele que não possui uma política de backup atribuída.

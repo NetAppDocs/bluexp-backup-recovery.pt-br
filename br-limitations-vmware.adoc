@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: br-limitations-vmware.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, vmware, vcenter 
+summary: O serviço de BlueXP backup and recovery precisa primeiro descobrir os dados para que você possa utilizá-lo. Durante a descoberta, o BlueXP backup and recovery analisa todos os volumes e arquivos nos ambientes de trabalho da sua organização. 
+---
+= Limitações conhecidas com BlueXP backup and recovery para cargas de trabalho VMware
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+As limitações conhecidas identificam plataformas, dispositivos ou funções que não são suportadas por esta versão do produto ou que não interoperam corretamente com ele. Revise essas limitações com cuidado.
+
+As seguintes ações não são suportadas na versão de visualização das cargas de trabalho do VMware no BlueXP backup and recovery:
+
+* Monte
+* Desmontar
+* Restaurar para local alternativo
+* Restaurar VMDK
+* Anexar VMDK
+* Desanexar VMDK
+* Suporte vVol
+* Suporte NVMe
+* Integração de e-mail
+* Editar política
+* Editar grupo de proteção
+* Suporte ao controle de acesso baseado em função (RBAC)
+
