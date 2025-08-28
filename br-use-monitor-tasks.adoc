@@ -16,6 +16,8 @@ summary: Com o backup e a recuperação do BlueXP, monitore o status de snapshot
 [role="lead"]
 Com o BlueXP backup and recovery, monitore o status de snapshots locais, replicações e trabalhos de backup em armazenamento de objetos que você iniciou, além de restaurar os trabalhos que você iniciou. Você pode ver os trabalhos que foram concluídos, estão em andamento ou falharam para que você possa diagnosticar e corrigir problemas. Usando a Central de notificações do BlueXP , você pode habilitar notificações para serem enviadas por e-mail para que você possa ser informado sobre atividades importantes do sistema, mesmo quando não estiver conetado ao sistema. Usando a linha do tempo do BlueXP , você pode ver detalhes de todas as ações iniciadas por meio da interface do usuário ou da API.
 
+O BlueXP backup and recovery retêm as informações do trabalho por 15 dias, após os quais elas são apagadas e não ficam mais visíveis no Monitor de Trabalhos.
+
 *Função BlueXP obrigatória* Administrador da organização, Administrador de pasta ou projeto, Superadministrador de Backup e Recuperação, Administrador de backup de Backup e Recuperação, Administrador de restauração de Backup e Recuperação, Administrador de clone de Backup e Recuperação ou Visualizador de Backup e Recuperação. Saiba mais sobre link:reference-roles.html["Funções e privilégios de backup e recuperação"] .  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Saiba mais sobre as funções de acesso do BlueXP para todos os serviços"^] .
 
 
